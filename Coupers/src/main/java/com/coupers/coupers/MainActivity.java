@@ -55,7 +55,6 @@ public class MainActivity extends Activity {
             //if (result == null) TODO setup dialog if XML results in null, exit the application
             Intent intent = new Intent(MainActivity.this,ResponsiveUIActivity.class);
             intent.putExtra("deals",result);
-            intent.putExtra("somethingelse",1);
 
             startActivity(intent);
         }
