@@ -45,7 +45,6 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
     String xmlDeals;
 
     ViewPager vp;
-    int one;
 
     // All static variables
     // XML node keys
@@ -64,8 +63,10 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
 		super.onCreate(savedInstanceState);
 		setTitle(R.string.main_hub_ui);
         setContentView(R.layout.responsive_content_frame);
+        XMLParser parser = new XMLParser();
+
         //TODO Need to make use of saved instance!!
-        // get deals
+
         Object mInstance = getLastCustomNonConfigurationInstance();
 
         if (mInstance !=null)
@@ -75,12 +76,6 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
             Bundle extras = getIntent().getExtras();
             xmlDeals = extras != null ? extras.getString("deals") : null;
         }
-
-        XMLParser parser = new XMLParser();
-
-        Document doc = parser.getDomElement(xmlDeals); // getting DOM element
-
-        nl = doc.getElementsByTagName(KEY_DEAL);
 
 		// check if the content frame contains the menu frame
 		if (findViewById(R.id.menu_frame) == null) {
@@ -98,14 +93,21 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
 		}
 
 		// set the Above View Fragment
-		if (savedInstanceState != null)
-			mContent = getSupportFragmentManager().getFragment(savedInstanceState, "mContent");
+		if (savedInstanceState != null){
+
+            mContent = getSupportFragmentManager().getFragment(savedInstanceState, "mContent");
+            xmlDeals = savedInstanceState.getString("xmldeals");
+
+        }
+
+        Document doc = parser.getDomElement(xmlDeals); // getting DOM element
+
+        nl = doc.getElementsByTagName(KEY_DEAL);
+
 		if (mContent == null)
 			mContent = new DealGridFragment("food", nl, parser); //TODO Replace food to use last category used by user
-		/*getSupportFragmentManager()
-		.beginTransaction()
-		.replace(R.id.content_frame, mContent)
-		.commit();*/
+
+
 
 		// set the Behind View Fragment
 		getSupportFragmentManager()
@@ -153,7 +155,7 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
 
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
-        if (scanResult != null) {
+        if (scanResult != null && scanResult.getContents() != null) {
             AlertDialog.Builder downloadDialog = new AlertDialog.Builder(this);
             downloadDialog.setTitle("Oh, see what you found!");
             downloadDialog.setMessage(scanResult.getContents().toString());
@@ -172,6 +174,8 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 		getSupportFragmentManager().putFragment(outState, "mContent", mContent);
+        outState.putString("xmldeals",xmlDeals);
+
 	}
     @Override
     public Object onRetainCustomNonConfigurationInstance(){

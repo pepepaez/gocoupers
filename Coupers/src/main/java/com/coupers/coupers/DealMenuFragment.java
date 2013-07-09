@@ -44,7 +44,14 @@ public class DealMenuFragment extends ListFragment {
 				android.R.layout.simple_list_item_1, android.R.id.text1, deals_menu);
 		setListAdapter(colorAdapter);
 	}
-	
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("filter", mFilter);
+        //outState.putSerializable("lk",mNL);
+
+    }
 	@Override
 	public void onListItemClick(ListView lv, View v, int position, long id) {
         TypedArray dealsmenu = getResources().obtainTypedArray(R.array.deals_menu_id);
