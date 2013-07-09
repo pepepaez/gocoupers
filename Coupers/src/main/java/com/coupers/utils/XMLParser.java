@@ -1,7 +1,5 @@
 package com.coupers.utils;
 
-import com.coupers.coupers.*;
-
 import android.os.NetworkOnMainThreadException;
 import android.util.Log;
 
@@ -65,7 +63,7 @@ public class XMLParser {
 	
 	/**
 	 * Getting XML DOM element
-	 * @param XML string
+	 * param XML string
 	 * */
 	public Document getDomElement(String xml){
 		Document doc = null;
@@ -111,8 +109,8 @@ public class XMLParser {
 	 
 	 /**
 	  * Getting node value
-	  * @param Element node
-	  * @param key string
+	  * param Element node
+	  * param key string
 	  * */
 	 public String getValue(Element item, String str) {		
 			NodeList n = item.getElementsByTagName(str);		
