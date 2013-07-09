@@ -45,6 +45,7 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
     String xmlDeals;
 
     ViewPager vp;
+    int one;
 
     // All static variables
     // XML node keys
