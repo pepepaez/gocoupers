@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name" >Coupers!
+    </string>
+    <string name="action_settings" >Settings
+    </string>
+    <string name="hello_world" >Hello world!
+    </string>
+    <string name="main_hub_ui">Go Coupers!</string>
+    <string name="what_is_this">What is this?</string>
+    <string name="action_info">Photo info</string>
+    <string name="action_photo">View photo</string>
+    <string name="action_scan">Scan Deal</string>
+    <string name="share_deal_dialog_title">Scan to share!</string>
+    <string name="share_deal_dialog_button">Done!</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis euismod mi, eu pretium dolor. Phasellus auctor feugiat ante, quis cursus turpis condimentum eu.</string><string name="deal_details">Obten 10% de descuento!</string>
+
+</resources>
