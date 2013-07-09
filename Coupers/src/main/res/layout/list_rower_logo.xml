@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/list_selector"
+                android:orientation="horizontal" >
+
+    <ImageView
+            android:id="@+id/list_image"
+            android:layout_width="90dip"
+            android:layout_height="90dip"
+            android:src="@drawable/muelle240"
+            android:scaleType="centerCrop"/>
+
+    <!-- Location Name -->
+    <ImageView
+            android:id="@+id/logo_image"
+            android:layout_width="180dip"
+            android:layout_height="90dip"
+            android:src="@drawable/muelle"
+            android:scaleType="center"
+            android:layout_toRightOf="@+id/list_image"/>
+
+
+    <ImageView
+            android:id="@+id/dashdeal"
+            android:layout_width="wrap_content"
+            android:layout_height="90dip"
+            android:src="@drawable/dashline2"
+            android:scaleType="centerCrop"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/logo_image"
+            android:layout_alignParentStart="false"/>
+
+    <!-- Rightend Deal -->
+    <TextView
+            android:id="@+id/deal_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="20% off"
+            android:textSize="25dip"
+            android:textColor="#ffffffff"
+            android:textStyle="bold"
+            android:layout_alignParentRight="true"
+            android:singleLine="false"
+            android:layout_toRightOf="@+id/dashdeal"
+            android:layout_alignParentTop="true"
+            android:layout_alignBottom="@+id/logo_image"
+            android:paddingLeft="5dip"
+            android:paddingRight="5dip"/>
+    <ProgressBar
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBarThumb"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/logo_image"
+            android:layout_alignBottom="@+id/list_image"
+            android:visibility="invisible"/>
+
+    <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBarLogo"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/list_image"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/deal_id"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:visibility="invisible"/>
+
+</RelativeLayout>

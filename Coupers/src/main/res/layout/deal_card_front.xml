@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#ffffff">
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:id="@+id/imageView2"
+            android:src="@drawable/ultragym"
+            android:scaleType="centerCrop"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"/>
+
+    <ImageView
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:id="@+id/imageView"
+            android:src="@drawable/tlalli"
+            android:background="@drawable/gradient_bg_deal_logo"
+            android:scaleType="centerInside"
+            android:layout_alignBottom="@+id/textView"
+            android:layout_alignParentRight="true"
+            />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/deal_details"
+            android:id="@+id/textView"
+            android:layout_below="@+id/imageView2"
+            android:layout_alignParentLeft="true"
+            android:layout_margin="5dp"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/lorem_ipsum"
+            android:id="@+id/textView3"
+            android:layout_below="@+id/textView"
+            android:layout_alignLeft="@+id/textView"
+            android:layout_toLeftOf="@+id/imageView"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Expira en Julio 15, 2013"
+            android:id="@+id/textView5"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/textView3"
+            android:layout_marginBottom="10dp"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Nivel Actual: 3"
+            android:id="@+id/textView7"
+            android:paddingTop="3dp"
+            android:layout_below="@+id/textView3"
+            android:layout_alignLeft="@+id/textView3"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Escaneos totales: 12"
+            android:id="@+id/textView8"
+            android:layout_below="@+id/textView7"
+            android:layout_alignLeft="@+id/textView7"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Escaneos para siguiente nivel: 4"
+            android:id="@+id/textView9"
+            android:layout_below="@+id/textView8"
+            android:layout_alignLeft="@+id/textView8"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nuevo Scan!"
+            android:id="@+id/share_button"
+            android:layout_below="@+id/textView9"
+            android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

@@ -1,0 +1,32 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.4'
+
+    }
+}
+apply plugin: 'android'
+
+repositories{
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    compile('com.ABS:ABS:1.1')
+    compile('com.SlidingMenuLib:SlidingMenuLib:1.2')
+    compile('com.google.zxing:core:2.2')
+
+}
+
+android {
+    compileSdkVersion 17
+    buildToolsVersion "17.0.0"
+
+    defaultConfig {
+        minSdkVersion 11
+        targetSdkVersion 17
+    }
+}
