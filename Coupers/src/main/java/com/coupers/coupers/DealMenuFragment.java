@@ -36,6 +36,9 @@ public class DealMenuFragment extends ListFragment {
 
     }
 
+    public DealMenuFragment(){
+    }
+
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);

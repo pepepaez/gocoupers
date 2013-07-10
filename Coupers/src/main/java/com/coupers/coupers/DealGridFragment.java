@@ -116,7 +116,16 @@ public class DealGridFragment extends Fragment {
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 		outState.putInt("mPos", mPos);
+
 	}
+
+    @Override
+    public Object onRetainCustomNonConfigurationInstance(){
+        super.onRetainCustomNonConfigurationInstance();
+
+        //TODO figure out how to save mNL
+        return "1";
+    }
 	
 	private class GridAdapter extends BaseAdapter {
 

@@ -37,7 +37,6 @@ public class DealActivity extends SherlockActivity {
 		String[] birds = getResources().getStringArray(R.array.birds);
 		TypedArray imgs = getResources().obtainTypedArray(R.array.birds_img);
 		int resId = imgs.getResourceId(pos, -1);
-
 		
 		setTitle(birds[pos]);
 		getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
