@@ -562,7 +562,7 @@
     <dimen name="activity_vertical_margin">1dp</dimen>
     <dimen name="list_padding">1dp</dimen>
     <dimen name="shadow_width">15dp</dimen>
-    <dimen name="slidingmenu_offset">200dp</dimen>
+    <dimen name="slidingmenu_offset">100dp</dimen>
 
     <item name="abs__action_menu_divider" type="id"/>
     <item name="abs__action_menu_presenter" type="id"/>

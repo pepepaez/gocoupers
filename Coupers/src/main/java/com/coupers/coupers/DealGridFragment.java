@@ -119,13 +119,13 @@ public class DealGridFragment extends Fragment {
 
 	}
 
-    @Override
+ /*   @Override
     public Object onRetainCustomNonConfigurationInstance(){
         super.onRetainCustomNonConfigurationInstance();
 
         //TODO figure out how to save mNL
         return "1";
-    }
+    }*/
 	
 	private class GridAdapter extends BaseAdapter {
 
