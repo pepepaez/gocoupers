@@ -8,7 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.TextView;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.coupers.utils.XMLParser;
 
@@ -21,16 +22,29 @@ public class DealMenuFragment extends Fragment {
 
     private String mFilter = "food"; //TODO change hardcode to setting or last category used?
     private NodeList mNL = null;
+    private ImageView last_selected = null;
     private XMLParser mParser = null;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        //View convertView = getActivity().getLayoutInflater().inflate(R.layout.grid_item, null);
-        GridView lv = (GridView) inflater.inflate(R.layout.list_grid_menu, null);
+
+        GridView lv = (GridView) container.findViewById(R.id.gridView);
+        ImageButton settings = (ImageButton) container.findViewById(R.id.settings);
+        settings.setImageResource(android.R.drawable.ic_menu_manage);
+        container.removeView(container.findViewById(R.id.gridView));
 
         // Getting adapter by passing xml data ArrayList
-        MenuAdapter adapter=new MenuAdapter(this.getActivity(), getResources().obtainTypedArray(R.array.deals_menu));
+        TypedArray deals_menu = getResources().obtainTypedArray(R.array.deals_menu);
+        MenuAdapter adapter=new MenuAdapter(this.getActivity());
+        for (int i=0; i<deals_menu.length();i++)
+        {
+            if(deals_menu.getString(i).toUpperCase().equals("MENU") || deals_menu.getString(i).toUpperCase().equals("FAVORITOS"))
+                adapter.addHeader(deals_menu.getString(i));
+            else
+                adapter.addItem(deals_menu.getString(i));
+        }
+
         lv.setAdapter(adapter);
 
 
@@ -41,17 +55,22 @@ public class DealMenuFragment extends Fragment {
                 if (getActivity() == null)
                     return;
 
-                TextView option_selected = (TextView) view.findViewById(R.id.item_menu_text);
-                TypedArray dealsmenu = getResources().obtainTypedArray(R.array.deals_menu_id);
-                String filter = dealsmenu.getString(position);
+                ImageView option_selected = (ImageView) view.findViewById(R.id.selected_indicator);
+                if (option_selected!=null){
+                    if (last_selected != null) last_selected.setBackgroundColor(0);
+                    option_selected.setBackgroundResource(R.drawable.list_selector_gym);
+                    last_selected = option_selected;
+                    TypedArray dealsmenu = getResources().obtainTypedArray(R.array.deals_menu_id);
+                    String filter = dealsmenu.getString(position);
 
-                Fragment newContent = new DealGridFragment(filter, mNL, mParser);
-                if (newContent != null)
-                    switchFragment(newContent);
-
+                    Fragment newContent = new DealGridFragment(filter, mNL, mParser);
+                    if (newContent != null)
+                        switchFragment(newContent);
+                }
 
             }
         });
+
 		return lv;
 	}
 
@@ -63,18 +82,10 @@ public class DealMenuFragment extends Fragment {
 
     }
 
-    public DealMenuFragment(){
-    }
-
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 
-
-/*		String[] deals_menu = getResources().getStringArray(R.array.deals_menu);
-		ArrayAdapter<String> colorAdapter = new ArrayAdapter<String>(getActivity(), 
-				android.R.layout.simple_list_item_activated_1, android.R.id.text1, deals_menu);
-		setListAdapter(colorAdapter);*/
 	}
 
     @Override
@@ -84,14 +95,6 @@ public class DealMenuFragment extends Fragment {
         //outState.putSerializable("lk",mNL);
 
     }
-/*	@Override
-	public void onListItemClick(ListView lv, View v, int position, long id) {
-        TypedArray dealsmenu = getResources().obtainTypedArray(R.array.deals_menu_id);
-        String filter = dealsmenu.getString(position);
-		Fragment newContent = new DealGridFragment(filter, mNL,mParser);
-		if (newContent != null)
-			switchFragment(newContent);
-	}*/
 	
 	// the meat of switching the above fragment
 	private void switchFragment(Fragment fragment) {

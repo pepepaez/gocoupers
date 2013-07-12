@@ -42,16 +42,30 @@
         <item>Black</item>
     </string-array>
     <string-array name="deals_menu">
+        <item>menu</item>
+        <item>Ver categorias</item>
+        <item>Especiales</item>
+        <item>favoritos</item>
         <item>Restaurantes</item>
-        <item>Cafe y Bar</item>
+        <item>Cafe y bar</item>
         <item>Gimnasios</item>
         <item>Belleza</item>
+        <item>Spas</item>
+        <item>Tacos</item>
+        <item>Arcades</item>
     </string-array>
     <string-array name="deals_menu_id">
+        <item>menu</item>
+        <item>view_all</item>
+        <item>specials</item>
+        <item>favorites</item>
         <item>food</item>
         <item>cafe</item>
         <item>gym</item>
         <item>beauty</item>
+        <item>gym</item>
+        <item>food</item>
+        <item>cafe</item>
     </string-array>
 
     <attr name="background" format="reference|color" />

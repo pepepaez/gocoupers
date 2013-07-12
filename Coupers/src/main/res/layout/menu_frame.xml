@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/menu_frame"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#e6e1eb"/>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:id="@+id/menu_frame"
+                android:background="#ffffff">
+
+    <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:id="@+id/imageView"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentStart="false"
+            android:background="#595b5d"/>
+
+    <ImageButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:id="@+id/settings"
+            android:layout_alignBottom="@+id/imageView"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/imageView"
+            android:scaleType="center"
+            android:src="@drawable/ic_launcher"
+            android:padding="3dp"
+            android:clickable="true"/>
+
+    <GridView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/gridView"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_above="@+id/imageView"/>
+</RelativeLayout>

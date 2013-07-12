@@ -6,9 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.BaseAdapter;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.coupers.utils.XMLParser;
@@ -69,7 +67,6 @@ public class DealGridFragment extends Fragment {
             }
         }
 
-        //View convertView = getActivity().getLayoutInflater().inflate(R.layout.grid_item, null);
         GridView gv = (GridView) inflater.inflate(R.layout.list_grid, null);
 
         // Getting adapter by passing xml data ArrayList
@@ -126,35 +123,6 @@ public class DealGridFragment extends Fragment {
         //TODO figure out how to save mNL
         return "1";
     }*/
-	
-	private class GridAdapter extends BaseAdapter {
-
-		@Override
-		public int getCount() {
-			return 30;
-		}
-
-		@Override
-		public Object getItem(int position) {
-			return null;
-		}
-
-		@Override
-		public long getItemId(int position) {
-			return position;
-		}
-
-		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
-			if (convertView == null) {
-				convertView = getActivity().getLayoutInflater().inflate(R.layout.grid_item, null);
-			}
-			ImageView img = (ImageView) convertView.findViewById(R.id.grid_item_img);
-			img.setImageResource(mImgRes);
-			return convertView;
-		}
-		
-	}
 
 
 }
