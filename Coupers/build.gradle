@@ -5,6 +5,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:0.4'
 
+
     }
 }
 apply plugin: 'android'
@@ -17,7 +18,9 @@ repositories{
 dependencies {
     compile('com.ABS:ABS:1.1')
     compile('com.SlidingMenuLib:SlidingMenuLib:1.2')
+    compile('com.ksoap2:ksoap2:3.0')
     compile('com.google.zxing:core:2.2')
+
 
 }
 

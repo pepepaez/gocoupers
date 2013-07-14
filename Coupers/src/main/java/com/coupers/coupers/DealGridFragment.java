@@ -21,6 +21,7 @@ public class DealGridFragment extends Fragment {
 
 	private int mPos = -1;
     private String mFilter = "food";
+    private int catFilter   =0;
     private NodeList mNL = null;
     private XMLParser mParser = null;
 	private int mImgRes;
@@ -39,6 +40,12 @@ public class DealGridFragment extends Fragment {
 
     }
 
+    public DealGridFragment(int filter, ArrayList<HashMap<String, String>> deals){
+        catFilter = filter;
+        mParser = new XMLParser();
+        DealsList = deals;
+    }
+
     public String DealType(){
         return mFilter;
     }
@@ -46,31 +53,59 @@ public class DealGridFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        ArrayList<HashMap<String, String>> FilteredDealsList = new ArrayList<HashMap<String, String>>();
+        HashMap<String, String> map = new HashMap<String, String>();
+        GridView gv = (GridView) inflater.inflate(R.layout.list_grid, null);
+        DealAdapter adapter;
 
-        // looping through all deal nodes
-        for (int i = 0; i <  mNL.getLength(); i++) {
-            // creating new HashMap
-            HashMap<String, String> map = new HashMap<String, String>();
-            Element e = (Element) mNL.item(i);
-            // adding each child node to HashMap key => value
-            if (mParser.getValue(e, ResponsiveUIActivity.KEY_TYPE).toLowerCase().equals(mFilter)){
-                map.put(ResponsiveUIActivity.KEY_ID , mParser.getValue(e, ResponsiveUIActivity.KEY_ID));
-                map.put(ResponsiveUIActivity.KEY_TYPE, mParser.getValue(e, ResponsiveUIActivity.KEY_TYPE));
-                map.put(ResponsiveUIActivity.KEY_DEAL_DESC, mParser.getValue(e, ResponsiveUIActivity.KEY_DEAL_DESC));
-                map.put(ResponsiveUIActivity.KEY_LOCATION_NAME, mParser.getValue(e, ResponsiveUIActivity.KEY_LOCATION_NAME));
-                map.put(ResponsiveUIActivity.KEY_LOCATION_LOGO, mParser.getValue(e, ResponsiveUIActivity.KEY_LOCATION_LOGO));
-                map.put(ResponsiveUIActivity.KEY_DEAL_TIP, mParser.getValue(e, ResponsiveUIActivity.KEY_DEAL_TIP));
-                map.put(ResponsiveUIActivity.KEY_THUMB_URL, mParser.getValue(e, ResponsiveUIActivity.KEY_THUMB_URL));
 
-                // adding HashList to ArrayList
-                DealsList.add(map);
+        if(mNL != null)
+        {
+            // looping through all deal nodes
+            for (int i = 0; i <  mNL.getLength(); i++) {
+                // creating new HashMap
+
+                Element e = (Element) mNL.item(i);
+                // adding each child node to HashMap key => value
+                if (mParser.getValue(e, ResponsiveUIActivity.KEY_TYPE).toLowerCase().equals(mFilter)){
+                    map.put(ResponsiveUIActivity.KEY_ID , mParser.getValue(e, ResponsiveUIActivity.KEY_ID));
+                    map.put(ResponsiveUIActivity.KEY_TYPE, mParser.getValue(e, ResponsiveUIActivity.KEY_TYPE));
+                    map.put(ResponsiveUIActivity.KEY_DEAL_DESC, mParser.getValue(e, ResponsiveUIActivity.KEY_DEAL_DESC));
+                    map.put(ResponsiveUIActivity.KEY_LOCATION_ID, mParser.getValue(e, ResponsiveUIActivity.KEY_LOCATION_ID));
+                    map.put(ResponsiveUIActivity.KEY_LOCATION_LOGO, mParser.getValue(e, ResponsiveUIActivity.KEY_LOCATION_LOGO));
+                    map.put(ResponsiveUIActivity.KEY_DEAL_TIP, mParser.getValue(e, ResponsiveUIActivity.KEY_DEAL_TIP));
+                    map.put(ResponsiveUIActivity.KEY_THUMB_URL, mParser.getValue(e, ResponsiveUIActivity.KEY_THUMB_URL));
+
+                    // adding HashList to ArrayList
+                    DealsList.add(map);
+                }
             }
+            adapter = new DealAdapter(this.getActivity(), DealsList);
+        }
+        else
+        {
+            for (int j =0;j< DealsList.size();j++)
+            {
+
+                if (Integer.parseInt( DealsList.get(j).get(ResponsiveUIActivity.KEY_TYPE)) == catFilter)
+                {
+                    map.put(ResponsiveUIActivity.KEY_ID, DealsList.get(j).get(ResponsiveUIActivity.KEY_ID).toString());
+                    map.put(ResponsiveUIActivity.KEY_TYPE,DealsList.get(j).get(ResponsiveUIActivity.KEY_TYPE).toString());
+                    map.put(ResponsiveUIActivity.KEY_DEAL_DESC,DealsList.get(j).get(ResponsiveUIActivity.KEY_DEAL_DESC).toString());
+                    map.put(ResponsiveUIActivity.KEY_LOCATION_ID,DealsList.get(j).get(ResponsiveUIActivity.KEY_LOCATION_ID).toString());
+                    map.put(ResponsiveUIActivity.KEY_LOCATION_LOGO,DealsList.get(j).get(ResponsiveUIActivity.KEY_LOCATION_LOGO).toString());
+                    map.put(ResponsiveUIActivity.KEY_DEAL_TIP,DealsList.get(j).get(ResponsiveUIActivity.KEY_DEAL_TIP).toString());
+                    map.put(ResponsiveUIActivity.KEY_THUMB_URL,DealsList.get(j).get(ResponsiveUIActivity.KEY_THUMB_URL).toString());
+
+                    FilteredDealsList.add(map);
+
+                }
+
+            }
+            adapter = new DealAdapter(this.getActivity(), FilteredDealsList);
         }
 
-        GridView gv = (GridView) inflater.inflate(R.layout.list_grid, null);
 
-        // Getting adapter by passing xml data ArrayList
-        DealAdapter adapter=new DealAdapter(this.getActivity(), DealsList);
         gv.setAdapter(adapter);
 
         gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {

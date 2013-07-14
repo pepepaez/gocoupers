@@ -19,10 +19,10 @@ import com.coupers.utils.XMLParser;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
-import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 //import android.view.Menu;
@@ -45,7 +45,7 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
     String xmlDeals;
 
     ViewPager vp;
-
+/*
     // All static variables
     // XML node keys
     //TODO review if all these node keys will be sufficient, can we (should we) use a class instead?
@@ -56,7 +56,23 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
     static final String KEY_LOCATION_NAME = "location";
     static final String KEY_LOCATION_LOGO = "logo";
     static final String KEY_DEAL_TIP = "tip";
-    static final String KEY_THUMB_URL = "thumbnail";
+    static final String KEY_THUMB_URL = "thumbnail";*/
+
+    // All static variables
+    // XML node keys
+    //TODO review if all these node keys will be sufficient, can we (should we) use a class instead?
+    static final String KEY_DEAL = "deal"; // parent node
+    static final String KEY_ID = "deal_id";
+    static final String KEY_TYPE = "deal_type";
+    static final String KEY_DEAL_DESC = "deal_desc";
+    static final String KEY_DEAL_START = "deal_start_date";
+    static final String KEY_DEAL_END = "deal_end_date";
+    static final String KEY_LOCATION_ID = "deal_location_id";
+    static final String KEY_LOCATION_LOGO = "deal_location_logo";
+    static final String KEY_DEAL_TIP = "deal_tip";
+    static final String KEY_THUMB_URL = "deal_thumb";
+
+    public ArrayList<HashMap<String, String>> masterlist;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -74,7 +90,9 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
         else
         {
             Bundle extras = getIntent().getExtras();
-            xmlDeals = extras != null ? extras.getString("deals") : null;
+            //xmlDeals = extras != null ? extras.getString("deals") : null;
+            masterlist = (ArrayList<HashMap<String, String>>) getIntent().getSerializableExtra("deals");
+            //masterlist = (ArrayList<HashMap<String, String>>) getIntent().getParcelableArrayListExtra("deals");
         }
 
 		// check if the content frame contains the menu frame
@@ -100,13 +118,12 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
 
         }
 
-        Document doc = parser.getDomElement(xmlDeals); // getting DOM element
+        //Document doc = parser.getDomElement(xmlDeals); // getting DOM element
 
-        nl = doc.getElementsByTagName(KEY_DEAL);
+        //nl = doc.getElementsByTagName(KEY_DEAL);
 
 		if (mContent == null)
-			mContent = new DealGridFragment("food", nl, parser); //TODO Replace food to use last category used by user
-
+			mContent = new DealGridFragment(4, masterlist); //TODO Replace food to use last category used by user
 
 
 		// set the Behind View Fragment
@@ -126,7 +143,7 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
 
         List<Fragment> fragments = new ArrayList<Fragment>();
         fragments.add(mContent);
-        fragments.add(new DealGridFragment("cafe",nl,parser));
+        fragments.add(new DealGridFragment(1,masterlist));
         CustomPagerAdapter pageAdapter = new CustomPagerAdapter(getSupportFragmentManager(),fragments);
 
 

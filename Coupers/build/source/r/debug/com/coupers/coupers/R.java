@@ -1162,9 +1162,10 @@ containing a value of this type.
         public static final int loading_progress_bar=0x7f0b0014;
         public static final int lorem_ipsum=0x7f0b0015;
         public static final int main_hub_ui=0x7f0b0016;
-        public static final int share_deal_dialog_button=0x7f0b0017;
-        public static final int share_deal_dialog_title=0x7f0b0018;
-        public static final int what_is_this=0x7f0b0019;
+        public static final int server_connection_error=0x7f0b0017;
+        public static final int share_deal_dialog_button=0x7f0b0018;
+        public static final int share_deal_dialog_title=0x7f0b0019;
+        public static final int what_is_this=0x7f0b001a;
     }
     public static final class style {
         /** 

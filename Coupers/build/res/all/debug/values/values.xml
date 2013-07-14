@@ -617,6 +617,7 @@
     <string name="loading_progress_bar">loading...</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis euismod mi, eu pretium dolor. Phasellus auctor feugiat ante, quis cursus turpis condimentum eu.</string>
     <string name="main_hub_ui">Go Coupers!</string>
+    <string name="server_connection_error">There was an error trying to connect to the server</string>
     <string name="share_deal_dialog_button">Done!</string>
     <string name="share_deal_dialog_title">Scan to share!</string>
     <string name="what_is_this">What is this?</string>

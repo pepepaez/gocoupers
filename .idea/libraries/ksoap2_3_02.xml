@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ksoap2-3.0">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/ksoap2/ksoap2/3.0/ksoap2-3.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
