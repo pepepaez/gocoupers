@@ -19,6 +19,7 @@ import com.coupers.utils.XMLParser;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
+import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 
 import java.util.ArrayList;
@@ -45,7 +46,7 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
     String xmlDeals;
 
     ViewPager vp;
-/*
+
     // All static variables
     // XML node keys
     //TODO review if all these node keys will be sufficient, can we (should we) use a class instead?
@@ -56,12 +57,12 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
     static final String KEY_LOCATION_NAME = "location";
     static final String KEY_LOCATION_LOGO = "logo";
     static final String KEY_DEAL_TIP = "tip";
-    static final String KEY_THUMB_URL = "thumbnail";*/
+    static final String KEY_THUMB_URL = "thumbnail";
 
     // All static variables
     // XML node keys
     //TODO review if all these node keys will be sufficient, can we (should we) use a class instead?
-    static final String KEY_DEAL = "deal"; // parent node
+    /*static final String KEY_DEAL = "deal"; // parent node
     static final String KEY_ID = "deal_id";
     static final String KEY_TYPE = "deal_type";
     static final String KEY_DEAL_DESC = "deal_desc";
@@ -70,7 +71,7 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
     static final String KEY_LOCATION_ID = "deal_location_id";
     static final String KEY_LOCATION_LOGO = "deal_location_logo";
     static final String KEY_DEAL_TIP = "deal_tip";
-    static final String KEY_THUMB_URL = "deal_thumb";
+    static final String KEY_THUMB_URL = "deal_thumb";*/
 
     public ArrayList<HashMap<String, String>> masterlist;
 
@@ -83,25 +84,17 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
 
         //TODO Need to make use of saved instance!!
 
-        Object mInstance = getLastCustomNonConfigurationInstance();
-
-        if (mInstance !=null)
-            xmlDeals=mInstance.toString();
-        else
-        {
-            Bundle extras = getIntent().getExtras();
-            //xmlDeals = extras != null ? extras.getString("deals") : null;
-            masterlist = (ArrayList<HashMap<String, String>>) getIntent().getSerializableExtra("deals");
-            //masterlist = (ArrayList<HashMap<String, String>>) getIntent().getParcelableArrayListExtra("deals");
-        }
+        Bundle extras = getIntent().getExtras();
+        xmlDeals = extras != null ? extras.getString("deals") : null;
+        //masterlist = (ArrayList<HashMap<String, String>>) getIntent().getSerializableExtra("deals");
 
 		// check if the content frame contains the menu frame
 		if (findViewById(R.id.menu_frame) == null) {
-			setBehindContentView(R.layout.menu_frame);
+			setBehindContentView(R.layout.menu_frame_new);
 			getSlidingMenu().setSlidingEnabled(true);
 			getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
 			// show home as up so we can toggle
-			getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+			getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 		} else {
 			// add a dummy view
 			View v = new View(this);
@@ -118,12 +111,12 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
 
         }
 
-        //Document doc = parser.getDomElement(xmlDeals); // getting DOM element
+        Document doc = parser.getDomElement(xmlDeals); // getting DOM element
 
-        //nl = doc.getElementsByTagName(KEY_DEAL);
+        nl = doc.getElementsByTagName(KEY_DEAL);
 
 		if (mContent == null)
-			mContent = new DealGridFragment(4, masterlist); //TODO Replace food to use last category used by user
+			mContent = new DealGridFragment("food",nl,parser); // DealGridFragment(4, masterlist); //TODO Replace food to use last category used by user
 
 
 		// set the Behind View Fragment
@@ -139,11 +132,11 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
 		sm.setShadowDrawable(R.drawable.shadow);
 		sm.setBehindScrollScale(0.25f);
 		sm.setFadeDegree(0.25f);
-        setSlidingActionBarEnabled(false);
+        setSlidingActionBarEnabled(true);
 
         List<Fragment> fragments = new ArrayList<Fragment>();
         fragments.add(mContent);
-        fragments.add(new DealGridFragment(1,masterlist));
+        fragments.add(new DealGridFragment("cafe",nl,parser));
         CustomPagerAdapter pageAdapter = new CustomPagerAdapter(getSupportFragmentManager(),fragments);
 
 
@@ -282,8 +275,10 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
         @Override
         public CharSequence getPageTitle(int position) {
             DealGridFragment fragment = (DealGridFragment) this.fragments.get(position);
+            Boolean near = false;
+            if (fragment.DealType().equals("cafe")==false) near =true;
 
-            return "Viewing " + fragment.DealType() + " deals";
+            return near ? "NEARBY DEALS" : "ALL DEALS";
         }
 
         public void clearALL()

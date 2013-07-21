@@ -36,3 +36,4 @@ enabled.
          android:foregroundGravity="fill_horizontal|top"
          android:foreground="?attr/windowContentOverlay" />
 </LinearLayout>
+<!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS02.aar/res/layout/abs__screen_simple.xml -->

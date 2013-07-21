@@ -50,3 +50,4 @@
         android:startOffset="@integer/card_flip_time_half"
         android:duration="1" />
 </set>
+<!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/animator/card_flip_left_out.xml -->

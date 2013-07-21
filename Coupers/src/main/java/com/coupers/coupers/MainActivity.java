@@ -1,7 +1,10 @@
 package com.coupers.coupers;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -34,21 +37,24 @@ public class MainActivity extends Activity {
     // All static variables
     static final String URL = "http://marvinduran.com/pepe/data/dealslogos.xml";
 
+    private boolean DealsLoaded = false;
+    private boolean FavoritesLoaded = false;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle(R.string.main_hub_ui);
+
         //TODO figure out if need to implement another imageloader library (this one seems to take too long to load images for the first time)
         //ImageLoader iml = new ImageLoader(this);
         //iml.clearCache();
 
-        //LoadDeals loader = new LoadDeals();
-        CoupersDealWS loader = new CoupersDealWS();
+        LoadDeals loader = new LoadDeals();
+        //CoupersDealWS loader = new CoupersDealWS();
 
         loader.execute(new String[] {URL});
 
         setContentView(R.layout.activity_main);
-        //comments
 
     }
 
@@ -81,7 +87,7 @@ public class MainActivity extends Activity {
         }
     }
 
-    private class CoupersDealWS extends AsyncTask<String,Void,String>{
+   /* private class CoupersDealWS extends AsyncTask<String,Void,String>{
 
         private static final String NAMESPACE = "http://tempuri.org/";
         private static final String SOAP_ACTION = "http://tempuri.org/GetPromociones";
@@ -158,5 +164,5 @@ public class MainActivity extends Activity {
             startActivity(intent);
         }
 
-    }
+    }*/
 }

@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.4'
+        classpath 'com.android.tools.build:gradle:0.5.+'
 
 
     }
@@ -16,10 +16,11 @@ repositories{
 }
 
 dependencies {
-    compile('com.ABS:ABS:1.1')
-    compile('com.SlidingMenuLib:SlidingMenuLib:1.2')
+    compile('com.ABS:ABS:0.2')
+    compile('com.SlidingMenuLibrary:SlidingMenuLibrary:0.1')
     compile('com.ksoap2:ksoap2:3.0')
     compile('com.google.zxing:core:2.2')
+    compile('com.aquery:aquery:0.25.10')
 
 
 }
@@ -29,7 +30,7 @@ android {
     buildToolsVersion "17.0.0"
 
     defaultConfig {
-        minSdkVersion 11
+        minSdkVersion 14
         targetSdkVersion 17
     }
 }

@@ -37,18 +37,18 @@ public class XMLParser {
 	 * */
 	public String getXmlFromUrl(String url) {
 		String xml = null;
+        DefaultHttpClient httpClient = new DefaultHttpClient();
 
 		try {
 			// defaultHttpClient
-			DefaultHttpClient httpClient = new DefaultHttpClient();
+
 			HttpGet httpPost = new HttpGet(url);
 
 			HttpResponse httpResponse = httpClient.execute(httpPost);
 			HttpEntity httpEntity = httpResponse.getEntity();
 			xml = EntityUtils.toString(httpEntity);
 
-
-		} catch (UnsupportedEncodingException e) {
+        }catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
@@ -57,7 +57,7 @@ public class XMLParser {
         } catch (NetworkOnMainThreadException e){
             e.printStackTrace();
         }
-		// return XML
+        // return XML
 		return xml;
 	}
 	

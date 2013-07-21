@@ -8,22 +8,23 @@
 
     <TextView
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
+            android:layout_height="45dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Large Text"
             android:id="@+id/item_menu_text"
-            android:background="#a9a9a9"
+            android:background="@drawable/menu_padding"
             android:textColor="#fbfdff"
             android:autoText="false"
-            android:textSize="27dp"
+            android:textSize="12dp"
             android:textIsSelectable="false"
             android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/imageView"
-            android:paddingStart="3dp"
+            android:paddingStart="15dp"
             android:layout_alignParentRight="true"
-            android:gravity="center_vertical|right"
             android:textStyle="bold"
-            android:paddingEnd="7dp"/>
+            android:paddingEnd="7dp"
+            android:layout_alignParentLeft="true"
+            android:gravity="bottom"
+            android:paddingBottom="9dp"/>
 
     <ImageView
             android:layout_width="3dp"
@@ -31,6 +32,18 @@
             android:id="@+id/imageView"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:background="#ff8511"/>
+            android:background="#ff8511"
+            android:visibility="invisible"/>
+
+    <ImageButton
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_action_barcode"
+            android:layout_alignBottom="@+id/item_menu_text"
+            android:padding="15dp"
+            android:scaleType="center"
+            android:visibility="invisible"/>
 
 </RelativeLayout>

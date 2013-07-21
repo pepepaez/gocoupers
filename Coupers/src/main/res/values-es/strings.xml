@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name" >Coupers!
-    </string>
+
     <string name="action_settings" >Configuracion
     </string>
     <string name="hello_world" >Hello world!
     </string>
-    <string name="main_hub_ui">Go Coupers!</string>
     <string name="what_is_this">What is this?</string>
     <string name="action_info">Detalles Negocio</string>
     <string name="action_photo">Detalles Promo</string>

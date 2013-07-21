@@ -15,6 +15,8 @@ public final class R {
         public static final int card_flip_right_out=0x7f040003;
     }
     public static final class array {
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/array.xml 
+         */
         public static final int birds=0x7f050000;
         public static final int birds_desc=0x7f050001;
         public static final int birds_img=0x7f050002;
@@ -170,7 +172,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int activityChooserViewStyle=0x7f01005f;
-        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS02.aar/res/values/values.xml 
+         <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
@@ -798,7 +801,11 @@ containing a value of this type.
         public static final int windowSplitActionBar=0x7f01005d;
     }
     public static final class bool {
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS02.aar/res/values-w480dp/values.xml 
+         */
         public static final int abs__action_bar_embed_tabs=0x7f060000;
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS02.aar/res/values-sw600dp/values.xml 
+         */
         public static final int abs__action_bar_expanded_action_views_exclusive=0x7f060001;
         public static final int abs__config_actionMenuItemAllCaps=0x7f060002;
         public static final int abs__config_allowActionMenuItemTextWithIcon=0x7f060003;
@@ -812,12 +819,23 @@ containing a value of this type.
         public static final int abs__bright_foreground_disabled_holo_light=0x7f070003;
         public static final int abs__bright_foreground_holo_dark=0x7f070004;
         public static final int abs__bright_foreground_holo_light=0x7f070005;
-        public static final int abs__primary_text_disable_only_holo_dark=0x7f070006;
-        public static final int abs__primary_text_disable_only_holo_light=0x7f070007;
-        public static final int abs__primary_text_holo_dark=0x7f070008;
-        public static final int abs__primary_text_holo_light=0x7f070009;
+        public static final int abs__primary_text_disable_only_holo_dark=0x7f070007;
+        public static final int abs__primary_text_disable_only_holo_light=0x7f070008;
+        public static final int abs__primary_text_holo_dark=0x7f070009;
+        public static final int abs__primary_text_holo_light=0x7f07000a;
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/colors_coupers_theme.xml 
+         */
+        public static final int pressed_coupers_theme=0x7f070006;
     }
     public static final class dimen {
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS02.aar/res/values/values.xml 
+ From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS02.aar/res/values-land/values.xml 
+ From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS02.aar/res/values-large-hdpi-1024x600/values.xml 
+ From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS02.aar/res/values-large-mdpi-1024x600/values.xml 
+ From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS02.aar/res/values-large-land-hdpi-1024x600/values.xml 
+ From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS02.aar/res/values-large-land-mdpi-1024x600/values.xml 
+ From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS02.aar/res/values-xlarge/values.xml 
+         */
         public static final int abs__action_bar_default_height=0x7f090000;
         public static final int abs__action_bar_icon_vertical_padding=0x7f090001;
         public static final int abs__action_bar_subtitle_bottom_margin=0x7f090002;
@@ -833,166 +851,213 @@ containing a value of this type.
         public static final int abs__dropdownitem_text_padding_right=0x7f09000a;
         public static final int abs__search_view_preferred_width=0x7f09000b;
         public static final int abs__search_view_text_min_width=0x7f09000c;
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/dimens.xml 
+ From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values-sw720dp-land/dimens.xml 
+         */
         public static final int activity_horizontal_margin=0x7f09000d;
         public static final int activity_vertical_margin=0x7f09000e;
         public static final int list_padding=0x7f09000f;
         public static final int shadow_width=0x7f090010;
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values-land/dimens.xml 
+ From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values-large/dimens.xml 
+ From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values-large-land/dimens.xml 
+ From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values-xlarge/dimens.xml 
+ From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values-xlarge-land/dimens.xml 
+         */
         public static final int slidingmenu_offset=0x7f090011;
     }
     public static final class drawable {
-        public static final int abs__ab_bottom_solid_dark_holo=0x7f020000;
-        public static final int abs__ab_bottom_solid_inverse_holo=0x7f020001;
-        public static final int abs__ab_bottom_solid_light_holo=0x7f020002;
-        public static final int abs__ab_bottom_transparent_dark_holo=0x7f020003;
-        public static final int abs__ab_bottom_transparent_light_holo=0x7f020004;
-        public static final int abs__ab_share_pack_holo_dark=0x7f020005;
-        public static final int abs__ab_share_pack_holo_light=0x7f020006;
-        public static final int abs__ab_solid_dark_holo=0x7f020007;
-        public static final int abs__ab_solid_light_holo=0x7f020008;
-        public static final int abs__ab_solid_shadow_holo=0x7f020009;
-        public static final int abs__ab_stacked_solid_dark_holo=0x7f02000a;
-        public static final int abs__ab_stacked_solid_light_holo=0x7f02000b;
-        public static final int abs__ab_stacked_transparent_dark_holo=0x7f02000c;
-        public static final int abs__ab_stacked_transparent_light_holo=0x7f02000d;
-        public static final int abs__ab_transparent_dark_holo=0x7f02000e;
-        public static final int abs__ab_transparent_light_holo=0x7f02000f;
-        public static final int abs__activated_background_holo_dark=0x7f020010;
-        public static final int abs__activated_background_holo_light=0x7f020011;
-        public static final int abs__btn_cab_done_default_holo_dark=0x7f020012;
-        public static final int abs__btn_cab_done_default_holo_light=0x7f020013;
-        public static final int abs__btn_cab_done_focused_holo_dark=0x7f020014;
-        public static final int abs__btn_cab_done_focused_holo_light=0x7f020015;
-        public static final int abs__btn_cab_done_holo_dark=0x7f020016;
-        public static final int abs__btn_cab_done_holo_light=0x7f020017;
-        public static final int abs__btn_cab_done_pressed_holo_dark=0x7f020018;
-        public static final int abs__btn_cab_done_pressed_holo_light=0x7f020019;
-        public static final int abs__cab_background_bottom_holo_dark=0x7f02001a;
-        public static final int abs__cab_background_bottom_holo_light=0x7f02001b;
-        public static final int abs__cab_background_top_holo_dark=0x7f02001c;
-        public static final int abs__cab_background_top_holo_light=0x7f02001d;
-        public static final int abs__ic_ab_back_holo_dark=0x7f02001e;
-        public static final int abs__ic_ab_back_holo_light=0x7f02001f;
-        public static final int abs__ic_cab_done_holo_dark=0x7f020020;
-        public static final int abs__ic_cab_done_holo_light=0x7f020021;
-        public static final int abs__ic_clear=0x7f020022;
-        public static final int abs__ic_clear_disabled=0x7f020023;
-        public static final int abs__ic_clear_holo_light=0x7f020024;
-        public static final int abs__ic_clear_normal=0x7f020025;
-        public static final int abs__ic_clear_search_api_disabled_holo_light=0x7f020026;
-        public static final int abs__ic_clear_search_api_holo_light=0x7f020027;
-        public static final int abs__ic_commit_search_api_holo_dark=0x7f020028;
-        public static final int abs__ic_commit_search_api_holo_light=0x7f020029;
-        public static final int abs__ic_go=0x7f02002a;
-        public static final int abs__ic_go_search_api_holo_light=0x7f02002b;
-        public static final int abs__ic_menu_moreoverflow_holo_dark=0x7f02002c;
-        public static final int abs__ic_menu_moreoverflow_holo_light=0x7f02002d;
-        public static final int abs__ic_menu_moreoverflow_normal_holo_dark=0x7f02002e;
-        public static final int abs__ic_menu_moreoverflow_normal_holo_light=0x7f02002f;
-        public static final int abs__ic_menu_share_holo_dark=0x7f020030;
-        public static final int abs__ic_menu_share_holo_light=0x7f020031;
-        public static final int abs__ic_search=0x7f020032;
-        public static final int abs__ic_search_api_holo_light=0x7f020033;
-        public static final int abs__ic_voice_search=0x7f020034;
-        public static final int abs__ic_voice_search_api_holo_light=0x7f020035;
-        public static final int abs__item_background_holo_dark=0x7f020036;
-        public static final int abs__item_background_holo_light=0x7f020037;
-        public static final int abs__list_activated_holo=0x7f020038;
-        public static final int abs__list_divider_holo_dark=0x7f020039;
-        public static final int abs__list_divider_holo_light=0x7f02003a;
-        public static final int abs__list_focused_holo=0x7f02003b;
-        public static final int abs__list_longpressed_holo=0x7f02003c;
-        public static final int abs__list_pressed_holo_dark=0x7f02003d;
-        public static final int abs__list_pressed_holo_light=0x7f02003e;
-        public static final int abs__list_selector_background_transition_holo_dark=0x7f02003f;
-        public static final int abs__list_selector_background_transition_holo_light=0x7f020040;
-        public static final int abs__list_selector_disabled_holo_dark=0x7f020041;
-        public static final int abs__list_selector_disabled_holo_light=0x7f020042;
-        public static final int abs__list_selector_holo_dark=0x7f020043;
-        public static final int abs__list_selector_holo_light=0x7f020044;
-        public static final int abs__menu_dropdown_panel_holo_dark=0x7f020045;
-        public static final int abs__menu_dropdown_panel_holo_light=0x7f020046;
-        public static final int abs__progress_bg_holo_dark=0x7f020047;
-        public static final int abs__progress_bg_holo_light=0x7f020048;
-        public static final int abs__progress_horizontal_holo_dark=0x7f020049;
-        public static final int abs__progress_horizontal_holo_light=0x7f02004a;
-        public static final int abs__progress_medium_holo=0x7f02004b;
-        public static final int abs__progress_primary_holo_dark=0x7f02004c;
-        public static final int abs__progress_primary_holo_light=0x7f02004d;
-        public static final int abs__progress_secondary_holo_dark=0x7f02004e;
-        public static final int abs__progress_secondary_holo_light=0x7f02004f;
-        public static final int abs__search_dropdown_dark=0x7f020050;
-        public static final int abs__search_dropdown_light=0x7f020051;
-        public static final int abs__spinner_48_inner_holo=0x7f020052;
-        public static final int abs__spinner_48_outer_holo=0x7f020053;
-        public static final int abs__spinner_ab_default_holo_dark=0x7f020054;
-        public static final int abs__spinner_ab_default_holo_light=0x7f020055;
-        public static final int abs__spinner_ab_disabled_holo_dark=0x7f020056;
-        public static final int abs__spinner_ab_disabled_holo_light=0x7f020057;
-        public static final int abs__spinner_ab_focused_holo_dark=0x7f020058;
-        public static final int abs__spinner_ab_focused_holo_light=0x7f020059;
-        public static final int abs__spinner_ab_holo_dark=0x7f02005a;
-        public static final int abs__spinner_ab_holo_light=0x7f02005b;
-        public static final int abs__spinner_ab_pressed_holo_dark=0x7f02005c;
-        public static final int abs__spinner_ab_pressed_holo_light=0x7f02005d;
-        public static final int abs__tab_indicator_ab_holo=0x7f02005e;
-        public static final int abs__tab_selected_focused_holo=0x7f02005f;
-        public static final int abs__tab_selected_holo=0x7f020060;
-        public static final int abs__tab_selected_pressed_holo=0x7f020061;
-        public static final int abs__tab_unselected_pressed_holo=0x7f020062;
-        public static final int abs__textfield_search_default_holo_dark=0x7f020063;
-        public static final int abs__textfield_search_default_holo_light=0x7f020064;
-        public static final int abs__textfield_search_right_default_holo_dark=0x7f020065;
-        public static final int abs__textfield_search_right_default_holo_light=0x7f020066;
-        public static final int abs__textfield_search_right_selected_holo_dark=0x7f020067;
-        public static final int abs__textfield_search_right_selected_holo_light=0x7f020068;
-        public static final int abs__textfield_search_selected_holo_dark=0x7f020069;
-        public static final int abs__textfield_search_selected_holo_light=0x7f02006a;
-        public static final int abs__textfield_searchview_holo_dark=0x7f02006b;
-        public static final int abs__textfield_searchview_holo_light=0x7f02006c;
-        public static final int abs__textfield_searchview_right_holo_dark=0x7f02006d;
-        public static final int abs__textfield_searchview_right_holo_light=0x7f02006e;
-        public static final int abs__toast_frame=0x7f02006f;
-        public static final int arrow=0x7f020070;
-        public static final int barcode=0x7f020071;
-        public static final int cell_shape=0x7f020072;
-        public static final int coupers_icon3=0x7f020073;
-        public static final int custom_button=0x7f020074;
-        public static final int dashline=0x7f020075;
-        public static final int dashline2=0x7f020076;
-        public static final int eagle=0x7f020077;
-        public static final int flamingo=0x7f020078;
-        public static final int gradient_bg=0x7f020079;
-        public static final int gradient_bg_beauty=0x7f02007a;
-        public static final int gradient_bg_cafe=0x7f02007b;
-        public static final int gradient_bg_deal_logo=0x7f02007c;
-        public static final int gradient_bg_gym=0x7f02007d;
-        public static final int gradient_bg_hover=0x7f02007e;
-        public static final int heron=0x7f02007f;
-        public static final int ic_action_barcode=0x7f020080;
-        public static final int ic_action_info=0x7f020081;
-        public static final int ic_action_photo=0x7f020082;
-        public static final int ic_action_scan=0x7f020083;
-        public static final int ic_launcher=0x7f020084;
-        public static final int image_bg=0x7f020085;
-        public static final int list_selector=0x7f020086;
-        public static final int list_selector_beauty=0x7f020087;
-        public static final int list_selector_cafe=0x7f020088;
-        public static final int list_selector_gym=0x7f020089;
-        public static final int logo_icon1=0x7f02008a;
-        public static final int map=0x7f02008b;
-        public static final int muelle=0x7f02008c;
-        public static final int muelle240=0x7f02008d;
-        public static final int no_image=0x7f02008e;
-        public static final int octocat=0x7f02008f;
-        public static final int ostrich=0x7f020090;
-        public static final int peacock=0x7f020091;
-        public static final int penguin=0x7f020092;
-        public static final int shadow=0x7f020093;
-        public static final int tlalli=0x7f020094;
-        public static final int toucan=0x7f020095;
-        public static final int turkey=0x7f020096;
-        public static final int ultragym=0x7f020097;
-        public static final int vulture=0x7f020098;
+        public static final int ab_background_textured_coupers_theme=0x7f020000;
+        public static final int ab_bottom_solid_coupers_theme=0x7f020001;
+        public static final int ab_solid_coupers_theme=0x7f020002;
+        public static final int ab_stacked_solid_coupers_theme=0x7f020003;
+        public static final int ab_texture_tile_coupers_theme=0x7f020004;
+        public static final int ab_transparent_coupers_theme=0x7f020005;
+        public static final int abs__ab_bottom_solid_dark_holo=0x7f020006;
+        public static final int abs__ab_bottom_solid_inverse_holo=0x7f020007;
+        public static final int abs__ab_bottom_solid_light_holo=0x7f020008;
+        public static final int abs__ab_bottom_transparent_dark_holo=0x7f020009;
+        public static final int abs__ab_bottom_transparent_light_holo=0x7f02000a;
+        public static final int abs__ab_share_pack_holo_dark=0x7f02000b;
+        public static final int abs__ab_share_pack_holo_light=0x7f02000c;
+        public static final int abs__ab_solid_dark_holo=0x7f02000d;
+        public static final int abs__ab_solid_light_holo=0x7f02000e;
+        public static final int abs__ab_solid_shadow_holo=0x7f02000f;
+        public static final int abs__ab_stacked_solid_dark_holo=0x7f020010;
+        public static final int abs__ab_stacked_solid_light_holo=0x7f020011;
+        public static final int abs__ab_stacked_transparent_dark_holo=0x7f020012;
+        public static final int abs__ab_stacked_transparent_light_holo=0x7f020013;
+        public static final int abs__ab_transparent_dark_holo=0x7f020014;
+        public static final int abs__ab_transparent_light_holo=0x7f020015;
+        public static final int abs__activated_background_holo_dark=0x7f020016;
+        public static final int abs__activated_background_holo_light=0x7f020017;
+        public static final int abs__btn_cab_done_default_holo_dark=0x7f020018;
+        public static final int abs__btn_cab_done_default_holo_light=0x7f020019;
+        public static final int abs__btn_cab_done_focused_holo_dark=0x7f02001a;
+        public static final int abs__btn_cab_done_focused_holo_light=0x7f02001b;
+        public static final int abs__btn_cab_done_holo_dark=0x7f02001c;
+        public static final int abs__btn_cab_done_holo_light=0x7f02001d;
+        public static final int abs__btn_cab_done_pressed_holo_dark=0x7f02001e;
+        public static final int abs__btn_cab_done_pressed_holo_light=0x7f02001f;
+        public static final int abs__cab_background_bottom_holo_dark=0x7f020020;
+        public static final int abs__cab_background_bottom_holo_light=0x7f020021;
+        public static final int abs__cab_background_top_holo_dark=0x7f020022;
+        public static final int abs__cab_background_top_holo_light=0x7f020023;
+        public static final int abs__ic_ab_back_holo_dark=0x7f020024;
+        public static final int abs__ic_ab_back_holo_light=0x7f020025;
+        public static final int abs__ic_cab_done_holo_dark=0x7f020026;
+        public static final int abs__ic_cab_done_holo_light=0x7f020027;
+        public static final int abs__ic_clear=0x7f020028;
+        public static final int abs__ic_clear_disabled=0x7f020029;
+        public static final int abs__ic_clear_holo_light=0x7f02002a;
+        public static final int abs__ic_clear_normal=0x7f02002b;
+        public static final int abs__ic_clear_search_api_disabled_holo_light=0x7f02002c;
+        public static final int abs__ic_clear_search_api_holo_light=0x7f02002d;
+        public static final int abs__ic_commit_search_api_holo_dark=0x7f02002e;
+        public static final int abs__ic_commit_search_api_holo_light=0x7f02002f;
+        public static final int abs__ic_go=0x7f020030;
+        public static final int abs__ic_go_search_api_holo_light=0x7f020031;
+        public static final int abs__ic_menu_moreoverflow_holo_dark=0x7f020032;
+        public static final int abs__ic_menu_moreoverflow_holo_light=0x7f020033;
+        public static final int abs__ic_menu_moreoverflow_normal_holo_dark=0x7f020034;
+        public static final int abs__ic_menu_moreoverflow_normal_holo_light=0x7f020035;
+        public static final int abs__ic_menu_share_holo_dark=0x7f020036;
+        public static final int abs__ic_menu_share_holo_light=0x7f020037;
+        public static final int abs__ic_search=0x7f020038;
+        public static final int abs__ic_search_api_holo_light=0x7f020039;
+        public static final int abs__ic_voice_search=0x7f02003a;
+        public static final int abs__ic_voice_search_api_holo_light=0x7f02003b;
+        public static final int abs__item_background_holo_dark=0x7f02003c;
+        public static final int abs__item_background_holo_light=0x7f02003d;
+        public static final int abs__list_activated_holo=0x7f02003e;
+        public static final int abs__list_divider_holo_dark=0x7f02003f;
+        public static final int abs__list_divider_holo_light=0x7f020040;
+        public static final int abs__list_focused_holo=0x7f020041;
+        public static final int abs__list_longpressed_holo=0x7f020042;
+        public static final int abs__list_pressed_holo_dark=0x7f020043;
+        public static final int abs__list_pressed_holo_light=0x7f020044;
+        public static final int abs__list_selector_background_transition_holo_dark=0x7f020045;
+        public static final int abs__list_selector_background_transition_holo_light=0x7f020046;
+        public static final int abs__list_selector_disabled_holo_dark=0x7f020047;
+        public static final int abs__list_selector_disabled_holo_light=0x7f020048;
+        public static final int abs__list_selector_holo_dark=0x7f020049;
+        public static final int abs__list_selector_holo_light=0x7f02004a;
+        public static final int abs__menu_dropdown_panel_holo_dark=0x7f02004b;
+        public static final int abs__menu_dropdown_panel_holo_light=0x7f02004c;
+        public static final int abs__progress_bg_holo_dark=0x7f02004d;
+        public static final int abs__progress_bg_holo_light=0x7f02004e;
+        public static final int abs__progress_horizontal_holo_dark=0x7f02004f;
+        public static final int abs__progress_horizontal_holo_light=0x7f020050;
+        public static final int abs__progress_medium_holo=0x7f020051;
+        public static final int abs__progress_primary_holo_dark=0x7f020052;
+        public static final int abs__progress_primary_holo_light=0x7f020053;
+        public static final int abs__progress_secondary_holo_dark=0x7f020054;
+        public static final int abs__progress_secondary_holo_light=0x7f020055;
+        public static final int abs__search_dropdown_dark=0x7f020056;
+        public static final int abs__search_dropdown_light=0x7f020057;
+        public static final int abs__spinner_48_inner_holo=0x7f020058;
+        public static final int abs__spinner_48_outer_holo=0x7f020059;
+        public static final int abs__spinner_ab_default_holo_dark=0x7f02005a;
+        public static final int abs__spinner_ab_default_holo_light=0x7f02005b;
+        public static final int abs__spinner_ab_disabled_holo_dark=0x7f02005c;
+        public static final int abs__spinner_ab_disabled_holo_light=0x7f02005d;
+        public static final int abs__spinner_ab_focused_holo_dark=0x7f02005e;
+        public static final int abs__spinner_ab_focused_holo_light=0x7f02005f;
+        public static final int abs__spinner_ab_holo_dark=0x7f020060;
+        public static final int abs__spinner_ab_holo_light=0x7f020061;
+        public static final int abs__spinner_ab_pressed_holo_dark=0x7f020062;
+        public static final int abs__spinner_ab_pressed_holo_light=0x7f020063;
+        public static final int abs__tab_indicator_ab_holo=0x7f020064;
+        public static final int abs__tab_selected_focused_holo=0x7f020065;
+        public static final int abs__tab_selected_holo=0x7f020066;
+        public static final int abs__tab_selected_pressed_holo=0x7f020067;
+        public static final int abs__tab_unselected_pressed_holo=0x7f020068;
+        public static final int abs__textfield_search_default_holo_dark=0x7f020069;
+        public static final int abs__textfield_search_default_holo_light=0x7f02006a;
+        public static final int abs__textfield_search_right_default_holo_dark=0x7f02006b;
+        public static final int abs__textfield_search_right_default_holo_light=0x7f02006c;
+        public static final int abs__textfield_search_right_selected_holo_dark=0x7f02006d;
+        public static final int abs__textfield_search_right_selected_holo_light=0x7f02006e;
+        public static final int abs__textfield_search_selected_holo_dark=0x7f02006f;
+        public static final int abs__textfield_search_selected_holo_light=0x7f020070;
+        public static final int abs__textfield_searchview_holo_dark=0x7f020071;
+        public static final int abs__textfield_searchview_holo_light=0x7f020072;
+        public static final int abs__textfield_searchview_right_holo_dark=0x7f020073;
+        public static final int abs__textfield_searchview_right_holo_light=0x7f020074;
+        public static final int abs__toast_frame=0x7f020075;
+        public static final int arrow=0x7f020076;
+        public static final int barcode=0x7f020077;
+        public static final int btn_cab_done_coupers_theme=0x7f020078;
+        public static final int btn_cab_done_default_coupers_theme=0x7f020079;
+        public static final int btn_cab_done_focused_coupers_theme=0x7f02007a;
+        public static final int btn_cab_done_pressed_coupers_theme=0x7f02007b;
+        public static final int cab_background_bottom_coupers_theme=0x7f02007c;
+        public static final int cab_background_top_coupers_theme=0x7f02007d;
+        public static final int cell_shape=0x7f02007e;
+        public static final int coupers_icon3=0x7f02007f;
+        public static final int custom_button=0x7f020080;
+        public static final int dashline=0x7f020081;
+        public static final int dashline2=0x7f020082;
+        public static final int eagle=0x7f020083;
+        public static final int flamingo=0x7f020084;
+        public static final int gradient_bg=0x7f020085;
+        public static final int gradient_bg_beauty=0x7f020086;
+        public static final int gradient_bg_cafe=0x7f020087;
+        public static final int gradient_bg_deal_logo=0x7f020088;
+        public static final int gradient_bg_food=0x7f020089;
+        public static final int gradient_bg_gym=0x7f02008a;
+        public static final int gradient_bg_hover=0x7f02008b;
+        public static final int grid_padding=0x7f02008c;
+        public static final int heron=0x7f02008d;
+        public static final int ic_action_barcode=0x7f02008e;
+        public static final int ic_action_info=0x7f02008f;
+        public static final int ic_action_photo=0x7f020090;
+        public static final int ic_action_scan=0x7f020091;
+        public static final int ic_launcher=0x7f020092;
+        public static final int image_bg=0x7f020093;
+        public static final int list_focused_coupers_theme=0x7f020094;
+        public static final int list_selector=0x7f020095;
+        public static final int list_selector_beauty=0x7f020096;
+        public static final int list_selector_cafe=0x7f020097;
+        public static final int list_selector_food=0x7f020098;
+        public static final int list_selector_gym=0x7f020099;
+        public static final int logo_icon1=0x7f02009a;
+        public static final int map=0x7f02009b;
+        public static final int menu_dropdown_panel_coupers_theme=0x7f02009c;
+        public static final int menu_padding=0x7f02009d;
+        public static final int muelle=0x7f02009e;
+        public static final int muelle240=0x7f02009f;
+        public static final int navicon=0x7f0200a0;
+        public static final int no_image=0x7f0200a1;
+        public static final int octocat=0x7f0200a2;
+        public static final int ostrich=0x7f0200a3;
+        public static final int peacock=0x7f0200a4;
+        public static final int penguin=0x7f0200a5;
+        public static final int pressed_background_coupers_theme=0x7f0200a6;
+        public static final int progress_bg_coupers_theme=0x7f0200a7;
+        public static final int progress_horizontal_coupers_theme=0x7f0200a8;
+        public static final int progress_primary_coupers_theme=0x7f0200a9;
+        public static final int progress_secondary_coupers_theme=0x7f0200aa;
+        public static final int red_circle_black_border=0x7f0200ab;
+        public static final int selectable_background_coupers_theme=0x7f0200ac;
+        public static final int shadow=0x7f0200ad;
+        public static final int spinner_ab_default_coupers_theme=0x7f0200ae;
+        public static final int spinner_ab_disabled_coupers_theme=0x7f0200af;
+        public static final int spinner_ab_focused_coupers_theme=0x7f0200b0;
+        public static final int spinner_ab_pressed_coupers_theme=0x7f0200b1;
+        public static final int spinner_background_ab_coupers_theme=0x7f0200b2;
+        public static final int tab_indicator_ab_coupers_theme=0x7f0200b3;
+        public static final int tab_selected_coupers_theme=0x7f0200b4;
+        public static final int tab_selected_focused_coupers_theme=0x7f0200b5;
+        public static final int tab_selected_pressed_coupers_theme=0x7f0200b6;
+        public static final int tab_unselected_coupers_theme=0x7f0200b7;
+        public static final int tab_unselected_focused_coupers_theme=0x7f0200b8;
+        public static final int tab_unselected_pressed_coupers_theme=0x7f0200b9;
+        public static final int tlalli=0x7f0200ba;
+        public static final int toucan=0x7f0200bb;
+        public static final int turkey=0x7f0200bc;
+        public static final int ultragym=0x7f0200bd;
+        public static final int vulture=0x7f0200be;
     }
     public static final class id {
         public static final int abs__action_bar=0x7f080028;
@@ -1000,6 +1065,8 @@ containing a value of this type.
         public static final int abs__action_bar_subtitle=0x7f080019;
         public static final int abs__action_bar_title=0x7f080018;
         public static final int abs__action_context_bar=0x7f080029;
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS02.aar/res/values/values.xml 
+         */
         public static final int abs__action_menu_divider=0x7f08000e;
         public static final int abs__action_menu_presenter=0x7f08000f;
         public static final int abs__action_mode_bar=0x7f08002d;
@@ -1034,48 +1101,61 @@ containing a value of this type.
         public static final int abs__textButton=0x7f08001b;
         public static final int abs__title=0x7f080023;
         public static final int abs__up=0x7f080013;
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/ids.xml 
+         */
         public static final int action_flip=0x7f080014;
         public static final int action_next=0x7f080015;
-        public static final int action_settings=0x7f08005e;
+        public static final int action_settings=0x7f08006a;
         public static final int container=0x7f08003a;
-        public static final int content_frame=0x7f080059;
-        public static final int dashdeal=0x7f080051;
-        public static final int deal_id=0x7f080055;
-        public static final int deal_qrcode=0x7f08005c;
+        public static final int content_frame=0x7f080065;
+        public static final int dashdeal=0x7f080055;
+        public static final int deal_id=0x7f080059;
+        public static final int deal_qrcode=0x7f080068;
         public static final int deal_scan=0x7f080016;
-        public static final int deal_tip=0x7f080052;
+        public static final int deal_tip=0x7f080056;
         public static final int desc=0x7f080046;
         public static final int disableHome=0x7f080008;
         public static final int edit_query=0x7f08002e;
         public static final int fullscreen=0x7f08000d;
-        public static final int gridView=0x7f080058;
+        public static final int gridView=0x7f08005d;
         public static final int homeAsUp=0x7f080005;
+        public static final int imageButton=0x7f080050;
         public static final int imageView=0x7f08003e;
         public static final int imageView2=0x7f08003d;
-        public static final int item_menu_icon=0x7f08004e;
-        public static final int item_menu_text=0x7f08004c;
+        public static final int imageView3=0x7f08005a;
+        public static final int imageView4=0x7f080063;
+        public static final int imageView5=0x7f08004c;
+        public static final int item_menu_icon=0x7f080052;
+        public static final int item_menu_text=0x7f08004f;
         public static final int left=0x7f08000a;
+        public static final int leftpadding=0x7f08005f;
         public static final int listMode=0x7f080001;
-        public static final int list_image=0x7f08004f;
-        public static final int logo_image=0x7f080050;
+        public static final int list_image=0x7f080053;
+        public static final int location_logo=0x7f08004d;
+        public static final int logo_image=0x7f080054;
         public static final int margin=0x7f08000c;
-        public static final int menu_frame=0x7f080056;
+        public static final int menu_frame=0x7f08005b;
         public static final int name=0x7f080045;
+        public static final int new_deal_count=0x7f08004e;
         public static final int normal=0x7f080000;
-        public static final int pager=0x7f08005a;
-        public static final int pager_header=0x7f08005b;
+        public static final int pager=0x7f080066;
+        public static final int pager_header=0x7f080067;
         public static final int progressBar=0x7f08003b;
-        public static final int progressBarLogo=0x7f080054;
-        public static final int progressBarThumb=0x7f080053;
+        public static final int progressBarLogo=0x7f080058;
+        public static final int progressBarThumb=0x7f080057;
         public static final int right=0x7f08000b;
-        public static final int selected_indicator=0x7f08004d;
+        public static final int rightpadding=0x7f080060;
+        public static final int searchView=0x7f08005e;
+        public static final int selected_indicator=0x7f080051;
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComSlidingMenuLibrarySlidingMenuLibrary01.aar/res/values/values.xml 
+         */
         public static final int selected_view=0x7f080017;
-        public static final int settings=0x7f080057;
+        public static final int settings=0x7f08005c;
         public static final int share_button=0x7f080044;
         public static final int showCustom=0x7f080007;
         public static final int showHome=0x7f080004;
         public static final int showTitle=0x7f080006;
-        public static final int slidingmenumain=0x7f08005d;
+        public static final int slidingmenumain=0x7f080069;
         public static final int tabMode=0x7f080002;
         public static final int textView=0x7f08003c;
         public static final int textView10=0x7f08004a;
@@ -1088,13 +1168,25 @@ containing a value of this type.
         public static final int textView7=0x7f080041;
         public static final int textView8=0x7f080042;
         public static final int textView9=0x7f080043;
+        public static final int toppadding=0x7f080061;
         public static final int useLogo=0x7f080003;
+        public static final int username=0x7f080064;
+        public static final int userpic=0x7f080062;
         public static final int wrap_content=0x7f080009;
     }
     public static final class integer {
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS02.aar/res/values/values.xml 
+ From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS02.aar/res/values-w360dp/values.xml 
+ From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS02.aar/res/values-w500dp/values.xml 
+ From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS02.aar/res/values-w600dp/values.xml 
+         */
         public static final int abs__max_action_buttons=0x7f0a0000;
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/integers.xml 
+         */
         public static final int card_flip_time_full=0x7f0a0001;
         public static final int card_flip_time_half=0x7f0a0002;
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/dimens.xml 
+         */
         public static final int num_cols=0x7f0a0003;
     }
     public static final class layout {
@@ -1125,20 +1217,24 @@ containing a value of this type.
         public static final int fragment_card_back=0x7f030018;
         public static final int list_grid=0x7f030019;
         public static final int list_grid_menu=0x7f03001a;
-        public static final int list_menu_header=0x7f03001b;
-        public static final int list_menu_item=0x7f03001c;
-        public static final int list_rower_logo=0x7f03001d;
-        public static final int menu_frame=0x7f03001e;
-        public static final int responsive_content_frame=0x7f03001f;
-        public static final int share_deal=0x7f030020;
-        public static final int sherlock_spinner_dropdown_item=0x7f030021;
-        public static final int sherlock_spinner_item=0x7f030022;
-        public static final int slidingmenumain=0x7f030023;
+        public static final int list_menu_favorite=0x7f03001b;
+        public static final int list_menu_header=0x7f03001c;
+        public static final int list_menu_item=0x7f03001d;
+        public static final int list_rower_logo=0x7f03001e;
+        public static final int menu_frame=0x7f03001f;
+        public static final int menu_frame_new=0x7f030020;
+        public static final int responsive_content_frame=0x7f030021;
+        public static final int share_deal=0x7f030022;
+        public static final int sherlock_spinner_dropdown_item=0x7f030023;
+        public static final int sherlock_spinner_item=0x7f030024;
+        public static final int slidingmenumain=0x7f030025;
     }
     public static final class menu {
         public static final int main=0x7f0d0000;
     }
     public static final class string {
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS02.aar/res/values/values.xml 
+         */
         public static final int abs__action_bar_home_description=0x7f0b0000;
         public static final int abs__action_bar_up_description=0x7f0b0001;
         public static final int abs__action_menu_overflow_description=0x7f0b0002;
@@ -1152,6 +1248,9 @@ containing a value of this type.
         public static final int abs__searchview_description_voice=0x7f0b000a;
         public static final int abs__shareactionprovider_share_with=0x7f0b000b;
         public static final int abs__shareactionprovider_share_with_application=0x7f0b000c;
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/strings.xml 
+ From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values-es/strings.xml 
+         */
         public static final int action_info=0x7f0b000d;
         public static final int action_photo=0x7f0b000e;
         public static final int action_scan=0x7f0b000f;
@@ -1168,110 +1267,137 @@ containing a value of this type.
         public static final int what_is_this=0x7f0b001a;
     }
     public static final class style {
-        /** 
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/styles_coupers_theme.xml 
+         */
+        public static final int ActionBar_Solid_Coupers_theme=0x7f0c0000;
+        public static final int ActionBar_Transparent_Coupers_theme=0x7f0c0001;
+        public static final int ActionBarTabStyle_Coupers_theme=0x7f0c0002;
+        public static final int ActionButton_CloseMode_Coupers_theme=0x7f0c0003;
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/styles.xml 
+
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         
+ From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values-v11/styles.xml 
  API 11 theme customizations can go here. 
+ From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values-v14/styles.xml 
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f0c0000;
+        public static final int AppBaseTheme=0x7f0c0004;
         /**  All customizations that are NOT specific to a particular API-level can go here. 
+ All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f0c0001;
-        public static final int Sherlock___TextAppearance_Small=0x7f0c0002;
-        public static final int Sherlock___Theme=0x7f0c0003;
-        public static final int Sherlock___Theme_DarkActionBar=0x7f0c0004;
-        public static final int Sherlock___Theme_Light=0x7f0c0005;
-        public static final int Sherlock___Widget_ActionBar=0x7f0c0006;
-        public static final int Sherlock___Widget_ActionMode=0x7f0c0007;
-        public static final int Sherlock___Widget_ActivityChooserView=0x7f0c0008;
-        public static final int Sherlock___Widget_Holo_DropDownItem=0x7f0c0009;
-        public static final int Sherlock___Widget_Holo_ListView=0x7f0c000a;
-        public static final int Sherlock___Widget_Holo_Spinner=0x7f0c000b;
-        public static final int Sherlock___Widget_SearchAutoCompleteTextView=0x7f0c000c;
-        public static final int TextAppearance_Sherlock=0x7f0c000d;
-        public static final int TextAppearance_Sherlock_Light_SearchResult=0x7f0c000e;
-        public static final int TextAppearance_Sherlock_Light_SearchResult_Subtitle=0x7f0c000f;
-        public static final int TextAppearance_Sherlock_Light_SearchResult_Title=0x7f0c0010;
-        public static final int TextAppearance_Sherlock_Light_Small=0x7f0c0011;
-        public static final int TextAppearance_Sherlock_Light_Widget_PopupMenu_Large=0x7f0c0012;
-        public static final int TextAppearance_Sherlock_Light_Widget_PopupMenu_Small=0x7f0c0013;
-        public static final int TextAppearance_Sherlock_SearchResult=0x7f0c0014;
-        public static final int TextAppearance_Sherlock_SearchResult_Subtitle=0x7f0c0015;
-        public static final int TextAppearance_Sherlock_SearchResult_Title=0x7f0c0016;
-        public static final int TextAppearance_Sherlock_Small=0x7f0c0017;
-        public static final int TextAppearance_Sherlock_Widget_ActionBar_Menu=0x7f0c0018;
-        public static final int TextAppearance_Sherlock_Widget_ActionBar_Subtitle=0x7f0c0019;
-        public static final int TextAppearance_Sherlock_Widget_ActionBar_Subtitle_Inverse=0x7f0c001a;
-        public static final int TextAppearance_Sherlock_Widget_ActionBar_Title=0x7f0c001b;
-        public static final int TextAppearance_Sherlock_Widget_ActionBar_Title_Inverse=0x7f0c001c;
-        public static final int TextAppearance_Sherlock_Widget_ActionMode_Subtitle=0x7f0c001d;
-        public static final int TextAppearance_Sherlock_Widget_ActionMode_Subtitle_Inverse=0x7f0c001e;
-        public static final int TextAppearance_Sherlock_Widget_ActionMode_Title=0x7f0c001f;
-        public static final int TextAppearance_Sherlock_Widget_ActionMode_Title_Inverse=0x7f0c0020;
-        public static final int TextAppearance_Sherlock_Widget_DropDownHint=0x7f0c0021;
-        public static final int TextAppearance_Sherlock_Widget_DropDownItem=0x7f0c0022;
-        public static final int TextAppearance_Sherlock_Widget_PopupMenu=0x7f0c0023;
-        public static final int TextAppearance_Sherlock_Widget_PopupMenu_Large=0x7f0c0024;
-        public static final int TextAppearance_Sherlock_Widget_PopupMenu_Small=0x7f0c0025;
-        public static final int TextAppearance_Sherlock_Widget_TextView_SpinnerItem=0x7f0c0026;
-        public static final int Theme_Sherlock=0x7f0c0027;
-        public static final int Theme_Sherlock_Light=0x7f0c0028;
-        public static final int Theme_Sherlock_Light_DarkActionBar=0x7f0c0029;
-        public static final int Theme_Sherlock_Light_NoActionBar=0x7f0c002a;
-        public static final int Theme_Sherlock_NoActionBar=0x7f0c002b;
-        public static final int Widget=0x7f0c002c;
-        public static final int Widget_Sherlock_ActionBar=0x7f0c002d;
-        public static final int Widget_Sherlock_ActionBar_Solid=0x7f0c002e;
-        public static final int Widget_Sherlock_ActionBar_TabBar=0x7f0c002f;
-        public static final int Widget_Sherlock_ActionBar_TabText=0x7f0c0030;
-        public static final int Widget_Sherlock_ActionBar_TabView=0x7f0c0031;
-        public static final int Widget_Sherlock_ActionButton=0x7f0c0032;
-        public static final int Widget_Sherlock_ActionButton_CloseMode=0x7f0c0033;
-        public static final int Widget_Sherlock_ActionButton_Overflow=0x7f0c0034;
-        public static final int Widget_Sherlock_ActionMode=0x7f0c0035;
-        public static final int Widget_Sherlock_ActivityChooserView=0x7f0c0036;
-        public static final int Widget_Sherlock_Button_Small=0x7f0c0037;
-        public static final int Widget_Sherlock_DropDownItem_Spinner=0x7f0c0038;
-        public static final int Widget_Sherlock_Light_ActionBar=0x7f0c0039;
-        public static final int Widget_Sherlock_Light_ActionBar_Solid=0x7f0c003a;
-        public static final int Widget_Sherlock_Light_ActionBar_Solid_Inverse=0x7f0c003b;
-        public static final int Widget_Sherlock_Light_ActionBar_TabBar=0x7f0c003c;
-        public static final int Widget_Sherlock_Light_ActionBar_TabBar_Inverse=0x7f0c003d;
-        public static final int Widget_Sherlock_Light_ActionBar_TabText=0x7f0c003e;
-        public static final int Widget_Sherlock_Light_ActionBar_TabText_Inverse=0x7f0c003f;
-        public static final int Widget_Sherlock_Light_ActionBar_TabView=0x7f0c0040;
-        public static final int Widget_Sherlock_Light_ActionBar_TabView_Inverse=0x7f0c0041;
-        public static final int Widget_Sherlock_Light_ActionButton=0x7f0c0042;
-        public static final int Widget_Sherlock_Light_ActionButton_CloseMode=0x7f0c0043;
-        public static final int Widget_Sherlock_Light_ActionButton_Overflow=0x7f0c0044;
-        public static final int Widget_Sherlock_Light_ActionMode=0x7f0c0045;
-        public static final int Widget_Sherlock_Light_ActionMode_Inverse=0x7f0c0046;
-        public static final int Widget_Sherlock_Light_ActivityChooserView=0x7f0c0047;
-        public static final int Widget_Sherlock_Light_Button_Small=0x7f0c0048;
-        public static final int Widget_Sherlock_Light_DropDownItem_Spinner=0x7f0c0049;
-        public static final int Widget_Sherlock_Light_ListPopupWindow=0x7f0c004a;
-        public static final int Widget_Sherlock_Light_ListView_DropDown=0x7f0c004b;
-        public static final int Widget_Sherlock_Light_PopupMenu=0x7f0c004c;
-        public static final int Widget_Sherlock_Light_PopupWindow_ActionMode=0x7f0c004d;
-        public static final int Widget_Sherlock_Light_ProgressBar=0x7f0c004e;
-        public static final int Widget_Sherlock_Light_ProgressBar_Horizontal=0x7f0c004f;
-        public static final int Widget_Sherlock_Light_SearchAutoCompleteTextView=0x7f0c0050;
-        public static final int Widget_Sherlock_Light_Spinner_DropDown_ActionBar=0x7f0c0051;
-        public static final int Widget_Sherlock_ListPopupWindow=0x7f0c0052;
-        public static final int Widget_Sherlock_ListView_DropDown=0x7f0c0053;
-        public static final int Widget_Sherlock_PopupMenu=0x7f0c0054;
-        public static final int Widget_Sherlock_PopupWindow_ActionMode=0x7f0c0055;
-        public static final int Widget_Sherlock_ProgressBar=0x7f0c0056;
-        public static final int Widget_Sherlock_ProgressBar_Horizontal=0x7f0c0057;
-        public static final int Widget_Sherlock_SearchAutoCompleteTextView=0x7f0c0058;
-        public static final int Widget_Sherlock_Spinner_DropDown_ActionBar=0x7f0c0059;
-        public static final int Widget_Sherlock_TextView_SpinnerItem=0x7f0c005a;
+        public static final int AppTheme=0x7f0c0005;
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/styles_coupers_theme.xml 
+         */
+        public static final int DropDownListView_Coupers_theme=0x7f0c0006;
+        public static final int DropDownNav_Coupers_theme=0x7f0c0007;
+        public static final int PopupMenu_Coupers_theme=0x7f0c0008;
+        public static final int ProgressBar_Coupers_theme=0x7f0c0009;
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS02.aar/res/values/values.xml 
+         */
+        public static final int Sherlock___TextAppearance_Small=0x7f0c000a;
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS02.aar/res/values-v11/values.xml 
+ From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS02.aar/res/values-v14/values.xml 
+         */
+        public static final int Sherlock___Theme=0x7f0c000b;
+        public static final int Sherlock___Theme_DarkActionBar=0x7f0c000c;
+        public static final int Sherlock___Theme_Light=0x7f0c000d;
+        public static final int Sherlock___Widget_ActionBar=0x7f0c000e;
+        public static final int Sherlock___Widget_ActionMode=0x7f0c000f;
+        public static final int Sherlock___Widget_ActivityChooserView=0x7f0c0010;
+        public static final int Sherlock___Widget_Holo_DropDownItem=0x7f0c0011;
+        public static final int Sherlock___Widget_Holo_ListView=0x7f0c0012;
+        public static final int Sherlock___Widget_Holo_Spinner=0x7f0c0013;
+        public static final int Sherlock___Widget_SearchAutoCompleteTextView=0x7f0c0014;
+        public static final int TextAppearance_Sherlock=0x7f0c0015;
+        public static final int TextAppearance_Sherlock_Light_SearchResult=0x7f0c0016;
+        public static final int TextAppearance_Sherlock_Light_SearchResult_Subtitle=0x7f0c0017;
+        public static final int TextAppearance_Sherlock_Light_SearchResult_Title=0x7f0c0018;
+        public static final int TextAppearance_Sherlock_Light_Small=0x7f0c0019;
+        public static final int TextAppearance_Sherlock_Light_Widget_PopupMenu_Large=0x7f0c001a;
+        public static final int TextAppearance_Sherlock_Light_Widget_PopupMenu_Small=0x7f0c001b;
+        public static final int TextAppearance_Sherlock_SearchResult=0x7f0c001c;
+        public static final int TextAppearance_Sherlock_SearchResult_Subtitle=0x7f0c001d;
+        public static final int TextAppearance_Sherlock_SearchResult_Title=0x7f0c001e;
+        public static final int TextAppearance_Sherlock_Small=0x7f0c001f;
+        public static final int TextAppearance_Sherlock_Widget_ActionBar_Menu=0x7f0c0020;
+        public static final int TextAppearance_Sherlock_Widget_ActionBar_Subtitle=0x7f0c0021;
+        public static final int TextAppearance_Sherlock_Widget_ActionBar_Subtitle_Inverse=0x7f0c0022;
+        public static final int TextAppearance_Sherlock_Widget_ActionBar_Title=0x7f0c0023;
+        public static final int TextAppearance_Sherlock_Widget_ActionBar_Title_Inverse=0x7f0c0024;
+        public static final int TextAppearance_Sherlock_Widget_ActionMode_Subtitle=0x7f0c0025;
+        public static final int TextAppearance_Sherlock_Widget_ActionMode_Subtitle_Inverse=0x7f0c0026;
+        public static final int TextAppearance_Sherlock_Widget_ActionMode_Title=0x7f0c0027;
+        public static final int TextAppearance_Sherlock_Widget_ActionMode_Title_Inverse=0x7f0c0028;
+        public static final int TextAppearance_Sherlock_Widget_DropDownHint=0x7f0c0029;
+        public static final int TextAppearance_Sherlock_Widget_DropDownItem=0x7f0c002a;
+        public static final int TextAppearance_Sherlock_Widget_PopupMenu=0x7f0c002b;
+        public static final int TextAppearance_Sherlock_Widget_PopupMenu_Large=0x7f0c002c;
+        public static final int TextAppearance_Sherlock_Widget_PopupMenu_Small=0x7f0c002d;
+        public static final int TextAppearance_Sherlock_Widget_TextView_SpinnerItem=0x7f0c002e;
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/styles_coupers_theme.xml 
+         */
+        public static final int Theme_Coupers_theme=0x7f0c002f;
+        public static final int Theme_Coupers_theme_Widget=0x7f0c0030;
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS02.aar/res/values/values.xml 
+         */
+        public static final int Theme_Sherlock=0x7f0c0031;
+        public static final int Theme_Sherlock_Light=0x7f0c0032;
+        public static final int Theme_Sherlock_Light_DarkActionBar=0x7f0c0033;
+        public static final int Theme_Sherlock_Light_NoActionBar=0x7f0c0034;
+        public static final int Theme_Sherlock_NoActionBar=0x7f0c0035;
+        public static final int Widget=0x7f0c0036;
+        public static final int Widget_Sherlock_ActionBar=0x7f0c0037;
+        public static final int Widget_Sherlock_ActionBar_Solid=0x7f0c0038;
+        public static final int Widget_Sherlock_ActionBar_TabBar=0x7f0c0039;
+        public static final int Widget_Sherlock_ActionBar_TabText=0x7f0c003a;
+        public static final int Widget_Sherlock_ActionBar_TabView=0x7f0c003b;
+        public static final int Widget_Sherlock_ActionButton=0x7f0c003c;
+        public static final int Widget_Sherlock_ActionButton_CloseMode=0x7f0c003d;
+        public static final int Widget_Sherlock_ActionButton_Overflow=0x7f0c003e;
+        public static final int Widget_Sherlock_ActionMode=0x7f0c003f;
+        public static final int Widget_Sherlock_ActivityChooserView=0x7f0c0040;
+        public static final int Widget_Sherlock_Button_Small=0x7f0c0041;
+        public static final int Widget_Sherlock_DropDownItem_Spinner=0x7f0c0042;
+        public static final int Widget_Sherlock_Light_ActionBar=0x7f0c0043;
+        public static final int Widget_Sherlock_Light_ActionBar_Solid=0x7f0c0044;
+        public static final int Widget_Sherlock_Light_ActionBar_Solid_Inverse=0x7f0c0045;
+        public static final int Widget_Sherlock_Light_ActionBar_TabBar=0x7f0c0046;
+        public static final int Widget_Sherlock_Light_ActionBar_TabBar_Inverse=0x7f0c0047;
+        public static final int Widget_Sherlock_Light_ActionBar_TabText=0x7f0c0048;
+        public static final int Widget_Sherlock_Light_ActionBar_TabText_Inverse=0x7f0c0049;
+        public static final int Widget_Sherlock_Light_ActionBar_TabView=0x7f0c004a;
+        public static final int Widget_Sherlock_Light_ActionBar_TabView_Inverse=0x7f0c004b;
+        public static final int Widget_Sherlock_Light_ActionButton=0x7f0c004c;
+        public static final int Widget_Sherlock_Light_ActionButton_CloseMode=0x7f0c004d;
+        public static final int Widget_Sherlock_Light_ActionButton_Overflow=0x7f0c004e;
+        public static final int Widget_Sherlock_Light_ActionMode=0x7f0c004f;
+        public static final int Widget_Sherlock_Light_ActionMode_Inverse=0x7f0c0050;
+        public static final int Widget_Sherlock_Light_ActivityChooserView=0x7f0c0051;
+        public static final int Widget_Sherlock_Light_Button_Small=0x7f0c0052;
+        public static final int Widget_Sherlock_Light_DropDownItem_Spinner=0x7f0c0053;
+        public static final int Widget_Sherlock_Light_ListPopupWindow=0x7f0c0054;
+        public static final int Widget_Sherlock_Light_ListView_DropDown=0x7f0c0055;
+        public static final int Widget_Sherlock_Light_PopupMenu=0x7f0c0056;
+        public static final int Widget_Sherlock_Light_PopupWindow_ActionMode=0x7f0c0057;
+        public static final int Widget_Sherlock_Light_ProgressBar=0x7f0c0058;
+        public static final int Widget_Sherlock_Light_ProgressBar_Horizontal=0x7f0c0059;
+        public static final int Widget_Sherlock_Light_SearchAutoCompleteTextView=0x7f0c005a;
+        public static final int Widget_Sherlock_Light_Spinner_DropDown_ActionBar=0x7f0c005b;
+        public static final int Widget_Sherlock_ListPopupWindow=0x7f0c005c;
+        public static final int Widget_Sherlock_ListView_DropDown=0x7f0c005d;
+        public static final int Widget_Sherlock_PopupMenu=0x7f0c005e;
+        public static final int Widget_Sherlock_PopupWindow_ActionMode=0x7f0c005f;
+        public static final int Widget_Sherlock_ProgressBar=0x7f0c0060;
+        public static final int Widget_Sherlock_ProgressBar_Horizontal=0x7f0c0061;
+        public static final int Widget_Sherlock_SearchAutoCompleteTextView=0x7f0c0062;
+        public static final int Widget_Sherlock_Spinner_DropDown_ActionBar=0x7f0c0063;
+        public static final int Widget_Sherlock_TextView_SpinnerItem=0x7f0c0064;
     }
     public static final class styleable {
-        /** Attributes that can be used with a SherlockActionBar.
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS02.aar/res/values/values.xml 
            <p>Includes the following attributes:</p>
            <table>
            <colgroup align="left" />
@@ -3477,7 +3603,7 @@ containing a value of this type.
           @attr name android:android_focusable
         */
         public static final int SherlockView_android_focusable = 0;
-        /** Attributes that can be used with a SlidingMenu.
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComSlidingMenuLibrarySlidingMenuLibrary01.aar/res/values/values.xml 
            <p>Includes the following attributes:</p>
            <table>
            <colgroup align="left" />

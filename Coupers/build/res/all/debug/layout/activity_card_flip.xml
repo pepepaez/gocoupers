@@ -6,4 +6,4 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/container"
         android:background="#000000">
-</FrameLayout>
+</FrameLayout><!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/layout/activity_card_flip.xml -->

@@ -1,23 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/content_frame"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/grid_padding">
     <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
                                        android:id="@+id/pager"
                                        android:layout_width="match_parent"
-                                       android:layout_height="match_parent" >
+                                       android:layout_height="match_parent"
+                                       android:layout_gravity="left|center_vertical"
+                                       android:layout_alignParentLeft="true"
+                                       android:layout_marginLeft="0dp"
+                                       android:layout_alignParentTop="true"
+                                       android:layout_marginTop="0dp">
 
         <android.support.v4.view.PagerTabStrip
                 android:id="@+id/pager_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top"
-                android:background="#000"
+                android:background="#efe6e6"
                 android:paddingBottom="4dp"
                 android:paddingTop="4dp"
-                android:textColor="#fff" />
+                android:textColor="#3a3a3a"
+                />
+        <GridView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/gridView"
+                android:layout_gravity="left|center_vertical"
+                android:layout_marginTop="-30dp"/>
 
     </android.support.v4.view.ViewPager>
 
-    </FrameLayout>
+
+</RelativeLayout>

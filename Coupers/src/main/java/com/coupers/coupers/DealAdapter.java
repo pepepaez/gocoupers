@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.androidquery.AQuery;
 import com.coupers.utils.ImageLoader;
 
 import java.util.ArrayList;
@@ -46,9 +47,10 @@ public class DealAdapter extends BaseAdapter {
 
     public View getView(int position, View convertView, ViewGroup parent) {
         View vi=convertView;
+
         if(convertView==null)
             vi = inflater.inflate(R.layout.list_rower_logo, null);
-
+        AQuery aq = new AQuery(vi);
 
         /*TextView deal_desc = null; // description
         if (vi != null) {
@@ -58,11 +60,11 @@ public class DealAdapter extends BaseAdapter {
         if (vi != null) {
             location_name = (TextView)vi.findViewById(R.id.location_name);
         }*/
-        ImageView logo_image= null; // thumb image
+        /*ImageView logo_image= null; // thumb image
         if (vi != null) {
             logo_image = (ImageView)vi.findViewById(R.id.logo_image);
             logo_image.setVisibility(View.INVISIBLE);
-        }
+        }*/
         TextView deal_tip = null; // deal tip
         if (vi != null) {
             deal_tip = (TextView)vi.findViewById(R.id.deal_tip);
@@ -71,23 +73,23 @@ public class DealAdapter extends BaseAdapter {
         if (vi != null) {
             deal_id = (TextView)vi.findViewById(R.id.deal_id);
         }
-        ImageView thumb_image= null; // thumb image
+        /*ImageView thumb_image= null; // thumb image
         if (vi != null) {
             thumb_image = (ImageView)vi.findViewById(R.id.list_image);
             thumb_image.setVisibility(View.INVISIBLE);
-        }
-        ProgressBar pbThumb = (ProgressBar) vi.findViewById(R.id.progressBarThumb);
-        pbThumb.setVisibility(View.VISIBLE);
+        }*/
+        //ProgressBar pbThumb = (ProgressBar) vi.findViewById(R.id.progressBarThumb);
+        //pbThumb.setVisibility(View.VISIBLE);
 
-        ProgressBar pbLogo = (ProgressBar)   vi.findViewById(R.id.progressBarLogo);
-        pbLogo.setVisibility(View.VISIBLE);
+        //ProgressBar pbLogo = (ProgressBar)   vi.findViewById(R.id.progressBarLogo);
+        //pbLogo.setVisibility(View.VISIBLE);
 
         HashMap<String, String> deal = new HashMap<String, String>();
         deal = data.get(position);
 
         String dealType = deal.get(ResponsiveUIActivity.KEY_TYPE);
         if (dealType.equals("food")) {
-            vi.setBackgroundResource(R.drawable.list_selector);
+            vi.setBackgroundResource(R.drawable.list_selector_food);
 
         } else if (dealType.equals("cafe")) {
             vi.setBackgroundResource(R.drawable.list_selector_cafe);
@@ -105,9 +107,12 @@ public class DealAdapter extends BaseAdapter {
         //deal_desc.setText(deal.get(ResponsiveUIActivity.KEY_DEAL_DESC));
         //location_name.setText(deal.get(ResponsiveUIActivity.KEY_LOCATION_NAME));
         deal_id.setText(deal.get(ResponsiveUIActivity.KEY_ID));
-        imageLoader.DisplayImage(deal.get(ResponsiveUIActivity.KEY_LOCATION_LOGO),logo_image, pbLogo);
+
+        aq.id(R.id.logo_image).progress(R.id.progressBarLogo).image(deal.get(ResponsiveUIActivity.KEY_LOCATION_LOGO),true,true);
+        //imageLoader.DisplayImage(deal.get(ResponsiveUIActivity.KEY_LOCATION_LOGO),logo_image, pbLogo);
         deal_tip.setText(deal.get(ResponsiveUIActivity.KEY_DEAL_TIP));
-        imageLoader.DisplayImage(deal.get(ResponsiveUIActivity.KEY_THUMB_URL), thumb_image, pbThumb);
+        aq.id(R.id.list_image).progress(R.id.progressBarThumb).image(deal.get(ResponsiveUIActivity.KEY_THUMB_URL),true,true);
+        //imageLoader.DisplayImage(deal.get(ResponsiveUIActivity.KEY_THUMB_URL), thumb_image, pbThumb);
 /*        logo_image.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View view, boolean b) {

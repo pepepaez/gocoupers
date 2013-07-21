@@ -6,7 +6,7 @@
     android:verticalSpacing="1dp"
     android:horizontalSpacing="1dp"
     android:layout_height="match_parent"
-        android:background="#ffffff">
+        android:background="#e3e3e3">
     
 
 </GridView>

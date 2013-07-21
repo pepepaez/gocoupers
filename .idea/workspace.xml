@@ -15,41 +15,340 @@
       <layout url="file://$PROJECT_DIR$/Coupers/src/main/res/layout/activity_main.xml">
         <config>
           <device>Nexus 4</device>
-          <theme>@android:style/Theme.Holo.Light.CompactMenu</theme>
+          <theme>@style/Theme.Coupers_theme</theme>
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/Coupers/src/main/res/layout/deal_card_front.xml">
         <config>
           <device>Nexus 4</device>
-          <theme>@style/AppTheme</theme>
+          <theme>@style/Theme.Coupers_theme</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/Coupers/src/main/res/layout/list_grid_menu.xml">
+        <config>
+          <device>Nexus 4</device>
+          <theme>@style/Theme.Coupers_theme</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/Coupers/src/main/res/layout/list_menu_header.xml">
+        <config>
+          <device>Nexus 4</device>
+          <theme>@style/Theme.Coupers_theme</theme>
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/Coupers/src/main/res/layout/list_rower_logo.xml">
         <config>
           <device>Nexus 4</device>
-          <theme>@style/AppTheme</theme>
+          <theme>@style/Theme.Coupers_theme</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/Coupers/src/main/res/layout/menu_frame.xml">
+        <config>
+          <device>Nexus 4</device>
+          <theme>@style/Theme.Coupers_theme</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/Coupers/src/main/res/layout/menu_frame_new.xml">
+        <config>
+          <device>Nexus 4</device>
+          <theme>@style/Theme.Coupers_theme</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/Coupers/src/main/res/layout/responsive_content_frame.xml">
+        <config>
+          <device>Nexus 4</device>
+          <theme>@style/Theme.Coupers_theme</theme>
         </config>
       </layout>
     </layouts>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="cinepolis" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c66ea3d-5808-4c51-8f8e-0b6535455f70" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/entities/DealEntity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/ksoap2_3_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/ksoap2_3_02.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi/ab_bottom_solid_coupers_theme.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi/ab_solid_coupers_theme.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi/ab_stacked_solid_coupers_theme.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi/ab_texture_tile_coupers_theme.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi/ab_transparent_coupers_theme.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi/btn_cab_done_default_coupers_theme.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi/btn_cab_done_focused_coupers_theme.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi/btn_cab_done_pressed_coupers_theme.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi/cab_background_bottom_coupers_theme.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi/cab_background_top_coupers_theme.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi/list_focused_coupers_theme.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi/menu_dropdown_panel_coupers_theme.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable/navicon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi/progress_bg_coupers_theme.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi/progress_primary_coupers_theme.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi/progress_secondary_coupers_theme.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi/spinner_ab_default_coupers_theme.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi/spinner_ab_disabled_coupers_theme.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi/spinner_ab_focused_coupers_theme.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi/spinner_ab_pressed_coupers_theme.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi/tab_selected_coupers_theme.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi/tab_selected_focused_coupers_theme.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi/tab_selected_pressed_coupers_theme.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi/tab_unselected_coupers_theme.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi/tab_unselected_focused_coupers_theme.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi/tab_unselected_pressed_coupers_theme.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/ComABSABS02_aar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/ComSlidingMenuLibrarySlidingMenuLibrary01_aar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/entities/WebServiceDataFields.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable/ab_background_textured_coupers_theme.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/aquery_0_25_10.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable/btn_cab_done_coupers_theme.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/values/colors_coupers_theme.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable/gradient_bg_food.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable/grid_padding.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/layout/list_menu_favorite.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable/list_selector_food.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/layout/menu_frame_new.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable/menu_padding.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable/pressed_background_coupers_theme.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable/progress_horizontal_coupers_theme.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable/red_circle_black_border.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable/selectable_background_coupers_theme.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable/spinner_background_ab_coupers_theme.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/values/styles_coupers_theme.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/drawable/tab_indicator_ab_coupers_theme.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_ab_back_holo_dark.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_ab_back_holo_dark.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_ab_back_holo_dark.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_ab_back_holo_dark.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_ab_back_holo_dark.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_ab_back_holo_dark.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_ab_back_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_ab_back_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_ab_back_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_ab_back_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_ab_back_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_ab_back_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_cab_done_holo_dark.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_cab_done_holo_dark.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_cab_done_holo_dark.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_cab_done_holo_dark.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_cab_done_holo_dark.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_cab_done_holo_dark.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_cab_done_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_cab_done_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_cab_done_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_cab_done_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_cab_done_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_cab_done_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_clear_disabled.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_clear_disabled.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_clear_disabled.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_clear_disabled.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_clear_disabled.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_clear_disabled.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_clear_normal.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_clear_normal.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_clear_normal.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_clear_normal.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_clear_search_api_disabled_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_clear_search_api_disabled_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_clear_search_api_disabled_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_clear_search_api_disabled_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_clear_search_api_disabled_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_clear_search_api_disabled_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_clear_search_api_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_clear_search_api_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_clear_search_api_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_clear_search_api_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_clear_search_api_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_clear_search_api_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_commit_search_api_holo_dark.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_commit_search_api_holo_dark.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_commit_search_api_holo_dark.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_commit_search_api_holo_dark.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_commit_search_api_holo_dark.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_commit_search_api_holo_dark.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_commit_search_api_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_commit_search_api_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_commit_search_api_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_commit_search_api_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_commit_search_api_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_commit_search_api_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_go.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_go.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_go.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_go.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_go.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_go.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_go_search_api_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_go_search_api_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_go_search_api_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_go_search_api_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_go_search_api_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_go_search_api_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_menu_moreoverflow_normal_holo_dark.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_menu_moreoverflow_normal_holo_dark.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_menu_moreoverflow_normal_holo_dark.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_menu_moreoverflow_normal_holo_dark.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_menu_moreoverflow_normal_holo_dark.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_menu_moreoverflow_normal_holo_dark.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_menu_moreoverflow_normal_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_menu_moreoverflow_normal_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_menu_moreoverflow_normal_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_menu_moreoverflow_normal_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_menu_moreoverflow_normal_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_menu_moreoverflow_normal_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_menu_share_holo_dark.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_menu_share_holo_dark.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_menu_share_holo_dark.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_menu_share_holo_dark.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_menu_share_holo_dark.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_menu_share_holo_dark.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_menu_share_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_menu_share_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_menu_share_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_menu_share_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_menu_share_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_menu_share_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_search.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_search.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_search.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_search.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_search.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_search.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_search_api_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_search_api_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_search_api_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_search_api_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_search_api_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_search_api_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_voice_search.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_voice_search.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_voice_search.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_voice_search.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_voice_search.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_voice_search.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_voice_search_api_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__ic_voice_search_api_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_voice_search_api_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__ic_voice_search_api_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_voice_search_api_holo_light.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__ic_voice_search_api_holo_light.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__spinner_48_inner_holo.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__spinner_48_inner_holo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__spinner_48_inner_holo.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__spinner_48_inner_holo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__spinner_48_inner_holo.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__spinner_48_inner_holo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__spinner_48_outer_holo.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/abs__spinner_48_outer_holo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__spinner_48_outer_holo.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/abs__spinner_48_outer_holo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__spinner_48_outer_holo.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/abs__spinner_48_outer_holo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/arrow.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/arrow.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/barcode.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/barcode.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/coupers_icon3.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/coupers_icon3.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/dashline.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/dashline.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/dashline2.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/dashline2.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/eagle.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/eagle.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/flamingo.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/flamingo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/heron.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/heron.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/ic_action_barcode.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/ic_action_barcode.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/ic_action_info.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/ic_action_info.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/ic_action_photo.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/ic_action_photo.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/ic_action_scan.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/ic_action_scan.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-hdpi/ic_launcher.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-mdpi/ic_launcher.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xhdpi/ic_launcher.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-xxhdpi/ic_launcher.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/logo_icon1.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/logo_icon1.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/map.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/map.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/muelle.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/muelle.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/muelle240.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/muelle240.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/no_image.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/no_image.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/octocat.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/octocat.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/ostrich.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/ostrich.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/peacock.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/peacock.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/penguin.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/penguin.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/tlalli.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/tlalli.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/toucan.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/toucan.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/turkey.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/turkey.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/ultragym.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/ultragym.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/vulture.png" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/vulture.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/ABS_1_1_aar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/ABS_1_1_aar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/ABS_1_1_aar2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/ABS_1_1_aar2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/Coupers/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/Coupers.iml" afterPath="$PROJECT_DIR$/Coupers/Coupers.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CoupersProject.iml" afterPath="$PROJECT_DIR$/CoupersProject.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealAdapter.java" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealGridFragment.java" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealGridFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealMenuFragment.java" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealMenuFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/MainActivity.java" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/MenuAdapter.java" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/MenuAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/source/r/debug/com/actionbarsherlock/R.java" afterPath="$PROJECT_DIR$/Coupers/build/source/r/debug/com/actionbarsherlock/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/source/r/debug/com/coupers/coupers/R.java" afterPath="$PROJECT_DIR$/Coupers/build/source/r/debug/com/coupers/coupers/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/source/r/debug/com/jeremyfeinstein/slidingmenu/lib/R.java" afterPath="$PROJECT_DIR$/Coupers/build/source/r/debug/com/jeremyfeinstein/slidingmenu/lib/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/ResponsiveUIActivity.java" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/ResponsiveUIActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/utils/XMLParser.java" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/utils/XMLParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__action_bar_home.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__action_bar_home.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__action_bar_tab.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__action_bar_tab.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__action_bar_tab_bar_view.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__action_bar_tab_bar_view.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__action_bar_title_item.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__action_bar_title_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__action_menu_item_layout.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__action_menu_item_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__action_menu_layout.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__action_menu_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__action_mode_bar.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__action_mode_bar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__action_mode_close_item.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__action_mode_close_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout-large/abs__action_mode_close_item.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout-large/abs__action_mode_close_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__activated_background_holo_dark.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__activated_background_holo_dark.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__activated_background_holo_light.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__activated_background_holo_light.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__activity_chooser_view.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__activity_chooser_view.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__activity_chooser_view_list_item.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__activity_chooser_view_list_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__btn_cab_done_holo_dark.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__btn_cab_done_holo_dark.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__btn_cab_done_holo_light.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__btn_cab_done_holo_light.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__ic_clear.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__ic_clear.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__ic_clear_holo_light.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__ic_clear_holo_light.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__ic_menu_moreoverflow_holo_dark.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__ic_menu_moreoverflow_holo_dark.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__ic_menu_moreoverflow_holo_light.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__ic_menu_moreoverflow_holo_light.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__item_background_holo_dark.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__item_background_holo_dark.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__item_background_holo_light.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__item_background_holo_light.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__list_menu_item_checkbox.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__list_menu_item_checkbox.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__list_menu_item_icon.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__list_menu_item_icon.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__list_menu_item_radio.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__list_menu_item_radio.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__list_selector_background_transition_holo_dark.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__list_selector_background_transition_holo_dark.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__list_selector_background_transition_holo_light.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__list_selector_background_transition_holo_light.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__list_selector_holo_dark.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__list_selector_holo_dark.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__list_selector_holo_light.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__list_selector_holo_light.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__popup_menu_item_layout.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__popup_menu_item_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/color/abs__primary_text_disable_only_holo_dark.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/color/abs__primary_text_disable_only_holo_dark.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/color/abs__primary_text_disable_only_holo_light.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/color/abs__primary_text_disable_only_holo_light.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/color/abs__primary_text_holo_dark.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/color/abs__primary_text_holo_dark.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/color/abs__primary_text_holo_light.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/color/abs__primary_text_holo_light.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__progress_horizontal_holo_dark.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__progress_horizontal_holo_dark.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__progress_horizontal_holo_light.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__progress_horizontal_holo_light.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__progress_medium_holo.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__progress_medium_holo.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-v11/abs__progress_medium_holo.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable-v11/abs__progress_medium_holo.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__screen_action_bar.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__screen_action_bar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout-xlarge/abs__screen_action_bar.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout-xlarge/abs__screen_action_bar.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__screen_action_bar_overlay.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__screen_action_bar_overlay.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout-xlarge/abs__screen_action_bar_overlay.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout-xlarge/abs__screen_action_bar_overlay.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__screen_simple.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__screen_simple.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__screen_simple_overlay_action_mode.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__screen_simple_overlay_action_mode.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__search_dropdown_dark.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__search_dropdown_dark.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__search_dropdown_item_icons_2line.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__search_dropdown_item_icons_2line.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__search_dropdown_light.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__search_dropdown_light.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__search_view.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__search_view.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__simple_dropdown_hint.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/abs__simple_dropdown_hint.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__spinner_ab_holo_dark.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__spinner_ab_holo_dark.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__spinner_ab_holo_light.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__spinner_ab_holo_light.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__tab_indicator_ab_holo.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__tab_indicator_ab_holo.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__textfield_searchview_holo_dark.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__textfield_searchview_holo_dark.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__textfield_searchview_holo_light.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__textfield_searchview_holo_light.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__textfield_searchview_right_holo_dark.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__textfield_searchview_right_holo_dark.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__textfield_searchview_right_holo_light.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/abs__textfield_searchview_right_holo_light.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/activity_card_flip.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/activity_card_flip.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/activity_main.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/activity_main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/android_support_v4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/android_support_v4.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/res/values/array.xml" afterPath="$PROJECT_DIR$/Coupers/src/main/res/values/array.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build.gradle" afterPath="$PROJECT_DIR$/Coupers/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/animator/card_flip_left_in.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/animator/card_flip_left_in.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/animator/card_flip_left_out.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/animator/card_flip_left_out.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/animator/card_flip_right_in.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/animator/card_flip_right_in.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/animator/card_flip_right_out.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/animator/card_flip_right_out.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/cell_shape.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/cell_shape.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/custom_button.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/custom_button.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/deal_card_front.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/deal_card_front.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/res/values/dimens.xml" afterPath="$PROJECT_DIR$/Coupers/src/main/res/values/dimens.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/res/values-large/dimens.xml" afterPath="$PROJECT_DIR$/Coupers/src/main/res/values-large/dimens.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/fragment_card_back.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/fragment_card_back.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/gradient_bg.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/gradient_bg.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/gradient_bg_beauty.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/gradient_bg_beauty.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/gradient_bg_cafe.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/gradient_bg_cafe.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/gradient_bg_deal_logo.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/gradient_bg_deal_logo.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/gradient_bg_gym.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/gradient_bg_gym.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/gradient_bg_hover.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/gradient_bg_hover.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/image_bg.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/image_bg.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/list_grid.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/list_grid.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/res/layout/list_grid.xml" afterPath="$PROJECT_DIR$/Coupers/src/main/res/layout/list_grid.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/res/layout/list_menu_header.xml" afterPath="$PROJECT_DIR$/Coupers/src/main/res/layout/list_menu_header.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/list_rower_logo.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/list_rower_logo.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/res/layout/list_rower_logo.xml" afterPath="$PROJECT_DIR$/Coupers/src/main/res/layout/list_rower_logo.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/res/layout-xhdpi/list_rower_logo.xml" afterPath="$PROJECT_DIR$/Coupers/src/main/res/layout-xhdpi/list_rower_logo.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/list_selector.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/list_selector.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/list_selector_beauty.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/list_selector_beauty.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/list_selector_cafe.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/list_selector_cafe.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/list_selector_gym.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/list_selector_gym.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/menu/main.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/menu/main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/menu_frame.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/menu_frame.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/res/layout/menu_frame.xml" afterPath="$PROJECT_DIR$/Coupers/src/main/res/layout/menu_frame.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/responsive_content_frame.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/responsive_content_frame.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/res/layout/responsive_content_frame.xml" afterPath="$PROJECT_DIR$/Coupers/src/main/res/layout/responsive_content_frame.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/shadow.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/drawable/shadow.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/share_deal.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/share_deal.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/sherlock_spinner_dropdown_item.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/sherlock_spinner_dropdown_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout-v14/sherlock_spinner_dropdown_item.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout-v14/sherlock_spinner_dropdown_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/sherlock_spinner_item.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/sherlock_spinner_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout-v14/sherlock_spinner_item.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout-v14/sherlock_spinner_item.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/slidingmenumain.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/slidingmenumain.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/Coupers/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/res/values-es/strings.xml" afterPath="$PROJECT_DIR$/Coupers/src/main/res/values-es/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/res/values-v14/styles.xml" afterPath="$PROJECT_DIR$/Coupers/src/main/res/values-v14/styles.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/values/values.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-es/values.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-es/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-land/values.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-land/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-large/values.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-large/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-large-hdpi-1024x600/values.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-large-hdpi-1024x600/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-large-land/values.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-large-land/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-large-land-hdpi-1024x600/values.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-large-land-hdpi-1024x600/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-large-land-mdpi-1024x600/values.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-large-land-mdpi-1024x600/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-large-mdpi-1024x600/values.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-large-mdpi-1024x600/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-sw600dp/values.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-sw600dp/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-sw720dp-land/values.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-sw720dp-land/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-v11/values.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-v11/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-v14/values.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-v14/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-w360dp/values.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-w360dp/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-w480dp/values.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-w480dp/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-w500dp/values.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-w500dp/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-w600dp/values.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-w600dp/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-xlarge/values.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-xlarge/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-xlarge-land/values.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-xlarge-land/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Coupers.iws" />
@@ -110,7 +409,7 @@
       </breakpoint>
     </breakpoint_any>
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
-      <breakpoint url="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealGridFragment.java" line="119" class="com.coupers.coupers.DealGridFragment$1" package="com.coupers.coupers">
+      <breakpoint url="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/MainActivity.java" line="161" class="com.coupers.coupers.MainActivity" package="com.coupers.coupers">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -125,7 +424,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/MainActivity.java" line="155" class="com.coupers.coupers.MainActivity.CoupersDealWS" package="com.coupers.coupers">
+      <breakpoint url="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/MainActivity.java" line="142" class="com.coupers.coupers.MainActivity" package="com.coupers.coupers">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -140,7 +439,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/MainActivity.java" line="136" class="com.coupers.coupers.MainActivity.CoupersDealWS" package="com.coupers.coupers">
+      <breakpoint url="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/MainActivity.java" line="104" class="com.coupers.coupers.MainActivity" package="com.coupers.coupers">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -155,7 +454,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/ResponsiveUIActivity.java" line="93" class="com.coupers.coupers.ResponsiveUIActivity" package="com.coupers.coupers">
+      <breakpoint url="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealMenuFragment.java" line="73" class="com.coupers.coupers.DealMenuFragment" package="com.coupers.coupers">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -170,7 +469,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/ResponsiveUIActivity.java" line="125" class="com.coupers.coupers.ResponsiveUIActivity" package="com.coupers.coupers">
+      <breakpoint url="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealMenuFragment.java" line="226" class="com.coupers.coupers.DealMenuFragment.LoadFavorites" package="com.coupers.coupers">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -185,7 +484,67 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealGridFragment.java" line="57" class="com.coupers.coupers.DealGridFragment" package="com.coupers.coupers">
+      <breakpoint url="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealMenuFragment.java" line="184" class="com.coupers.coupers.DealMenuFragment.LoadFavorites" package="com.coupers.coupers">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealMenuFragment.java" line="208" class="com.coupers.coupers.DealMenuFragment.LoadFavorites" package="com.coupers.coupers">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealMenuFragment.java" line="181" class="com.coupers.coupers.DealMenuFragment.LoadFavorites" package="com.coupers.coupers">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealMenuFragment.java" line="182" class="com.coupers.coupers.DealMenuFragment.LoadFavorites" package="com.coupers.coupers">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealMenuFragment.java" line="103" class="com.coupers.coupers.DealMenuFragment$1" package="com.coupers.coupers">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -210,89 +569,7 @@
     <favorites_list name="Coupers" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="DealGridFragment.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealGridFragment.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="17" selection-start="1552" selection-end="1552" vertical-scroll-proportion="0.0" vertical-offset="840" max-vertical-offset="2535">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DealAdapter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="107" column="73" selection-start="3647" selection-end="3647" vertical-scroll-proportion="0.0" vertical-offset="1590" max-vertical-offset="2025">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="155" column="0" selection-start="6055" selection-end="6055" vertical-scroll-proportion="0.0" vertical-offset="2221" max-vertical-offset="2520">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DealActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="13" selection-start="543" selection-end="543" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1395">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CardFlipActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/CardFlipActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="249" column="18" selection-start="9845" selection-end="10224" vertical-scroll-proportion="0.0" vertical-offset="3720" max-vertical-offset="4425">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/values/strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="102" selection-start="935" selection-end="1033" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="420">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/values-es/strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="86" selection-start="1054" selection-end="1054" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="420">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DealEntity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/entities/DealEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="0" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="2325">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ResponsiveUIActivity.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/ResponsiveUIActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="101" column="36" selection-start="3764" selection-end="3764" vertical-scroll-proportion="0.025951557" vertical-offset="1155" max-vertical-offset="4185">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -326,44 +603,49 @@
           <key>
             <ExternalProjectPojo>
               <option name="name" value="CoupersProject" />
-              <option name="path" value="$PROJECT_DIR$/build.gradle" />
+              <option name="path" value="$PROJECT_DIR$" />
             </ExternalProjectPojo>
           </key>
           <value>
             <list>
               <ExternalProjectPojo>
                 <option name="name" value="Coupers" />
-                <option name="path" value="$PROJECT_DIR$/Coupers/build.gradle" />
+                <option name="path" value="$PROJECT_DIR$/Coupers" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
                 <option name="name" value="CoupersProject" />
-                <option name="path" value="$PROJECT_DIR$/build.gradle" />
+                <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
             </list>
           </value>
         </entry>
       </map>
     </option>
+    <option name="modificationStamps">
+      <map>
+        <entry key="$PROJECT_DIR$" value="1373873424983" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Coupers/src/main/res/values/dimens.xml" />
-        <option value="$PROJECT_DIR$/Coupers/src/main/res/layout/list_grid_menu.xml" />
-        <option value="$PROJECT_DIR$/Coupers/src/main/res/values/array.xml" />
-        <option value="$PROJECT_DIR$/Coupers/src/main/res/layout/list_menu_item.xml" />
-        <option value="$PROJECT_DIR$/Coupers/src/main/res/layout/list_menu_header.xml" />
-        <option value="$PROJECT_DIR$/Coupers/src/main/res/layout/menu_frame.xml" />
-        <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/MenuAdapter.java" />
-        <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealMenuFragment.java" />
-        <option value="$PROJECT_DIR$/Coupers/build.gradle" />
-        <option value="$PROJECT_DIR$/Coupers/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/Coupers/src/main/res/values-es/strings.xml" />
-        <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/entities/DealStatic.java" />
-        <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/entities/DealEntity.java" />
         <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/MainActivity.java" />
-        <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealGridFragment.java" />
         <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/ResponsiveUIActivity.java" />
+        <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/entities/WebServiceDataFields.java" />
+        <option value="$PROJECT_DIR$/Coupers/build.gradle" />
+        <option value="$PROJECT_DIR$/Coupers/src/main/res/layout/list_rower_logo.xml" />
+        <option value="$PROJECT_DIR$/Coupers/src/main/res/layout-xhdpi/list_rower_logo.xml" />
+        <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/MenuAdapter.java" />
+        <option value="$PROJECT_DIR$/Coupers/src/main/res/values/array.xml" />
+        <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealMenuFragment.java" />
+        <option value="$PROJECT_DIR$/Coupers/src/main/res/layout/list_menu_header.xml" />
+        <option value="$PROJECT_DIR$/Coupers/src/main/res/layout/menu_frame_new.xml" />
+        <option value="$PROJECT_DIR$/Coupers/src/main/res/drawable/gradient_bg_food.xml" />
+        <option value="$PROJECT_DIR$/Coupers/src/main/res/drawable/list_selector_food.xml" />
+        <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealAdapter.java" />
+        <option value="$PROJECT_DIR$/Coupers/src/main/res/drawable/red_circle_black_border.xml" />
+        <option value="$PROJECT_DIR$/Coupers/src/main/res/layout/list_menu_favorite.xml" />
       </list>
     </option>
   </component>
@@ -402,6 +684,74 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Default">
           <PATH>
@@ -475,150 +825,12 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Coupers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Coupers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Coupers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Coupers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Coupers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Coupers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="coupers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Coupers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Coupers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="coupers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="coupers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="Coupers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Coupers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ksoap2-3.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ksoap2-3.0.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Coupers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ksoap2-3.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ksoap2-3.0.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="serialization" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SoapSerializationEnvelope" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ClassTreeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Coupers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ksoap2-3.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ksoap2-3.0.jar" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="serialization" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -690,6 +902,216 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoupersProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values-v14" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoupersProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values-v11" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoupersProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values-sw720dp-land" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoupersProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values-sw600dp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoupersProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values-large-land" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoupersProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values-large" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoupersProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values-land" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -775,7 +1197,221 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout-xhdpi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoupersProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout-small" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoupersProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout-hdpi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoupersProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoupersProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable-hdpi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoupersProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoupersProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="animator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoupersProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -844,14 +1480,15 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="project.structure.last.edited" value="Project" />
     <property name="SHOW_ALL_PROCESSES" value="false" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="OverrideImplement.combined" value="true" />
     <property name="project.structure.proportion" value="0.15" />
+    <property name="OverrideImplement.combined" value="true" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="MemberChooser.sorted" value="false" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.SHOW" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.WIDTH" value="281" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.WIDTH" value="303" />
     <property name="DEBUGGABLE_DEVICE" value="192.168.1.67:5555" />
     <property name="DEBUGGABLE_PROCESS" value="com.coupers.coupers" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
@@ -863,10 +1500,10 @@
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.WIDTH" value="350" />
-    <property name="options.lastSelected" value="vcs.Git" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.WIDTH" value="321" />
+    <property name="options.lastSelected" value="editor.preferences.import" />
     <property name="project.structure.side.proportion" value="0.35225955" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="0047d04859d29418" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="4df145180d6a8f43" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
     <property name="options.searchVisible" value="true" />
@@ -876,11 +1513,11 @@
       <recent name="com.coupers.coupers" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Coupers/libs" />
+      <recent name="$PROJECT_DIR$/Coupers/src/main/res/drawable" />
+      <recent name="$PROJECT_DIR$/Coupers/src/main/res/values" />
+      <recent name="$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi" />
       <recent name="$PROJECT_DIR$/Coupers/src/main/res/layout" />
-      <recent name="$PROJECT_DIR$/Coupers/src/main/res/layout-xhdpi" />
-      <recent name="$PROJECT_DIR$/Coupers/src/main/res/layout-hdpi" />
-      <recent name="$PROJECT_DIR$/Coupers/src/main/res/layout-small" />
+      <recent name="$PROJECT_DIR$/Coupers/src/main/res/values-v14" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.coupers.utils" />
@@ -1089,7 +1726,7 @@
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="8728000" />
   </component>
-  <component name="TodoView" selected-index="0">
+  <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
       <are-packages-shown value="false" />
       <are-modules-shown value="false" />
@@ -1111,32 +1748,32 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="48" y="-4" width="1319" height="773" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.6703297" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26409018" sideWeight="0.5516969" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.6703297" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19810577" sideWeight="0.94847023" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44927537" sideWeight="0.59510654" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26409018" sideWeight="0.44751382" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18679549" sideWeight="0.59510654" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2549801" sideWeight="0.50111854" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23266219" sideWeight="0.19389111" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23266219" sideWeight="0.20185924" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.58293074" sideWeight="0.49962714" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1884058" sideWeight="0.4988161" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20450886" sideWeight="0.49962714" order="7" side_tool="false" content_ui="tabs" x="144" y="119" width="1098" height="464" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991317" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.49962714" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2878449" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.32289335" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32991317" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27940017" sideWeight="0.5507246" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41567066" sideWeight="0.49888143" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36069456" sideWeight="0.8115942" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.05152979" sideWeight="0.49888143" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24940805" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19835943" sideWeight="0.67729086" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15405047" sideWeight="0.49962714" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32206118" sideWeight="0.4988161" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15297906" sideWeight="0.49962714" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1182,7 +1819,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Complete overhaul of menu adapter, new menu with icon and headers available, also lower bar on menu for settings." />
+    <option name="LAST_COMMIT_MESSAGE" value="Using GetFavoriteLocations WebService, added Favorite Locations to Menu, removed deals web service until it is finished, now using android-query for image loading purposes" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1201,6 +1838,7 @@
     <MESSAGE value="Implementing savedInstanceState" />
     <MESSAGE value="Responsive Layout for different screen densities, also adjusting menu adapter to have icon" />
     <MESSAGE value="Complete overhaul of menu adapter, new menu with icon and headers available, also lower bar on menu for settings." />
+    <MESSAGE value="Using GetFavoriteLocations WebService, added Favorite Locations to Menu, removed deals web service until it is finished, now using android-query for image loading purposes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1210,102 +1848,129 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/ResponsiveUIActivity.java">
+    <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/drawable/list_selector_food.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="36" selection-start="3764" selection-end="3764" vertical-scroll-proportion="0.0" vertical-offset="1155" max-vertical-offset="4185">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/utils/XMLParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="49" selection-start="2082" selection-end="2082" vertical-scroll-proportion="0.0" vertical-offset="598" max-vertical-offset="1545" />
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/ksoap2/ksoap2/3.0/ksoap2-3.0.jar!/org/ksoap2/transport/HttpTransportSE.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="163" selection-end="163" vertical-scroll-proportion="0.08430233" vertical-offset="46" max-vertical-offset="525" />
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/ksoap2/ksoap2/3.0/ksoap2-3.0.jar!/org/ksoap2/serialization/SoapSerializationEnvelope.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="19" selection-start="1252" selection-end="1252" vertical-scroll-proportion="0.35755813" vertical-offset="237" max-vertical-offset="1215" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Coupers/Coupers.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="107" selection-end="107" vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="1230" />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/org/w3c/dom/Document.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="25" selection-start="1078" selection-end="1078" vertical-scroll-proportion="0.0" vertical-offset="251" max-vertical-offset="1095" />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/os/AsyncTask.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="479" selection-end="479" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="102" selection-start="935" selection-end="1033" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/values-es/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="86" selection-start="1054" selection-end="1054" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="420">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="13" selection-start="543" selection-end="543" vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1095">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/CardFlipActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="249" column="18" selection-start="9845" selection-end="10224" vertical-scroll-proportion="0.0" vertical-offset="3025" max-vertical-offset="3960">
+        <state line="7" column="35" selection-start="307" selection-end="307" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="73" selection-start="3647" selection-end="3647" vertical-scroll-proportion="0.0" vertical-offset="1080" max-vertical-offset="1830">
-          <folding />
+        <state line="92" column="0" selection-start="3036" selection-end="3036" vertical-scroll-proportion="0.0" vertical-offset="564" max-vertical-offset="2100">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/entities/DealEntity.java">
+    <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealMenuFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2325">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealGridFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="17" selection-start="1552" selection-end="1552" vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="2250">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="155" column="0" selection-start="6055" selection-end="6055" vertical-scroll-proportion="0.0" vertical-offset="2221" max-vertical-offset="2520">
-          <folding />
+        <state line="103" column="0" selection-start="3860" selection-end="3860" vertical-scroll-proportion="0.0" vertical-offset="1024" max-vertical-offset="3240">
+          <folding>
+            <element signature="e#2444#2460#0" expanded="true" />
+            <element signature="e#3598#4621#0" expanded="true" />
+            <element signature="e#4610#4611#0" expanded="true" />
+            <element signature="e#8487#8530#0" expanded="true" />
+            <element signature="e#8747#8790#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/ResponsiveUIActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="36" selection-start="3764" selection-end="3764" vertical-scroll-proportion="0.025951557" vertical-offset="1155" max-vertical-offset="4185">
+        <state line="278" column="51" selection-start="10070" selection-end="10070" vertical-scroll-proportion="0.0" vertical-offset="3652" max-vertical-offset="4095">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coupers/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="18" selection-start="429" selection-end="429" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="630">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/MenuAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="24" selection-start="1605" selection-end="1605" vertical-scroll-proportion="0.0" vertical-offset="1305" max-vertical-offset="1920">
+          <folding>
+            <element signature="e#1118#1151#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/drawable/custom_button.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="810">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/drawable/ab_background_textured_coupers_theme.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="591">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi/ab_bottom_solid_coupers_theme.9.png">
+      <provider selected="true" editor-type-id="ninepatcheditor">
+        <state />
+      </provider>
+      <provider editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/drawable-hdpi/ab_solid_coupers_theme.9.png">
+      <provider selected="true" editor-type-id="ninepatcheditor">
+        <state />
+      </provider>
+      <provider editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/drawable/tab_indicator_ab_coupers_theme.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/drawable/spinner_background_ab_coupers_theme.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="591">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/drawable/selectable_background_coupers_theme.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="578">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/drawable/pressed_background_coupers_theme.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="591">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/layout/list_menu_favorite.xml">
+      <provider editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795">
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/drawable/red_circle_black_border.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="47" selection-start="409" selection-end="409" vertical-scroll-proportion="0.24150269" vertical-offset="0" max-vertical-offset="559">
           <folding />
         </state>
       </provider>
@@ -1362,7 +2027,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>Coupers</last-edited>
+          <last-edited>Android-Gradle|Coupers</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

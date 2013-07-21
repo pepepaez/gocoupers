@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/menu_frame"
+                android:background="#ffffff"
+                android:focusable="false">
+
+
+        <SearchView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/searchView"
+                android:layout_toRightOf="@+id/leftpadding"
+                android:layout_toLeftOf="@+id/rightpadding"
+                android:layout_below="@+id/toppadding"/>
+
+    <GridView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:id="@+id/gridView"
+            android:layout_toRightOf="@+id/leftpadding"
+            android:layout_toLeftOf="@+id/rightpadding"
+            android:layout_above="@+id/imageView2"
+            android:layout_below="@+id/imageView3"/>
+
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/settings"
+            android:layout_below="@+id/searchView"
+            android:layout_alignRight="@+id/searchView"
+            android:visibility="invisible"/>
+
+    <ImageView
+            android:layout_width="10dp"
+            android:layout_height="fill_parent"
+            android:id="@+id/leftpadding"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/menu_padding"/>
+
+    <ImageView
+            android:layout_width="10dp"
+            android:layout_height="fill_parent"
+            android:id="@+id/rightpadding"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/menu_padding"/>
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"
+            android:id="@+id/toppadding"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/leftpadding"
+            android:layout_toLeftOf="@+id/rightpadding"
+            android:background="@drawable/menu_padding"/>
+
+    <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/userpic"
+            android:src="@drawable/eagle"
+            android:scaleType="centerCrop"
+            android:layout_below="@+id/imageView"
+            android:layout_toRightOf="@+id/imageView4"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Arturo Careca"
+            android:id="@+id/username"
+            android:layout_toRightOf="@+id/userpic"
+            android:layout_alignRight="@+id/searchView"
+            android:layout_alignBottom="@+id/userpic"
+            android:background="@drawable/menu_padding"
+            android:gravity="center_vertical"
+            android:textColor="#ffffff"
+            android:paddingLeft="10dp"
+            android:typeface="normal"
+            android:textStyle="bold"
+            android:layout_below="@+id/imageView"
+            android:textSize="17dp"
+            android:singleLine="false"/>
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"
+            android:id="@+id/imageView2"
+            android:background="@drawable/menu_padding"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/rightpadding"
+            android:layout_toRightOf="@+id/leftpadding"/>
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"
+            android:id="@+id/imageView"
+            android:background="@drawable/menu_padding"
+            android:layout_below="@+id/searchView"
+            android:layout_toRightOf="@+id/leftpadding"
+            android:layout_toLeftOf="@+id/rightpadding"/>
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="10dp"
+            android:id="@+id/imageView3"
+            android:background="@drawable/menu_padding"
+            android:layout_below="@+id/userpic"
+            android:layout_toRightOf="@+id/leftpadding"
+            android:layout_toLeftOf="@+id/rightpadding"/>
+
+    <ImageView
+            android:layout_width="7dp"
+            android:layout_height="fill_parent"
+            android:id="@+id/imageView4"
+            android:background="@drawable/menu_padding"
+            android:layout_below="@+id/imageView"
+            android:layout_toRightOf="@+id/leftpadding"
+            android:layout_above="@+id/imageView3"/>
+
+
+</RelativeLayout>

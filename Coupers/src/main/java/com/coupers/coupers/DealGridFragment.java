@@ -54,8 +54,10 @@ public class DealGridFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         ArrayList<HashMap<String, String>> FilteredDealsList = new ArrayList<HashMap<String, String>>();
-        HashMap<String, String> map = new HashMap<String, String>();
-        GridView gv = (GridView) inflater.inflate(R.layout.list_grid, null);
+
+        //GridView gv = (GridView) inflater.inflate(R.layout.list_grid, null);
+        GridView gv = new GridView(getActivity()); //GridView) container.findViewById(R.id.gridView);
+        //container.removeView(container.findViewById(R.id.gridView));
         DealAdapter adapter;
 
 
@@ -66,12 +68,13 @@ public class DealGridFragment extends Fragment {
                 // creating new HashMap
 
                 Element e = (Element) mNL.item(i);
+                HashMap<String, String> map = new HashMap<String, String>();
                 // adding each child node to HashMap key => value
                 if (mParser.getValue(e, ResponsiveUIActivity.KEY_TYPE).toLowerCase().equals(mFilter)){
                     map.put(ResponsiveUIActivity.KEY_ID , mParser.getValue(e, ResponsiveUIActivity.KEY_ID));
                     map.put(ResponsiveUIActivity.KEY_TYPE, mParser.getValue(e, ResponsiveUIActivity.KEY_TYPE));
                     map.put(ResponsiveUIActivity.KEY_DEAL_DESC, mParser.getValue(e, ResponsiveUIActivity.KEY_DEAL_DESC));
-                    map.put(ResponsiveUIActivity.KEY_LOCATION_ID, mParser.getValue(e, ResponsiveUIActivity.KEY_LOCATION_ID));
+                    //TODO re-enable map.put(ResponsiveUIActivity.KEY_LOCATION_ID, mParser.getValue(e, ResponsiveUIActivity.KEY_LOCATION_ID));
                     map.put(ResponsiveUIActivity.KEY_LOCATION_LOGO, mParser.getValue(e, ResponsiveUIActivity.KEY_LOCATION_LOGO));
                     map.put(ResponsiveUIActivity.KEY_DEAL_TIP, mParser.getValue(e, ResponsiveUIActivity.KEY_DEAL_TIP));
                     map.put(ResponsiveUIActivity.KEY_THUMB_URL, mParser.getValue(e, ResponsiveUIActivity.KEY_THUMB_URL));
@@ -86,13 +89,13 @@ public class DealGridFragment extends Fragment {
         {
             for (int j =0;j< DealsList.size();j++)
             {
-
+                HashMap<String, String> map = new HashMap<String, String>();
                 if (Integer.parseInt( DealsList.get(j).get(ResponsiveUIActivity.KEY_TYPE)) == catFilter)
                 {
                     map.put(ResponsiveUIActivity.KEY_ID, DealsList.get(j).get(ResponsiveUIActivity.KEY_ID).toString());
                     map.put(ResponsiveUIActivity.KEY_TYPE,DealsList.get(j).get(ResponsiveUIActivity.KEY_TYPE).toString());
                     map.put(ResponsiveUIActivity.KEY_DEAL_DESC,DealsList.get(j).get(ResponsiveUIActivity.KEY_DEAL_DESC).toString());
-                    map.put(ResponsiveUIActivity.KEY_LOCATION_ID,DealsList.get(j).get(ResponsiveUIActivity.KEY_LOCATION_ID).toString());
+                    //TODO reenable map.put(ResponsiveUIActivity.KEY_LOCATION_ID,DealsList.get(j).get(ResponsiveUIActivity.KEY_LOCATION_ID).toString());
                     map.put(ResponsiveUIActivity.KEY_LOCATION_LOGO,DealsList.get(j).get(ResponsiveUIActivity.KEY_LOCATION_LOGO).toString());
                     map.put(ResponsiveUIActivity.KEY_DEAL_TIP,DealsList.get(j).get(ResponsiveUIActivity.KEY_DEAL_TIP).toString());
                     map.put(ResponsiveUIActivity.KEY_THUMB_URL,DealsList.get(j).get(ResponsiveUIActivity.KEY_THUMB_URL).toString());

@@ -1,6 +1,8 @@
 package com.coupers.coupers;
 
+import android.content.Intent;
 import android.content.res.TypedArray;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,9 +13,18 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import com.coupers.entities.WebServiceDataFields;
 import com.coupers.utils.XMLParser;
 
+import org.ksoap2.SoapEnvelope;
+import org.ksoap2.serialization.PropertyInfo;
+import org.ksoap2.serialization.SoapObject;
+import org.ksoap2.serialization.SoapSerializationEnvelope;
+import org.ksoap2.transport.HttpTransportSE;
 import org.w3c.dom.NodeList;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 
 //TODO add icons to menu options
@@ -24,22 +35,56 @@ public class DealMenuFragment extends Fragment {
     private NodeList mNL = null;
     private ImageView last_selected = null;
     private XMLParser mParser = null;
+    private ViewGroup mContainer = null;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        mContainer = container;
 
-        GridView lv = (GridView) container.findViewById(R.id.gridView);
         ImageButton settings = (ImageButton) container.findViewById(R.id.settings);
         settings.setImageResource(android.R.drawable.ic_menu_manage);
+
+
+        GridView lv = (GridView) container.findViewById(R.id.gridView);
         container.removeView(container.findViewById(R.id.gridView));
 
-        // Getting adapter by passing xml data ArrayList
+        LoadFavorites lf=new LoadFavorites();
+
+        lf.execute("dummy string");
+		return lv;
+	}
+
+    public void UpdateMenu(ArrayList<HashMap<String, String>> aFavLocList)
+    {
+
+        GridView lv = (GridView) mContainer.findViewById(R.id.gridView);
+        // Get Menu
         TypedArray deals_menu = getResources().obtainTypedArray(R.array.deals_menu);
+
+        //Create adapter
         MenuAdapter adapter=new MenuAdapter(this.getActivity());
+
         for (int i=0; i<deals_menu.length();i++)
         {
-            if(deals_menu.getString(i).toUpperCase().equals("MENU") || deals_menu.getString(i).toUpperCase().equals("FAVORITOS"))
+            if(deals_menu.getString(i).toUpperCase().equals("FAVORITOS"))
+            {
+                adapter.addHeader(deals_menu.getString(i));
+
+                for (int j =0;j< aFavLocList.size();j++)
+                {
+                    HashMap<String, String> map = new HashMap<String, String>();
+                    map.put(WebServiceDataFields.FAVLOC_LOCATION_ID, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_LOCATION_ID).toString());
+                    map.put(WebServiceDataFields.FAVLOC_CATEGORY_ID, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_CATEGORY_ID).toString());
+                    map.put(WebServiceDataFields.FAVLOC_LOCATION_NAME, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_LOCATION_NAME).toString());
+                    map.put(WebServiceDataFields.FAVLOC_LOCATION_LOGO, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_LOCATION_LOGO).toString());
+                    map.put(WebServiceDataFields.FAVLOC_NEW_DEAL_COUNT, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_NEW_DEAL_COUNT).toString());
+
+                    adapter.addFavorite(map);
+
+                }
+
+            }else if(deals_menu.getString(i).toUpperCase().equals("CATEGORIAS"))
                 adapter.addHeader(deals_menu.getString(i));
             else
                 adapter.addItem(deals_menu.getString(i));
@@ -48,6 +93,7 @@ public class DealMenuFragment extends Fragment {
         lv.setAdapter(adapter);
 
 
+        //Set OnClick event
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView parent, View view, int position,
@@ -70,9 +116,7 @@ public class DealMenuFragment extends Fragment {
 
             }
         });
-
-		return lv;
-	}
+    }
 
     public DealMenuFragment(String filter, NodeList nl, XMLParser parser){
 
@@ -106,6 +150,85 @@ public class DealMenuFragment extends Fragment {
 			ra.switchContent(fragment);
 		}
 	}
+
+
+    //LOAD FAVORITES
+    private class LoadFavorites extends AsyncTask<String,Void,String> {
+
+        private static final String NAMESPACE = "http://tempuri.org/";
+        private static final String SOAP_ACTION = "http://tempuri.org/GetUserFavoriteLocations";
+        private static final String URL = "http://coupers.elasticbeanstalk.com/CoupersWS/Coupers.asmx";
+        private static final String METHOD_NAME = "GetUserFavoriteLocations";
+
+        ArrayList<HashMap<String, String>> FavLocList = new ArrayList<HashMap<String, String>>();
+
+        @Override
+        protected String doInBackground(String... params){
+            String response = null;
+
+            for(String param : params){
+
+                SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
+                SoapSerializationEnvelope envelope =  new SoapSerializationEnvelope(SoapEnvelope.VER11);PropertyInfo property = new PropertyInfo();
+                request.addProperty("user_id",1);
+                envelope.dotNet=true;
+                envelope.setOutputSoapObject(request);
+                HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
+
+                try {
+                    androidHttpTransport.call(SOAP_ACTION, envelope);
+                    SoapObject result = (SoapObject) envelope.bodyIn;
+                    SoapObject soData = (SoapObject) ((SoapObject) ((SoapObject) result.getProperty(0)).getProperty(1)).getProperty(0);
+                    /*SoapObject soResponse = (SoapObject) result.getProperty("GetUserFavoriteLocationsResponse");
+                    SoapObject soResult = (SoapObject) soResponse.getProperty("GetUserFavoriteLocationsResult");
+                    SoapObject soDiffgram = (SoapObject) soResult.getProperty("diffgram") ;
+                    SoapObject soNewDataSet = (SoapObject) soDiffgram.getProperty("NewDataSet") ;*/
+                    SoapObject soTable;
+
+
+
+                    String _tag[]={
+                            WebServiceDataFields.FAVLOC_LOCATION_ID,
+                            WebServiceDataFields.FAVLOC_CATEGORY_ID,
+                            WebServiceDataFields.FAVLOC_LOCATION_NAME,
+                            WebServiceDataFields.FAVLOC_LOCATION_LOGO,
+                            WebServiceDataFields.FAVLOC_NEW_DEAL_COUNT};
+
+                    for (int j=0;j<soData.getPropertyCount();j++)
+                    {
+                        soTable = (SoapObject) soData.getProperty(j) ;
+                        //System.out.println(Table.toString());
+                        HashMap<String, String> map = new HashMap<String, String>();
+                        //TODO Use same static fields from ResponsiveUIActivity to create the map
+                        for(int p =0;p<_tag.length;p++)
+                            map.put(_tag[p].toString(),soTable.getPropertyAsString(_tag[p]));
+                        FavLocList.add(map);
+                    }
+                    response="ok";
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    response=getString(R.string.server_connection_error);
+                }
+            }
+            return response;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            if (result.equals(getString(R.string.server_connection_error)))
+            {
+                //TODO instantiate an activity to show server connection error, finalize app.
+            }
+
+            //mContainer.findViewById(R.id.progressBar).setVisibility(View.INVISIBLE);
+            //mContainer.findViewById(R.id.textView).setVisibility(View.INVISIBLE);
+
+            UpdateMenu(FavLocList);
+
+        }
+
+    }
 
 
 }
