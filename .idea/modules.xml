@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Coupers/Coupers.iml" filepath="$PROJECT_DIR$/Coupers/Coupers.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CoupersAPI/CoupersAPI.iml" filepath="$PROJECT_DIR$/CoupersAPI/CoupersAPI.iml" />
       <module fileurl="file://$PROJECT_DIR$/CoupersProject.iml" filepath="$PROJECT_DIR$/CoupersProject.iml" />
     </modules>
   </component>

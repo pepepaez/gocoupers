@@ -14,6 +14,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.coupers.entities.WebServiceDataFields;
+import com.coupers.utils.CoupersObject;
+import com.coupers.utils.CoupersServer;
 import com.coupers.utils.XMLParser;
 
 import org.ksoap2.SoapEnvelope;
@@ -49,13 +51,34 @@ public class DealMenuFragment extends Fragment {
         GridView lv = (GridView) container.findViewById(R.id.gridView);
         container.removeView(container.findViewById(R.id.gridView));
 
-        LoadFavorites lf=new LoadFavorites();
-
-        lf.execute("dummy string");
 		return lv;
 	}
 
-    public void UpdateMenu(ArrayList<HashMap<String, String>> aFavLocList)
+    public void LoadFavorites(){
+        //if not saved on the devide then
+        LoadFromServer();
+        //otherwise use from the device
+    }
+
+    public void LoadFromServer(){
+        CoupersObject obj = new CoupersObject("http://tempuri.org/GetUserFavoriteLocations",
+                "http://coupers.elasticbeanstalk.com/CoupersWS/Coupers.asmx",
+                "GetUserFavoriteLocations");
+        obj.addParameter("user_id","1");
+        String _tag[]={
+                WebServiceDataFields.FAVLOC_LOCATION_ID,
+                WebServiceDataFields.FAVLOC_CATEGORY_ID,
+                WebServiceDataFields.FAVLOC_LOCATION_NAME,
+                WebServiceDataFields.FAVLOC_LOCATION_LOGO,
+                WebServiceDataFields.FAVLOC_NEW_DEAL_COUNT};
+        obj.setTag(_tag);
+
+        CoupersServer server = new CoupersServer(obj,this);
+
+        server.execute("dummy string");
+    }
+
+    public void UpdateMenu(ArrayList<HashMap<String, String>> aFavLocList, String WebServiceExecuted)
     {
 
         GridView lv = (GridView) mContainer.findViewById(R.id.gridView);
@@ -224,7 +247,7 @@ public class DealMenuFragment extends Fragment {
             //mContainer.findViewById(R.id.progressBar).setVisibility(View.INVISIBLE);
             //mContainer.findViewById(R.id.textView).setVisibility(View.INVISIBLE);
 
-            UpdateMenu(FavLocList);
+            //UpdateMenu(FavLocList);
 
         }
 
