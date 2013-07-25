@@ -2,6 +2,7 @@ package com.coupers.coupers;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.DialogInterface;
@@ -192,7 +193,7 @@ public class CardFlipActivity extends Activity
     /**
      * A fragment representing the front of the card.
      */
-    public  class CardFrontFragment extends Fragment {
+    public  class CardFrontFragment extends DialogFragment {
         private int resImage= 0;
         //private final Context context = this.getActivity().getBaseContext();
 
@@ -263,7 +264,7 @@ public class CardFlipActivity extends Activity
     /**
      * A fragment representing the back of the card.
      */
-    public class CardBackFragment extends Fragment {
+    public class CardBackFragment extends DialogFragment {
         private String resName = "";
         private String resDescription = "";
 
@@ -275,7 +276,7 @@ public class CardFlipActivity extends Activity
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.fragment_card_back, null); //container, false);
+            return inflater.inflate(R.layout.fragment_card_back, container, false);
         }
         @Override
         public void onActivityCreated(Bundle savedInstanceState) {
