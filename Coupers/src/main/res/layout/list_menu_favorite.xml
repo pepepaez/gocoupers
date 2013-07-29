@@ -10,7 +10,7 @@
     <ImageView
             android:layout_width="30dp"
             android:layout_height="60dp"
-            android:id="@+id/imageView"
+            android:id="@+id/favorite_location"
             android:layout_alignParentLeft="false"
             android:layout_alignParentEnd="false"
             android:layout_below="@+id/imageView5"/>
@@ -19,9 +19,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/location_logo"
-            android:layout_toRightOf="@+id/imageView"
+            android:layout_toRightOf="@+id/favorite_location"
             android:layout_alignParentRight="true"
-            android:layout_alignBottom="@+id/imageView"
+            android:layout_alignBottom="@+id/favorite_location"
             android:src="@drawable/tlalli"
             android:scaleType="fitStart"
             android:layout_alignParentLeft="false"

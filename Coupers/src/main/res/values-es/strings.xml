@@ -16,5 +16,7 @@
     <string name="deal_details">Obten 10% de descuento!</string>
     <string name="loading_progress_bar">cargando...</string>
     <string name="server_connection_error">Hubo un error al conectarse con el servidor</string>
+    <string name="favorites">Favoritos</string>
+    <string name="categories">Hoy quiero...</string>
 
 </resources>

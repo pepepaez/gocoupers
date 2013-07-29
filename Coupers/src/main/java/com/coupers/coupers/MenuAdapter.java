@@ -69,6 +69,12 @@ public class MenuAdapter extends BaseAdapter {
 
     }
 
+    public String getLocationId(int position){
+
+        return mFavoriteData.get("item"+String.valueOf(position)).get(WebServiceDataFields.FAVLOC_LOCATION_ID);
+
+    }
+
     @Override
     public int getItemViewType(int position) {
         return mHeaderSet.contains(position) ? TYPE_HEADER : mFavoriteSet.contains(position ) ? TYPE_FAVORITE : TYPE_ITEM;

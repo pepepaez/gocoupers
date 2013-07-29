@@ -16,40 +16,17 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="350dp"
+    android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="#64fc34"
     android:padding="16dp"
     android:gravity="bottom">
-
-    <TextView android:id="@+id/name"
-        style="?android:textAppearanceLarge"
-        android:textStyle="bold"
-        android:textColor="#fff"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:visibility="invisible"/>
-
-    <TextView android:id="@+id/desc"
-        style="?android:textAppearanceSmall"
-        android:textAllCaps="true"
-        android:textColor="#80ffffff"
-        android:textStyle="bold"
-        android:lineSpacingMultiplier="1.2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        android:layout_above="@+id/textView11"
-        android:layout_alignParentRight="true"/>
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Tlalli Bistrot"
-            android:id="@+id/textView"
+            android:id="@+id/location_name"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"/>
 
@@ -58,72 +35,72 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="www.tlalli.com.mx"
-            android:id="@+id/textView2"
-            android:layout_below="@+id/textView3"
-            android:layout_alignLeft="@+id/textView3"/>
+            android:id="@+id/location_website_url"
+            android:layout_below="@+id/location_address"
+            android:layout_alignLeft="@+id/location_address"/>
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Colon 115"
-            android:id="@+id/textView3"
-            android:layout_below="@+id/textView4"
-            android:layout_alignLeft="@+id/textView4"/>
+            android:id="@+id/location_address"
+            android:layout_below="@+id/location_city"
+            android:layout_alignLeft="@+id/location_city"/>
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Mexicali, BC"
-            android:id="@+id/textView4"
-            android:layout_below="@+id/textView"
-            android:layout_alignLeft="@+id/textView"/>
+            android:id="@+id/location_city"
+            android:layout_below="@+id/location_name"
+            android:layout_alignLeft="@+id/location_name"/>
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="(686) 853-4311"
-            android:id="@+id/textView5"
-            android:layout_below="@+id/textView2"
-            android:layout_alignLeft="@+id/textView2"/>
+            android:id="@+id/location_phone_number1"
+            android:layout_below="@+id/location_website_url"
+            android:layout_alignLeft="@+id/location_website_url"/>
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Horario:"
-            android:id="@+id/textView6"
-            android:layout_below="@+id/textView5"
-            android:layout_alignLeft="@+id/textView5"/>
-
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Sabado 8am - 10pm"
-            android:id="@+id/textView7"
-            android:layout_below="@+id/textView9"
-            android:layout_toRightOf="@+id/textView6"/>
+            android:id="@+id/hours"
+            android:layout_below="@+id/location_phone_number1"
+            android:layout_alignLeft="@+id/location_phone_number1"/>
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="L-V 8am - 8pm"
-            android:id="@+id/textView8"
-            android:layout_below="@+id/textView6"
-            android:layout_toRightOf="@+id/textView6"/>
+            android:id="@+id/location_hours_operation1"
+            android:layout_below="@+id/hours"
+            android:layout_toRightOf="@+id/hours"/>
 
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Domingo Cerrado"
-            android:id="@+id/textView9"
-            android:layout_below="@+id/textView8"
-            android:layout_toRightOf="@+id/textView6"/>
+            android:id="@+id/location_hours_operation2"
+            android:layout_below="@+id/location_hours_operation1"
+            android:layout_toRightOf="@+id/hours"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Sabado 8am - 10pm"
+            android:id="@+id/location_hours_operation3"
+            android:layout_below="@+id/location_hours_operation2"
+            android:layout_toRightOf="@+id/hours"/>
 
     <ImageView
             android:layout_width="wrap_content"
@@ -133,8 +110,8 @@
             android:scaleType="center"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
-            android:layout_alignBottom="@+id/textView7"
-            android:layout_toRightOf="@+id/textView7"
+            android:layout_alignBottom="@+id/location_hours_operation3"
+            android:layout_toRightOf="@+id/location_hours_operation3"
             android:layout_margin="10dp"/>
 
     <TextView
@@ -143,19 +120,9 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Codigo Promocion"
             android:id="@+id/textView10"
-            android:layout_below="@+id/textView7"
-            android:layout_alignLeft="@+id/textView6"
+            android:layout_below="@+id/location_hours_operation3"
+            android:layout_alignLeft="@+id/hours"
             android:layout_marginTop="30dp"/>
-
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="977F - 43R5 - T"
-            android:id="@+id/textView11"
-            android:layout_alignBaseline="@+id/textView10"
-            android:layout_alignBottom="@+id/textView10"
-            android:layout_toRightOf="@+id/textView7"/>
 
     <ImageView
             android:layout_width="250dp"
@@ -164,6 +131,6 @@
             android:layout_centerHorizontal="true"
             android:src="@drawable/barcode"
             android:layout_below="@+id/textView10"
-            android:layout_alignBottom="@+id/textView11"/>
+            />
 
 </RelativeLayout>

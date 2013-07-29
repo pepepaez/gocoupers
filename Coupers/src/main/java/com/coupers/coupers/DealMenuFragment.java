@@ -51,13 +51,15 @@ public class DealMenuFragment extends Fragment {
         GridView lv = (GridView) container.findViewById(R.id.gridView);
         container.removeView(container.findViewById(R.id.gridView));
 
+        LoadFavorites();
+
 		return lv;
 	}
 
     public void LoadFavorites(){
-        //if not saved on the devide then
+        //TODO if not saved on the device then
         LoadFromServer();
-        //otherwise use from the device
+        //TODO otherwise use from the device
     }
 
     public void LoadFromServer(){
@@ -81,7 +83,8 @@ public class DealMenuFragment extends Fragment {
     public void UpdateMenu(ArrayList<HashMap<String, String>> aFavLocList, String WebServiceExecuted)
     {
 
-        GridView lv = (GridView) mContainer.findViewById(R.id.gridView);
+
+        final GridView lv = (GridView) mContainer.findViewById(R.id.gridView);
         // Get Menu
         TypedArray deals_menu = getResources().obtainTypedArray(R.array.deals_menu);
 
@@ -92,23 +95,26 @@ public class DealMenuFragment extends Fragment {
         {
             if(deals_menu.getString(i).toUpperCase().equals("FAVORITOS"))
             {
-                adapter.addHeader(deals_menu.getString(i));
-
-                for (int j =0;j< aFavLocList.size();j++)
+                if (aFavLocList.size()>0)
                 {
-                    HashMap<String, String> map = new HashMap<String, String>();
-                    map.put(WebServiceDataFields.FAVLOC_LOCATION_ID, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_LOCATION_ID).toString());
-                    map.put(WebServiceDataFields.FAVLOC_CATEGORY_ID, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_CATEGORY_ID).toString());
-                    map.put(WebServiceDataFields.FAVLOC_LOCATION_NAME, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_LOCATION_NAME).toString());
-                    map.put(WebServiceDataFields.FAVLOC_LOCATION_LOGO, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_LOCATION_LOGO).toString());
-                    map.put(WebServiceDataFields.FAVLOC_NEW_DEAL_COUNT, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_NEW_DEAL_COUNT).toString());
+                    adapter.addHeader(getString(R.string.favorites));
 
-                    adapter.addFavorite(map);
+                    for (int j =0;j< (aFavLocList.size()>3 ? 3: aFavLocList.size());j++)
+                    {
+                        HashMap<String, String> map = new HashMap<String, String>();
+                        map.put(WebServiceDataFields.FAVLOC_LOCATION_ID, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_LOCATION_ID).toString());
+                        map.put(WebServiceDataFields.FAVLOC_CATEGORY_ID, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_CATEGORY_ID).toString());
+                        map.put(WebServiceDataFields.FAVLOC_LOCATION_NAME, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_LOCATION_NAME).toString());
+                        map.put(WebServiceDataFields.FAVLOC_LOCATION_LOGO, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_LOCATION_LOGO).toString());
+                        map.put(WebServiceDataFields.FAVLOC_NEW_DEAL_COUNT, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_NEW_DEAL_COUNT).toString());
 
+                        adapter.addFavorite(map);
+
+                    }
                 }
 
             }else if(deals_menu.getString(i).toUpperCase().equals("CATEGORIAS"))
-                adapter.addHeader(deals_menu.getString(i));
+                adapter.addHeader(getString(R.string.categories));
             else
                 adapter.addItem(deals_menu.getString(i));
         }
@@ -135,6 +141,13 @@ public class DealMenuFragment extends Fragment {
                     Fragment newContent = new DealGridFragment(filter, mNL, mParser);
                     if (newContent != null)
                         switchFragment(newContent);
+                }
+
+                ImageView favorite_location = (ImageView) view.findViewById(R.id.favorite_location);
+                if (favorite_location!=null){
+                    //TODO call CardFlipActivity for selected location
+                    String location_id = ((MenuAdapter) lv.getAdapter()).getLocationId(position);
+                    loadLocation(location_id);
                 }
 
             }
@@ -173,6 +186,16 @@ public class DealMenuFragment extends Fragment {
 			ra.switchContent(fragment);
 		}
 	}
+
+    private void loadLocation(String location_id) {
+        if (getActivity() == null)
+            return;
+
+        if (getActivity() instanceof ResponsiveUIActivity) {
+            ResponsiveUIActivity ra = (ResponsiveUIActivity) getActivity();
+            ra.onDealPressed(location_id);
+        }
+    }
 
 
     //LOAD FAVORITES

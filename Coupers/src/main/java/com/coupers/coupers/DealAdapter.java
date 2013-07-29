@@ -49,7 +49,7 @@ public class DealAdapter extends BaseAdapter {
         View vi=convertView;
 
         if(convertView==null)
-            vi = inflater.inflate(R.layout.list_rower_logo, null);
+            vi = inflater.inflate(R.layout.list_rower_logo_multiple, null);
         AQuery aq = new AQuery(vi);
 
         /*TextView deal_desc = null; // description

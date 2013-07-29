@@ -13,6 +13,9 @@ import android.view.View;
 
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.coupers.entities.CoupersDeal;
+import com.coupers.entities.CoupersDealLevel;
+import com.coupers.entities.CoupersLocation;
 import com.coupers.utils.IntentIntegrator;
 import com.coupers.utils.IntentResult;
 import com.coupers.utils.XMLParser;
@@ -155,7 +158,6 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
                 toggle();
                 return true;
             case R.id.deal_scan:
-                //Intent intent = new Intent("com.google.zxing.client.android.SCAN");
                 IntentIntegrator integrator = new IntentIntegrator(this);
                 integrator.initiateScan();
 
@@ -248,8 +250,52 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
 
     public void onDealPressed(String dealID) {
 
-        Intent intent = CardFlipActivity.newInstance(this, dealID);
+
+
+        CoupersLocation obj = new CoupersLocation(
+                1,
+                1,
+                "Muelle 240",
+                "Camaron factory para comer rico con tus amigos y familiares",
+                "www.muelle240.com",
+                "http://www.marvinduran.com/pepe/images/logos/muelle.png",
+                "http://www.marvinduran.com/pepe/images/lanegrita.png",
+                "lazaro cardenas #1234",
+                "mexicali",
+                "423434234",
+                "234134234",
+                1123123,
+                123123);
+        CoupersDeal deal = new CoupersDeal(
+                1,
+                "20130712",
+                "20130801");
+        CoupersDealLevel deal_level = new CoupersDealLevel(
+                1,
+                0,
+                "share me",
+                "redeem me",
+                "2x1",
+                "Camarones para ti y tus cuates");
+        CoupersDeal deal2 = new CoupersDeal(
+                2,
+                "20130712",
+                "20130801");
+        CoupersDealLevel deal_level2 = new CoupersDealLevel(
+                1,
+                10,
+                "share me",
+                "redeem me too",
+                "3x1",
+                "Camarones para ti y tus cuates y otros mas");
+
+        deal.deal_levels.put(deal_level.level_id,deal_level);
+        deal2.deal_levels.put(deal_level2.level_id,deal_level2);
+        obj.location_deals.put(deal.deal_id, deal);
+        obj.location_deals.put(deal2.deal_id, deal2);
+        Intent intent = CardFlipActivity.newInstance(this,obj);
         //this.getIntent().putExtra("deals",xmlDeals);
+
         startActivity(intent);
     }
 

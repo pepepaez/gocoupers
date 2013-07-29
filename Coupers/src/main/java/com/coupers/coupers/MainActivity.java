@@ -45,9 +45,8 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setTitle(R.string.main_hub_ui);
 
-        //TODO figure out if need to implement another imageloader library (this one seems to take too long to load images for the first time)
-        //ImageLoader iml = new ImageLoader(this);
-        //iml.clearCache();
+        //TODO DONE figure out if need to implement another imageloader library (this one seems to take too long to load images for the first time)
+
 
         LoadDeals loader = new LoadDeals();
         //CoupersDealWS loader = new CoupersDealWS();

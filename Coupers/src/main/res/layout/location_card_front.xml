@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#ffffff">
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:id="@+id/location_thumbnail"
+            android:src="@drawable/ultragym"
+            android:scaleType="center"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"/>
+
+    <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:id="@+id/location_logo"
+            android:src="@drawable/tlalli"
+            android:background="@drawable/gradient_bg_deal_logo"
+            android:scaleType="centerInside"
+            android:paddingBottom="5dp"/>
+
+    <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+                                       android:id="@+id/deal_pager"
+                                       android:layout_width="fill_parent"
+                                       android:layout_height="match_parent"
+                                       android:layout_gravity="left|center_vertical"
+                                       android:layout_alignParentLeft="true"
+                                       android:layout_below="@+id/location_logo"
+                                       android:layout_marginTop="130dp">
+    </android.support.v4.view.ViewPager>
+
+
+
+</RelativeLayout>

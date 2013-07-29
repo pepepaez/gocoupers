@@ -3,7 +3,6 @@ package com.coupers.coupers;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DialogFragment;
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,19 +11,30 @@ import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewParent;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.androidquery.AQuery;
+import com.coupers.entities.CoupersDeal;
+import com.coupers.entities.CoupersLocation;
 import com.coupers.utils.Contents;
 import com.coupers.utils.QRCodeEncoder;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Demonstrates a "card-flip" animation using custom fragment transactions ({@link
@@ -41,6 +51,7 @@ public class CardFlipActivity extends Activity
      */
     private Handler mHandler = new Handler();
     public Activity a;
+    private CoupersLocation data;
 
     /**
      * Whether or not we're showing the back of the card (otherwise showing the front).
@@ -53,20 +64,20 @@ public class CardFlipActivity extends Activity
         return intent;
     }
 
+    public static Intent newInstance(Activity activity, CoupersLocation obj){
+        Intent intent = new Intent(activity, CardFlipActivity.class );
+        intent.putExtra("data",obj);
+        return intent;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_flip);
 
-        String dealID;
-
         if (getIntent().getExtras() != null) {
-            dealID = getIntent().getExtras().getString("dealID");
+            data = (CoupersLocation) getIntent().getExtras().getSerializable("data");
         }
-
-        TypedArray imgs = getResources().obtainTypedArray(R.array.birds_img);
-        int resId = imgs.getResourceId(1, -1);
-
 
 
         if (savedInstanceState == null) {
@@ -75,15 +86,11 @@ public class CardFlipActivity extends Activity
             // this fragment will have already been added to the activity.
             getFragmentManager()
                     .beginTransaction()
-                    .add(R.id.container, new CardFrontFragment(resId))
+                    .add(R.id.container, new LocationFrontFragment(data))
                     .commit();
         } else {
             mShowingBack = (getFragmentManager().getBackStackEntryCount() > 0);
         }
-
-
-
-
 
         // Monitor back stack changes to ensure the action bar shows the appropriate
         // button (either "photo" or "info").
@@ -190,6 +197,74 @@ public class CardFlipActivity extends Activity
         invalidateOptionsMenu();
     }
 
+    public class LocationFrontFragment extends DialogFragment {
+
+        private CoupersLocation data;
+        private AQuery aq;
+
+        public LocationFrontFragment(CoupersLocation data) {
+            this.data = data;
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            View fragmentView = inflater.inflate(R.layout.location_card_front,null);
+            aq = new AQuery(fragmentView);
+            aq.id(R.id.location_logo).image(data.location_logo,true,true);
+            aq.id(R.id.location_thumbnail).image(data.location_thumbnail,true,true);
+            ViewPager vp = (ViewPager) fragmentView.findViewById(R.id.deal_pager);
+            DealPagerAdapter dealPager=new DealPagerAdapter(getLayoutInflater());
+            for (int i = 1; i <= data.location_deals.size(); i++) {
+                dealPager.addDeal(data.location_deals.get(i));
+            }
+            vp.setAdapter(dealPager);
+
+            return fragmentView;
+        }
+    }
+
+    //------------------
+    private class DealPagerAdapter extends PagerAdapter {
+        private LayoutInflater mInflater;
+
+        private ArrayList<CoupersDeal> aDeal = new ArrayList<CoupersDeal>();
+
+        public DealPagerAdapter(LayoutInflater inflater){
+            mInflater=inflater;
+        }
+
+        public void addDeal( CoupersDeal deal){
+            aDeal.add(deal);
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            //super.instantiateItem(container, position);
+            View layout = mInflater.inflate(R.layout.deal_pager_view, null);
+            TextView level_deal_legend = (TextView) layout.findViewById(R.id.level_deal_legend);
+            TextView level_deal_description = (TextView) layout.findViewById(R.id.level_deal_description);
+            level_deal_legend.setText(aDeal.get(position).deal_levels.get(1).level_deal_legend);
+            level_deal_description.setText(aDeal.get(position).deal_levels.get(1).level_deal_description);
+            ((ViewPager) container).addView(layout);
+            return layout;
+        }
+
+        @Override
+        public boolean isViewFromObject(View view, Object o) {
+            return view==o;
+        }
+
+        @Override
+        public int getCount() {
+            return aDeal.size();
+        }
+    }
+
+    //-----------
+
+
+
+
     /**
      * A fragment representing the front of the card.
      */
@@ -207,7 +282,7 @@ public class CardFlipActivity extends Activity
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
 
-            return inflater.inflate(R.layout.deal_card_front, null); //container, false);
+            return inflater.inflate(R.layout.location_card_front, null); //container, false);
         }
 
         @Override
@@ -216,7 +291,7 @@ public class CardFlipActivity extends Activity
             /*ImageView myImage = (ImageView) findViewById(R.id.frontImage);
             if(myImage !=null)
                 myImage.setImageResource(resImage);*/
-            Button shareButton = (Button) findViewById(R.id.share_button);
+            /*Button shareButton = (Button) findViewById(R.id.share_button);
             shareButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -257,7 +332,7 @@ public class CardFlipActivity extends Activity
                     builder.setTitle(R.string.share_deal_dialog_title);
                     builder.show();
                 }
-            });
+            });*/
         }
     }
 
@@ -276,15 +351,12 @@ public class CardFlipActivity extends Activity
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.fragment_card_back, container, false);
+            return inflater.inflate(R.layout.location_card_back, container, false);
         }
         @Override
         public void onActivityCreated(Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
-            TextView textName = (TextView) findViewById(R.id.name);
-            TextView textDesc = (TextView) findViewById(R.id.desc);
-            textName.setText("This is a " + resName);
-            textDesc.setText(resDescription);
+
 
         }
     }

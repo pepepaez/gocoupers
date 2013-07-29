@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:columnOrderPreserved="false"
+        android:clickable="false">
+
+    <TextView
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="20% off"
+            android:id="@+id/level_deal_legend"
+            android:layout_alignParentTop="true"
+            android:background="#e75e57"
+            android:textAlignment="gravity"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_marginLeft="90dp"
+            android:textSize="23dp"/>
+
+    <TextView
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="En Cafe Americano"
+            android:id="@+id/level_deal_description"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/level_deal_legend"
+            android:background="#e75e57"
+            android:layout_alignBottom="@+id/level_deal_legend"
+            android:gravity="center_vertical|center_horizontal"
+            android:textSize="15dp"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/lorem_ipsum"
+            android:id="@+id/deal_description"
+            android:layout_below="@+id/level_deal_legend"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:textSize="12dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"/>
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="120dp"
+            android:id="@+id/level_redeem_code"
+            android:src="@drawable/barcode"
+            android:layout_below="@+id/ratingBar"
+            android:layout_alignParentLeft="true"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Button"
+            android:id="@+id/button"
+            android:layout_alignTop="@+id/level_redeem_code"
+            android:layout_alignParentRight="true"/>
+
+    <RatingBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ratingBar"
+            android:layout_below="@+id/textView4"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentLeft="true"
+            android:numStars="5"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Medium Text"
+            android:id="@+id/textView4"
+            android:layout_below="@+id/deal_description"
+            android:layout_alignParentLeft="true"/>
+
+</RelativeLayout>

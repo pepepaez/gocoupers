@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/list_selector_food"
+                android:orientation="horizontal"
+        >
+
+    <ImageView
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/left_padding"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/grid_padding"
+            android:layout_alignParentLeft="true"
+            android:layout_alignBottom="@+id/list_image"
+            />
+
+    <ImageView
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/right_padding"
+            android:background="@drawable/grid_padding"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignBottom="@+id/deal_padding"/>
+
+    <ImageView
+            android:id="@+id/list_image"
+            android:layout_width="90dip"
+            android:layout_height="90dip"
+            android:scaleType="centerCrop"
+            android:layout_toRightOf="@+id/left_padding"/>
+
+    <!-- Location Name -->
+    <ImageView
+            android:id="@+id/logo_image"
+            android:layout_width="180dip"
+            android:layout_height="90dip"
+            android:scaleType="center"
+            android:layout_toRightOf="@+id/list_image"/>
+
+
+    <ImageView
+            android:id="@+id/dashdeal"
+            android:layout_width="wrap_content"
+            android:layout_height="90dip"
+            android:src="@drawable/dashline2"
+            android:scaleType="centerCrop"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/logo_image"
+            android:layout_alignParentStart="false"/>
+
+    <!-- Rightend Deal -->
+    <TextView
+            android:id="@+id/deal_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="20% off"
+            android:textSize="20dip"
+            android:textColor="#ffffffff"
+            android:textStyle="bold"
+            android:singleLine="false"
+            android:layout_toRightOf="@+id/dashdeal"
+            android:layout_alignParentTop="false"
+            android:paddingLeft="5dip"
+            android:paddingRight="5dip"
+            android:layout_toLeftOf="@+id/right_padding"
+            android:layout_alignTop="@+id/dashdeal"
+/>
+    <ProgressBar
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBarThumb"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/logo_image"
+            android:layout_alignBottom="@+id/list_image"
+            android:layout_toRightOf="@+id/left_padding"/>
+
+    <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBarLogo"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:id="@+id/deal_padding"
+            android:background="@drawable/multiple_deals_row"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentRight="false"
+            android:layout_alignLeft="@+id/list_image"
+            android:layout_alignRight="@+id/deal_tip"
+            android:layout_alignTop="@+id/list_image"
+            android:layout_alignBottom="@+id/list_image"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/deal_id"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:visibility="invisible"
+            />
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="5dp"
+            android:id="@+id/multiple_deal_indicator"
+            android:layout_alignRight="@+id/deal_tip"
+            android:layout_alignLeft="@+id/deal_tip"
+            android:layout_centerVertical="true"
+            android:background="@drawable/dash_line"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="mas..."
+            android:id="@+id/more_deals"
+            android:layout_below="@+id/deal_tip"
+            android:layout_alignLeft="@+id/multiple_deal_indicator"
+            android:layout_alignBottom="@+id/dashdeal"
+            android:layout_alignRight="@+id/multiple_deal_indicator"
+            android:textColor="#ffffff"
+            android:gravity="center_vertical|center_horizontal"
+            android:textSize="15dp"/>
+
+</RelativeLayout>

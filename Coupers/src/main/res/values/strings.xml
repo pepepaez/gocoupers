@@ -18,5 +18,7 @@
     <string name="deal_details">Get 10% discount!</string>
     <string name="loading_progress_bar">loading...</string>
     <string name="server_connection_error">There was an error trying to connect to the server</string>
+    <string name="favorites">Favorites</string>
+    <string name="categories">I want to...</string>
 
 </resources>

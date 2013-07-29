@@ -618,7 +618,9 @@
     <string name="action_scan">Scan Deal</string>
     <string name="action_settings">Settings</string>
     <string name="app_name">Coupers!</string>
+    <string name="categories">I want to...</string>
     <string name="deal_details">Get 10% discount!</string>
+    <string name="favorites">Favorites</string>
     <string name="hello_world">Hello world!</string>
     <string name="loading_progress_bar">loading...</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis euismod mi, eu pretium dolor. Phasellus auctor feugiat ante, quis cursus turpis condimentum eu.</string>
