@@ -2,13 +2,20 @@ package com.coupers.coupers;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 
+import com.coupers.entities.CoupersLocation;
+import com.coupers.entities.WebServiceDataFields;
+import com.coupers.utils.CoupersObject;
+import com.coupers.utils.CoupersServer;
 import com.coupers.utils.XMLParser;
 
 import org.ksoap2.SoapEnvelope;
@@ -48,12 +55,97 @@ public class MainActivity extends Activity {
         //TODO DONE figure out if need to implement another imageloader library (this one seems to take too long to load images for the first time)
 
 
-        LoadDeals loader = new LoadDeals();
+        //LoadDeals loader = new LoadDeals();
         //CoupersDealWS loader = new CoupersDealWS();
 
-        loader.execute(new String[] {URL});
+        //loader.execute(new String[] {URL});
+
+        LoadData();
 
         setContentView(R.layout.activity_main);
+
+    }
+
+    private void LoadData(){
+        CoupersObject obj = new CoupersObject("http://tempuri.org/GetCityDeals",
+                "http://coupers.elasticbeanstalk.com/CoupersWS/Coupers.asmx",
+                "GetCityDeals");
+        obj.addParameter("city","mexicali");
+        String _tag[]={
+                WebServiceDataFields.LOCATION_ID,
+                WebServiceDataFields.LOCATION_NAME,
+                WebServiceDataFields.LOCATION_LOGO,
+                WebServiceDataFields.LOCATION_ADDRESS,
+                WebServiceDataFields.LOCATION_CITY,
+                WebServiceDataFields.CATEGORY_ID,
+                WebServiceDataFields.LATITUDE,
+                WebServiceDataFields.LONGITUDE,
+                WebServiceDataFields.LOCATION_DESCRIPTION,
+                WebServiceDataFields.LOCATION_WEBSITE_URL,
+                WebServiceDataFields.LOCATION_THUMBNAIL,
+                WebServiceDataFields.LOCATION_PHONE_NUMBER1,
+                WebServiceDataFields.LOCATION_PHONE_NUMBER2,
+                WebServiceDataFields.LOCATION_HOURS_OPERATION1,
+                WebServiceDataFields.LEVEL_DEAL_LEGEND,
+                WebServiceDataFields.COUNTDEALS};
+        obj.setTag(_tag);
+
+        CoupersServer server = new CoupersServer(obj,this);
+
+        server.execute("dummy string");
+    }
+
+    public void UpdateMenu(ArrayList<HashMap<String, String>> aData, String WSExecuted){
+
+        ArrayList<CoupersLocation> mData = new ArrayList<CoupersLocation>();
+        LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+        Location geoloc = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        double latitude;
+        double longitude;
+        if(geoloc != null){
+            latitude = geoloc.getLatitude();
+            longitude = geoloc.getLongitude();
+        }else{
+            latitude = -999;
+            longitude = -999;
+        }
+        float[] results = new float[1];
+        float distance = 0;
+
+        //Go through data to create 2 data sets, one with locations nearby and the rest
+        for (HashMap<String, String> map : aData){
+            CoupersLocation mLocation = new CoupersLocation(
+                    Integer.valueOf(map.get(WebServiceDataFields.LOCATION_ID)),
+                    Integer.valueOf(map.get(WebServiceDataFields.CATEGORY_ID)),
+                    map.get(WebServiceDataFields.LOCATION_NAME),
+                    map.get(WebServiceDataFields.LOCATION_DESCRIPTION),
+                    map.get(WebServiceDataFields.LOCATION_WEBSITE_URL),
+                    map.get(WebServiceDataFields.LOCATION_LOGO),
+                    map.get(WebServiceDataFields.LOCATION_THUMBNAIL),
+                    map.get(WebServiceDataFields.LOCATION_ADDRESS),
+                    map.get(WebServiceDataFields.LOCATION_CITY),
+                    map.get(WebServiceDataFields.LOCATION_PHONE_NUMBER1),
+                    map.get(WebServiceDataFields.LOCATION_PHONE_NUMBER2),
+                    Double.valueOf(map.get(WebServiceDataFields.LATITUDE)),
+                    Double.valueOf(map.get(WebServiceDataFields.LONGITUDE)));
+            mLocation.TopDeal = map.get(WebServiceDataFields.LEVEL_DEAL_LEGEND);
+            mLocation.CountDeals = map.get(WebServiceDataFields.COUNTDEALS);
+            if (geoloc!=null){
+                Location.distanceBetween(latitude,longitude,mLocation.location_latitude,mLocation.location_longitude,results);
+                distance = results[0];
+                if (distance < 1000)
+                    mLocation.Nearby=true;
+            }
+            mData.add(mLocation);
+        }
+
+        findViewById(R.id.progressBar).setVisibility(View.INVISIBLE);
+        findViewById(R.id.textView).setVisibility(View.INVISIBLE);
+        Intent intent = new Intent(MainActivity.this,ResponsiveUIActivity.class);
+        intent.putExtra("data",mData);
+        intent.putExtra("gps",geoloc!=null);
+
+        startActivity(intent);
 
     }
 

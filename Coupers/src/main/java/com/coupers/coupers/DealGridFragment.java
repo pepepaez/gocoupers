@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import com.coupers.entities.CoupersLocation;
 import com.coupers.utils.XMLParser;
 
 import org.w3c.dom.Element;
@@ -20,35 +21,22 @@ import java.util.HashMap;
 public class DealGridFragment extends Fragment {
 
 	private int mPos = -1;
-    private String mFilter = "food";
+    private int mFilter;
     private int catFilter   =0;
-    private NodeList mNL = null;
-    private XMLParser mParser = null;
-	private int mImgRes;
+    private ArrayList<CoupersLocation> mData = new ArrayList<CoupersLocation>();
+    private boolean mNearby = false;
     ArrayList<HashMap<String, String>> DealsList = new ArrayList<HashMap<String, String>>();
-	
-	public DealGridFragment() { }
-	public DealGridFragment(int pos) {
-		mPos = pos;
-	}
 
-    public DealGridFragment(String filter, NodeList nl, XMLParser parser){
-
-        mFilter=filter;
-        mNL= nl;
-        mParser = parser;
-
+    public DealGridFragment(ArrayList<CoupersLocation> data,boolean nearby){
+        mData=data;
+        mNearby = nearby;
     }
 
-    public DealGridFragment(int filter, ArrayList<HashMap<String, String>> deals){
-        catFilter = filter;
-        mParser = new XMLParser();
-        DealsList = deals;
+    public boolean NearbyDeal(){
+        return mNearby;
     }
 
-    public String DealType(){
-        return mFilter;
-    }
+
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -58,56 +46,12 @@ public class DealGridFragment extends Fragment {
         //GridView gv = (GridView) inflater.inflate(R.layout.list_grid, null);
         GridView gv = new GridView(getActivity()); //GridView) container.findViewById(R.id.gridView);
         //container.removeView(container.findViewById(R.id.gridView));
-        DealAdapter adapter;
 
-
-        if(mNL != null)
-        {
-            // looping through all deal nodes
-            for (int i = 0; i <  mNL.getLength(); i++) {
-                // creating new HashMap
-
-                Element e = (Element) mNL.item(i);
-                HashMap<String, String> map = new HashMap<String, String>();
-                // adding each child node to HashMap key => value
-                if (mParser.getValue(e, ResponsiveUIActivity.KEY_TYPE).toLowerCase().equals(mFilter)){
-                    map.put(ResponsiveUIActivity.KEY_ID , mParser.getValue(e, ResponsiveUIActivity.KEY_ID));
-                    map.put(ResponsiveUIActivity.KEY_TYPE, mParser.getValue(e, ResponsiveUIActivity.KEY_TYPE));
-                    map.put(ResponsiveUIActivity.KEY_DEAL_DESC, mParser.getValue(e, ResponsiveUIActivity.KEY_DEAL_DESC));
-                    //TODO re-enable map.put(ResponsiveUIActivity.KEY_LOCATION_ID, mParser.getValue(e, ResponsiveUIActivity.KEY_LOCATION_ID));
-                    map.put(ResponsiveUIActivity.KEY_LOCATION_LOGO, mParser.getValue(e, ResponsiveUIActivity.KEY_LOCATION_LOGO));
-                    map.put(ResponsiveUIActivity.KEY_DEAL_TIP, mParser.getValue(e, ResponsiveUIActivity.KEY_DEAL_TIP));
-                    map.put(ResponsiveUIActivity.KEY_THUMB_URL, mParser.getValue(e, ResponsiveUIActivity.KEY_THUMB_URL));
-
-                    // adding HashList to ArrayList
-                    DealsList.add(map);
-                }
+        DealAdapter adapter = new DealAdapter(this.getActivity());
+        for (CoupersLocation location : mData) {
+            if (location.Nearby==this.mNearby)
+                adapter.addLocation(location);
             }
-            adapter = new DealAdapter(this.getActivity(), DealsList);
-        }
-        else
-        {
-            for (int j =0;j< DealsList.size();j++)
-            {
-                HashMap<String, String> map = new HashMap<String, String>();
-                if (Integer.parseInt( DealsList.get(j).get(ResponsiveUIActivity.KEY_TYPE)) == catFilter)
-                {
-                    map.put(ResponsiveUIActivity.KEY_ID, DealsList.get(j).get(ResponsiveUIActivity.KEY_ID).toString());
-                    map.put(ResponsiveUIActivity.KEY_TYPE,DealsList.get(j).get(ResponsiveUIActivity.KEY_TYPE).toString());
-                    map.put(ResponsiveUIActivity.KEY_DEAL_DESC,DealsList.get(j).get(ResponsiveUIActivity.KEY_DEAL_DESC).toString());
-                    //TODO reenable map.put(ResponsiveUIActivity.KEY_LOCATION_ID,DealsList.get(j).get(ResponsiveUIActivity.KEY_LOCATION_ID).toString());
-                    map.put(ResponsiveUIActivity.KEY_LOCATION_LOGO,DealsList.get(j).get(ResponsiveUIActivity.KEY_LOCATION_LOGO).toString());
-                    map.put(ResponsiveUIActivity.KEY_DEAL_TIP,DealsList.get(j).get(ResponsiveUIActivity.KEY_DEAL_TIP).toString());
-                    map.put(ResponsiveUIActivity.KEY_THUMB_URL,DealsList.get(j).get(ResponsiveUIActivity.KEY_THUMB_URL).toString());
-
-                    FilteredDealsList.add(map);
-
-                }
-
-            }
-            adapter = new DealAdapter(this.getActivity(), FilteredDealsList);
-        }
-
 
         gv.setAdapter(adapter);
 
@@ -125,42 +69,13 @@ public class DealGridFragment extends Fragment {
             }
         });
 
-
-        /*if (mPos == -1 && savedInstanceState != null)
-			mPos = savedInstanceState.getInt("mPos");
-		TypedArray imgs = getResources().obtainTypedArray(R.array.birds_img);
-		mImgRes = imgs.getResourceId(mPos, -1);
-		
-		GridView gv = (GridView) inflater.inflate(R.layout.list_grid, null);
-		gv.setBackgroundResource(android.R.color.black);
-		gv.setAdapter(new GridAdapter());
-		gv.setOnItemClickListener(new OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position,
-					long id) {
-				if (getActivity() == null)
-					return;
-				ResponsiveUIActivity activity = (ResponsiveUIActivity) getActivity();
-				activity.onDealPressed(mPos);
-			}			
-		});*/
 		return gv;
 	}
 	
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
-		outState.putInt("mPos", mPos);
 
 	}
-
- /*   @Override
-    public Object onRetainCustomNonConfigurationInstance(){
-        super.onRetainCustomNonConfigurationInstance();
-
-        //TODO figure out how to save mNL
-        return "1";
-    }*/
-
 
 }

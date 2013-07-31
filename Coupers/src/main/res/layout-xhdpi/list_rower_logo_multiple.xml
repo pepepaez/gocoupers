@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/list_selector_food"
+                android:background="@drawable/list_selector_eat"
                 android:orientation="horizontal"
         >
 
@@ -68,7 +68,7 @@
             android:paddingRight="5dip"
             android:layout_toLeftOf="@+id/right_padding"
             android:layout_alignTop="@+id/dashdeal"
-/>
+            android:layout_alignBottom="@+id/more_deals"/>
     <ProgressBar
             style="?android:attr/progressBarStyleLarge"
             android:layout_width="wrap_content"
@@ -110,27 +110,16 @@
             android:visibility="invisible"
             />
 
-    <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="5dp"
-            android:id="@+id/multiple_deal_indicator"
-            android:layout_alignRight="@+id/deal_tip"
-            android:layout_alignLeft="@+id/deal_tip"
-            android:layout_centerVertical="true"
-            android:background="@drawable/dash_line"/>
-
     <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="20dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="mas..."
+            android:text="+"
             android:id="@+id/more_deals"
-            android:layout_below="@+id/deal_tip"
-            android:layout_alignLeft="@+id/multiple_deal_indicator"
-            android:layout_alignBottom="@+id/dashdeal"
-            android:layout_alignRight="@+id/multiple_deal_indicator"
             android:textColor="#ffffff"
             android:gravity="center_vertical|center_horizontal"
-            android:textSize="15dp"/>
+            android:textSize="15dp"
+            android:layout_alignBottom="@+id/deal_padding"
+            android:layout_alignRight="@+id/deal_tip"/>
 
 </RelativeLayout>

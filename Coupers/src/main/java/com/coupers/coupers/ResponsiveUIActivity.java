@@ -45,13 +45,10 @@ import java.util.List;
 public class ResponsiveUIActivity extends SlidingFragmentActivity {
 
 	private Fragment mContent;
-    NodeList nl;
-    String xmlDeals;
-
+    ArrayList<CoupersLocation> mData = new ArrayList<CoupersLocation>();
+    private  boolean gps_available=false;
     ViewPager vp;
 
-    // All static variables
-    // XML node keys
     //TODO review if all these node keys will be sufficient, can we (should we) use a class instead?
     static final String KEY_DEAL = "deal"; // parent node
     static final String KEY_ID = "id";
@@ -62,34 +59,14 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
     static final String KEY_DEAL_TIP = "tip";
     static final String KEY_THUMB_URL = "thumbnail";
 
-    // All static variables
-    // XML node keys
-    //TODO review if all these node keys will be sufficient, can we (should we) use a class instead?
-    /*static final String KEY_DEAL = "deal"; // parent node
-    static final String KEY_ID = "deal_id";
-    static final String KEY_TYPE = "deal_type";
-    static final String KEY_DEAL_DESC = "deal_desc";
-    static final String KEY_DEAL_START = "deal_start_date";
-    static final String KEY_DEAL_END = "deal_end_date";
-    static final String KEY_LOCATION_ID = "deal_location_id";
-    static final String KEY_LOCATION_LOGO = "deal_location_logo";
-    static final String KEY_DEAL_TIP = "deal_tip";
-    static final String KEY_THUMB_URL = "deal_thumb";*/
-
-    public ArrayList<HashMap<String, String>> masterlist;
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setTitle(R.string.main_hub_ui);
         setContentView(R.layout.responsive_content_frame);
-        XMLParser parser = new XMLParser();
 
         //TODO Need to make use of saved instance!!
 
-        Bundle extras = getIntent().getExtras();
-        xmlDeals = extras != null ? extras.getString("deals") : null;
-        //masterlist = (ArrayList<HashMap<String, String>>) getIntent().getSerializableExtra("deals");
 
 		// check if the content frame contains the menu frame
 		if (findViewById(R.id.menu_frame) == null) {
@@ -106,48 +83,47 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
 			getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
 		}
 
-		// set the Above View Fragment
+        // customize the SlidingMenu
+        SlidingMenu sm = getSlidingMenu();
+        sm.setBehindOffsetRes(R.dimen.slidingmenu_offset);
+        sm.setShadowWidthRes(R.dimen.shadow_width);
+        sm.setShadowDrawable(R.drawable.shadow);
+        sm.setBehindScrollScale(0.25f);
+        sm.setFadeDegree(0.25f);
+        setSlidingActionBarEnabled(true);
+
+		// set the Above View Fragment & get saved instance data
 		if (savedInstanceState != null){
 
             mContent = getSupportFragmentManager().getFragment(savedInstanceState, "mContent");
-            xmlDeals = savedInstanceState.getString("xmldeals");
+            mData = (ArrayList<CoupersLocation>) savedInstanceState.getSerializable("data");
+            gps_available = savedInstanceState.getBoolean("gps");
+        }else {
+            mData = (ArrayList<CoupersLocation>) getIntent().getSerializableExtra("data");
+            gps_available = getIntent().getBooleanExtra("gps", false);
 
         }
 
-        Document doc = parser.getDomElement(xmlDeals); // getting DOM element
-
-        nl = doc.getElementsByTagName(KEY_DEAL);
-
 		if (mContent == null)
-			mContent = new DealGridFragment("food",nl,parser); // DealGridFragment(4, masterlist); //TODO Replace food to use last category used by user
-
+            if (gps_available) mContent = new DealGridFragment(mData,true); //Create fragment with retrieved data
 
 		// set the Behind View Fragment
+        //TODO Change DealMenuFragment to accept mData to then pass it onto selected categories and locations
 		getSupportFragmentManager()
 		.beginTransaction()
-		.replace(R.id.menu_frame, new DealMenuFragment("food", nl, parser))
+		.replace(R.id.menu_frame, new DealMenuFragment(mData))
 		.commit();
 
-		// customize the SlidingMenu
-		SlidingMenu sm = getSlidingMenu();
-		sm.setBehindOffsetRes(R.dimen.slidingmenu_offset);
-		sm.setShadowWidthRes(R.dimen.shadow_width);
-		sm.setShadowDrawable(R.drawable.shadow);
-		sm.setBehindScrollScale(0.25f);
-		sm.setFadeDegree(0.25f);
-        setSlidingActionBarEnabled(true);
 
         List<Fragment> fragments = new ArrayList<Fragment>();
-        fragments.add(mContent);
-        fragments.add(new DealGridFragment("cafe",nl,parser));
+        if (mContent != null) fragments.add(mContent);
+        fragments.add(new DealGridFragment(mData,false));
         CustomPagerAdapter pageAdapter = new CustomPagerAdapter(getSupportFragmentManager(),fragments);
 
 
         vp = (ViewPager) findViewById(R.id.pager);
 
         vp.setAdapter(pageAdapter);
-
-
 
 	}
 
@@ -186,14 +162,10 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 		getSupportFragmentManager().putFragment(outState, "mContent", mContent);
-        outState.putString("xmldeals",xmlDeals);
+        outState.putSerializable("data",mData);
+        outState.putBoolean("gps",gps_available);
 
 	}
-    @Override
-    public Object onRetainCustomNonConfigurationInstance(){
-        super.onRetainCustomNonConfigurationInstance();
-        return xmlDeals;
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -211,35 +183,18 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
 	public void switchContent(final Fragment fragment) {
 		mContent = fragment;
 
-        //List<Fragment> fragments = new ArrayList<Fragment>();
-        //fragments.add(fragment);
-        //fragments.add(new DealGridFragment("cafe",nl,new XMLParser()));
-
 
         CustomPagerAdapter pageAdapter = (CustomPagerAdapter) vp.getAdapter();
-        //vp.removeAllViews();
-        //PagerTabStrip pagerTS = new PagerTabStrip(this);
-        //vp.addView(pagerTS);
         pageAdapter.clearALL();
         vp.setAdapter(null);
 
         List<Fragment> fragments = new ArrayList<Fragment>();
         fragments.add(mContent);
-        fragments.add(new DealGridFragment("cafe",nl,new XMLParser()));
+        fragments.add(new DealGridFragment(mData,false));
         CustomPagerAdapter newPA = new CustomPagerAdapter(getSupportFragmentManager(),fragments);
 
-        //pageAdapter.getItem(0).getFragmentManager().beginTransaction().replace(R.id.content_frame,fragment).commit();
-        //pageAdapter.getItem(1).getFragmentManager().beginTransaction().replace(R.id.content_frame,new DealGridFragment("cafe",nl,new XMLParser())).commit();
         vp.setAdapter(newPA);
-        //vp.getAdapter().notifyDataSetChanged();
 
-        //CustomPagerAdapter paageAdapter = new CustomPagerAdapter(getSupportFragmentManager(),fragments);
-
-        //vp.setAdapter(pageAdapter);
-		/*getSupportFragmentManager()
-		.beginTransaction()
-		.replace(R.id.content_frame, fragment)
-		.commit();*/
 		Handler h = new Handler();
 		h.postDelayed(new Runnable() {
 			public void run() {
@@ -249,8 +204,6 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
 	}
 
     public void onDealPressed(String dealID) {
-
-
 
         CoupersLocation obj = new CoupersLocation(
                 1,
@@ -294,11 +247,11 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
         obj.location_deals.put(deal.deal_id, deal);
         obj.location_deals.put(deal2.deal_id, deal2);
         Intent intent = CardFlipActivity.newInstance(this,obj);
-        //this.getIntent().putExtra("deals",xmlDeals);
 
         startActivity(intent);
     }
 
+    // Adapter used to display
     private class CustomPagerAdapter extends FragmentStatePagerAdapter {
         private List<Fragment> fragments;
         private FragmentManager fm;
@@ -321,10 +274,11 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
         @Override
         public CharSequence getPageTitle(int position) {
             DealGridFragment fragment = (DealGridFragment) this.fragments.get(position);
-            Boolean near = false;
-            if (fragment.DealType().equals("cafe")==false) near =true;
 
-            return near ? "NEARBY DEALS" : "ALL DEALS";
+            if (fragment==null)
+                return "ALL DEALS";
+            else
+                return fragment.NearbyDeal() ? "NEARBY DEALS" : "ALL DEALS";
         }
 
         public void clearALL()

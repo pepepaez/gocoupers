@@ -86,15 +86,6 @@
             android:layout_alignParentTop="true"
             android:layout_alignBottom="@+id/deal_tip"/>
 
-    <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:id="@+id/imageView3"
-            android:background="@drawable/grid_padding"
-            android:layout_alignParentLeft="true"
-            android:layout_alignBottom="@+id/imageView"
-            android:layout_alignParentRight="true"/>
-
     <ProgressBar
             style="?android:attr/progressBarStyle"
             android:layout_width="wrap_content"
@@ -102,5 +93,15 @@
             android:id="@+id/progressBarLogo"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"/>
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:id="@+id/imageView4"
+            android:background="@drawable/multiple_deals_row"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/imageView"
+            android:layout_toLeftOf="@+id/imageView2"
+            android:layout_alignBottom="@+id/imageView"/>
 
 </RelativeLayout>

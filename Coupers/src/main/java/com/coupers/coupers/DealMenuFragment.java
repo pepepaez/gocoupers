@@ -1,6 +1,5 @@
 package com.coupers.coupers;
 
-import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -13,6 +12,7 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import com.coupers.entities.CoupersLocation;
 import com.coupers.entities.WebServiceDataFields;
 import com.coupers.utils.CoupersObject;
 import com.coupers.utils.CoupersServer;
@@ -34,10 +34,9 @@ import java.util.HashMap;
 public class DealMenuFragment extends Fragment {
 
     private String mFilter = "food"; //TODO change hardcode to setting or last category used?
-    private NodeList mNL = null;
     private ImageView last_selected = null;
-    private XMLParser mParser = null;
     private ViewGroup mContainer = null;
+    private ArrayList<CoupersLocation> mData = new ArrayList<CoupersLocation>();
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -133,12 +132,12 @@ public class DealMenuFragment extends Fragment {
                 ImageView option_selected = (ImageView) view.findViewById(R.id.selected_indicator);
                 if (option_selected!=null){
                     if (last_selected != null) last_selected.setBackgroundColor(0);
-                    option_selected.setBackgroundResource(R.drawable.list_selector_gym);
+                    option_selected.setBackgroundResource(R.drawable.list_selector_feel_good);
                     last_selected = option_selected;
                     TypedArray dealsmenu = getResources().obtainTypedArray(R.array.deals_menu_id);
                     String filter = dealsmenu.getString(position);
 
-                    Fragment newContent = new DealGridFragment(filter, mNL, mParser);
+                    Fragment newContent = new DealGridFragment(mData,true);
                     if (newContent != null)
                         switchFragment(newContent);
                 }
@@ -154,14 +153,11 @@ public class DealMenuFragment extends Fragment {
         });
     }
 
-    public DealMenuFragment(String filter, NodeList nl, XMLParser parser){
 
-        mFilter=filter;
-        mNL= nl;
-        mParser = parser;
-
+    public DealMenuFragment(ArrayList<CoupersLocation> data)
+    {
+        mData= data;
     }
-
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);

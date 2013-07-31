@@ -28,6 +28,10 @@ public class CoupersLocation implements Serializable
     public double location_longitude;
     public HashMap<Integer, CoupersDeal> location_deals = new HashMap<Integer, CoupersDeal>();
 
+    public String CountDeals;
+    public String TopDeal;
+    public boolean Nearby = false;
+
     public CoupersLocation(int location_id, int category_id, String location_name, String location_description, String location_website_url, String location_logo, String location_thumbnail, String location_address, String location_city, String location_phone_number1, String location_phone_number2, double location_latitude, double location_longitude) {
         this.location_id = location_id;
         this.category_id = category_id;
