@@ -7,12 +7,15 @@
     <string name="action_scan">Escanear Promo</string>
     <string name="action_settings">Configuracion</string>
     <string name="categories">Hoy quiero...</string>
+    <string name="current_level">Current Level</string>
     <string name="deal_details">Obten 10% de descuento!</string>
     <string name="favorites">Favoritos</string>
     <string name="hello_world">Hello world!</string>
     <string name="loading_progress_bar">cargando...</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis euismod mi, eu pretium dolor. Phasellus auctor feugiat ante, quis cursus turpis condimentum eu.</string>
+    <string name="redeem_code">Redeem code</string>
     <string name="server_connection_error">Hubo un error al conectarse con el servidor</string>
+    <string name="share">Share!</string>
     <string name="share_deal_dialog_button">Listo!</string>
     <string name="share_deal_dialog_title">Escanea para compartir!</string>
     <string name="what_is_this">What is this?</string>

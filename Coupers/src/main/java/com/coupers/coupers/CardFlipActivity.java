@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Point;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -30,10 +31,13 @@ import android.widget.TextView;
 import com.androidquery.AQuery;
 import com.coupers.entities.CoupersDeal;
 import com.coupers.entities.CoupersLocation;
+import com.coupers.entities.WebServiceDataFields;
 import com.coupers.utils.Contents;
 import com.coupers.utils.QRCodeEncoder;
+import com.google.zxing.BarcodeFormat;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -57,12 +61,6 @@ public class CardFlipActivity extends Activity
      * Whether or not we're showing the back of the card (otherwise showing the front).
      */
     private boolean mShowingBack = false;
-
-    public static Intent newInstance(Activity activity, String pos) {
-        Intent intent = new Intent(activity, CardFlipActivity.class);
-        intent.putExtra("dealID", pos);
-        return intent;
-    }
 
     public static Intent newInstance(Activity activity, CoupersLocation obj){
         Intent intent = new Intent(activity, CardFlipActivity.class );
@@ -210,13 +208,40 @@ public class CardFlipActivity extends Activity
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             View fragmentView = inflater.inflate(R.layout.location_card_front,null);
             aq = new AQuery(fragmentView);
+            int bgResource = R.drawable.list_selector_eat;
+
+            if (data !=null)
+            {
+                switch(data.category_id)
+                {
+                    case WebServiceDataFields.CATEGORY_ID_EAT:
+                        bgResource = R.drawable.list_selector_eat;
+                        break;
+                    case WebServiceDataFields.CATEGORY_ID_FEEL_GOOD:
+                        bgResource= R.drawable.list_selector_feel_good;
+                        break;
+                    case WebServiceDataFields.CATEGORY_ID_HAVE_FUN:
+                        bgResource = R.drawable.list_selector_have_fun;
+                        break;
+                    case WebServiceDataFields.CATEGORY_ID_LOOK_GOOD:
+                        bgResource= R.drawable.list_selector_look_good;
+                        break;
+                    case WebServiceDataFields.CATEGORY_ID_RELAX:
+                        bgResource=R.drawable.list_selector_relax;
+                        break;
+                }
+            }
+            ImageView location_logo = (ImageView) fragmentView.findViewById(R.id.location_logo);
+            location_logo.setBackgroundResource(bgResource);
+
             aq.id(R.id.location_logo).image(data.location_logo,true,true);
             aq.id(R.id.location_thumbnail).image(data.location_thumbnail,true,true);
             ViewPager vp = (ViewPager) fragmentView.findViewById(R.id.deal_pager);
-            DealPagerAdapter dealPager=new DealPagerAdapter(getLayoutInflater());
-            for (int i = 1; i <= data.location_deals.size(); i++) {
-                dealPager.addDeal(data.location_deals.get(i));
-            }
+            DealPagerAdapter dealPager=new DealPagerAdapter(getLayoutInflater(),bgResource);
+
+            for (CoupersDeal deal : data.location_deals.values())
+                dealPager.addDeal(deal);
+
             vp.setAdapter(dealPager);
 
             return fragmentView;
@@ -226,11 +251,13 @@ public class CardFlipActivity extends Activity
     //------------------
     private class DealPagerAdapter extends PagerAdapter {
         private LayoutInflater mInflater;
+        private  int bg=R.drawable.list_selector_eat;
 
         private ArrayList<CoupersDeal> aDeal = new ArrayList<CoupersDeal>();
 
-        public DealPagerAdapter(LayoutInflater inflater){
+        public DealPagerAdapter(LayoutInflater inflater, int bg){
             mInflater=inflater;
+            this.bg = bg;
         }
 
         public void addDeal( CoupersDeal deal){
@@ -238,13 +265,97 @@ public class CardFlipActivity extends Activity
         }
 
         @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            //super.destroyItem(container, position, object);
+
+        }
+
+        @Override
         public Object instantiateItem(ViewGroup container, int position) {
             //super.instantiateItem(container, position);
+            final int pos = position;
             View layout = mInflater.inflate(R.layout.deal_pager_view, null);
             TextView level_deal_legend = (TextView) layout.findViewById(R.id.level_deal_legend);
             TextView level_deal_description = (TextView) layout.findViewById(R.id.level_deal_description);
-            level_deal_legend.setText(aDeal.get(position).deal_levels.get(1).level_deal_legend);
-            level_deal_description.setText(aDeal.get(position).deal_levels.get(1).level_deal_description);
+            level_deal_legend.setBackgroundResource(bg);
+            level_deal_legend.setText(aDeal.get(position).deal_levels.get(0).level_deal_legend);
+            level_deal_description.setBackgroundResource(bg);
+            level_deal_description.setText(aDeal.get(position).deal_levels.get(0).level_deal_description);
+
+            //---- Create redeem code
+            ImageView redeem_code = (ImageView) layout.findViewById(R.id.level_redeem_code);
+
+            WindowManager manager = (WindowManager) getSystemService(WINDOW_SERVICE);
+            Display display = manager.getDefaultDisplay();
+            Point point = new Point();
+            display.getSize(point);
+            int width = point.x;
+            int height = point.y;
+            int smallerDimension = width < height ? width : height;
+            //smallerDimension = smallerDimension * 3/4;
+
+
+            QRCodeEncoder qrcodeDeal = new QRCodeEncoder(aDeal.get(position).deal_levels.get(0).level_redeem_code,null, Contents.Type.TEXT, null,smallerDimension);
+
+            Bitmap qrcode = null;
+            try
+            {
+                qrcode = qrcodeDeal.encodeAsBitmap();
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                //TODO if error change dialog to say there was an error
+            }
+            if(redeem_code != null || qrcode == null ) redeem_code.setImageBitmap(qrcode);
+
+            //--- Create redeem code
+
+
+            //--- Create share code
+            Button shareButton = (Button) layout.findViewById(R.id.share_button);
+            shareButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                    LayoutInflater inflater = getLayoutInflater();
+
+                    //Find screen size
+                    WindowManager manager = (WindowManager) getSystemService(WINDOW_SERVICE);
+                    Display display = manager.getDefaultDisplay();
+                    Point point = new Point();
+                    display.getSize(point);
+                    int width = point.x;
+                    int height = point.y;
+                    int smallerDimension = width < height ? width : height;
+                    smallerDimension = smallerDimension * 3/4;
+
+                    View sharedealview = inflater.inflate(R.layout.share_deal,null);
+                    QRCodeEncoder qrcodeDeal = new QRCodeEncoder(aDeal.get(pos).deal_levels.get(0).level_share_code,null, Contents.Type.TEXT, null,smallerDimension);
+
+                    builder.setView(sharedealview);
+                    ImageView dealqrcode = (ImageView) sharedealview.findViewById(R.id.deal_qrcode);
+                    Bitmap qrcode = null;
+                    try
+                    {
+                        qrcode = qrcodeDeal.encodeAsBitmap();
+                    }
+                    catch(Exception e)
+                    {
+                        //TODO if error change dialog to say there was an error
+                    }
+                    if(dealqrcode != null || qrcode == null ) dealqrcode.setImageBitmap(qrcode);
+                    builder.setNeutralButton(R.string.share_deal_dialog_button,new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                        }
+                    });
+                    builder.setTitle(R.string.share_deal_dialog_title);
+                    builder.show();
+                }
+            });
+            //--------- Create share code
             ((ViewPager) container).addView(layout);
             return layout;
         }

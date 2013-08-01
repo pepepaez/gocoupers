@@ -39,7 +39,7 @@
             android:layout_alignParentRight="true"
             android:paddingLeft="4dp"
             android:clickable="false"
-            />
+            android:textColor="#e8e8e8"/>
 
     <ImageView
             android:layout_width="fill_parent"

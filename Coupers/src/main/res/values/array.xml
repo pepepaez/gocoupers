@@ -10,27 +10,35 @@
     </string-array>
     
     <string-array name="deals_menu">
-        <item>Favoritos</item>
-        <item>Categorias</item>
-        <item>Restaurantes</item>
-        <item>Cafe y bar</item>
-        <item>Gimnasios</item>
-        <item>Belleza</item>
-        <item>Spas</item>
-        <item>Tacos</item>
-        <item>Arcades</item>
+        <item>@string/i_want_to_eat</item>
+        <item>@string/i_want_to_have_fun</item>
+        <item>@string/i_want_to_relax</item>
+        <item>@string/i_want_to_feel_good</item>
+        <item>@string/i_want_to_look_good</item>
     </string-array>
 
     <string-array name="deals_menu_id">
-        <item>menu</item>
-        <item>favorites</item>
-        <item>food</item>
-        <item>cafe</item>
-        <item>gym</item>
-        <item>beauty</item>
-        <item>gym</item>
-        <item>food</item>
-        <item>cafe</item>
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>50</item>
+    </string-array>
+
+    <string-array name="deals_menu_background">
+        <item>@drawable/list_selector_eat</item>
+        <item>@drawable/list_selector_have_fun</item>
+        <item>@drawable/list_selector_relax</item>
+        <item>@drawable/list_selector_feel_good</item>
+        <item>@drawable/list_selector_look_good</item>
+    </string-array>
+
+    <string-array name="deals_menu_icon">
+        <item>@drawable/coupers_icon3</item>
+        <item>@drawable/coupers_icon3</item>
+        <item>@drawable/coupers_icon3</item>
+        <item>@drawable/coupers_icon3</item>
+        <item>@drawable/coupers_icon3</item>
     </string-array>
 
     <string-array name="birds">

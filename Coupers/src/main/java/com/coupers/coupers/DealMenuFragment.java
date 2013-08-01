@@ -1,6 +1,11 @@
 package com.coupers.coupers;
 
+import android.app.ActionBar;
+import android.content.Context;
+import android.content.Intent;
 import android.content.res.TypedArray;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -37,6 +42,22 @@ public class DealMenuFragment extends Fragment {
     private ImageView last_selected = null;
     private ViewGroup mContainer = null;
     private ArrayList<CoupersLocation> mData = new ArrayList<CoupersLocation>();
+
+    public class CoupersMenuItem{
+        public String item_text = "";
+        public int item_icon = R.drawable.coupers_icon3;
+        public int item_bg = R.drawable.list_selector_eat;
+        public int category_id = -999;
+        public int location_id = -999;
+        public boolean is_location = false;
+        public CoupersMenuItem(String text, int icon, int bg, int id){
+            this.item_text = text;
+            this.item_icon = icon;
+            this.item_bg = bg;
+            this.category_id = id;
+            this.is_location = false;
+        }
+    }
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -79,43 +100,49 @@ public class DealMenuFragment extends Fragment {
         server.execute("dummy string");
     }
 
-    public void UpdateMenu(ArrayList<HashMap<String, String>> aFavLocList, String WebServiceExecuted)
+    public void Update(ArrayList<HashMap<String, String>> aResult, String WebServiceExecuted)
     {
 
+        if (WebServiceExecuted=="GetUserFavoriteLocations") UpdateMenu(aResult);
 
+        if (WebServiceExecuted == "GetCategoryDeals") UpdateDeals(aResult);
+
+    }
+
+    public void UpdateMenu(ArrayList<HashMap<String, String>> aFavLocList){
         final GridView lv = (GridView) mContainer.findViewById(R.id.gridView);
         // Get Menu
         TypedArray deals_menu = getResources().obtainTypedArray(R.array.deals_menu);
+        TypedArray deals_menu_id = getResources().obtainTypedArray(R.array.deals_menu_id);
+        TypedArray deals_menu_background = getResources().obtainTypedArray(R.array.deals_menu_background);
+        TypedArray deals_menu_icon = getResources().obtainTypedArray(R.array.deals_menu_icon);
 
         //Create adapter
         MenuAdapter adapter=new MenuAdapter(this.getActivity());
 
+        if (aFavLocList.size()>0)
+        {
+            adapter.addHeader(getString(R.string.favorites));
+
+            for (int j =0;j< (aFavLocList.size()>3 ? 3: aFavLocList.size());j++)
+            {
+                HashMap<String, String> map = new HashMap<String, String>();
+                map.put(WebServiceDataFields.FAVLOC_LOCATION_ID, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_LOCATION_ID).toString());
+                map.put(WebServiceDataFields.FAVLOC_CATEGORY_ID, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_CATEGORY_ID).toString());
+                map.put(WebServiceDataFields.FAVLOC_LOCATION_NAME, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_LOCATION_NAME).toString());
+                map.put(WebServiceDataFields.FAVLOC_LOCATION_LOGO, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_LOCATION_LOGO).toString());
+                map.put(WebServiceDataFields.FAVLOC_NEW_DEAL_COUNT, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_NEW_DEAL_COUNT).toString());
+
+                adapter.addFavorite(map);
+
+            }
+        }
+        adapter.addHeader(getString(R.string.i_want_to));
+
         for (int i=0; i<deals_menu.length();i++)
         {
-            if(deals_menu.getString(i).toUpperCase().equals("FAVORITOS"))
-            {
-                if (aFavLocList.size()>0)
-                {
-                    adapter.addHeader(getString(R.string.favorites));
-
-                    for (int j =0;j< (aFavLocList.size()>3 ? 3: aFavLocList.size());j++)
-                    {
-                        HashMap<String, String> map = new HashMap<String, String>();
-                        map.put(WebServiceDataFields.FAVLOC_LOCATION_ID, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_LOCATION_ID).toString());
-                        map.put(WebServiceDataFields.FAVLOC_CATEGORY_ID, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_CATEGORY_ID).toString());
-                        map.put(WebServiceDataFields.FAVLOC_LOCATION_NAME, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_LOCATION_NAME).toString());
-                        map.put(WebServiceDataFields.FAVLOC_LOCATION_LOGO, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_LOCATION_LOGO).toString());
-                        map.put(WebServiceDataFields.FAVLOC_NEW_DEAL_COUNT, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_NEW_DEAL_COUNT).toString());
-
-                        adapter.addFavorite(map);
-
-                    }
-                }
-
-            }else if(deals_menu.getString(i).toUpperCase().equals("CATEGORIAS"))
-                adapter.addHeader(getString(R.string.categories));
-            else
-                adapter.addItem(deals_menu.getString(i));
+            CoupersMenuItem item = new CoupersMenuItem(deals_menu.getString(i),deals_menu_icon.getResourceId(i,R.drawable.coupers_icon3),deals_menu_background.getResourceId(i,R.drawable.list_selector_eat),Integer.valueOf(deals_menu_id.getString(i)));
+            adapter.addItem(item);
         }
 
         lv.setAdapter(adapter);
@@ -130,22 +157,29 @@ public class DealMenuFragment extends Fragment {
                     return;
 
                 ImageView option_selected = (ImageView) view.findViewById(R.id.selected_indicator);
-                if (option_selected!=null){
-                    if (last_selected != null) last_selected.setBackgroundColor(0);
-                    option_selected.setBackgroundResource(R.drawable.list_selector_feel_good);
+                if (option_selected != null) {
+                    if (last_selected != null) {
+                        ViewGroup.LayoutParams lp = last_selected.getLayoutParams();
+                        lp.width = 10;
+                        last_selected.setLayoutParams(lp);
+                    }
+                    ViewGroup.LayoutParams lp = option_selected.getLayoutParams();
+                    lp.width = 80;
+                    option_selected.setLayoutParams(lp);
                     last_selected = option_selected;
                     TypedArray dealsmenu = getResources().obtainTypedArray(R.array.deals_menu_id);
-                    String filter = dealsmenu.getString(position);
+                    int category_id = ((MenuAdapter) lv.getAdapter()).getCategoryId(position);
 
-                    Fragment newContent = new DealGridFragment(mData,true);
-                    if (newContent != null)
-                        switchFragment(newContent);
+                    LoadCategoryDeals(category_id);
+                    //Fragment newContent = new DealGridFragment(mData,true);
+                    //if (newContent != null)
+                    //switchFragment(newContent);
                 }
 
                 ImageView favorite_location = (ImageView) view.findViewById(R.id.favorite_location);
-                if (favorite_location!=null){
+                if (favorite_location != null) {
                     //TODO call CardFlipActivity for selected location
-                    String location_id = ((MenuAdapter) lv.getAdapter()).getLocationId(position);
+                    int location_id = ((MenuAdapter) lv.getAdapter()).getLocationId(position);
                     loadLocation(location_id);
                 }
 
@@ -153,11 +187,104 @@ public class DealMenuFragment extends Fragment {
         });
     }
 
+    private void LoadCategoryDeals(int CategoryId){
+        CoupersObject obj = new CoupersObject("http://tempuri.org/GetCategoryDeals",
+                "http://coupers.elasticbeanstalk.com/CoupersWS/Coupers.asmx",
+                "GetCategoryDeals");
+        obj.addParameter("city",getResources().getString(R.string.city));
+        obj.addParameter("category_id",String.valueOf(CategoryId));
+        String _tag[]={
+                WebServiceDataFields.LOCATION_ID,
+                WebServiceDataFields.LOCATION_NAME,
+                WebServiceDataFields.LOCATION_LOGO,
+                WebServiceDataFields.LOCATION_ADDRESS,
+                WebServiceDataFields.LOCATION_CITY,
+                WebServiceDataFields.CATEGORY_ID,
+                WebServiceDataFields.LATITUDE,
+                WebServiceDataFields.LONGITUDE,
+                WebServiceDataFields.LOCATION_DESCRIPTION,
+                WebServiceDataFields.LOCATION_WEBSITE_URL,
+                WebServiceDataFields.LOCATION_THUMBNAIL,
+                WebServiceDataFields.LOCATION_PHONE_NUMBER1,
+                WebServiceDataFields.LOCATION_PHONE_NUMBER2,
+                WebServiceDataFields.LOCATION_HOURS_OPERATION1,
+                WebServiceDataFields.LEVEL_DEAL_LEGEND,
+                WebServiceDataFields.COUNTDEALS};
+        obj.setTag(_tag);
+
+        CoupersServer server = new CoupersServer(obj,this);
+
+        server.execute("dummy string");
+    }
+
+    public void UpdateDeals(ArrayList<HashMap<String, String>> aData)
+    {
+        ArrayList<CoupersLocation> mData = new ArrayList<CoupersLocation>();
+        LocationManager lm = (LocationManager)this.getActivity().getSystemService(Context.LOCATION_SERVICE);
+        Location geoloc = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        double latitude;
+        double longitude;
+        boolean nearby_locations=false;
+        if(geoloc != null){
+            latitude = geoloc.getLatitude();
+            longitude = geoloc.getLongitude();
+        }else{
+            latitude = -999;
+            longitude = -999;
+        }
+        float[] results = new float[1];
+        float distance = 0;
+
+        //Go through data to create 2 data sets, one with locations nearby and the rest
+        for (HashMap<String, String> map : aData){
+            CoupersLocation mLocation = new CoupersLocation(
+                    Integer.valueOf(map.get(WebServiceDataFields.LOCATION_ID)),
+                    Integer.valueOf(map.get(WebServiceDataFields.CATEGORY_ID)),
+                    map.get(WebServiceDataFields.LOCATION_NAME),
+                    map.get(WebServiceDataFields.LOCATION_DESCRIPTION),
+                    map.get(WebServiceDataFields.LOCATION_WEBSITE_URL),
+                    map.get(WebServiceDataFields.LOCATION_LOGO),
+                    map.get(WebServiceDataFields.LOCATION_THUMBNAIL),
+                    map.get(WebServiceDataFields.LOCATION_ADDRESS),
+                    map.get(WebServiceDataFields.LOCATION_CITY),
+                    map.get(WebServiceDataFields.LOCATION_PHONE_NUMBER1),
+                    map.get(WebServiceDataFields.LOCATION_PHONE_NUMBER2),
+                    Double.valueOf(map.get(WebServiceDataFields.LATITUDE)),
+                    Double.valueOf(map.get(WebServiceDataFields.LONGITUDE)));
+            mLocation.TopDeal = map.get(WebServiceDataFields.LEVEL_DEAL_LEGEND);
+            mLocation.CountDeals = map.get(WebServiceDataFields.COUNTDEALS);
+            if (geoloc!=null){
+                Location.distanceBetween(latitude,longitude,mLocation.location_latitude,mLocation.location_longitude,results);
+                distance = results[0];
+                if (distance < 1000){
+                    mLocation.Nearby=true;
+                    nearby_locations = true;
+                }
+
+            }
+            mData.add(mLocation);
+        }
+
+        //findViewById(R.id.progressBar).setVisibility(View.INVISIBLE);
+        //findViewById(R.id.textView).setVisibility(View.INVISIBLE);
+
+        if (getActivity() instanceof ResponsiveUIActivity) {
+            ResponsiveUIActivity ra = (ResponsiveUIActivity) getActivity();
+            ra.switchContent(mData,geoloc!=null, nearby_locations);
+        }
+
+    }
+
 
     public DealMenuFragment(ArrayList<CoupersLocation> data)
     {
         mData= data;
     }
+
+    public DealMenuFragment(){
+
+    }
+
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
@@ -171,19 +298,8 @@ public class DealMenuFragment extends Fragment {
         //outState.putSerializable("lk",mNL);
 
     }
-	
-	// the meat of switching the above fragment
-	private void switchFragment(Fragment fragment) {
-		if (getActivity() == null)
-			return;
 
-		if (getActivity() instanceof ResponsiveUIActivity) {
-			ResponsiveUIActivity ra = (ResponsiveUIActivity) getActivity();
-			ra.switchContent(fragment);
-		}
-	}
-
-    private void loadLocation(String location_id) {
+    private void loadLocation(int location_id) {
         if (getActivity() == null)
             return;
 

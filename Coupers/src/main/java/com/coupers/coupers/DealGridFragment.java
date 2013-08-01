@@ -32,6 +32,10 @@ public class DealGridFragment extends Fragment {
         mNearby = nearby;
     }
 
+    public DealGridFragment(){
+
+    }
+
     public boolean NearbyDeal(){
         return mNearby;
     }
@@ -44,7 +48,7 @@ public class DealGridFragment extends Fragment {
         ArrayList<HashMap<String, String>> FilteredDealsList = new ArrayList<HashMap<String, String>>();
 
         //GridView gv = (GridView) inflater.inflate(R.layout.list_grid, null);
-        GridView gv = new GridView(getActivity()); //GridView) container.findViewById(R.id.gridView);
+        final GridView gv = new GridView(getActivity()); //GridView) container.findViewById(R.id.gridView);
         //container.removeView(container.findViewById(R.id.gridView));
 
         DealAdapter adapter = new DealAdapter(this.getActivity());
@@ -61,10 +65,12 @@ public class DealGridFragment extends Fragment {
                                     long id) {
                 if (getActivity() == null)
                     return;
-                TextView dealID = (TextView) view.findViewById(R.id.deal_id);
+
+                int location_id = ((DealAdapter)gv.getAdapter()).getLocationId(position);
+                //TextView dealID = (TextView) view.findViewById(R.id.deal_id);
                 ResponsiveUIActivity activity = (ResponsiveUIActivity) getActivity();
 
-                activity.onDealPressed(dealID.getText().toString());
+                activity.onDealPressed(location_id);
 
             }
         });

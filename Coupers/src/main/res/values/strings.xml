@@ -19,6 +19,13 @@
     <string name="loading_progress_bar">loading...</string>
     <string name="server_connection_error">There was an error trying to connect to the server</string>
     <string name="favorites">Favorites</string>
-    <string name="categories">I want to...</string>
+    <string name="i_want_to">I want to...</string>
+    <string name="i_want_to_eat">Eat...</string>
+    <string name="i_want_to_look_good">Look good...</string>
+    <string name="i_want_to_feel_good">Feel good...</string>
+    <string name="i_want_to_relax">Relax...</string>
+    <string name="i_want_to_have_fun">Have fun...</string>
+    <string name="city">mexicali</string><string name="current_level">Current Level</string><string name="share">Share!</string><string name="redeem_code">Redeem code</string>
+
 
 </resources>

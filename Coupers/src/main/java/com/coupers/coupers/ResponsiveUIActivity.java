@@ -16,6 +16,9 @@ import com.actionbarsherlock.view.MenuItem;
 import com.coupers.entities.CoupersDeal;
 import com.coupers.entities.CoupersDealLevel;
 import com.coupers.entities.CoupersLocation;
+import com.coupers.entities.WebServiceDataFields;
+import com.coupers.utils.CoupersObject;
+import com.coupers.utils.CoupersServer;
 import com.coupers.utils.IntentIntegrator;
 import com.coupers.utils.IntentResult;
 import com.coupers.utils.XMLParser;
@@ -46,7 +49,9 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
 
 	private Fragment mContent;
     ArrayList<CoupersLocation> mData = new ArrayList<CoupersLocation>();
+    private CoupersLocation selected_location = null;
     private  boolean gps_available=false;
+    private boolean nearby_locations=false;
     ViewPager vp;
 
     //TODO review if all these node keys will be sufficient, can we (should we) use a class instead?
@@ -94,18 +99,16 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
 
 		// set the Above View Fragment & get saved instance data
 		if (savedInstanceState != null){
-
-            mContent = getSupportFragmentManager().getFragment(savedInstanceState, "mContent");
             mData = (ArrayList<CoupersLocation>) savedInstanceState.getSerializable("data");
             gps_available = savedInstanceState.getBoolean("gps");
+            nearby_locations=savedInstanceState.getBoolean("nearby");
         }else {
             mData = (ArrayList<CoupersLocation>) getIntent().getSerializableExtra("data");
             gps_available = getIntent().getBooleanExtra("gps", false);
+            nearby_locations = getIntent().getBooleanExtra("nearby",false);
 
         }
 
-		if (mContent == null)
-            if (gps_available) mContent = new DealGridFragment(mData,true); //Create fragment with retrieved data
 
 		// set the Behind View Fragment
         //TODO Change DealMenuFragment to accept mData to then pass it onto selected categories and locations
@@ -116,7 +119,7 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
 
 
         List<Fragment> fragments = new ArrayList<Fragment>();
-        if (mContent != null) fragments.add(mContent);
+        if (gps_available && nearby_locations) fragments.add(new DealGridFragment(mData,true));
         fragments.add(new DealGridFragment(mData,false));
         CustomPagerAdapter pageAdapter = new CustomPagerAdapter(getSupportFragmentManager(),fragments);
 
@@ -161,9 +164,10 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
-		getSupportFragmentManager().putFragment(outState, "mContent", mContent);
+		//getSupportFragmentManager().putFragment(outState, "mContent", mContent);
         outState.putSerializable("data",mData);
         outState.putBoolean("gps",gps_available);
+        outState.putBoolean("nearby",nearby_locations);
 
 	}
 
@@ -180,16 +184,14 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
     }
 
 
-	public void switchContent(final Fragment fragment) {
-		mContent = fragment;
-
+	public void switchContent(ArrayList<CoupersLocation> mData, boolean gps_available, boolean nearby_locations) {
 
         CustomPagerAdapter pageAdapter = (CustomPagerAdapter) vp.getAdapter();
         pageAdapter.clearALL();
         vp.setAdapter(null);
 
         List<Fragment> fragments = new ArrayList<Fragment>();
-        fragments.add(mContent);
+        if (gps_available && nearby_locations) fragments.add(new DealGridFragment(mData,true));
         fragments.add(new DealGridFragment(mData,false));
         CustomPagerAdapter newPA = new CustomPagerAdapter(getSupportFragmentManager(),fragments);
 
@@ -203,7 +205,58 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
 		}, 50);
 	}
 
-    public void onDealPressed(String dealID) {
+    public void onDealPressed(int location_id) {
+        CoupersObject obj = new CoupersObject("http://tempuri.org/GetLocationDeals",
+                "http://coupers.elasticbeanstalk.com/CoupersWS/Coupers.asmx",
+                "GetLocationDeals");
+        obj.addParameter("location_id",String.valueOf(location_id));
+        String _tag[]={
+                WebServiceDataFields.DEAL_ID,
+                WebServiceDataFields.LOCATION_ID,
+                WebServiceDataFields.DEAL_START_DATE,
+                WebServiceDataFields.DEAL_END_DATE,
+                WebServiceDataFields.DEAL_DAY_SPECIAL,
+                WebServiceDataFields.LEVEL_ID,
+                WebServiceDataFields.LEVEL_START_AT,
+                WebServiceDataFields.LEVEL_SHARE_CODE,
+                WebServiceDataFields.LEVEL_REDEEM_CODE,
+                WebServiceDataFields.LEVEL_DEAL_LEGEND,
+                WebServiceDataFields.LEVEL_DEAL_DESCRIPTION
+        };
+        obj.setTag(_tag);
+
+        CoupersServer server = new CoupersServer(obj,this);
+
+        for (CoupersLocation location:mData)
+        if (location.location_id == location_id) selected_location = location;
+
+        server.execute("dummy string");
+
+    }
+
+    public void Update(ArrayList<HashMap<String, String>> aResult, String WebServiceExecuted){
+
+        for (HashMap<String,String> map: aResult) {
+            CoupersDeal deal = new CoupersDeal(Integer.valueOf(map.get(WebServiceDataFields.DEAL_ID)), map.get(WebServiceDataFields.DEAL_START_DATE), map.get(WebServiceDataFields.DEAL_END_DATE));
+            CoupersDealLevel level = new CoupersDealLevel(
+                    Integer.valueOf(map.get(WebServiceDataFields.LEVEL_ID)),
+                    Integer.valueOf(map.get(WebServiceDataFields.LEVEL_START_AT)),
+                    map.get(WebServiceDataFields.LEVEL_SHARE_CODE),
+                    map.get(WebServiceDataFields.LEVEL_REDEEM_CODE),
+                    map.get(WebServiceDataFields.LEVEL_DEAL_LEGEND),
+                    map.get(WebServiceDataFields.LEVEL_DEAL_DESCRIPTION));
+            deal.deal_levels.put(level.level_id,level);
+            selected_location.location_deals.put(deal.deal_id, deal);
+        }
+
+        Intent intent = CardFlipActivity.newInstance(this,selected_location);
+
+        startActivity(intent);
+
+    }
+
+
+    private void runlocation(){
 
         CoupersLocation obj = new CoupersLocation(
                 1,
@@ -249,6 +302,7 @@ public class ResponsiveUIActivity extends SlidingFragmentActivity {
         Intent intent = CardFlipActivity.newInstance(this,obj);
 
         startActivity(intent);
+
     }
 
     // Adapter used to display

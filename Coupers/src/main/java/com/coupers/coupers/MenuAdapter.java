@@ -33,6 +33,8 @@ public class MenuAdapter extends BaseAdapter {
     private TreeSet mHeaderSet = new TreeSet();
     private TreeSet mFavoriteSet = new TreeSet();
     private HashMap<String, HashMap<String, String>> mFavoriteData = new HashMap<String, HashMap<String, String>>();
+    private ArrayList<DealMenuFragment.CoupersMenuItem> mItems = new ArrayList<DealMenuFragment.CoupersMenuItem>();
+
 
 
     public MenuAdapter(Activity a)
@@ -46,16 +48,18 @@ public class MenuAdapter extends BaseAdapter {
         return mData.size();
     }
 
-    public void addItem(final String item)
+    public void addItem(final DealMenuFragment.CoupersMenuItem item_details)
     {
-        mData.add(item);
+        mData.add(item_details.item_text);
+        mItems.add(item_details);
         notifyDataSetChanged();
     }
 
     public void addHeader(final String item)
     {
         mData.add(item);
-        mHeaderSet.add(mData.size()-1);
+        mItems.add(null);
+        mHeaderSet.add(mData.size() - 1);
         notifyDataSetChanged();
 
     }
@@ -63,16 +67,21 @@ public class MenuAdapter extends BaseAdapter {
     public void addFavorite (final HashMap<String,String> item)
     {
         mData.add(item.get(WebServiceDataFields.FAVLOC_LOCATION_ID).toString());
-        mFavoriteSet.add(mData.size()-1);
-        mFavoriteData.put("item"+String.valueOf(mData.size() - 1), item);
+        mItems.add(null);
+        mFavoriteSet.add(mData.size() - 1);
+        mFavoriteData.put("item" + String.valueOf(mData.size() - 1), item);
         notifyDataSetChanged();
 
     }
 
-    public String getLocationId(int position){
+    public int getLocationId(int position){
 
-        return mFavoriteData.get("item"+String.valueOf(position)).get(WebServiceDataFields.FAVLOC_LOCATION_ID);
+        return Integer.valueOf(mFavoriteData.get("item"+String.valueOf(position)).get(WebServiceDataFields.FAVLOC_LOCATION_ID));
 
+    }
+
+    public int getCategoryId(int position) {
+        return mItems.get(position).category_id;
     }
 
     @Override
@@ -105,8 +114,12 @@ public class MenuAdapter extends BaseAdapter {
                     convertView = inflater.inflate(R.layout.list_menu_item,null);
                     holder.textView = (TextView) convertView.findViewById(R.id.item_menu_text);
                     holder.textView.setText(mData.get(position).toString());
+                    holder.icon = (ImageView) convertView.findViewById(R.id.item_menu_icon);
+                    holder.icon.setImageResource(mItems.get(position).item_icon);
+                    convertView.setBackgroundResource(mItems.get(position).item_bg);
                     holder.indicator = (ImageView) convertView.findViewById(R.id.selected_indicator);
-                    holder.indicator.setBackgroundColor(0);
+                    //holder.indicator.setBackgroundResource(android.R.color.white);
+                    //holder.indicator.setPadding(5,0,0,0);
                     break;
                 case TYPE_HEADER:
                     convertView = inflater.inflate(R.layout.list_menu_header,null);
@@ -140,5 +153,6 @@ public class MenuAdapter extends BaseAdapter {
         public ImageView indicator;
         public ImageView logo;
         public TextView dealcount;
+        public ImageView icon;
     }
 }

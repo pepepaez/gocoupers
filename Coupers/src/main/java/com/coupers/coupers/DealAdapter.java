@@ -63,6 +63,10 @@ public class DealAdapter extends BaseAdapter {
         return position;
     }
 
+    public int getLocationId(int position){
+        return data.get(position).location_id;
+    }
+
     public View getView(int position, View convertView, ViewGroup parent) {
         View vi=convertView;
         CoupersLocation location = data.get(position);

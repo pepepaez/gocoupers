@@ -68,7 +68,7 @@
             android:paddingRight="5dip"
             android:layout_toLeftOf="@+id/right_padding"
             android:layout_alignTop="@+id/dashdeal"
-            android:layout_alignBottom="@+id/more_deals"/>
+            android:layout_alignBottom="@+id/deal_padding"/>
     <ProgressBar
             style="?android:attr/progressBarStyleLarge"
             android:layout_width="wrap_content"
@@ -87,18 +87,6 @@
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"/>
 
-    <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:id="@+id/deal_padding"
-            android:background="@drawable/multiple_deals_row"
-            android:layout_alignParentLeft="false"
-            android:layout_alignParentRight="false"
-            android:layout_alignLeft="@+id/list_image"
-            android:layout_alignRight="@+id/deal_tip"
-            android:layout_alignTop="@+id/list_image"
-            android:layout_alignBottom="@+id/list_image"/>
-
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -110,16 +98,26 @@
             android:visibility="invisible"
             />
 
-    <TextView
+    <ImageView
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:id="@+id/imageView"
+            android:src="@drawable/multiple_deal_indicator"
+            android:layout_alignRight="@+id/deal_tip"
+            android:layout_alignBottom="@+id/deal_tip"
+            android:layout_marginBottom="1dp"
+            android:layout_marginRight="1dp"/>
+
+    <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="+"
-            android:id="@+id/more_deals"
-            android:textColor="#ffffff"
-            android:gravity="center_vertical|center_horizontal"
-            android:textSize="15dp"
-            android:layout_alignBottom="@+id/deal_padding"
-            android:layout_alignRight="@+id/deal_tip"/>
+            android:layout_height="1dp"
+            android:id="@+id/deal_padding"
+            android:background="@drawable/multiple_deals_row"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentRight="false"
+            android:layout_alignLeft="@+id/list_image"
+            android:layout_alignRight="@+id/deal_tip"
+            android:layout_alignTop="@+id/list_image"
+            android:layout_alignBottom="@+id/list_image"/>
 
 </RelativeLayout>

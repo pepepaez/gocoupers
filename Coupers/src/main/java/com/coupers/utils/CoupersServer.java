@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import com.coupers.coupers.DealMenuFragment;
 import com.coupers.coupers.MainActivity;
 import com.coupers.coupers.R;
+import com.coupers.coupers.ResponsiveUIActivity;
 import com.coupers.entities.WebServiceDataFields;
 
 import org.apache.http.impl.cookie.BasicMaxAgeHandler;
@@ -96,14 +97,17 @@ public class CoupersServer extends AsyncTask<String,Void,String> {
                 //TODO instantiate an activity to show server connection error, finalize app.
             }
             if(mContext instanceof DealMenuFragment){
-                ((DealMenuFragment) mContext).UpdateMenu(aServerData, mObject.getMETHOD_NAME());
+                ((DealMenuFragment) mContext).Update(aServerData, mObject.getMETHOD_NAME());
             }
         }
 
         if (mActivity!=null)
+        {
             if (mActivity instanceof MainActivity)
                 ((MainActivity) mActivity).UpdateMenu(aServerData, mObject.getMETHOD_NAME());
-
+            if(mActivity instanceof ResponsiveUIActivity)
+                ((ResponsiveUIActivity) mActivity).Update(aServerData, mObject.getMETHOD_NAME());
+        }
     }
 
 }

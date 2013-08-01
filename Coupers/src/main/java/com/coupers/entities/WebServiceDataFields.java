@@ -5,17 +5,6 @@ package com.coupers.entities;
  */
 public class  WebServiceDataFields {
 
-    static final String DEAL_KEY_DEAL = "deal"; // parent node
-    static final String DEAL_KEY_ID = "deal_id";
-    static final String DEAL_KEY_TYPE = "deal_type";
-    static final String DEAL_KEY_DEAL_DESC = "deal_desc";
-    static final String DEAL_KEY_DEAL_START = "deal_start_date";
-    static final String DEAL_KEY_DEAL_END = "deal_end_date";
-    static final String DEAL_KEY_LOCATION_ID = "deal_location_id";
-    static final String DEAL_KEY_LOCATION_LOGO = "deal_location_logo";
-    static final String DEAL_KEY_DEAL_TIP = "deal_tip";
-    static final String DEAL_KEY_THUMB_URL = "deal_thumb";
-
 
     //Favorite Locations WebService Data Dictionary
     public static final String FAVLOC_NODE = "UserFavLocations";
@@ -43,11 +32,25 @@ public class  WebServiceDataFields {
     public static final String LEVEL_DEAL_LEGEND = "level_deal_legend";
     public static final String COUNTDEALS = "CountDeals";
 
+    public static final String DEAL_ID = "deal_id";
+    public static final String DEAL_START_DATE = "deal_start_date";
+    public static final String DEAL_END_DATE = "deal_end_date";
+    public static final String DEAL_DAY_SPECIAL = "deal_day_special";
+    public static final String LEVEL_ID = "level_id";
+    public static final String LEVEL_START_AT = "level_start_at";
+    public static final String LEVEL_SHARE_CODE = "level_share_code";
+    public static final String LEVEL_REDEEM_CODE = "level_redeem_code";
+    public static final String LEVEL_DEAL_DESCRIPTION = "level_deal_descripcion";
+
+
 
 
     public static final int CATEGORY_ID_EAT = 10;
-    public static final int CATEGORY_ID_LOOK_GOOD = 20;
+    public static final int CATEGORY_ID_HAVE_FUN = 20;
     public static final int CATEGORY_ID_RELAX = 30;
-    public static final int CATEGORY_ID_HAVE_FUN = 40;
-    public static final int CATEGORY_ID_FEEL_GOOD = 50;
+    public static final int CATEGORY_ID_FEEL_GOOD = 40;
+    public static final int CATEGORY_ID_LOOK_GOOD = 50;
+
+
+
 }

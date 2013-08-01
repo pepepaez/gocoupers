@@ -17,6 +17,6 @@
     <string name="loading_progress_bar">cargando...</string>
     <string name="server_connection_error">Hubo un error al conectarse con el servidor</string>
     <string name="favorites">Favoritos</string>
-    <string name="categories">Hoy quiero...</string>
+    <string name="categories">Hoy quiero...</string><string name="current_level">Current Level</string><string name="share">Share!</string><string name="redeem_code">Redeem code</string>
 
 </resources>

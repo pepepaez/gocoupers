@@ -70,7 +70,7 @@ public class MainActivity extends Activity {
         CoupersObject obj = new CoupersObject("http://tempuri.org/GetCityDeals",
                 "http://coupers.elasticbeanstalk.com/CoupersWS/Coupers.asmx",
                 "GetCityDeals");
-        obj.addParameter("city","mexicali");
+        obj.addParameter("city",getResources().getString(R.string.city));
         String _tag[]={
                 WebServiceDataFields.LOCATION_ID,
                 WebServiceDataFields.LOCATION_NAME,
@@ -102,6 +102,7 @@ public class MainActivity extends Activity {
         Location geoloc = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         double latitude;
         double longitude;
+        boolean nearby_locations=false;
         if(geoloc != null){
             latitude = geoloc.getLatitude();
             longitude = geoloc.getLongitude();
@@ -133,8 +134,10 @@ public class MainActivity extends Activity {
             if (geoloc!=null){
                 Location.distanceBetween(latitude,longitude,mLocation.location_latitude,mLocation.location_longitude,results);
                 distance = results[0];
-                if (distance < 1000)
+                if (distance < 1000){
                     mLocation.Nearby=true;
+                    nearby_locations = true;
+                }
             }
             mData.add(mLocation);
         }
@@ -144,6 +147,7 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(MainActivity.this,ResponsiveUIActivity.class);
         intent.putExtra("data",mData);
         intent.putExtra("gps",geoloc!=null);
+        intent.putExtra("nearby",nearby_locations);
 
         startActivity(intent);
 

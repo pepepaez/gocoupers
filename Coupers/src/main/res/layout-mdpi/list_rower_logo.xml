@@ -10,16 +10,14 @@
             android:id="@+id/list_image"
             android:layout_width="90dip"
             android:layout_height="90dip"
-            android:src="@drawable/muelle240"
             android:scaleType="centerCrop"
             android:layout_toRightOf="@+id/imageView"/>
 
     <!-- Location Name -->
     <ImageView
             android:id="@+id/logo_image"
-            android:layout_width="180dip"
+            android:layout_width="130dip"
             android:layout_height="90dip"
-            android:src="@drawable/muelle"
             android:scaleType="center"
             android:layout_toRightOf="@+id/list_image"/>
 
@@ -41,7 +39,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical|center_horizontal"
             android:text="20% off"
-            android:textSize="25dip"
+            android:textSize="15dip"
             android:textColor="#ffffffff"
             android:textStyle="bold"
             android:singleLine="false"
@@ -52,7 +50,7 @@
             android:paddingRight="5dip"
             android:layout_toLeftOf="@+id/imageView2"/>
     <ProgressBar
-            style="?android:attr/progressBarStyleSmall"
+            style="?android:attr/progressBarStyleLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/progressBarThumb"
@@ -60,14 +58,6 @@
             android:layout_toLeftOf="@+id/logo_image"
             android:layout_alignBottom="@+id/list_image"
             android:layout_toRightOf="@+id/imageView"/>
-
-    <ProgressBar
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/progressBarLogo"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/list_image"/>
 
     <TextView
             android:layout_width="wrap_content"
@@ -78,7 +68,6 @@
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
             android:visibility="invisible"/>
-
     <ImageView
             android:layout_width="10dp"
             android:layout_height="wrap_content"
@@ -97,4 +86,22 @@
             android:layout_alignParentTop="true"
             android:layout_alignBottom="@+id/deal_tip"/>
 
-</RelativeLayout><!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/layout/list_rower_logo.xml -->
+    <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progressBarLogo"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:id="@+id/imageView4"
+            android:background="@drawable/multiple_deals_row"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/imageView"
+            android:layout_toLeftOf="@+id/imageView2"
+            android:layout_alignBottom="@+id/imageView"/>
+
+</RelativeLayout>
