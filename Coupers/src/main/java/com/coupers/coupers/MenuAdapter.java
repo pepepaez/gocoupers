@@ -5,6 +5,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -102,6 +104,28 @@ public class MenuAdapter extends BaseAdapter {
     public long getItemId(int position) {
         return position;
     }
+
+    public void AnimateInOut(View view, boolean b){
+
+        ImageView indicator = (ImageView) view.findViewById(R.id.selected_indicator);
+
+        ScaleAnimation anim;
+        if (b){
+            anim = new ScaleAnimation(1, 20, 1, 1, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+            anim.setFillAfter(true);
+        }
+        else{
+            anim = new ScaleAnimation(20, 1, 1, 1, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+            anim.setFillAfter(true);
+        }
+        anim.setDuration(200);
+
+        anim.setFillEnabled(true);
+        indicator.startAnimation(anim);
+        //indicator.animate();
+        //indicator.getAnimation().startNow();
+    }
+
 
     public View getView(int position, View convertView, ViewGroup parent) {
 

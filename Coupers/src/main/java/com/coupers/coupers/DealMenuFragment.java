@@ -1,8 +1,6 @@
 package com.coupers.coupers;
 
-import android.app.ActionBar;
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.TypedArray;
 import android.location.Location;
 import android.location.LocationManager;
@@ -16,19 +14,18 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import com.coupers.entities.CoupersLocation;
 import com.coupers.entities.WebServiceDataFields;
 import com.coupers.utils.CoupersObject;
 import com.coupers.utils.CoupersServer;
-import com.coupers.utils.XMLParser;
 
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.PropertyInfo;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
-import org.w3c.dom.NodeList;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -42,6 +39,8 @@ public class DealMenuFragment extends Fragment {
     private ImageView last_selected = null;
     private ViewGroup mContainer = null;
     private ArrayList<CoupersLocation> mData = new ArrayList<CoupersLocation>();
+    private View last_view_selected = null;
+    private int last_position=-999;
 
     public class CoupersMenuItem{
         public String item_text = "";
@@ -155,32 +154,21 @@ public class DealMenuFragment extends Fragment {
                                     long id) {
                 if (getActivity() == null)
                     return;
-
+                ((MenuAdapter)lv.getAdapter()).AnimateInOut(view,true);
+                if (last_view_selected!=null)((MenuAdapter)lv.getAdapter()).AnimateInOut(last_view_selected, false);
+                last_view_selected = view;
                 ImageView option_selected = (ImageView) view.findViewById(R.id.selected_indicator);
                 if (option_selected != null) {
-                    if (last_selected != null) {
-                        ViewGroup.LayoutParams lp = last_selected.getLayoutParams();
-                        lp.width = 10;
-                        last_selected.setLayoutParams(lp);
-                    }
-                    ViewGroup.LayoutParams lp = option_selected.getLayoutParams();
-                    lp.width = 80;
-                    option_selected.setLayoutParams(lp);
-                    last_selected = option_selected;
-                    TypedArray dealsmenu = getResources().obtainTypedArray(R.array.deals_menu_id);
                     int category_id = ((MenuAdapter) lv.getAdapter()).getCategoryId(position);
-
+                    ((ProgressBar)view.findViewById(R.id.loading)).setVisibility(View.VISIBLE);
                     LoadCategoryDeals(category_id);
-                    //Fragment newContent = new DealGridFragment(mData,true);
-                    //if (newContent != null)
-                    //switchFragment(newContent);
-                }
-
-                ImageView favorite_location = (ImageView) view.findViewById(R.id.favorite_location);
-                if (favorite_location != null) {
-                    //TODO call CardFlipActivity for selected location
-                    int location_id = ((MenuAdapter) lv.getAdapter()).getLocationId(position);
-                    loadLocation(location_id);
+                }else{
+                    ImageView favorite_location = (ImageView) view.findViewById(R.id.favorite_location);
+                    if (favorite_location != null) {
+                        //TODO call CardFlipActivity for selected location
+                        int location_id = ((MenuAdapter) lv.getAdapter()).getLocationId(position);
+                        loadLocation(location_id);
+                    }
                 }
 
             }
@@ -268,8 +256,9 @@ public class DealMenuFragment extends Fragment {
         //findViewById(R.id.progressBar).setVisibility(View.INVISIBLE);
         //findViewById(R.id.textView).setVisibility(View.INVISIBLE);
 
-        if (getActivity() instanceof ResponsiveUIActivity) {
-            ResponsiveUIActivity ra = (ResponsiveUIActivity) getActivity();
+        if (getActivity() instanceof MainActivity) {
+            MainActivity ra = (MainActivity) getActivity();
+            ((ProgressBar)last_view_selected.findViewById(R.id.loading)).setVisibility(View.INVISIBLE);
             ra.switchContent(mData,geoloc!=null, nearby_locations);
         }
 
@@ -303,8 +292,8 @@ public class DealMenuFragment extends Fragment {
         if (getActivity() == null)
             return;
 
-        if (getActivity() instanceof ResponsiveUIActivity) {
-            ResponsiveUIActivity ra = (ResponsiveUIActivity) getActivity();
+        if (getActivity() instanceof MainActivity) {
+            MainActivity ra = (MainActivity) getActivity();
             ra.onDealPressed(location_id);
         }
     }
@@ -357,7 +346,7 @@ public class DealMenuFragment extends Fragment {
                         soTable = (SoapObject) soData.getProperty(j) ;
                         //System.out.println(Table.toString());
                         HashMap<String, String> map = new HashMap<String, String>();
-                        //TODO Use same static fields from ResponsiveUIActivity to create the map
+                        //TODO Use same static fields from MainActivity to create the map
                         for(int p =0;p<_tag.length;p++)
                             map.put(_tag[p].toString(),soTable.getPropertyAsString(_tag[p]));
                         FavLocList.add(map);

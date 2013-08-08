@@ -1,263 +1,267 @@
 package com.coupers.coupers;
 
-import android.app.ActionBar;
-import android.app.Activity;
-import android.content.Context;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.location.Location;
-import android.location.LocationManager;
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+import com.coupers.entities.CoupersDeal;
+import com.coupers.entities.CoupersDealLevel;
 import com.coupers.entities.CoupersLocation;
 import com.coupers.entities.WebServiceDataFields;
 import com.coupers.utils.CoupersObject;
 import com.coupers.utils.CoupersServer;
+import com.coupers.utils.IntentIntegrator;
+import com.coupers.utils.IntentResult;
 import com.coupers.utils.XMLParser;
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
+import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
-import org.ksoap2.SoapEnvelope;
-import org.ksoap2.serialization.SoapObject;
-import org.ksoap2.serialization.SoapSerializationEnvelope;
-import org.ksoap2.transport.HttpTransportSE;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
+public class MainActivity extends SlidingFragmentActivity {
 
-public class MainActivity extends Activity {
-
-
-    // variables for test of coupers on Amazon AWS
-
-    private static final String URL_WS = "http://coupers.elasticbeanstalk.com/CoupersWS/Coupers.asmx";
-
-
-
-    private static final String[] sampleACTV = new String[] {
-            "android", "iphone", "blackberry"
-    };
-
-
-    // All static variables
-    static final String URL = "http://marvinduran.com/pepe/data/dealslogos.xml";
-
-    private boolean DealsLoaded = false;
-    private boolean FavoritesLoaded = false;
+    ArrayList<CoupersLocation> mData = new ArrayList<CoupersLocation>();
+    private CoupersLocation selected_location = null;
+    private  boolean gps_available=false;
+    private boolean nearby_locations=false;
+    ViewPager vp;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setTitle(R.string.main_hub_ui);
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setTitle(R.string.main_hub_ui);
+        setContentView(R.layout.responsive_content_frame);
 
-        //TODO DONE figure out if need to implement another imageloader library (this one seems to take too long to load images for the first time)
+        //TODO Need to make use of saved instance!!
 
 
-        //LoadDeals loader = new LoadDeals();
-        //CoupersDealWS loader = new CoupersDealWS();
+		// check if the content frame contains the menu frame
+		if (findViewById(R.id.menu_frame) == null) {
+			setBehindContentView(R.layout.menu_frame_new);
+			getSlidingMenu().setSlidingEnabled(true);
+			getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
+			// show home as up so we can toggle
+			getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+		} else {
+			// add a dummy view
+			View v = new View(this);
+			setBehindContentView(v);
+			getSlidingMenu().setSlidingEnabled(false);
+			getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
+		}
 
-        //loader.execute(new String[] {URL});
+        // customize the SlidingMenu
+        SlidingMenu sm = getSlidingMenu();
+        sm.setBehindOffsetRes(R.dimen.slidingmenu_offset);
+        sm.setShadowWidthRes(R.dimen.shadow_width);
+        sm.setShadowDrawable(R.drawable.shadow);
+        sm.setBehindScrollScale(0.25f);
+        sm.setFadeDegree(0.25f);
+        setSlidingActionBarEnabled(true);
 
-        LoadData();
+		// set the Above View Fragment & get saved instance data
+		if (savedInstanceState != null){
+            mData = (ArrayList<CoupersLocation>) savedInstanceState.getSerializable("data");
+            gps_available = savedInstanceState.getBoolean("gps");
+            nearby_locations=savedInstanceState.getBoolean("nearby");
+        }else {
+            mData = (ArrayList<CoupersLocation>) getIntent().getSerializableExtra("data");
+            gps_available = getIntent().getBooleanExtra("gps", false);
+            nearby_locations = getIntent().getBooleanExtra("nearby",false);
 
-        setContentView(R.layout.activity_main);
+        }
 
+
+		// set the Behind View Fragment
+        //TODO Change DealMenuFragment to accept mData to then pass it onto selected categories and locations
+		getSupportFragmentManager()
+		.beginTransaction()
+		.replace(R.id.menu_frame, new DealMenuFragment(mData))
+		.commit();
+
+
+        List<Fragment> fragments = new ArrayList<Fragment>();
+        if (gps_available && nearby_locations) fragments.add(new DealGridFragment(mData,true));
+        fragments.add(new DealGridFragment(mData,false));
+        CustomPagerAdapter pageAdapter = new CustomPagerAdapter(getSupportFragmentManager(),fragments);
+        vp = (ViewPager) findViewById(R.id.pager);
+        vp.setAdapter(pageAdapter);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+            case android.R.id.home:
+                toggle();
+                return true;
+            case R.id.deal_scan:
+                IntentIntegrator integrator = new IntentIntegrator(this);
+                integrator.initiateScan();
+
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
+        if (scanResult != null && scanResult.getContents() != null) {
+            AlertDialog.Builder downloadDialog = new AlertDialog.Builder(this);
+            downloadDialog.setTitle("Oh, see what you found!");
+            downloadDialog.setMessage(scanResult.getContents().toString());
+            downloadDialog.setNeutralButton("Got it!", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                }
+            });
+            downloadDialog.show();
+            //Toast.makeText(this.getBaseContext(),scanResult.toString(),Toast.LENGTH_LONG).show();
+        }
+        // else continue with any other code you need in the method
     }
 
-    private void LoadData(){
-        CoupersObject obj = new CoupersObject("http://tempuri.org/GetCityDeals",
+	@Override
+	public void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		//getSupportFragmentManager().putFragment(outState, "mContent", mContent);
+        outState.putSerializable("data",mData);
+        outState.putBoolean("gps",gps_available);
+        outState.putBoolean("nearby",nearby_locations);
+
+	}
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+
+        // Add either a "photo" or "finish" button to the action bar, depending on which page
+        // is currently selected.
+        MenuItem item = menu.add(Menu.NONE, R.id.deal_scan, Menu.NONE,R.string.action_scan);
+        item.setIcon(R.drawable.ic_action_barcode);
+        item.setShowAsAction(android.view.MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        return true;
+    }
+
+
+	public void switchContent(ArrayList<CoupersLocation> mData, boolean gps_available, boolean nearby_locations) {
+
+        CustomPagerAdapter pageAdapter = (CustomPagerAdapter) vp.getAdapter();
+        pageAdapter.clearALL();
+        vp.setAdapter(null);
+
+        List<Fragment> fragments = new ArrayList<Fragment>();
+        if (gps_available && nearby_locations) fragments.add(new DealGridFragment(mData,true));
+        fragments.add(new DealGridFragment(mData,false));
+        CustomPagerAdapter newPA = new CustomPagerAdapter(getSupportFragmentManager(),fragments);
+
+        vp.setAdapter(newPA);
+
+		Handler h = new Handler();
+		h.postDelayed(new Runnable() {
+			public void run() {
+				getSlidingMenu().showContent();
+			}
+		}, 50);
+	}
+
+    public void onDealPressed(int location_id) {
+        CoupersObject obj = new CoupersObject("http://tempuri.org/GetLocationDeals",
                 "http://coupers.elasticbeanstalk.com/CoupersWS/Coupers.asmx",
-                "GetCityDeals");
-        obj.addParameter("city",getResources().getString(R.string.city));
+                "GetLocationDeals");
+        obj.addParameter("location_id",String.valueOf(location_id));
         String _tag[]={
+                WebServiceDataFields.DEAL_ID,
                 WebServiceDataFields.LOCATION_ID,
-                WebServiceDataFields.LOCATION_NAME,
-                WebServiceDataFields.LOCATION_LOGO,
-                WebServiceDataFields.LOCATION_ADDRESS,
-                WebServiceDataFields.LOCATION_CITY,
-                WebServiceDataFields.CATEGORY_ID,
-                WebServiceDataFields.LATITUDE,
-                WebServiceDataFields.LONGITUDE,
-                WebServiceDataFields.LOCATION_DESCRIPTION,
-                WebServiceDataFields.LOCATION_WEBSITE_URL,
-                WebServiceDataFields.LOCATION_THUMBNAIL,
-                WebServiceDataFields.LOCATION_PHONE_NUMBER1,
-                WebServiceDataFields.LOCATION_PHONE_NUMBER2,
-                WebServiceDataFields.LOCATION_HOURS_OPERATION1,
+                WebServiceDataFields.DEAL_START_DATE,
+                WebServiceDataFields.DEAL_END_DATE,
+                WebServiceDataFields.DEAL_DAY_SPECIAL,
+                WebServiceDataFields.LEVEL_ID,
+                WebServiceDataFields.LEVEL_START_AT,
+                WebServiceDataFields.LEVEL_SHARE_CODE,
+                WebServiceDataFields.LEVEL_REDEEM_CODE,
                 WebServiceDataFields.LEVEL_DEAL_LEGEND,
-                WebServiceDataFields.COUNTDEALS};
+                WebServiceDataFields.LEVEL_DEAL_DESCRIPTION
+        };
         obj.setTag(_tag);
 
         CoupersServer server = new CoupersServer(obj,this);
 
+        for (CoupersLocation location:mData)
+        if (location.location_id == location_id) selected_location = location;
+
         server.execute("dummy string");
+
     }
 
-    public void UpdateMenu(ArrayList<HashMap<String, String>> aData, String WSExecuted){
+    public void Update(ArrayList<HashMap<String, String>> aResult, String WebServiceExecuted){
 
-        ArrayList<CoupersLocation> mData = new ArrayList<CoupersLocation>();
-        LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-        Location geoloc = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        double latitude;
-        double longitude;
-        boolean nearby_locations=false;
-        if(geoloc != null){
-            latitude = geoloc.getLatitude();
-            longitude = geoloc.getLongitude();
-        }else{
-            latitude = -999;
-            longitude = -999;
-        }
-        float[] results = new float[1];
-        float distance = 0;
-
-        //Go through data to create 2 data sets, one with locations nearby and the rest
-        for (HashMap<String, String> map : aData){
-            CoupersLocation mLocation = new CoupersLocation(
-                    Integer.valueOf(map.get(WebServiceDataFields.LOCATION_ID)),
-                    Integer.valueOf(map.get(WebServiceDataFields.CATEGORY_ID)),
-                    map.get(WebServiceDataFields.LOCATION_NAME),
-                    map.get(WebServiceDataFields.LOCATION_DESCRIPTION),
-                    map.get(WebServiceDataFields.LOCATION_WEBSITE_URL),
-                    map.get(WebServiceDataFields.LOCATION_LOGO),
-                    map.get(WebServiceDataFields.LOCATION_THUMBNAIL),
-                    map.get(WebServiceDataFields.LOCATION_ADDRESS),
-                    map.get(WebServiceDataFields.LOCATION_CITY),
-                    map.get(WebServiceDataFields.LOCATION_PHONE_NUMBER1),
-                    map.get(WebServiceDataFields.LOCATION_PHONE_NUMBER2),
-                    Double.valueOf(map.get(WebServiceDataFields.LATITUDE)),
-                    Double.valueOf(map.get(WebServiceDataFields.LONGITUDE)));
-            mLocation.TopDeal = map.get(WebServiceDataFields.LEVEL_DEAL_LEGEND);
-            mLocation.CountDeals = map.get(WebServiceDataFields.COUNTDEALS);
-            if (geoloc!=null){
-                Location.distanceBetween(latitude,longitude,mLocation.location_latitude,mLocation.location_longitude,results);
-                distance = results[0];
-                if (distance < 1000){
-                    mLocation.Nearby=true;
-                    nearby_locations = true;
-                }
-            }
-            mData.add(mLocation);
+        for (HashMap<String,String> map: aResult) {
+            CoupersDeal deal = new CoupersDeal(Integer.valueOf(map.get(WebServiceDataFields.DEAL_ID)), map.get(WebServiceDataFields.DEAL_START_DATE), map.get(WebServiceDataFields.DEAL_END_DATE));
+            CoupersDealLevel level = new CoupersDealLevel(
+                    Integer.valueOf(map.get(WebServiceDataFields.LEVEL_ID)),
+                    Integer.valueOf(map.get(WebServiceDataFields.LEVEL_START_AT)),
+                    map.get(WebServiceDataFields.LEVEL_SHARE_CODE),
+                    map.get(WebServiceDataFields.LEVEL_REDEEM_CODE),
+                    map.get(WebServiceDataFields.LEVEL_DEAL_LEGEND),
+                    map.get(WebServiceDataFields.LEVEL_DEAL_DESCRIPTION));
+            deal.deal_levels.put(level.level_id,level);
+            selected_location.location_deals.put(deal.deal_id, deal);
         }
 
-        findViewById(R.id.progressBar).setVisibility(View.INVISIBLE);
-        findViewById(R.id.textView).setVisibility(View.INVISIBLE);
-        Intent intent = new Intent(MainActivity.this,ResponsiveUIActivity.class);
-        intent.putExtra("data",mData);
-        intent.putExtra("gps",geoloc!=null);
-        intent.putExtra("nearby",nearby_locations);
+        Intent intent = CardFlipActivity.newInstance(this,selected_location);
 
         startActivity(intent);
 
     }
 
+    // Adapter used to display
+    private class CustomPagerAdapter extends FragmentStatePagerAdapter {
+        private List<Fragment> fragments;
+        private FragmentManager fm;
 
-
-    //TODO Remove if not used in the end.
-    private class LoadDeals extends AsyncTask<String, Void, String> {
+        public CustomPagerAdapter(FragmentManager fm, List<Fragment> fragments) {
+            super(fm);
+            this.fm = fm;
+            this.fragments = fragments;
+        }
         @Override
-        protected String doInBackground(String... urls) {
-            String response = null;
-            XMLParser parser = new XMLParser();
-
-            for(String url : urls){
-                response=parser.getXmlFromUrl(url);
-                // Escape early if cancel() is called
-                if (isCancelled()) break;
-            }
-            return response;
+        public Fragment getItem(int position) {
+            return this.fragments.get(position);
         }
 
         @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-            findViewById(R.id.progressBar).setVisibility(View.INVISIBLE);
-            findViewById(R.id.textView).setVisibility(View.INVISIBLE);
-            Intent intent = new Intent(MainActivity.this,ResponsiveUIActivity.class);
-            intent.putExtra("deals",result);
+        public int getCount() {
+            return this.fragments.size();
+        }
 
-            startActivity(intent);
+        @Override
+        public CharSequence getPageTitle(int position) {
+            DealGridFragment fragment = (DealGridFragment) this.fragments.get(position);
+
+            if (fragment==null)
+                return "ALL DEALS";
+            else
+                return fragment.NearbyDeal() ? "NEARBY DEALS" : "ALL DEALS";
+        }
+
+        public void clearALL()
+        {
+            for (Fragment frag : fragments)
+                fm.beginTransaction().remove(frag).commit();
+            fragments.clear();
         }
     }
-
-   /* private class CoupersDealWS extends AsyncTask<String,Void,String>{
-
-        private static final String NAMESPACE = "http://tempuri.org/";
-        private static final String SOAP_ACTION = "http://tempuri.org/GetPromociones";
-        private static final String URL = "http://coupers.elasticbeanstalk.com/CoupersWS/Coupers.asmx";
-        private static final String METHOD_NAME = "GetPromociones";
-
-        ArrayList<HashMap<String, String>> DealsList = new ArrayList<HashMap<String, String>>();
-
-        @Override
-        protected String doInBackground(String... params){
-            String response = null;
-
-            for(String param : params){
-
-                SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
-                SoapSerializationEnvelope envelope =  new SoapSerializationEnvelope(SoapEnvelope.VER11);
-                envelope.dotNet=true;
-                envelope.setOutputSoapObject(request);
-                HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
-
-                try {
-                    androidHttpTransport.call(SOAP_ACTION, envelope);
-                    SoapObject result = (SoapObject) envelope.bodyIn;
-                    SoapObject GetPromocionesResult = (SoapObject) result.getProperty("GetPromocionesResult");
-                    SoapObject diffgram = (SoapObject) GetPromocionesResult.getProperty("diffgram") ;
-                    SoapObject NewDataSet = (SoapObject) diffgram.getProperty("NewDataSet") ;
-                    SoapObject Table;
-
-
-
-                    String _tag[]={ResponsiveUIActivity.KEY_ID,
-                            ResponsiveUIActivity.KEY_TYPE,
-                            ResponsiveUIActivity.KEY_DEAL_DESC,
-                            ResponsiveUIActivity.KEY_DEAL_START,
-                            ResponsiveUIActivity.KEY_DEAL_END,
-                            ResponsiveUIActivity.KEY_DEAL_TIP,
-                            ResponsiveUIActivity.KEY_LOCATION_ID,
-                            ResponsiveUIActivity.KEY_LOCATION_LOGO,
-                            ResponsiveUIActivity.KEY_THUMB_URL};
-
-                    for (int j=0;j<NewDataSet.getPropertyCount();j++)
-                    {
-                        Table = (SoapObject) NewDataSet.getProperty(j) ;
-                        //System.out.println(Table.toString());
-                        HashMap<String, String> map = new HashMap<String, String>();
-                        //TODO Use same static fields from ResponsiveUIActivity to create the map
-                        for(int p =0;p<_tag.length;p++)
-                            map.put(_tag[p].toString(),Table.getPropertyAsString(_tag[p]));
-                        DealsList.add(map);
-                    }
-                    response="ok";
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    response=getString(R.string.server_connection_error);
-                }
-            }
-            return response;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-            if (result.equals(getString(R.string.server_connection_error)))
-            {
-               //TODO instantiate an activity to show server connection error, finalize app.
-            }
-
-            findViewById(R.id.progressBar).setVisibility(View.INVISIBLE);
-            findViewById(R.id.textView).setVisibility(View.INVISIBLE);
-            //if (result == null) TODO setup dialog if XML results in null, exit the application
-            Intent intent = new Intent(MainActivity.this,ResponsiveUIActivity.class);
-            intent.putExtra("deals",DealsList);
-
-            startActivity(intent);
-        }
-
-    }*/
 }

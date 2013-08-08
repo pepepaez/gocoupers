@@ -49,4 +49,13 @@
             android:layout_alignBottom="@+id/item_menu_icon"
             android:layout_toRightOf="@+id/selected_indicator"/>
 
+    <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/loading"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:indeterminate="false"
+            android:visibility="invisible"/>
+
 </RelativeLayout>

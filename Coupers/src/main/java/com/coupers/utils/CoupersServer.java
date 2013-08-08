@@ -1,24 +1,20 @@
 package com.coupers.utils;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 
 import com.coupers.coupers.DealMenuFragment;
 import com.coupers.coupers.MainActivity;
+import com.coupers.coupers.StartActivity;
 import com.coupers.coupers.R;
-import com.coupers.coupers.ResponsiveUIActivity;
-import com.coupers.entities.WebServiceDataFields;
 
-import org.apache.http.impl.cookie.BasicMaxAgeHandler;
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.PropertyInfo;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 
-import java.text.DateFormatSymbols;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -103,10 +99,10 @@ public class CoupersServer extends AsyncTask<String,Void,String> {
 
         if (mActivity!=null)
         {
-            if (mActivity instanceof MainActivity)
-                ((MainActivity) mActivity).UpdateMenu(aServerData, mObject.getMETHOD_NAME());
-            if(mActivity instanceof ResponsiveUIActivity)
-                ((ResponsiveUIActivity) mActivity).Update(aServerData, mObject.getMETHOD_NAME());
+            if (mActivity instanceof StartActivity)
+                ((StartActivity) mActivity).UpdateMenu(aServerData, mObject.getMETHOD_NAME());
+            if(mActivity instanceof MainActivity)
+                ((MainActivity) mActivity).Update(aServerData, mObject.getMETHOD_NAME());
         }
     }
 

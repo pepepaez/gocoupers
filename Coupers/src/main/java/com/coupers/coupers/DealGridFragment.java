@@ -7,13 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.TextView;
 
 import com.coupers.entities.CoupersLocation;
-import com.coupers.utils.XMLParser;
-
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -68,7 +63,7 @@ public class DealGridFragment extends Fragment {
 
                 int location_id = ((DealAdapter)gv.getAdapter()).getLocationId(position);
                 //TextView dealID = (TextView) view.findViewById(R.id.deal_id);
-                ResponsiveUIActivity activity = (ResponsiveUIActivity) getActivity();
+                MainActivity activity = (MainActivity) getActivity();
 
                 activity.onDealPressed(location_id);
 

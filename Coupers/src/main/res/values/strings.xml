@@ -25,7 +25,7 @@
     <string name="i_want_to_feel_good">Feel good...</string>
     <string name="i_want_to_relax">Relax...</string>
     <string name="i_want_to_have_fun">Have fun...</string>
-    <string name="city">mexicali</string><string name="current_level">Current Level</string><string name="share">Share!</string><string name="redeem_code">Redeem code</string>
+    <string name="city">mexicali</string><string name="current_level">Current Level</string><string name="share">Share!</string><string name="redeem_code">Redeem code</string><string name="login_email">enter your email</string><string name="login_password">enter your password</string>
 
 
 </resources>

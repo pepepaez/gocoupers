@@ -1,0 +1,143 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity"
+    android:background="@drawable/gradient_bg_eat">
+
+    <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:id="@+id/coupers_corner"
+            android:layout_alignParentTop="false"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/multiple_deal_indicator"/>
+
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/user_pwd"
+            android:layout_centerVertical="true"
+            android:layout_alignRight="@+id/coupers_corner"
+            android:layout_alignParentLeft="true"
+            android:background="#efe6e6"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:hint="enter password"
+            android:password="false"
+            android:phoneNumber="false"
+            android:selectAllOnFocus="false"
+            android:singleLine="false"/>
+
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/user_email"
+            android:background="#efe6e6"
+            android:layout_above="@+id/user_pwd"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:inputType="textEmailAddress"
+            android:hint="enter email"
+            android:phoneNumber="false"
+            android:password="false"/>
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/coupers_login"
+            android:layout_above="@+id/user_email"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/login"
+            android:layout_marginBottom="20dp"
+            android:padding="50dp"
+            android:layout_alignParentTop="true"/>
+
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Log In"
+            android:id="@+id/login_button"
+            android:layout_below="@+id/user_pwd"
+            android:layout_alignRight="@+id/user_pwd"
+            android:layout_alignLeft="@+id/user_pwd"
+            android:layout_marginTop="20dp"
+            android:background="#a85454"
+            android:alpha="1"
+            android:textColor="#efe6e6"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="or login using"
+            android:id="@+id/alt_login_options"
+            android:layout_below="@+id/login_button"
+            android:layout_centerHorizontal="true"
+            android:textColor="#964C4B"
+            android:layout_marginTop="15dp"
+            android:textStyle="italic"/>
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dash_login_right"
+            android:layout_toRightOf="@+id/alt_login_options"
+            android:layout_alignRight="@+id/login_button"
+            android:layout_alignTop="@+id/alt_login_options"
+            android:layout_alignBottom="@+id/alt_login_options"
+            android:src="@drawable/dash_login"
+            android:paddingLeft="3dp"/>
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dash_login_left"
+            android:src="@drawable/dash_login"
+            android:layout_alignBottom="@+id/alt_login_options"
+            android:layout_toLeftOf="@+id/alt_login_options"
+            android:layout_alignTop="@+id/alt_login_options"
+            android:layout_alignLeft="@+id/login_button"
+            android:paddingRight="3dp"/>
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/center_pivot"
+            android:layout_below="@+id/alt_login_options"
+            android:layout_centerHorizontal="true"/>
+
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/twitter_login"
+            android:src="@drawable/twitter_login"
+            android:scaleType="centerInside"
+            android:layout_alignLeft="@+id/center_pivot"
+            android:layout_alignRight="@+id/dash_login_right"
+            android:layout_below="@+id/center_pivot"
+            android:background="#e75e57"
+            android:paddingLeft="20dp"/>
+
+    <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/facebook_login"
+            android:src="@drawable/facebook_login"
+            android:scaleType="centerInside"
+            android:background="#e75e57"
+            android:layout_alignBottom="@+id/twitter_login"
+            android:layout_alignLeft="@+id/dash_login_left"
+            android:layout_toLeftOf="@+id/center_pivot"
+            android:paddingRight="20dp"/>
+
+</RelativeLayout>

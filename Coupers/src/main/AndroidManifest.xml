@@ -19,17 +19,15 @@
     android:label="@string/app_name"
     android:theme="@style/Theme.Coupers_theme" >
         <activity
-        android:name="com.coupers.coupers.MainActivity"
-        android:screenOrientation="portrait"
-        android:icon="@drawable/logo_icon1"
-        android:label="@string/app_name" >
+        android:name=".StartActivity"
+        android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
-        android:name="ResponsiveUIActivity"
+        android:name=".MainActivity"
         android:icon="@drawable/navicon"
         android:parentActivityName="com.coupers.coupers.MainActivity" >
             <meta-data android:name="android.support.PARENT_ACTIVITY"
