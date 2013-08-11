@@ -289,7 +289,8 @@ public class DealMenuFragment extends Fragment {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 
-        makeMeRequest(Session.getActiveSession());
+        Session session = Session.getActiveSession();
+        if(session!=null && session.isOpened()) makeMeRequest(session);
 
 	}
 

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent">
 
 <RelativeLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="fill_parent"
         android:columnOrderPreserved="false"
         android:clickable="false">
 
@@ -100,4 +103,14 @@
             android:layout_below="@+id/ratingBar"
             android:layout_alignParentLeft="true"/>
 
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Facebook Share"
+            android:id="@+id/share_fb"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/level_redeem_code"/>
+
 </RelativeLayout>
+
+</ScrollView>

@@ -1,42 +1,24 @@
 package com.coupers.coupers;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DialogFragment;
-import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.TypedArray;
-import android.graphics.Bitmap;
-import android.graphics.Point;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.Display;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewParent;
-import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.androidquery.AQuery;
 import com.coupers.entities.CoupersDeal;
 import com.coupers.entities.CoupersLocation;
 import com.coupers.entities.WebServiceDataFields;
-import com.coupers.utils.Contents;
-import com.coupers.utils.QRCodeEncoder;
 import com.facebook.FacebookRequestError;
 import com.facebook.HttpMethod;
 import com.facebook.Request;
@@ -48,27 +30,16 @@ import com.facebook.UiLifecycleHelper;
 import com.facebook.model.GraphObject;
 import com.facebook.model.GraphUser;
 import com.facebook.model.OpenGraphAction;
-import com.google.zxing.BarcodeFormat;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 
 /**
- * Demonstrates a "card-flip" animation using custom fragment transactions ({@link
- * android.app.FragmentTransaction#setCustomAnimations(int, int)}).
- *
- * <p>This sample shows an "info" action bar button that shows the back of a "card", rotating the
- * front of the card out and the back of the card in. The reverse animation is played when the user
- * presses the system Back button or the "photo" action bar button.</p>
+ * Created by pepe on 8/10/13.
  */
-public class CardFlipActivity extends Activity
-        implements FragmentManager.OnBackStackChangedListener {
-    /**
-     * FACEBOOK OPEN GRAPH VARIABLES
-     */
-    // Activity code to flag an incoming activity result is due
+public class LocationFrontFragment extends DialogFragment {
+
+   /* // Activity code to flag an incoming activity result is due
     // to a new permissions request
     private static final int FB_REAUTH_ACTIVITY_CODE = 100;
     private static final Uri M_FACEBOOK_URL = Uri.parse("http://m.facebook.com");
@@ -84,65 +55,76 @@ public class CardFlipActivity extends Activity
     /// List of additional write permissions being requested
     private static final List<String> FB_PERMISSIONS = Arrays.asList("publish_actions");
 
-    private boolean pendingAnnounce;
+    private boolean pendingAnnounce;*/
 
-    private UiLifecycleHelper uiHelper;
+/*    private UiLifecycleHelper uiHelper;
     private Session.StatusCallback callback = new Session.StatusCallback() {
         @Override
         public void call(final Session session, final SessionState state, final Exception exception) {
             onSessionStateChange(session, state, exception);
         }
-    };
+    };*/
 
-    /**
-     * A handler object, used for deferring UI operations.
-     */
-    private Handler mHandler = new Handler();
-    public Activity a;
+
     private CoupersLocation data;
+    private AQuery aq;
     private CoupersDeal deal;
 
-    /**
-     * Whether or not we're showing the back of the card (otherwise showing the front).
-     */
-    private boolean mShowingBack = false;
-
-    public static Intent newInstance(Activity activity, CoupersLocation obj){
-        Intent intent = new Intent(activity, CardFlipActivity.class );
-        intent.putExtra("data",obj);
-        return intent;
+    public LocationFrontFragment(CoupersLocation data) {
+        this.data = data;
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_card_flip);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View fragmentView = inflater.inflate(R.layout.location_card_front,null);
+        aq = new AQuery(fragmentView);
+        int bgResource = R.drawable.list_selector_eat;
 
-        if (getIntent().getExtras() != null) {
-            data = (CoupersLocation) getIntent().getExtras().getSerializable("data");
+        if (savedInstanceState != null) {
+            //pendingAnnounce = savedInstanceState.getBoolean(FB_PENDING_ANNOUNCE_KEY, false);
         }
 
-
-        if (savedInstanceState == null) {
-            // If there is no saved instance state, add a fragment representing the
-            // front of the card to this activity. If there is saved instance state,
-            // this fragment will have already been added to the activity.
-            LocationFrontFragment loc = new LocationFrontFragment(data);
-            getFragmentManager().beginTransaction().add(R.id.container, loc).commit();
-
-        } else {
-            mShowingBack = (getFragmentManager().getBackStackEntryCount() > 0);
-            pendingAnnounce = savedInstanceState.getBoolean(FB_PENDING_ANNOUNCE_KEY, false);
+        if (data !=null)
+        {
+            switch(data.category_id)
+            {
+                case WebServiceDataFields.CATEGORY_ID_EAT:
+                    bgResource = R.drawable.list_selector_eat;
+                    break;
+                case WebServiceDataFields.CATEGORY_ID_FEEL_GOOD:
+                    bgResource= R.drawable.list_selector_feel_good;
+                    break;
+                case WebServiceDataFields.CATEGORY_ID_HAVE_FUN:
+                    bgResource = R.drawable.list_selector_have_fun;
+                    break;
+                case WebServiceDataFields.CATEGORY_ID_LOOK_GOOD:
+                    bgResource= R.drawable.list_selector_look_good;
+                    break;
+                case WebServiceDataFields.CATEGORY_ID_RELAX:
+                    bgResource=R.drawable.list_selector_relax;
+                    break;
+            }
         }
+        ImageView location_logo = (ImageView) fragmentView.findViewById(R.id.location_logo);
+        location_logo.setBackgroundResource(bgResource);
 
-        uiHelper = new UiLifecycleHelper(this, callback);
-        uiHelper.onCreate(savedInstanceState);
+        aq.id(R.id.location_logo).image(data.location_logo,true,true);
+        aq.id(R.id.location_thumbnail).image(data.location_thumbnail,true,true);
+        ViewPager vp = (ViewPager) fragmentView.findViewById(R.id.deal_pager);
+        DealPagerAdapter dealPager=new DealPagerAdapter(inflater,getActivity(), bgResource);
 
-        // Monitor back stack changes to ensure the action bar shows the appropriate
-        // button (either "photo" or "info").
-        getFragmentManager().addOnBackStackChangedListener(this);
+        for (CoupersDeal deal : data.location_deals.values())
+            dealPager.addDeal(deal,data.location_thumbnail);
+
+        vp.setAdapter(dealPager);
+
+        //uiHelper = new UiLifecycleHelper(getActivity(), callback);
+        //uiHelper.onCreate(savedInstanceState);
+
+        return fragmentView;
     }
 
+/*
     @Override
     public void onResume() {
         super.onResume();
@@ -167,6 +149,7 @@ public class CardFlipActivity extends Activity
         outState.putBoolean(FB_PENDING_ANNOUNCE_KEY, pendingAnnounce);
         uiHelper.onSaveInstanceState(outState);
     }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -197,8 +180,8 @@ public class CardFlipActivity extends Activity
         }
 
         // Show a progress dialog because sometimes the requests can take a while.
-        //progressDialog = ProgressDialog.show(this, "",
-        //        getResources().getString(R.string.progress_dialog_text), true);
+        progressDialog = ProgressDialog.show(getActivity(), "",
+                getActivity().getResources().getString(R.string.progress_dialog_text), true);
 
         // Run this in a background thread since some of the populate methods may take
         // a non-trivial amount of time.
@@ -217,13 +200,12 @@ public class CardFlipActivity extends Activity
                 dealURL = "http://marvinduran.com/pepe/data/og_objects/repeater.php?"
                         + "fb:app_id=" + getResources().getString(R.string.fb_app_id)
                         + "&og:type=gocoupers:deal"
-                        + "&og:title=" + deal.deal_levels.get(0).level_deal_legend
-                        + "&og:description=" + deal.deal_levels.get(0).level_deal_description
+                        + "&og:title=" + deal.deal_levels.get(1).level_deal_legend
+                        + "&og:description=" + deal.deal_levels.get(1).level_deal_legend
                         + "&og:image=" + deal.deal_URL
-                        + "&body=" + deal.deal_levels.get(0).level_deal_legend;
+                        + "&body=" + deal.deal_levels.get(1).level_deal_legend;
                 og_deal.setUrl(dealURL);
                 getAction.setDeal(og_deal);
-                //getAction.setPlace();
 
 
                 Request request = new Request(Session.getActiveSession(),
@@ -246,7 +228,7 @@ public class CardFlipActivity extends Activity
             progressDialog.dismiss();
             progressDialog = null;
         }
-        if (this == null) {
+        if (getActivity() == null) {
             // if the user removes the app from the website, then a request will
             // have caused the session to close (since the token is no longer valid),
             // which means the splash fragment will be shown rather than this one,
@@ -259,7 +241,7 @@ public class CardFlipActivity extends Activity
 
         if (postResponse != null && postResponse.getId() != null) {
             String dialogBody = String.format(getString(R.string.result_dialog_text), postResponse.getId());
-            new AlertDialog.Builder(this)
+            new AlertDialog.Builder(getActivity())
                     .setPositiveButton(R.string.result_dialog_button_text, null)
                     .setTitle(R.string.result_dialog_title)
                     .setMessage(dialogBody)
@@ -355,7 +337,7 @@ public class CardFlipActivity extends Activity
 
         // Show the error and pass in the listener so action
         // can be taken, if necessary.
-        new AlertDialog.Builder(this)
+        new AlertDialog.Builder(getActivity())
                 .setPositiveButton(R.string.error_dialog_button_text, listener)
                 .setTitle(R.string.error_dialog_title)
                 .setMessage(dialogBody)
@@ -364,7 +346,7 @@ public class CardFlipActivity extends Activity
 
     private void requestPublishPermissions(Session session) {
         if (session != null) {
-            Session.NewPermissionsRequest newPermissionsRequest = new Session.NewPermissionsRequest(this, FB_PERMISSIONS)
+            Session.NewPermissionsRequest newPermissionsRequest = new Session.NewPermissionsRequest(this.getActivity(), FB_PERMISSIONS)
                     // demonstrate how to set an audience for the publish permissions,
                     // if none are set, this defaults to FRIENDS
                     .setDefaultAudience(SessionDefaultAudience.FRIENDS)
@@ -426,208 +408,6 @@ public class CardFlipActivity extends Activity
 
     private interface PostResponse extends GraphObject {
         String getId();
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-
-        // Add either a "photo" or "finish" button to the action bar, depending on which page
-        // is currently selected.
-        MenuItem item = menu.add(Menu.NONE, R.id.action_flip, Menu.NONE,
-                mShowingBack
-                        ? R.string.action_photo
-                        : R.string.action_info);
-        item.setIcon(mShowingBack
-                ? R.drawable.ic_action_photo
-                : R.drawable.ic_action_info);
-        item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                // Navigate "up" the demo structure to the launchpad activity.
-                // See http://developer.android.com/design/patterns/navigation.html for more.
-                //NavUtils.navigateUpTo(this, this.getParentActivityIntent());
-                //NavUtils.navigateUpFromSameTask(this);
-                if (mShowingBack) flipCard();
-                else finish();
-                return true;
-
-            case R.id.action_flip:
-                flipCard();
-                return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void flipCard() {
-        if (mShowingBack) {
-            getFragmentManager().popBackStack();
-            return;
-        }
-
-        // Flip to the back.
-
-        mShowingBack = true;
-
-        // Create and commit a new fragment transaction that adds the fragment for the back of
-        // the card, uses custom animations, and is part of the fragment manager's back stack.
-        int pos = 0;
-
-        if (getIntent().getExtras() != null) {
-            pos = getIntent().getExtras().getInt("pos");
-        }
-        String[] birdNames = getResources().getStringArray(R.array.birds);
-        String birdName = birdNames[pos];
-        String[] birdDescriptions = getResources().getStringArray(R.array.birds_desc);
-        String birdDesc = birdDescriptions[pos];
-
-        getFragmentManager()
-                .beginTransaction()
-
-                        // Replace the default fragment animations with animator resources representing
-                        // rotations when switching to the back of the card, as well as animator
-                        // resources representing rotations when flipping back to the front (e.g. when
-                        // the system Back button is pressed).
-                .setCustomAnimations(
-                        R.animator.card_flip_right_in, R.animator.card_flip_right_out,
-                        R.animator.card_flip_left_in, R.animator.card_flip_left_out)
-                        // Replace any fragments currently in the container view with a fragment
-                        // representing the next page (indicated by the just-incremented currentPage
-                        // variable).
-                .replace(R.id.container, new CardBackFragment(birdName,birdDesc))
-
-                        // Add this transaction to the back stack, allowing users to press Back
-                        // to get to the front of the card.
-                .addToBackStack(null)
-
-                        // Commit the transaction.
-                .commit();
-
-        // Defer an invalidation of the options menu (on modern devices, the action bar). This
-        // can't be done immediately because the transaction may not yet be committed. Commits
-        // are asynchronous in that they are posted to the main thread's message loop.
-        mHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                invalidateOptionsMenu();
-            }
-        });
-    }
-
-    @Override
-    public void onBackStackChanged() {
-        mShowingBack = (getFragmentManager().getBackStackEntryCount() > 0);
-
-        // When the back stack changes, invalidate the options menu (action bar).
-        invalidateOptionsMenu();
-    }
-
-
-
-
-
-
-
-    /**
-     * A fragment representing the front of the card.
-     */
-    public  class CardFrontFragment extends DialogFragment {
-        private int resImage= 0;
-        //private final Context context = this.getActivity().getBaseContext();
-
-        public CardFrontFragment(int res) {
-            resImage = res;
-
-
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-
-            return inflater.inflate(R.layout.location_card_front, null); //container, false);
-        }
-
-        @Override
-        public void onActivityCreated(Bundle savedInstanceState) {
-            super.onActivityCreated(savedInstanceState);
-            /*ImageView myImage = (ImageView) findViewById(R.id.frontImage);
-            if(myImage !=null)
-                myImage.setImageResource(resImage);*/
-            /*Button shareButton = (Button) findViewById(R.id.share_button);
-            shareButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    LayoutInflater inflater = getActivity().getLayoutInflater();
-
-                    //Find screen size
-                    WindowManager manager = (WindowManager) getSystemService(WINDOW_SERVICE);
-                    Display display = manager.getDefaultDisplay();
-                    Point point = new Point();
-                    display.getSize(point);
-                    int width = point.x;
-                    int height = point.y;
-                    int smallerDimension = width < height ? width : height;
-                    smallerDimension = smallerDimension * 3/4;
-
-                    View sharedealview = inflater.inflate(R.layout.share_deal,null);
-                    QRCodeEncoder qrcodeDeal = new QRCodeEncoder("USER:112764576837312|DEAL_ID:817628397A213|DATE:20130706|TIME:1653|LOCATION_CITY:MEXICALI|LOCATION_STATE:BC|LOCATION_COUNTRY:MX",null, Contents.Type.TEXT, null,smallerDimension);
-
-                    builder.setView(sharedealview);
-                    ImageView dealqrcode = (ImageView) sharedealview.findViewById(R.id.deal_qrcode);
-                    Bitmap qrcode = null;
-                    try
-                    {
-                        qrcode = qrcodeDeal.encodeAsBitmap();
-                    }
-                    catch(Exception e)
-                    {
-                        //TODO if error change dialog to say there was an error
-                    }
-                    if(dealqrcode != null || qrcode == null ) dealqrcode.setImageBitmap(qrcode);
-                    builder.setNeutralButton(R.string.share_deal_dialog_button,new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-
-                        }
-                    });
-                    builder.setTitle(R.string.share_deal_dialog_title);
-                    builder.show();
-                }
-            });*/
-        }
-    }
-
-    /**
-     * A fragment representing the back of the card.
-     */
-    public class CardBackFragment extends DialogFragment {
-        private String resName = "";
-        private String resDescription = "";
-
-        public CardBackFragment( String name, String desc) {
-            resName = name;
-            resDescription  = desc;
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.location_card_back, container, false);
-        }
-        @Override
-        public void onActivityCreated(Bundle savedInstanceState) {
-            super.onActivityCreated(savedInstanceState);
-
-
-        }
-    }
+    }*/
 }
+

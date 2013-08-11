@@ -709,6 +709,15 @@
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/strings.xml -->
     <string name="current_level">Current Level</string>
     <string name="deal_details">Get 10% discount!</string>
+    <string name="error_authentication_reopen">An error occurred, please re-login.</string>
+    <string name="error_authentication_retry">An error occurred that requires your attention. %1$s</string>
+    <string name="error_bad_request">An error occurred, please contact the developer with the following message: %1$s</string>
+    <string name="error_dialog_button_text">OK</string>
+    <string name="error_dialog_default_text">No response from server.</string>
+    <string name="error_dialog_title">Something Went Wrong</string>
+    <string name="error_permission">Please allow us to post on your behalf.</string>
+    <string name="error_server">The server is busy, please retry later.</string>
+    <string name="error_unknown">An unknown error occurred, please contact the developer with the following message: %1$s</string>
     <string name="favorites">Favorites</string>
     <string name="fb_app_id">206430106187639</string>
     <string name="hello_world">Hello world!</string>
@@ -723,7 +732,11 @@
     <string name="login_password">enter your password</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis euismod mi, eu pretium dolor. Phasellus auctor feugiat ante, quis cursus turpis condimentum eu.</string>
     <string name="main_hub_ui"></string>
+    <string name="progress_dialog_text">Announcing, please wait...</string>
     <string name="redeem_code">Redeem code</string>
+    <string name="result_dialog_button_text">Thanks!</string>
+    <string name="result_dialog_text">Posted Open Graph action, id: %1$s</string>
+    <string name="result_dialog_title">Result</string>
     <string name="server_connection_error">There was an error trying to connect to the server</string>
     <string name="share">Share!</string>
     <string name="share_deal_dialog_button">Done!</string>

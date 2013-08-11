@@ -10,6 +10,7 @@ public class CoupersDeal implements Serializable{
     public int deal_id;
     public String deal_start_date;
     public String deal_end_date;
+    public String deal_URL;
     public HashMap<Integer, CoupersDealLevel> deal_levels = new HashMap<Integer, CoupersDealLevel>();
 
     public CoupersDeal(int deal_id, String deal_start_date, String deal_end_date) {
