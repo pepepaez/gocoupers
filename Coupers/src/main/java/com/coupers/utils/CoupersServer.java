@@ -100,7 +100,7 @@ public class CoupersServer extends AsyncTask<String,Void,String> {
         if (mActivity!=null)
         {
             if (mActivity instanceof StartActivity)
-                ((StartActivity) mActivity).UpdateMenu(aServerData, mObject.getMETHOD_NAME());
+                ((StartActivity) mActivity).Update(aServerData, mObject.getMETHOD_NAME());
             if(mActivity instanceof MainActivity)
                 ((MainActivity) mActivity).Update(aServerData, mObject.getMETHOD_NAME());
         }

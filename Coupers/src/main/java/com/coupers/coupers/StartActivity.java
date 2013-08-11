@@ -3,11 +3,17 @@ package com.coupers.coupers;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.FragmentManager;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -16,9 +22,20 @@ import com.coupers.entities.WebServiceDataFields;
 import com.coupers.utils.CoupersObject;
 import com.coupers.utils.CoupersServer;
 import com.coupers.utils.XMLParser;
+import com.facebook.Request;
+import com.facebook.Response;
+import com.facebook.Session;
+import com.facebook.SessionState;
+import com.facebook.UiLifecycleHelper;
+import com.facebook.model.GraphUser;
 
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+
 
 
 public class StartActivity extends Activity {
@@ -42,44 +59,134 @@ public class StartActivity extends Activity {
     private boolean FavoritesLoaded = false;
     private int user_id;
 
+    private static final int NO_METHOD_DEFINED = -999;
+    private static final int MAIL_LOGIN = 1;
+    private static final int FACEBOOK_LOGIN = 2;
+    private int login_method=NO_METHOD_DEFINED;
+    private Activity a;
+
+    private boolean isResumed = false;
+    private UiLifecycleHelper uiHelper;
+    private Session.StatusCallback callback = new Session.StatusCallback() {
+        @Override
+        public void call(Session session, SessionState state, Exception exception) {
+            onSessionStateChange(session, state, exception);
+        }
+    };
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setTitle(R.string.main_hub_ui);
-
-        //TODO DONE figure out if need to implement another imageloader library (this one seems to take too long to load images for the first time)
-
+        a = this;
         //store user id
         //PreferenceManager.getDefaultSharedPreferences(this).edit().putString("MYLABEL", "myStringToSave").commit();
 
-        //read user id
-        user_id = Integer.valueOf(PreferenceManager.getDefaultSharedPreferences(this).getString("user_id", "-999"));
+        //read login method id
+        login_method = PreferenceManager.getDefaultSharedPreferences(this).getInt("login_method", NO_METHOD_DEFINED);
 
 
-        if (user_id==-999){
-            //initialize app
+        uiHelper = new UiLifecycleHelper(this, callback);
+        uiHelper.onCreate(savedInstanceState);
+
+
+        //First time loading or no data found
+        if (login_method==NO_METHOD_DEFINED){
+            //Login screen
             setContentView(R.layout.activity_login);
             Button login_btn = (Button) findViewById(R.id.login_button);
             login_btn.setOnClickListener(new View.OnClickListener() {
+                //TODO implement email login mechanism
                 @Override
                 public void onClick(View view) {
                     setContentView(R.layout.activity_start);
                     LoadData();
                 }
             });
-        }else{
-            setContentView(R.layout.activity_start);
-            LoadData();
-        }
+        }else if (login_method==FACEBOOK_LOGIN){
+            //Facebook UI Helper to keep track of session state
+
+            Session session = Session.getActiveSession();
+            if (session != null && session.isOpened()){
+                setContentView(R.layout.activity_start);
+                LoadData();
+            }else
+                setContentView(R.layout.activity_login);
+        }else
+            {
+                setContentView(R.layout.activity_login);
+            }
 
 
 
     }
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        //if (login_method==FACEBOOK_LOGIN)
+        uiHelper.onPause();
+        isResumed=false;
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
-        //finish();
+        //if (login_method==FACEBOOK_LOGIN)
+        uiHelper.onResume();
+        isResumed=true;
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        uiHelper.onDestroy();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        uiHelper.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        uiHelper.onSaveInstanceState(outState);
+    }
+
+    private void onSessionStateChange(Session session, SessionState state, Exception exception) {
+        if (isResumed) {
+            //TODO Review if need to use fragments on login
+           /* FragmentManager manager = getSupportFragmentManager();
+            int backStackSize = manager.getBackStackEntryCount();
+            for (int i = 0; i < backStackSize; i++) {
+                manager.popBackStack();
+            }*/
+            // check for the OPENED state instead of session.isOpened() since for the
+            // OPENED_TOKEN_UPDATED state, the selection fragment should already be showing.
+            if (state.equals(SessionState.OPENED)) {
+                //TODO check if first time login
+
+                Request.executeMeRequestAsync(session, new Request.GraphUserCallback() {
+                    @Override
+                    public void onCompleted(GraphUser user, Response response) {
+                        if (user != null) {
+                            Log.i("FB User Id ", user.getId());
+                            PreferenceManager.getDefaultSharedPreferences(a).edit().putInt("login_method",FACEBOOK_LOGIN).commit();
+                            setContentView(R.layout.activity_start);
+                            LoadData();
+                        }
+                    }
+                });
+                //showFragment(SELECTION, false);
+            } else if (state.isClosed()) {
+                //showFragment(SPLASH, false);
+                //DO NOTHING, user should select appropriate login method
+                PreferenceManager.getDefaultSharedPreferences(a).edit().putInt("login_method", NO_METHOD_DEFINED).commit();
+            }
+        }
     }
 
     private void LoadData(){
@@ -111,7 +218,7 @@ public class StartActivity extends Activity {
         server.execute("dummy string");
     }
 
-    public void UpdateMenu(ArrayList<HashMap<String, String>> aData, String WSExecuted){
+    public void Update(ArrayList<HashMap<String, String>> aData, String WSExecuted){
 
         ArrayList<CoupersLocation> mData = new ArrayList<CoupersLocation>();
         LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
@@ -169,111 +276,4 @@ public class StartActivity extends Activity {
 
     }
 
-
-
-    //TODO Remove if not used in the end.
-    private class LoadDeals extends AsyncTask<String, Void, String> {
-        @Override
-        protected String doInBackground(String... urls) {
-            String response = null;
-            XMLParser parser = new XMLParser();
-
-            for(String url : urls){
-                response=parser.getXmlFromUrl(url);
-                // Escape early if cancel() is called
-                if (isCancelled()) break;
-            }
-            return response;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-            findViewById(R.id.progressBar).setVisibility(View.INVISIBLE);
-            findViewById(R.id.textView).setVisibility(View.INVISIBLE);
-            Intent intent = new Intent(StartActivity.this,MainActivity.class);
-            intent.putExtra("deals",result);
-
-            startActivity(intent);
-        }
-    }
-
-   /* private class CoupersDealWS extends AsyncTask<String,Void,String>{
-
-        private static final String NAMESPACE = "http://tempuri.org/";
-        private static final String SOAP_ACTION = "http://tempuri.org/GetPromociones";
-        private static final String URL = "http://coupers.elasticbeanstalk.com/CoupersWS/Coupers.asmx";
-        private static final String METHOD_NAME = "GetPromociones";
-
-        ArrayList<HashMap<String, String>> DealsList = new ArrayList<HashMap<String, String>>();
-
-        @Override
-        protected String doInBackground(String... params){
-            String response = null;
-
-            for(String param : params){
-
-                SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
-                SoapSerializationEnvelope envelope =  new SoapSerializationEnvelope(SoapEnvelope.VER11);
-                envelope.dotNet=true;
-                envelope.setOutputSoapObject(request);
-                HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
-
-                try {
-                    androidHttpTransport.call(SOAP_ACTION, envelope);
-                    SoapObject result = (SoapObject) envelope.bodyIn;
-                    SoapObject GetPromocionesResult = (SoapObject) result.getProperty("GetPromocionesResult");
-                    SoapObject diffgram = (SoapObject) GetPromocionesResult.getProperty("diffgram") ;
-                    SoapObject NewDataSet = (SoapObject) diffgram.getProperty("NewDataSet") ;
-                    SoapObject Table;
-
-
-
-                    String _tag[]={MainActivity.KEY_ID,
-                            MainActivity.KEY_TYPE,
-                            MainActivity.KEY_DEAL_DESC,
-                            MainActivity.KEY_DEAL_START,
-                            MainActivity.KEY_DEAL_END,
-                            MainActivity.KEY_DEAL_TIP,
-                            MainActivity.KEY_LOCATION_ID,
-                            MainActivity.KEY_LOCATION_LOGO,
-                            MainActivity.KEY_THUMB_URL};
-
-                    for (int j=0;j<NewDataSet.getPropertyCount();j++)
-                    {
-                        Table = (SoapObject) NewDataSet.getProperty(j) ;
-                        //System.out.println(Table.toString());
-                        HashMap<String, String> map = new HashMap<String, String>();
-                        //TODO Use same static fields from MainActivity to create the map
-                        for(int p =0;p<_tag.length;p++)
-                            map.put(_tag[p].toString(),Table.getPropertyAsString(_tag[p]));
-                        DealsList.add(map);
-                    }
-                    response="ok";
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    response=getString(R.string.server_connection_error);
-                }
-            }
-            return response;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-            if (result.equals(getString(R.string.server_connection_error)))
-            {
-               //TODO instantiate an activity to show server connection error, finalize app.
-            }
-
-            findViewById(R.id.progressBar).setVisibility(View.INVISIBLE);
-            findViewById(R.id.textView).setVisibility(View.INVISIBLE);
-            //if (result == null) TODO setup dialog if XML results in null, exit the application
-            Intent intent = new Intent(StartActivity.this,MainActivity.class);
-            intent.putExtra("deals",DealsList);
-
-            startActivity(intent);
-        }
-
-    }*/
 }

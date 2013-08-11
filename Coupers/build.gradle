@@ -16,6 +16,7 @@ repositories{
 }
 
 dependencies {
+    compile project(':libraries:facebook')
     compile('com.ABS:ABS:0.2')
     compile('com.SlidingMenuLibrary:SlidingMenuLibrary:0.1')
     compile('com.ksoap2:ksoap2:3.0')

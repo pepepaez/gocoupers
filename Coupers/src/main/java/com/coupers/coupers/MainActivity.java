@@ -22,6 +22,10 @@ import com.coupers.utils.CoupersServer;
 import com.coupers.utils.IntentIntegrator;
 import com.coupers.utils.IntentResult;
 import com.coupers.utils.XMLParser;
+import com.facebook.Request;
+import com.facebook.Response;
+import com.facebook.Session;
+import com.facebook.model.GraphUser;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
@@ -49,7 +53,7 @@ public class MainActivity extends SlidingFragmentActivity {
         //TODO Need to make use of saved instance!!
 
 
-		// check if the content frame contains the menu frame
+        // check if the content frame contains the menu frame
 		if (findViewById(R.id.menu_frame) == null) {
 			setBehindContentView(R.layout.menu_frame_new);
 			getSlidingMenu().setSlidingEnabled(true);
@@ -102,7 +106,9 @@ public class MainActivity extends SlidingFragmentActivity {
         vp.setAdapter(pageAdapter);
 	}
 
-	@Override
+
+
+    @Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
             case android.R.id.home:

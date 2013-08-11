@@ -2,7 +2,6 @@
   <library name="ABS-1.1.aar">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/Coupers/build/exploded-bundles/ABS-1.1.aar/classes.jar!/" />
-      <root url="jar://$PROJECT_DIR$/Coupers/build/exploded-bundles/ABS-1.1.aar/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -15,11 +15,17 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.coupers.entities.CoupersLocation;
 import com.coupers.entities.WebServiceDataFields;
 import com.coupers.utils.CoupersObject;
 import com.coupers.utils.CoupersServer;
+import com.facebook.Request;
+import com.facebook.Response;
+import com.facebook.Session;
+import com.facebook.model.GraphUser;
+import com.facebook.widget.ProfilePictureView;
 
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.PropertyInfo;
@@ -41,6 +47,8 @@ public class DealMenuFragment extends Fragment {
     private ArrayList<CoupersLocation> mData = new ArrayList<CoupersLocation>();
     private View last_view_selected = null;
     private int last_position=-999;
+    private ProfilePictureView profilePictureView;
+    private TextView userNameView;
 
     public class CoupersMenuItem{
         public String item_text = "";
@@ -65,6 +73,9 @@ public class DealMenuFragment extends Fragment {
 
         ImageButton settings = (ImageButton) container.findViewById(R.id.settings);
         settings.setImageResource(android.R.drawable.ic_menu_manage);
+
+        profilePictureView = (ProfilePictureView) container.findViewById(R.id.userpic);
+        userNameView = (TextView) container.findViewById(R.id.username);
 
 
         GridView lv = (GridView) container.findViewById(R.id.gridView);
@@ -278,7 +289,34 @@ public class DealMenuFragment extends Fragment {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 
+        makeMeRequest(Session.getActiveSession());
+
 	}
+
+    private void makeMeRequest(final Session session) {
+        // Make an API call to get user data and define a
+        // new callback to handle the response.
+        Request request = Request.newMeRequest(session,
+                new Request.GraphUserCallback() {
+                    @Override
+                    public void onCompleted(GraphUser user, Response response) {
+                        // If the response is successful
+                        if (session == Session.getActiveSession()) {
+                            if (user != null) {
+                                // Set the id for the ProfilePictureView
+                                // view that in turn displays the profile picture.
+                                profilePictureView.setProfileId(user.getId());
+                                // Set the Textview's text to the user's name.
+                                userNameView.setText(user.getName());
+                            }
+                        }
+                        if (response.getError() != null) {
+                            // Handle errors, will do so later.
+                        }
+                    }
+                });
+        request.executeAsync();
+    }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {

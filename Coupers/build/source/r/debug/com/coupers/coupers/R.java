@@ -227,6 +227,14 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int buttonStyleSmall=0x7f010032;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int confirm_logout=0x7f010071;
         /**  Specifies a layout for custom navigation. Overrides navigationMode. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
@@ -260,6 +268,18 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
+        public static final int done_button_background=0x7f01007b;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int done_button_text=0x7f010079;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
         public static final int dropDownHintAppearance=0x7f010061;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
@@ -286,6 +306,14 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int expandActivityOverflowButtonDrawable=0x7f010014;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int extra_fields=0x7f010076;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -302,6 +330,14 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int fadeEnabled=0x7f01006c;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int fetch_user_info=0x7f010072;
         /**  Default background for the menu header. 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
@@ -364,6 +400,14 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int initialActivityCount=0x7f010013;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int is_cropped=0x7f010081;
         /**  Default background for each menu item. 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
@@ -436,11 +480,27 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int listPreferredItemPaddingRight=0x7f01004d;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int login_text=0x7f010073;
         /**  Specifies the drawable used for the application logo. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int logo=0x7f01000b;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int logout_text=0x7f010074;
         /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -452,6 +512,14 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 </table>
          */
         public static final int mode=0x7f010062;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int multi_select=0x7f010070;
         /**  The type of navigation to use. 
          <p>Must be one of the following constant values.</p>
 <table>
@@ -478,6 +546,18 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int preserveIconSpacing=0x7f01001c;
+        /** <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>small</code></td><td>-2</td><td> Keep in sync with constants in ProfilePictureView </td></tr>
+<tr><td><code>normal</code></td><td>-3</td><td></td></tr>
+<tr><td><code>large</code></td><td>-4</td><td></td></tr>
+</table>
+         */
+        public static final int preset_size=0x7f010080;
         /**  Specifies the horizontal padding on either end for an embedded progress bar. 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -503,6 +583,22 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int queryHint=0x7f01001e;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int radius_in_meters=0x7f01007c;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int results_limit=0x7f01007d;
         /**  SearchView AutoCompleteTextView style 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
@@ -564,6 +660,14 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int searchViewVoiceIcon=0x7f010042;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int search_text=0x7f01007e;
         /**  Background drawable for standalone items that need focus/pressed states. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
@@ -595,6 +699,30 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int shadowWidth=0x7f01006b;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int show_pictures=0x7f010075;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int show_search_box=0x7f01007f;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int show_title_bar=0x7f010077;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
@@ -693,6 +821,18 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int titleTextStyle=0x7f010005;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int title_bar_background=0x7f01007a;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int title_text=0x7f010078;
         /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -821,13 +961,20 @@ containing a value of this type.
         public static final int abs__bright_foreground_disabled_holo_light=0x7f070003;
         public static final int abs__bright_foreground_holo_dark=0x7f070004;
         public static final int abs__bright_foreground_holo_light=0x7f070005;
-        public static final int abs__primary_text_disable_only_holo_dark=0x7f070007;
-        public static final int abs__primary_text_disable_only_holo_light=0x7f070008;
-        public static final int abs__primary_text_holo_dark=0x7f070009;
-        public static final int abs__primary_text_holo_light=0x7f07000a;
+        public static final int abs__primary_text_disable_only_holo_dark=0x7f07000c;
+        public static final int abs__primary_text_disable_only_holo_light=0x7f07000d;
+        public static final int abs__primary_text_holo_dark=0x7f07000e;
+        public static final int abs__primary_text_holo_light=0x7f07000f;
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/CoupersProjectLibrariesFacebookUnspecified.aar/res/values/values.xml 
+         */
+        public static final int com_facebook_blue=0x7f070006;
+        public static final int com_facebook_loginview_text_color=0x7f070007;
+        public static final int com_facebook_usersettingsfragment_connected_shadow_color=0x7f070008;
+        public static final int com_facebook_usersettingsfragment_connected_text_color=0x7f070009;
+        public static final int com_facebook_usersettingsfragment_not_connected_text_color=0x7f07000a;
         /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/colors_coupers_theme.xml 
          */
-        public static final int pressed_coupers_theme=0x7f070006;
+        public static final int pressed_coupers_theme=0x7f07000b;
     }
     public static final class dimen {
         /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS02.aar/res/values/values.xml 
@@ -846,8 +993,8 @@ containing a value of this type.
         public static final int abs__action_bar_title_text_size=0x7f090005;
         public static final int abs__action_button_min_width=0x7f090006;
         public static final int abs__config_prefDialogWidth=0x7f090007;
-        public static final int abs__dialog_min_width_major=0x7f090012;
-        public static final int abs__dialog_min_width_minor=0x7f090013;
+        public static final int abs__dialog_min_width_major=0x7f09001e;
+        public static final int abs__dialog_min_width_minor=0x7f09001f;
         public static final int abs__dropdownitem_icon_width=0x7f090008;
         public static final int abs__dropdownitem_text_padding_left=0x7f090009;
         public static final int abs__dropdownitem_text_padding_right=0x7f09000a;
@@ -858,15 +1005,31 @@ containing a value of this type.
          */
         public static final int activity_horizontal_margin=0x7f09000d;
         public static final int activity_vertical_margin=0x7f09000e;
-        public static final int list_padding=0x7f09000f;
-        public static final int shadow_width=0x7f090010;
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/CoupersProjectLibrariesFacebookUnspecified.aar/res/values/values.xml 
+         */
+        public static final int com_facebook_loginview_height=0x7f09000f;
+        public static final int com_facebook_loginview_padding_bottom=0x7f090010;
+        public static final int com_facebook_loginview_padding_left=0x7f090011;
+        public static final int com_facebook_loginview_padding_right=0x7f090012;
+        public static final int com_facebook_loginview_padding_top=0x7f090013;
+        public static final int com_facebook_loginview_text_size=0x7f090014;
+        public static final int com_facebook_loginview_width=0x7f090015;
+        public static final int com_facebook_profilepictureview_preset_size_large=0x7f090016;
+        public static final int com_facebook_profilepictureview_preset_size_normal=0x7f090017;
+        public static final int com_facebook_profilepictureview_preset_size_small=0x7f090018;
+        public static final int com_facebook_usersettingsfragment_profile_picture_height=0x7f090019;
+        public static final int com_facebook_usersettingsfragment_profile_picture_width=0x7f09001a;
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/dimens.xml 
+         */
+        public static final int list_padding=0x7f09001b;
+        public static final int shadow_width=0x7f09001c;
         /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values-land/dimens.xml 
  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values-large/dimens.xml 
  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values-large-land/dimens.xml 
  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values-xlarge/dimens.xml 
  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values-xlarge-land/dimens.xml 
          */
-        public static final int slidingmenu_offset=0x7f090011;
+        public static final int slidingmenu_offset=0x7f09001d;
     }
     public static final class drawable {
         public static final int ab_background_textured_coupers_theme=0x7f020000;
@@ -996,216 +1159,270 @@ containing a value of this type.
         public static final int cab_background_bottom_coupers_theme=0x7f02007c;
         public static final int cab_background_top_coupers_theme=0x7f02007d;
         public static final int cell_shape=0x7f02007e;
-        public static final int coupers_icon3=0x7f02007f;
-        public static final int custom_button=0x7f020080;
-        public static final int dash_line=0x7f020081;
-        public static final int dash_login=0x7f020082;
-        public static final int dashline=0x7f020083;
-        public static final int dashline2=0x7f020084;
-        public static final int eagle=0x7f020085;
-        public static final int facebook_login=0x7f020086;
-        public static final int flamingo=0x7f020087;
-        public static final int gradient_bg=0x7f020088;
-        public static final int gradient_bg_deal_logo=0x7f020089;
-        public static final int gradient_bg_eat=0x7f02008a;
-        public static final int gradient_bg_feel_good=0x7f02008b;
-        public static final int gradient_bg_have_fun=0x7f02008c;
-        public static final int gradient_bg_hover=0x7f02008d;
-        public static final int gradient_bg_look_good=0x7f02008e;
-        public static final int gradient_bg_relax=0x7f02008f;
-        public static final int grid_padding=0x7f020090;
-        public static final int heron=0x7f020091;
-        public static final int ic_action_barcode=0x7f020092;
-        public static final int ic_action_info=0x7f020093;
-        public static final int ic_action_photo=0x7f020094;
-        public static final int ic_action_scan=0x7f020095;
-        public static final int ic_launcher=0x7f020096;
-        public static final int image_bg=0x7f020097;
-        public static final int list_focused_coupers_theme=0x7f020098;
-        public static final int list_selector=0x7f020099;
-        public static final int list_selector_eat=0x7f02009a;
-        public static final int list_selector_feel_good=0x7f02009b;
-        public static final int list_selector_have_fun=0x7f02009c;
-        public static final int list_selector_look_good=0x7f02009d;
-        public static final int list_selector_relax=0x7f02009e;
-        public static final int login=0x7f02009f;
-        public static final int logo_icon1=0x7f0200a0;
-        public static final int map=0x7f0200a1;
-        public static final int menu_dropdown_panel_coupers_theme=0x7f0200a2;
-        public static final int menu_padding=0x7f0200a3;
-        public static final int muelle=0x7f0200a4;
-        public static final int muelle240=0x7f0200a5;
-        public static final int multiple_deal_indicator=0x7f0200a6;
-        public static final int multiple_deals_row=0x7f0200a7;
-        public static final int multiple_deals_row_background=0x7f0200a8;
-        public static final int navicon=0x7f0200a9;
-        public static final int no_image=0x7f0200aa;
-        public static final int octocat=0x7f0200ab;
-        public static final int ostrich=0x7f0200ac;
-        public static final int peacock=0x7f0200ad;
-        public static final int penguin=0x7f0200ae;
-        public static final int pressed_background_coupers_theme=0x7f0200af;
-        public static final int progress_bg_coupers_theme=0x7f0200b0;
-        public static final int progress_horizontal_coupers_theme=0x7f0200b1;
-        public static final int progress_primary_coupers_theme=0x7f0200b2;
-        public static final int progress_secondary_coupers_theme=0x7f0200b3;
-        public static final int red_circle_black_border=0x7f0200b4;
-        public static final int selectable_background_coupers_theme=0x7f0200b5;
-        public static final int shadow=0x7f0200b6;
-        public static final int spinner_ab_default_coupers_theme=0x7f0200b7;
-        public static final int spinner_ab_disabled_coupers_theme=0x7f0200b8;
-        public static final int spinner_ab_focused_coupers_theme=0x7f0200b9;
-        public static final int spinner_ab_pressed_coupers_theme=0x7f0200ba;
-        public static final int spinner_background_ab_coupers_theme=0x7f0200bb;
-        public static final int tab_indicator_ab_coupers_theme=0x7f0200bc;
-        public static final int tab_selected_coupers_theme=0x7f0200bd;
-        public static final int tab_selected_focused_coupers_theme=0x7f0200be;
-        public static final int tab_selected_pressed_coupers_theme=0x7f0200bf;
-        public static final int tab_unselected_coupers_theme=0x7f0200c0;
-        public static final int tab_unselected_focused_coupers_theme=0x7f0200c1;
-        public static final int tab_unselected_pressed_coupers_theme=0x7f0200c2;
-        public static final int tlalli=0x7f0200c3;
-        public static final int toucan=0x7f0200c4;
-        public static final int turkey=0x7f0200c5;
-        public static final int twitter_login=0x7f0200c6;
-        public static final int ultragym=0x7f0200c7;
-        public static final int vulture=0x7f0200c8;
+        public static final int com_facebook_button_check=0x7f02007f;
+        public static final int com_facebook_button_check_off=0x7f020080;
+        public static final int com_facebook_button_check_on=0x7f020081;
+        public static final int com_facebook_button_grey_focused=0x7f020082;
+        public static final int com_facebook_button_grey_normal=0x7f020083;
+        public static final int com_facebook_button_grey_pressed=0x7f020084;
+        public static final int com_facebook_close=0x7f020085;
+        public static final int com_facebook_icon=0x7f020086;
+        public static final int com_facebook_list_divider=0x7f020087;
+        public static final int com_facebook_list_section_header_background=0x7f020088;
+        public static final int com_facebook_loginbutton_blue=0x7f020089;
+        public static final int com_facebook_loginbutton_blue_focused=0x7f02008a;
+        public static final int com_facebook_loginbutton_blue_normal=0x7f02008b;
+        public static final int com_facebook_loginbutton_blue_pressed=0x7f02008c;
+        public static final int com_facebook_loginbutton_silver=0x7f02008d;
+        public static final int com_facebook_logo=0x7f02008e;
+        public static final int com_facebook_picker_item_background=0x7f02008f;
+        public static final int com_facebook_picker_list_focused=0x7f020090;
+        public static final int com_facebook_picker_list_longpressed=0x7f020091;
+        public static final int com_facebook_picker_list_pressed=0x7f020092;
+        public static final int com_facebook_picker_list_selector=0x7f020093;
+        public static final int com_facebook_picker_list_selector_background_transition=0x7f020094;
+        public static final int com_facebook_picker_list_selector_disabled=0x7f020095;
+        public static final int com_facebook_picker_top_button=0x7f020096;
+        public static final int com_facebook_place_default_icon=0x7f020097;
+        public static final int com_facebook_profile_default_icon=0x7f020098;
+        public static final int com_facebook_profile_picture_blank_portrait=0x7f020099;
+        public static final int com_facebook_profile_picture_blank_square=0x7f02009a;
+        public static final int com_facebook_top_background=0x7f02009b;
+        public static final int com_facebook_top_button=0x7f02009c;
+        public static final int com_facebook_usersettingsfragment_background_gradient=0x7f02009d;
+        public static final int coupers_icon3=0x7f02009e;
+        public static final int custom_button=0x7f02009f;
+        public static final int dash_line=0x7f0200a0;
+        public static final int dash_login=0x7f0200a1;
+        public static final int dashline=0x7f0200a2;
+        public static final int dashline2=0x7f0200a3;
+        public static final int eagle=0x7f0200a4;
+        public static final int facebook_login=0x7f0200a5;
+        public static final int flamingo=0x7f0200a6;
+        public static final int gradient_bg=0x7f0200a7;
+        public static final int gradient_bg_deal_logo=0x7f0200a8;
+        public static final int gradient_bg_eat=0x7f0200a9;
+        public static final int gradient_bg_feel_good=0x7f0200aa;
+        public static final int gradient_bg_have_fun=0x7f0200ab;
+        public static final int gradient_bg_hover=0x7f0200ac;
+        public static final int gradient_bg_look_good=0x7f0200ad;
+        public static final int gradient_bg_relax=0x7f0200ae;
+        public static final int grid_padding=0x7f0200af;
+        public static final int heron=0x7f0200b0;
+        public static final int ic_action_barcode=0x7f0200b1;
+        public static final int ic_action_info=0x7f0200b2;
+        public static final int ic_action_photo=0x7f0200b3;
+        public static final int ic_action_scan=0x7f0200b4;
+        public static final int ic_launcher=0x7f0200b5;
+        public static final int image_bg=0x7f0200b6;
+        public static final int list_focused_coupers_theme=0x7f0200b7;
+        public static final int list_selector=0x7f0200b8;
+        public static final int list_selector_eat=0x7f0200b9;
+        public static final int list_selector_feel_good=0x7f0200ba;
+        public static final int list_selector_have_fun=0x7f0200bb;
+        public static final int list_selector_look_good=0x7f0200bc;
+        public static final int list_selector_relax=0x7f0200bd;
+        public static final int login=0x7f0200be;
+        public static final int logo_icon1=0x7f0200bf;
+        public static final int map=0x7f0200c0;
+        public static final int menu_dropdown_panel_coupers_theme=0x7f0200c1;
+        public static final int menu_padding=0x7f0200c2;
+        public static final int muelle=0x7f0200c3;
+        public static final int muelle240=0x7f0200c4;
+        public static final int multiple_deal_indicator=0x7f0200c5;
+        public static final int multiple_deals_row=0x7f0200c6;
+        public static final int multiple_deals_row_background=0x7f0200c7;
+        public static final int navicon=0x7f0200c8;
+        public static final int no_image=0x7f0200c9;
+        public static final int octocat=0x7f0200ca;
+        public static final int ostrich=0x7f0200cb;
+        public static final int peacock=0x7f0200cc;
+        public static final int penguin=0x7f0200cd;
+        public static final int pressed_background_coupers_theme=0x7f0200ce;
+        public static final int progress_bg_coupers_theme=0x7f0200cf;
+        public static final int progress_horizontal_coupers_theme=0x7f0200d0;
+        public static final int progress_primary_coupers_theme=0x7f0200d1;
+        public static final int progress_secondary_coupers_theme=0x7f0200d2;
+        public static final int red_circle_black_border=0x7f0200d3;
+        public static final int selectable_background_coupers_theme=0x7f0200d4;
+        public static final int shadow=0x7f0200d5;
+        public static final int spinner_ab_default_coupers_theme=0x7f0200d6;
+        public static final int spinner_ab_disabled_coupers_theme=0x7f0200d7;
+        public static final int spinner_ab_focused_coupers_theme=0x7f0200d8;
+        public static final int spinner_ab_pressed_coupers_theme=0x7f0200d9;
+        public static final int spinner_background_ab_coupers_theme=0x7f0200da;
+        public static final int tab_indicator_ab_coupers_theme=0x7f0200db;
+        public static final int tab_selected_coupers_theme=0x7f0200dc;
+        public static final int tab_selected_focused_coupers_theme=0x7f0200dd;
+        public static final int tab_selected_pressed_coupers_theme=0x7f0200de;
+        public static final int tab_unselected_coupers_theme=0x7f0200df;
+        public static final int tab_unselected_focused_coupers_theme=0x7f0200e0;
+        public static final int tab_unselected_pressed_coupers_theme=0x7f0200e1;
+        public static final int tlalli=0x7f0200e2;
+        public static final int toucan=0x7f0200e3;
+        public static final int turkey=0x7f0200e4;
+        public static final int twitter_login=0x7f0200e5;
+        public static final int ultragym=0x7f0200e6;
+        public static final int vulture=0x7f0200e7;
     }
     public static final class id {
-        public static final int abs__action_bar=0x7f080028;
-        public static final int abs__action_bar_container=0x7f080027;
-        public static final int abs__action_bar_subtitle=0x7f080019;
-        public static final int abs__action_bar_title=0x7f080018;
-        public static final int abs__action_context_bar=0x7f080029;
+        public static final int abs__action_bar=0x7f08002a;
+        public static final int abs__action_bar_container=0x7f080029;
+        public static final int abs__action_bar_subtitle=0x7f08001b;
+        public static final int abs__action_bar_title=0x7f08001a;
+        public static final int abs__action_context_bar=0x7f08002b;
         /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS02.aar/res/values/values.xml 
          */
-        public static final int abs__action_menu_divider=0x7f08000e;
-        public static final int abs__action_menu_presenter=0x7f08000f;
-        public static final int abs__action_mode_bar=0x7f08002d;
-        public static final int abs__action_mode_bar_stub=0x7f08002c;
-        public static final int abs__action_mode_close_button=0x7f08001c;
-        public static final int abs__activity_chooser_view_content=0x7f08001d;
-        public static final int abs__checkbox=0x7f080024;
-        public static final int abs__content=0x7f08002a;
-        public static final int abs__default_activity_button=0x7f080020;
-        public static final int abs__expand_activities_button=0x7f08001e;
-        public static final int abs__home=0x7f080010;
-        public static final int abs__icon=0x7f080022;
-        public static final int abs__image=0x7f08001f;
-        public static final int abs__imageButton=0x7f08001a;
-        public static final int abs__list_item=0x7f080021;
-        public static final int abs__progress_circular=0x7f080011;
-        public static final int abs__progress_horizontal=0x7f080012;
-        public static final int abs__radio=0x7f080025;
-        public static final int abs__search_badge=0x7f080030;
-        public static final int abs__search_bar=0x7f08002f;
-        public static final int abs__search_button=0x7f080031;
-        public static final int abs__search_close_btn=0x7f080036;
-        public static final int abs__search_edit_frame=0x7f080032;
-        public static final int abs__search_go_btn=0x7f080038;
-        public static final int abs__search_mag_icon=0x7f080033;
-        public static final int abs__search_plate=0x7f080034;
-        public static final int abs__search_src_text=0x7f080035;
-        public static final int abs__search_voice_btn=0x7f080039;
-        public static final int abs__shortcut=0x7f080026;
-        public static final int abs__split_action_bar=0x7f08002b;
-        public static final int abs__submit_area=0x7f080037;
-        public static final int abs__textButton=0x7f08001b;
-        public static final int abs__title=0x7f080023;
-        public static final int abs__up=0x7f080013;
+        public static final int abs__action_menu_divider=0x7f080010;
+        public static final int abs__action_menu_presenter=0x7f080011;
+        public static final int abs__action_mode_bar=0x7f08002f;
+        public static final int abs__action_mode_bar_stub=0x7f08002e;
+        public static final int abs__action_mode_close_button=0x7f08001e;
+        public static final int abs__activity_chooser_view_content=0x7f08001f;
+        public static final int abs__checkbox=0x7f080026;
+        public static final int abs__content=0x7f08002c;
+        public static final int abs__default_activity_button=0x7f080022;
+        public static final int abs__expand_activities_button=0x7f080020;
+        public static final int abs__home=0x7f080012;
+        public static final int abs__icon=0x7f080024;
+        public static final int abs__image=0x7f080021;
+        public static final int abs__imageButton=0x7f08001c;
+        public static final int abs__list_item=0x7f080023;
+        public static final int abs__progress_circular=0x7f080013;
+        public static final int abs__progress_horizontal=0x7f080014;
+        public static final int abs__radio=0x7f080027;
+        public static final int abs__search_badge=0x7f080032;
+        public static final int abs__search_bar=0x7f080031;
+        public static final int abs__search_button=0x7f080033;
+        public static final int abs__search_close_btn=0x7f080038;
+        public static final int abs__search_edit_frame=0x7f080034;
+        public static final int abs__search_go_btn=0x7f08003a;
+        public static final int abs__search_mag_icon=0x7f080035;
+        public static final int abs__search_plate=0x7f080036;
+        public static final int abs__search_src_text=0x7f080037;
+        public static final int abs__search_voice_btn=0x7f08003b;
+        public static final int abs__shortcut=0x7f080028;
+        public static final int abs__split_action_bar=0x7f08002d;
+        public static final int abs__submit_area=0x7f080039;
+        public static final int abs__textButton=0x7f08001d;
+        public static final int abs__title=0x7f080025;
+        public static final int abs__up=0x7f080015;
         /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/ids.xml 
          */
-        public static final int action_flip=0x7f080014;
-        public static final int action_next=0x7f080015;
-        public static final int action_settings=0x7f080080;
-        public static final int alt_login_options=0x7f080040;
-        public static final int center_pivot=0x7f080043;
-        public static final int container=0x7f08003a;
-        public static final int content_frame=0x7f08007b;
-        public static final int coupers_corner=0x7f08003b;
-        public static final int coupers_login=0x7f08003e;
-        public static final int dash_login_left=0x7f080042;
-        public static final int dash_login_right=0x7f080041;
-        public static final int dashdeal=0x7f08005c;
-        public static final int deal_description=0x7f08004c;
-        public static final int deal_id=0x7f08005f;
-        public static final int deal_padding=0x7f080064;
-        public static final int deal_pager=0x7f080070;
-        public static final int deal_qrcode=0x7f08007e;
-        public static final int deal_scan=0x7f080016;
-        public static final int deal_tip=0x7f08005d;
+        public static final int action_flip=0x7f080016;
+        public static final int action_next=0x7f080017;
+        public static final int action_settings=0x7f080097;
+        public static final int alt_login_options=0x7f080042;
+        public static final int center_pivot=0x7f080045;
+        public static final int com_facebook_login_activity_progress_bar=0x7f08004d;
+        public static final int com_facebook_picker_activity_circle=0x7f08004c;
+        public static final int com_facebook_picker_checkbox=0x7f08004f;
+        public static final int com_facebook_picker_checkbox_stub=0x7f080053;
+        public static final int com_facebook_picker_divider=0x7f080057;
+        public static final int com_facebook_picker_done_button=0x7f080056;
+        public static final int com_facebook_picker_image=0x7f080050;
+        public static final int com_facebook_picker_list_section_header=0x7f080054;
+        public static final int com_facebook_picker_list_view=0x7f08004b;
+        public static final int com_facebook_picker_profile_pic_stub=0x7f080051;
+        public static final int com_facebook_picker_row_activity_circle=0x7f08004e;
+        public static final int com_facebook_picker_title=0x7f080052;
+        public static final int com_facebook_picker_title_bar=0x7f080059;
+        public static final int com_facebook_picker_title_bar_stub=0x7f080058;
+        public static final int com_facebook_picker_top_bar=0x7f080055;
+        public static final int com_facebook_placepickerfragment_search_box_stub=0x7f08005a;
+        public static final int com_facebook_usersettingsfragment_login_button=0x7f08005f;
+        public static final int com_facebook_usersettingsfragment_logo_image=0x7f08005d;
+        public static final int com_facebook_usersettingsfragment_profile_name=0x7f08005e;
+        public static final int container=0x7f08003c;
+        public static final int content_frame=0x7f080092;
+        public static final int coupers_corner=0x7f08003d;
+        public static final int coupers_login=0x7f080040;
+        public static final int dash_login_left=0x7f080044;
+        public static final int dash_login_right=0x7f080043;
+        public static final int dashdeal=0x7f080072;
+        public static final int deal_description=0x7f080062;
+        public static final int deal_id=0x7f080075;
+        public static final int deal_padding=0x7f08007a;
+        public static final int deal_pager=0x7f080086;
+        public static final int deal_qrcode=0x7f080095;
+        public static final int deal_scan=0x7f080018;
+        public static final int deal_tip=0x7f080073;
         public static final int disableHome=0x7f080008;
-        public static final int edit_query=0x7f08002e;
-        public static final int facebook_login=0x7f080045;
-        public static final int favorite_location=0x7f080051;
+        public static final int edit_query=0x7f080030;
+        public static final int facebook_login=0x7f080046;
+        public static final int favorite_location=0x7f080067;
         public static final int fullscreen=0x7f08000d;
-        public static final int gridView=0x7f080076;
+        public static final int gridView=0x7f08008d;
         public static final int homeAsUp=0x7f080005;
-        public static final int hours=0x7f08006a;
-        public static final int imageButton=0x7f080056;
-        public static final int imageView=0x7f080048;
-        public static final int imageView2=0x7f080049;
-        public static final int imageView3=0x7f080077;
-        public static final int imageView4=0x7f080061;
-        public static final int imageView5=0x7f080052;
-        public static final int item_menu_icon=0x7f080058;
-        public static final int item_menu_text=0x7f080055;
+        public static final int hours=0x7f080080;
+        public static final int imageButton=0x7f08006c;
+        public static final int imageView=0x7f080049;
+        public static final int imageView2=0x7f08004a;
+        public static final int imageView3=0x7f08008e;
+        public static final int imageView4=0x7f080077;
+        public static final int imageView5=0x7f080068;
+        public static final int item_menu_icon=0x7f08006e;
+        public static final int item_menu_text=0x7f08006b;
+        public static final int large=0x7f08000f;
         public static final int left=0x7f08000a;
-        public static final int left_padding=0x7f080062;
-        public static final int leftpadding=0x7f080073;
-        public static final int level_deal_description=0x7f08004b;
-        public static final int level_deal_legend=0x7f08004a;
-        public static final int level_redeem_code=0x7f08004d;
+        public static final int left_padding=0x7f080078;
+        public static final int leftpadding=0x7f08008a;
+        public static final int level_deal_description=0x7f080061;
+        public static final int level_deal_legend=0x7f080060;
+        public static final int level_redeem_code=0x7f080063;
         public static final int listMode=0x7f080001;
-        public static final int list_image=0x7f08005a;
-        public static final int loading=0x7f080059;
-        public static final int location_address=0x7f080067;
-        public static final int location_city=0x7f080068;
-        public static final int location_hours_operation1=0x7f08006b;
-        public static final int location_hours_operation2=0x7f08006c;
-        public static final int location_hours_operation3=0x7f08006d;
-        public static final int location_logo=0x7f080053;
-        public static final int location_name=0x7f080065;
-        public static final int location_phone_number1=0x7f080069;
-        public static final int location_thumbnail=0x7f08006f;
-        public static final int location_website_url=0x7f080066;
-        public static final int login_button=0x7f08003f;
-        public static final int logo_image=0x7f08005b;
+        public static final int list_image=0x7f080070;
+        public static final int loading=0x7f08006f;
+        public static final int location_address=0x7f08007d;
+        public static final int location_city=0x7f08007e;
+        public static final int location_hours_operation1=0x7f080081;
+        public static final int location_hours_operation2=0x7f080082;
+        public static final int location_hours_operation3=0x7f080083;
+        public static final int location_logo=0x7f080069;
+        public static final int location_name=0x7f08007b;
+        public static final int location_phone_number1=0x7f08007f;
+        public static final int location_thumbnail=0x7f080085;
+        public static final int location_website_url=0x7f08007c;
+        public static final int login_button=0x7f080041;
+        public static final int logo_image=0x7f080071;
         public static final int margin=0x7f08000c;
-        public static final int menu_frame=0x7f080071;
-        public static final int new_deal_count=0x7f080054;
+        public static final int menu_frame=0x7f080088;
+        public static final int new_deal_count=0x7f08006a;
         public static final int normal=0x7f080000;
-        public static final int pager=0x7f08007c;
-        public static final int pager_header=0x7f08007d;
-        public static final int progressBar=0x7f080046;
-        public static final int progressBarLogo=0x7f080060;
-        public static final int progressBarThumb=0x7f08005e;
-        public static final int ratingBar=0x7f08004f;
+        public static final int pager=0x7f080093;
+        public static final int pager_header=0x7f080094;
+        public static final int picker_subtitle=0x7f08005c;
+        public static final int progressBar=0x7f080047;
+        public static final int progressBarLogo=0x7f080076;
+        public static final int progressBarThumb=0x7f080074;
+        public static final int ratingBar=0x7f080065;
         public static final int right=0x7f08000b;
-        public static final int right_padding=0x7f080063;
-        public static final int rightpadding=0x7f080074;
-        public static final int searchView=0x7f080072;
-        public static final int selected_indicator=0x7f080057;
+        public static final int right_padding=0x7f080079;
+        public static final int rightpadding=0x7f08008b;
+        public static final int searchView=0x7f080089;
+        public static final int search_box=0x7f08005b;
+        public static final int selected_indicator=0x7f08006d;
         /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComSlidingMenuLibrarySlidingMenuLibrary01.aar/res/values/values.xml 
          */
-        public static final int selected_view=0x7f080017;
-        public static final int settings=0x7f080078;
-        public static final int share_button=0x7f08004e;
+        public static final int selected_view=0x7f080019;
+        public static final int selectionFragment=0x7f080087;
+        public static final int settings=0x7f08008f;
+        public static final int share_button=0x7f080064;
         public static final int showCustom=0x7f080007;
         public static final int showHome=0x7f080004;
         public static final int showTitle=0x7f080006;
-        public static final int slidingmenumain=0x7f08007f;
+        public static final int slidingmenumain=0x7f080096;
+        public static final int small=0x7f08000e;
         public static final int tabMode=0x7f080002;
-        public static final int textView=0x7f080047;
-        public static final int textView10=0x7f08006e;
-        public static final int textView4=0x7f080050;
-        public static final int toppadding=0x7f080075;
-        public static final int twitter_login=0x7f080044;
+        public static final int textView=0x7f080048;
+        public static final int textView10=0x7f080084;
+        public static final int textView4=0x7f080066;
+        public static final int toppadding=0x7f08008c;
         public static final int useLogo=0x7f080003;
-        public static final int user_email=0x7f08003d;
-        public static final int user_pwd=0x7f08003c;
-        public static final int username=0x7f08007a;
-        public static final int userpic=0x7f080079;
+        public static final int user_email=0x7f08003f;
+        public static final int user_pwd=0x7f08003e;
+        public static final int username=0x7f080091;
+        public static final int userpic=0x7f080090;
         public static final int wrap_content=0x7f080009;
     }
     public static final class integer {
@@ -1248,20 +1465,34 @@ containing a value of this type.
         public static final int activity_card_flip=0x7f030015;
         public static final int activity_login=0x7f030016;
         public static final int activity_start=0x7f030017;
-        public static final int deal_pager_view=0x7f030018;
-        public static final int list_menu_favorite=0x7f030019;
-        public static final int list_menu_header=0x7f03001a;
-        public static final int list_menu_item=0x7f03001b;
-        public static final int list_rower_logo=0x7f03001c;
-        public static final int list_rower_logo_multiple=0x7f03001d;
-        public static final int location_card_back=0x7f03001e;
-        public static final int location_card_front=0x7f03001f;
-        public static final int menu_frame_new=0x7f030020;
-        public static final int responsive_content_frame=0x7f030021;
-        public static final int share_deal=0x7f030022;
-        public static final int sherlock_spinner_dropdown_item=0x7f030023;
-        public static final int sherlock_spinner_item=0x7f030024;
-        public static final int slidingmenumain=0x7f030025;
+        public static final int com_facebook_friendpickerfragment=0x7f030018;
+        public static final int com_facebook_login_activity_layout=0x7f030019;
+        public static final int com_facebook_picker_activity_circle_row=0x7f03001a;
+        public static final int com_facebook_picker_checkbox=0x7f03001b;
+        public static final int com_facebook_picker_image=0x7f03001c;
+        public static final int com_facebook_picker_list_row=0x7f03001d;
+        public static final int com_facebook_picker_list_section_header=0x7f03001e;
+        public static final int com_facebook_picker_search_box=0x7f03001f;
+        public static final int com_facebook_picker_title_bar=0x7f030020;
+        public static final int com_facebook_picker_title_bar_stub=0x7f030021;
+        public static final int com_facebook_placepickerfragment=0x7f030022;
+        public static final int com_facebook_placepickerfragment_list_row=0x7f030023;
+        public static final int com_facebook_usersettingsfragment=0x7f030024;
+        public static final int deal_pager_view=0x7f030025;
+        public static final int list_menu_favorite=0x7f030026;
+        public static final int list_menu_header=0x7f030027;
+        public static final int list_menu_item=0x7f030028;
+        public static final int list_rower_logo=0x7f030029;
+        public static final int list_rower_logo_multiple=0x7f03002a;
+        public static final int location_card_back=0x7f03002b;
+        public static final int location_card_front=0x7f03002c;
+        public static final int main=0x7f03002d;
+        public static final int menu_frame_new=0x7f03002e;
+        public static final int responsive_content_frame=0x7f03002f;
+        public static final int share_deal=0x7f030030;
+        public static final int sherlock_spinner_dropdown_item=0x7f030031;
+        public static final int sherlock_spinner_item=0x7f030032;
+        public static final int slidingmenumain=0x7f030033;
     }
     public static final class menu {
         public static final int main=0x7f0d0000;
@@ -1290,29 +1521,63 @@ containing a value of this type.
         public static final int action_scan=0x7f0b000f;
         public static final int action_settings=0x7f0b0010;
         public static final int app_name=0x7f0b0011;
-        public static final int categories=0x7f0b0028;
+        public static final int categories=0x7f0b0042;
         public static final int city=0x7f0b0012;
-        public static final int current_level=0x7f0b0013;
-        public static final int deal_details=0x7f0b0014;
-        public static final int favorites=0x7f0b0015;
-        public static final int hello_world=0x7f0b0016;
-        public static final int i_want_to=0x7f0b0017;
-        public static final int i_want_to_eat=0x7f0b0018;
-        public static final int i_want_to_feel_good=0x7f0b0019;
-        public static final int i_want_to_have_fun=0x7f0b001a;
-        public static final int i_want_to_look_good=0x7f0b001b;
-        public static final int i_want_to_relax=0x7f0b001c;
-        public static final int loading_progress_bar=0x7f0b001d;
-        public static final int login_email=0x7f0b001e;
-        public static final int login_password=0x7f0b001f;
-        public static final int lorem_ipsum=0x7f0b0020;
-        public static final int main_hub_ui=0x7f0b0021;
-        public static final int redeem_code=0x7f0b0022;
-        public static final int server_connection_error=0x7f0b0023;
-        public static final int share=0x7f0b0024;
-        public static final int share_deal_dialog_button=0x7f0b0025;
-        public static final int share_deal_dialog_title=0x7f0b0026;
-        public static final int what_is_this=0x7f0b0027;
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/CoupersProjectLibrariesFacebookUnspecified.aar/res/values/values.xml 
+ From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/CoupersProjectLibrariesFacebookUnspecified.aar/res/values-es/values.xml 
+ From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/CoupersProjectLibrariesFacebookUnspecified.aar/res/values-he/values.xml 
+ From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/CoupersProjectLibrariesFacebookUnspecified.aar/res/values-iw/values.xml 
+         */
+        public static final int com_facebook_choose_friends=0x7f0b0013;
+        public static final int com_facebook_dialogloginactivity_ok_button=0x7f0b0014;
+        public static final int com_facebook_internet_permission_error_message=0x7f0b0015;
+        public static final int com_facebook_internet_permission_error_title=0x7f0b0016;
+        public static final int com_facebook_loading=0x7f0b0017;
+        public static final int com_facebook_loginview_cancel_action=0x7f0b0018;
+        public static final int com_facebook_loginview_log_in_button=0x7f0b0019;
+        public static final int com_facebook_loginview_log_out_action=0x7f0b001a;
+        public static final int com_facebook_loginview_log_out_button=0x7f0b001b;
+        public static final int com_facebook_loginview_logged_in_as=0x7f0b001c;
+        public static final int com_facebook_loginview_logged_in_using_facebook=0x7f0b001d;
+        public static final int com_facebook_logo_content_description=0x7f0b001e;
+        public static final int com_facebook_nearby=0x7f0b001f;
+        public static final int com_facebook_picker_done_button_text=0x7f0b0020;
+        public static final int com_facebook_placepicker_subtitle_catetory_only_format=0x7f0b0021;
+        public static final int com_facebook_placepicker_subtitle_format=0x7f0b0022;
+        public static final int com_facebook_placepicker_subtitle_were_here_only_format=0x7f0b0023;
+        public static final int com_facebook_requesterror_password_changed=0x7f0b0024;
+        public static final int com_facebook_requesterror_permissions=0x7f0b0025;
+        public static final int com_facebook_requesterror_reconnect=0x7f0b0026;
+        public static final int com_facebook_requesterror_relogin=0x7f0b0027;
+        public static final int com_facebook_requesterror_web_login=0x7f0b0028;
+        public static final int com_facebook_usersettingsfragment_log_in_button=0x7f0b0029;
+        public static final int com_facebook_usersettingsfragment_logged_in=0x7f0b002a;
+        public static final int com_facebook_usersettingsfragment_not_logged_in=0x7f0b002b;
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/strings.xml 
+ From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values-es/strings.xml 
+         */
+        public static final int current_level=0x7f0b002c;
+        public static final int deal_details=0x7f0b002d;
+        public static final int favorites=0x7f0b002e;
+        public static final int fb_app_id=0x7f0b002f;
+        public static final int hello_world=0x7f0b0030;
+        public static final int i_want_to=0x7f0b0031;
+        public static final int i_want_to_eat=0x7f0b0032;
+        public static final int i_want_to_feel_good=0x7f0b0033;
+        public static final int i_want_to_have_fun=0x7f0b0034;
+        public static final int i_want_to_look_good=0x7f0b0035;
+        public static final int i_want_to_relax=0x7f0b0036;
+        public static final int loading_progress_bar=0x7f0b0037;
+        public static final int login_email=0x7f0b0038;
+        public static final int login_password=0x7f0b0039;
+        public static final int lorem_ipsum=0x7f0b003a;
+        public static final int main_hub_ui=0x7f0b003b;
+        public static final int redeem_code=0x7f0b003c;
+        public static final int server_connection_error=0x7f0b003d;
+        public static final int share=0x7f0b003e;
+        public static final int share_deal_dialog_button=0x7f0b003f;
+        public static final int share_deal_dialog_title=0x7f0b0040;
+        public static final int what_is_this=0x7f0b0041;
     }
     public static final class style {
         /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/styles_coupers_theme.xml 
@@ -1443,6 +1708,10 @@ containing a value of this type.
         public static final int Widget_Sherlock_SearchAutoCompleteTextView=0x7f0c0062;
         public static final int Widget_Sherlock_Spinner_DropDown_ActionBar=0x7f0c0063;
         public static final int Widget_Sherlock_TextView_SpinnerItem=0x7f0c0064;
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/CoupersProjectLibrariesFacebookUnspecified.aar/res/values/values.xml 
+         */
+        public static final int com_facebook_loginview_default_style=0x7f0c0065;
+        public static final int com_facebook_loginview_silver_style=0x7f0c0066;
     }
     public static final class styleable {
         /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS02.aar/res/values/values.xml 
@@ -3888,5 +4157,345 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           @attr name android:viewBehind
         */
         public static final int SlidingMenu_viewBehind = 2;
+        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/CoupersProjectLibrariesFacebookUnspecified.aar/res/values/values.xml 
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #com_facebook_friend_picker_fragment_multi_select com.coupers.coupers:multi_select}</code></td><td></td></tr>
+           </table>
+           @see #com_facebook_friend_picker_fragment_multi_select
+         */
+        public static final int[] com_facebook_friend_picker_fragment = {
+            0x7f010070
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.coupers.coupers.R.attr#multi_select}
+          attribute's value can be found in the {@link #com_facebook_friend_picker_fragment} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:multi_select
+        */
+        public static final int com_facebook_friend_picker_fragment_multi_select = 0;
+        /** Attributes that can be used with a com_facebook_login_view.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #com_facebook_login_view_confirm_logout com.coupers.coupers:confirm_logout}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_login_view_fetch_user_info com.coupers.coupers:fetch_user_info}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_login_view_login_text com.coupers.coupers:login_text}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_login_view_logout_text com.coupers.coupers:logout_text}</code></td><td></td></tr>
+           </table>
+           @see #com_facebook_login_view_confirm_logout
+           @see #com_facebook_login_view_fetch_user_info
+           @see #com_facebook_login_view_login_text
+           @see #com_facebook_login_view_logout_text
+         */
+        public static final int[] com_facebook_login_view = {
+            0x7f010071, 0x7f010072, 0x7f010073, 0x7f010074
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.coupers.coupers.R.attr#confirm_logout}
+          attribute's value can be found in the {@link #com_facebook_login_view} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:confirm_logout
+        */
+        public static final int com_facebook_login_view_confirm_logout = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.coupers.coupers.R.attr#fetch_user_info}
+          attribute's value can be found in the {@link #com_facebook_login_view} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:fetch_user_info
+        */
+        public static final int com_facebook_login_view_fetch_user_info = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.coupers.coupers.R.attr#login_text}
+          attribute's value can be found in the {@link #com_facebook_login_view} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:login_text
+        */
+        public static final int com_facebook_login_view_login_text = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.coupers.coupers.R.attr#logout_text}
+          attribute's value can be found in the {@link #com_facebook_login_view} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:logout_text
+        */
+        public static final int com_facebook_login_view_logout_text = 3;
+        /** Attributes that can be used with a com_facebook_picker_fragment.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #com_facebook_picker_fragment_done_button_background com.coupers.coupers:done_button_background}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_picker_fragment_done_button_text com.coupers.coupers:done_button_text}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_picker_fragment_extra_fields com.coupers.coupers:extra_fields}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_picker_fragment_show_pictures com.coupers.coupers:show_pictures}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_picker_fragment_show_title_bar com.coupers.coupers:show_title_bar}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_picker_fragment_title_bar_background com.coupers.coupers:title_bar_background}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_picker_fragment_title_text com.coupers.coupers:title_text}</code></td><td></td></tr>
+           </table>
+           @see #com_facebook_picker_fragment_done_button_background
+           @see #com_facebook_picker_fragment_done_button_text
+           @see #com_facebook_picker_fragment_extra_fields
+           @see #com_facebook_picker_fragment_show_pictures
+           @see #com_facebook_picker_fragment_show_title_bar
+           @see #com_facebook_picker_fragment_title_bar_background
+           @see #com_facebook_picker_fragment_title_text
+         */
+        public static final int[] com_facebook_picker_fragment = {
+            0x7f010075, 0x7f010076, 0x7f010077, 0x7f010078,
+            0x7f010079, 0x7f01007a, 0x7f01007b
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.coupers.coupers.R.attr#done_button_background}
+          attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name android:done_button_background
+        */
+        public static final int com_facebook_picker_fragment_done_button_background = 6;
+        /**
+          <p>This symbol is the offset where the {@link com.coupers.coupers.R.attr#done_button_text}
+          attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:done_button_text
+        */
+        public static final int com_facebook_picker_fragment_done_button_text = 4;
+        /**
+          <p>This symbol is the offset where the {@link com.coupers.coupers.R.attr#extra_fields}
+          attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:extra_fields
+        */
+        public static final int com_facebook_picker_fragment_extra_fields = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.coupers.coupers.R.attr#show_pictures}
+          attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:show_pictures
+        */
+        public static final int com_facebook_picker_fragment_show_pictures = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.coupers.coupers.R.attr#show_title_bar}
+          attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:show_title_bar
+        */
+        public static final int com_facebook_picker_fragment_show_title_bar = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.coupers.coupers.R.attr#title_bar_background}
+          attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name android:title_bar_background
+        */
+        public static final int com_facebook_picker_fragment_title_bar_background = 5;
+        /**
+          <p>This symbol is the offset where the {@link com.coupers.coupers.R.attr#title_text}
+          attribute's value can be found in the {@link #com_facebook_picker_fragment} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:title_text
+        */
+        public static final int com_facebook_picker_fragment_title_text = 3;
+        /** Attributes that can be used with a com_facebook_place_picker_fragment.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #com_facebook_place_picker_fragment_radius_in_meters com.coupers.coupers:radius_in_meters}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_place_picker_fragment_results_limit com.coupers.coupers:results_limit}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_place_picker_fragment_search_text com.coupers.coupers:search_text}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_place_picker_fragment_show_search_box com.coupers.coupers:show_search_box}</code></td><td></td></tr>
+           </table>
+           @see #com_facebook_place_picker_fragment_radius_in_meters
+           @see #com_facebook_place_picker_fragment_results_limit
+           @see #com_facebook_place_picker_fragment_search_text
+           @see #com_facebook_place_picker_fragment_show_search_box
+         */
+        public static final int[] com_facebook_place_picker_fragment = {
+            0x7f01007c, 0x7f01007d, 0x7f01007e, 0x7f01007f
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.coupers.coupers.R.attr#radius_in_meters}
+          attribute's value can be found in the {@link #com_facebook_place_picker_fragment} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:radius_in_meters
+        */
+        public static final int com_facebook_place_picker_fragment_radius_in_meters = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.coupers.coupers.R.attr#results_limit}
+          attribute's value can be found in the {@link #com_facebook_place_picker_fragment} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:results_limit
+        */
+        public static final int com_facebook_place_picker_fragment_results_limit = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.coupers.coupers.R.attr#search_text}
+          attribute's value can be found in the {@link #com_facebook_place_picker_fragment} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:search_text
+        */
+        public static final int com_facebook_place_picker_fragment_search_text = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.coupers.coupers.R.attr#show_search_box}
+          attribute's value can be found in the {@link #com_facebook_place_picker_fragment} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:show_search_box
+        */
+        public static final int com_facebook_place_picker_fragment_show_search_box = 3;
+        /** Attributes that can be used with a com_facebook_profile_picture_view.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #com_facebook_profile_picture_view_is_cropped com.coupers.coupers:is_cropped}</code></td><td></td></tr>
+           <tr><td><code>{@link #com_facebook_profile_picture_view_preset_size com.coupers.coupers:preset_size}</code></td><td></td></tr>
+           </table>
+           @see #com_facebook_profile_picture_view_is_cropped
+           @see #com_facebook_profile_picture_view_preset_size
+         */
+        public static final int[] com_facebook_profile_picture_view = {
+            0x7f010080, 0x7f010081
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.coupers.coupers.R.attr#is_cropped}
+          attribute's value can be found in the {@link #com_facebook_profile_picture_view} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:is_cropped
+        */
+        public static final int com_facebook_profile_picture_view_is_cropped = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.coupers.coupers.R.attr#preset_size}
+          attribute's value can be found in the {@link #com_facebook_profile_picture_view} array.
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>small</code></td><td>-2</td><td> Keep in sync with constants in ProfilePictureView </td></tr>
+<tr><td><code>normal</code></td><td>-3</td><td></td></tr>
+<tr><td><code>large</code></td><td>-4</td><td></td></tr>
+</table>
+          @attr name android:preset_size
+        */
+        public static final int com_facebook_profile_picture_view_preset_size = 0;
     };
 }

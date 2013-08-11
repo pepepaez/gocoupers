@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="fb_app_id">206430106187639</string>
     <string name="app_name" >Coupers!
     </string>
     <string name="action_settings" >Settings

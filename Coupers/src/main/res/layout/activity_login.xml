@@ -116,28 +116,12 @@
             android:layout_below="@+id/alt_login_options"
             android:layout_centerHorizontal="true"/>
 
-    <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/twitter_login"
-            android:src="@drawable/twitter_login"
-            android:scaleType="centerInside"
-            android:layout_alignLeft="@+id/center_pivot"
-            android:layout_alignRight="@+id/dash_login_right"
-            android:layout_below="@+id/center_pivot"
-            android:background="#e75e57"
-            android:paddingLeft="20dp"/>
-
-    <ImageButton
+    <com.facebook.widget.LoginButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/facebook_login"
-            android:src="@drawable/facebook_login"
-            android:scaleType="centerInside"
-            android:background="#e75e57"
-            android:layout_alignBottom="@+id/twitter_login"
-            android:layout_alignLeft="@+id/dash_login_left"
-            android:layout_toLeftOf="@+id/center_pivot"
-            android:paddingRight="20dp"/>
+            android:paddingRight="20dp"
+            android:layout_above="@+id/coupers_corner"
+            android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
