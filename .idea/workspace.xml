@@ -57,33 +57,954 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c66ea3d-5808-4c51-8f8e-0b6535455f70" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/android_support_v41.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/android_support_v42.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build.gradle" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/classes.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/classes1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/facebook.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/layout/main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/ABS_1_1_aar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/ABS_1_1_aar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/ABS_1_1_aar2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/ABS_1_1_aar2.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/Coupers/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/Coupers.iml" afterPath="$PROJECT_DIR$/Coupers/Coupers.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CoupersProject.iml" afterPath="$PROJECT_DIR$/CoupersProject.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/utils/CoupersServer.java" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/utils/CoupersServer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealMenuFragment.java" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealMenuFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/MainActivity.java" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/source/r/debug/com/actionbarsherlock/R.java" afterPath="$PROJECT_DIR$/Coupers/build/source/r/debug/com/actionbarsherlock/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/source/r/debug/com/coupers/coupers/R.java" afterPath="$PROJECT_DIR$/Coupers/build/source/r/debug/com/coupers/coupers/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/source/r/debug/com/jeremyfeinstein/slidingmenu/lib/R.java" afterPath="$PROJECT_DIR$/Coupers/build/source/r/debug/com/jeremyfeinstein/slidingmenu/lib/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/StartActivity.java" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/StartActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/res/layout/activity_login.xml" afterPath="$PROJECT_DIR$/Coupers/src/main/res/layout/activity_login.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build.gradle" afterPath="$PROJECT_DIR$/Coupers/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/res/layout/menu_frame_new.xml" afterPath="$PROJECT_DIR$/Coupers/src/main/res/layout/menu_frame_new.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/Coupers/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/values/values.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-es/values.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/values-es/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ab_bottom_solid_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ab_bottom_solid_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ab_bottom_solid_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ab_bottom_solid_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ab_bottom_solid_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ab_bottom_solid_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ab_bottom_solid_inverse_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ab_bottom_solid_inverse_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ab_bottom_solid_inverse_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ab_bottom_solid_inverse_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ab_bottom_solid_inverse_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ab_bottom_solid_inverse_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ab_bottom_solid_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ab_bottom_solid_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ab_bottom_solid_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ab_bottom_solid_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ab_bottom_solid_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ab_bottom_solid_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ab_bottom_transparent_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ab_bottom_transparent_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ab_bottom_transparent_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ab_bottom_transparent_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ab_bottom_transparent_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ab_bottom_transparent_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ab_bottom_transparent_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ab_bottom_transparent_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ab_bottom_transparent_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ab_bottom_transparent_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ab_bottom_transparent_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ab_bottom_transparent_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ab_share_pack_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ab_share_pack_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ab_share_pack_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ab_share_pack_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ab_share_pack_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ab_share_pack_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ab_share_pack_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ab_share_pack_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ab_share_pack_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ab_share_pack_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ab_share_pack_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ab_share_pack_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ab_solid_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ab_solid_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ab_solid_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ab_solid_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ab_solid_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ab_solid_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ab_solid_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ab_solid_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ab_solid_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ab_solid_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ab_solid_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ab_solid_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ab_solid_shadow_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ab_solid_shadow_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ab_solid_shadow_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ab_solid_shadow_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ab_solid_shadow_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ab_solid_shadow_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ab_stacked_solid_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ab_stacked_solid_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ab_stacked_solid_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ab_stacked_solid_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ab_stacked_solid_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ab_stacked_solid_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ab_stacked_solid_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ab_stacked_solid_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ab_stacked_solid_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ab_stacked_solid_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ab_stacked_solid_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ab_stacked_solid_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ab_stacked_transparent_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ab_stacked_transparent_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ab_stacked_transparent_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ab_stacked_transparent_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ab_stacked_transparent_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ab_stacked_transparent_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ab_stacked_transparent_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ab_stacked_transparent_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ab_stacked_transparent_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ab_stacked_transparent_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ab_stacked_transparent_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ab_stacked_transparent_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ab_transparent_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ab_transparent_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ab_transparent_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ab_transparent_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ab_transparent_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ab_transparent_dark_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ab_transparent_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ab_transparent_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ab_transparent_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ab_transparent_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ab_transparent_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ab_transparent_light_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__btn_cab_done_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__btn_cab_done_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__btn_cab_done_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__btn_cab_done_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__btn_cab_done_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__btn_cab_done_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__btn_cab_done_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__btn_cab_done_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__btn_cab_done_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__btn_cab_done_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__btn_cab_done_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__btn_cab_done_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__btn_cab_done_focused_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__btn_cab_done_focused_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__btn_cab_done_focused_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__btn_cab_done_focused_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__btn_cab_done_focused_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__btn_cab_done_focused_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__btn_cab_done_focused_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__btn_cab_done_focused_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__btn_cab_done_focused_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__btn_cab_done_focused_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__btn_cab_done_focused_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__btn_cab_done_focused_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__btn_cab_done_pressed_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__btn_cab_done_pressed_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__btn_cab_done_pressed_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__btn_cab_done_pressed_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__btn_cab_done_pressed_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__btn_cab_done_pressed_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__btn_cab_done_pressed_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__btn_cab_done_pressed_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__btn_cab_done_pressed_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__btn_cab_done_pressed_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__btn_cab_done_pressed_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__btn_cab_done_pressed_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__cab_background_bottom_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__cab_background_bottom_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__cab_background_bottom_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__cab_background_bottom_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__cab_background_bottom_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__cab_background_bottom_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__cab_background_bottom_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__cab_background_bottom_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__cab_background_bottom_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__cab_background_bottom_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__cab_background_bottom_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__cab_background_bottom_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__cab_background_top_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__cab_background_top_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__cab_background_top_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__cab_background_top_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__cab_background_top_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__cab_background_top_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__cab_background_top_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__cab_background_top_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__cab_background_top_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__cab_background_top_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__cab_background_top_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__cab_background_top_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ic_ab_back_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ic_ab_back_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ic_ab_back_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ic_ab_back_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ic_ab_back_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ic_ab_back_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ic_ab_back_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ic_ab_back_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ic_ab_back_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ic_ab_back_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ic_ab_back_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ic_ab_back_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ic_cab_done_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ic_cab_done_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ic_cab_done_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ic_cab_done_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ic_cab_done_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ic_cab_done_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ic_cab_done_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ic_cab_done_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ic_cab_done_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ic_cab_done_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ic_cab_done_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ic_cab_done_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ic_clear_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ic_clear_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ic_clear_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ic_clear_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ic_clear_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ic_clear_disabled.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ic_clear_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ic_clear_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ic_clear_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ic_clear_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ic_clear_search_api_disabled_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ic_clear_search_api_disabled_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ic_clear_search_api_disabled_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ic_clear_search_api_disabled_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ic_clear_search_api_disabled_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ic_clear_search_api_disabled_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ic_clear_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ic_clear_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ic_clear_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ic_clear_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ic_clear_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ic_clear_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ic_commit_search_api_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ic_commit_search_api_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ic_commit_search_api_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ic_commit_search_api_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ic_commit_search_api_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ic_commit_search_api_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ic_commit_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ic_commit_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ic_commit_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ic_commit_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ic_commit_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ic_commit_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ic_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ic_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ic_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ic_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ic_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ic_go.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ic_go_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ic_go_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ic_go_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ic_go_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ic_go_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ic_go_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ic_menu_moreoverflow_normal_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ic_menu_moreoverflow_normal_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ic_menu_moreoverflow_normal_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ic_menu_moreoverflow_normal_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ic_menu_moreoverflow_normal_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ic_menu_moreoverflow_normal_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ic_menu_moreoverflow_normal_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ic_menu_moreoverflow_normal_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ic_menu_moreoverflow_normal_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ic_menu_moreoverflow_normal_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ic_menu_moreoverflow_normal_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ic_menu_moreoverflow_normal_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ic_menu_share_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ic_menu_share_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ic_menu_share_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ic_menu_share_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ic_menu_share_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ic_menu_share_holo_dark.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ic_menu_share_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ic_menu_share_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ic_menu_share_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ic_menu_share_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ic_menu_share_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ic_menu_share_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ic_search.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ic_search.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ic_search.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ic_search.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ic_search.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ic_search.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ic_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ic_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ic_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ic_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ic_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ic_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ic_voice_search.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ic_voice_search.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ic_voice_search.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ic_voice_search.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ic_voice_search.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ic_voice_search.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__ic_voice_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__ic_voice_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__ic_voice_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__ic_voice_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__ic_voice_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__ic_voice_search_api_holo_light.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__list_activated_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__list_activated_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__list_activated_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__list_activated_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__list_activated_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__list_activated_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__list_divider_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__list_divider_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__list_divider_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__list_divider_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__list_divider_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__list_divider_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__list_divider_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__list_divider_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__list_divider_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__list_divider_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__list_divider_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__list_divider_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__list_focused_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__list_focused_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__list_focused_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__list_focused_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__list_focused_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__list_focused_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__list_longpressed_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__list_longpressed_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__list_longpressed_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__list_longpressed_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__list_longpressed_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__list_longpressed_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__list_pressed_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__list_pressed_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__list_pressed_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__list_pressed_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__list_pressed_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__list_pressed_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__list_pressed_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__list_pressed_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__list_pressed_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__list_pressed_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__list_pressed_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__list_pressed_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__list_selector_disabled_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__list_selector_disabled_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__list_selector_disabled_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__list_selector_disabled_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__list_selector_disabled_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__list_selector_disabled_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__list_selector_disabled_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__list_selector_disabled_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__list_selector_disabled_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__list_selector_disabled_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__list_selector_disabled_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__list_selector_disabled_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__menu_dropdown_panel_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__menu_dropdown_panel_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__menu_dropdown_panel_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__menu_dropdown_panel_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__menu_dropdown_panel_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__menu_dropdown_panel_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__menu_dropdown_panel_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__menu_dropdown_panel_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__menu_dropdown_panel_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__menu_dropdown_panel_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__menu_dropdown_panel_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__menu_dropdown_panel_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__progress_bg_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__progress_bg_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__progress_bg_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__progress_bg_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__progress_bg_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__progress_bg_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__progress_bg_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__progress_bg_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__progress_bg_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__progress_bg_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__progress_bg_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__progress_bg_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__progress_primary_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__progress_primary_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__progress_primary_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__progress_primary_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__progress_primary_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__progress_primary_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__progress_primary_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__progress_primary_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__progress_primary_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__progress_primary_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__progress_primary_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__progress_primary_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__progress_secondary_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__progress_secondary_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__progress_secondary_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__progress_secondary_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__progress_secondary_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__progress_secondary_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__progress_secondary_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__progress_secondary_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__progress_secondary_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__progress_secondary_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__progress_secondary_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__progress_secondary_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__spinner_48_inner_holo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__spinner_48_inner_holo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__spinner_48_inner_holo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__spinner_48_inner_holo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__spinner_48_inner_holo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__spinner_48_inner_holo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__spinner_48_outer_holo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__spinner_48_outer_holo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__spinner_48_outer_holo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__spinner_48_outer_holo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__spinner_48_outer_holo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__spinner_48_outer_holo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__spinner_ab_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__spinner_ab_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__spinner_ab_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__spinner_ab_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__spinner_ab_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__spinner_ab_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__spinner_ab_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__spinner_ab_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__spinner_ab_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__spinner_ab_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__spinner_ab_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__spinner_ab_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__spinner_ab_disabled_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__spinner_ab_disabled_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__spinner_ab_disabled_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__spinner_ab_disabled_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__spinner_ab_disabled_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__spinner_ab_disabled_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__spinner_ab_disabled_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__spinner_ab_disabled_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__spinner_ab_disabled_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__spinner_ab_disabled_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__spinner_ab_disabled_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__spinner_ab_disabled_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__spinner_ab_focused_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__spinner_ab_focused_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__spinner_ab_focused_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__spinner_ab_focused_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__spinner_ab_focused_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__spinner_ab_focused_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__spinner_ab_focused_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__spinner_ab_focused_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__spinner_ab_focused_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__spinner_ab_focused_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__spinner_ab_focused_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__spinner_ab_focused_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__spinner_ab_pressed_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__spinner_ab_pressed_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__spinner_ab_pressed_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__spinner_ab_pressed_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__spinner_ab_pressed_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__spinner_ab_pressed_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__spinner_ab_pressed_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__spinner_ab_pressed_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__spinner_ab_pressed_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__spinner_ab_pressed_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__spinner_ab_pressed_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__spinner_ab_pressed_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__tab_selected_focused_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__tab_selected_focused_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__tab_selected_focused_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__tab_selected_focused_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__tab_selected_focused_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__tab_selected_focused_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__tab_selected_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__tab_selected_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__tab_selected_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__tab_selected_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__tab_selected_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__tab_selected_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__tab_selected_pressed_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__tab_selected_pressed_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__tab_selected_pressed_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__tab_selected_pressed_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__tab_selected_pressed_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__tab_selected_pressed_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__tab_unselected_pressed_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__tab_unselected_pressed_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__tab_unselected_pressed_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__tab_unselected_pressed_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__tab_unselected_pressed_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__tab_unselected_pressed_holo.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__textfield_search_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__textfield_search_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__textfield_search_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__textfield_search_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__textfield_search_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__textfield_search_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__textfield_search_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__textfield_search_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__textfield_search_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__textfield_search_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__textfield_search_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__textfield_search_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__textfield_search_right_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__textfield_search_right_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__textfield_search_right_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__textfield_search_right_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__textfield_search_right_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__textfield_search_right_default_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__textfield_search_right_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__textfield_search_right_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__textfield_search_right_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__textfield_search_right_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__textfield_search_right_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__textfield_search_right_default_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__textfield_search_right_selected_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__textfield_search_right_selected_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__textfield_search_right_selected_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__textfield_search_right_selected_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__textfield_search_right_selected_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__textfield_search_right_selected_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__textfield_search_right_selected_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__textfield_search_right_selected_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__textfield_search_right_selected_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__textfield_search_right_selected_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__textfield_search_right_selected_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__textfield_search_right_selected_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__textfield_search_selected_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__textfield_search_selected_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__textfield_search_selected_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__textfield_search_selected_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__textfield_search_selected_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__textfield_search_selected_holo_dark.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__textfield_search_selected_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__textfield_search_selected_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__textfield_search_selected_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__textfield_search_selected_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__textfield_search_selected_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__textfield_search_selected_holo_light.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/abs__toast_frame.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-mdpi/abs__toast_frame.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/abs__toast_frame.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/abs__toast_frame.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-mdpi/abs__toast_frame.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/abs__toast_frame.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/libs/android-support-v4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_button_check_off.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_button_check_off.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_button_check_off.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_button_check_on.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_button_check_on.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_button_check_on.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_button_grey_focused.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/com_facebook_button_grey_focused.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/com_facebook_button_grey_focused.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_button_grey_focused.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/com_facebook_button_grey_focused.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/com_facebook_button_grey_focused.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_button_grey_focused.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable-hdpi/com_facebook_button_grey_focused.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable-xhdpi/com_facebook_button_grey_focused.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_button_grey_normal.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/com_facebook_button_grey_normal.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/com_facebook_button_grey_normal.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_button_grey_normal.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/com_facebook_button_grey_normal.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/com_facebook_button_grey_normal.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_button_grey_normal.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable-hdpi/com_facebook_button_grey_normal.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable-xhdpi/com_facebook_button_grey_normal.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_button_grey_pressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/com_facebook_button_grey_pressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/com_facebook_button_grey_pressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_button_grey_pressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/com_facebook_button_grey_pressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/com_facebook_button_grey_pressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_button_grey_pressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable-hdpi/com_facebook_button_grey_pressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable-xhdpi/com_facebook_button_grey_pressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_close.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/com_facebook_close.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-ldpi/com_facebook_close.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/com_facebook_close.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_close.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/com_facebook_close.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-ldpi/com_facebook_close.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/com_facebook_close.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_close.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable-hdpi/com_facebook_close.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable-ldpi/com_facebook_close.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable-xhdpi/com_facebook_close.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/com_facebook_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-ldpi/com_facebook_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/com_facebook_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-ldpi/com_facebook_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable-hdpi/com_facebook_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable-ldpi/com_facebook_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_list_divider.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_list_divider.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_list_divider.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_list_section_header_background.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_list_section_header_background.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_list_section_header_background.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_loginbutton_blue_focused.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/com_facebook_loginbutton_blue_focused.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/com_facebook_loginbutton_blue_focused.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_loginbutton_blue_focused.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/com_facebook_loginbutton_blue_focused.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/com_facebook_loginbutton_blue_focused.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_loginbutton_blue_focused.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable-hdpi/com_facebook_loginbutton_blue_focused.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable-xhdpi/com_facebook_loginbutton_blue_focused.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_loginbutton_blue_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/com_facebook_loginbutton_blue_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/com_facebook_loginbutton_blue_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_loginbutton_blue_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/com_facebook_loginbutton_blue_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/com_facebook_loginbutton_blue_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_loginbutton_blue_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable-hdpi/com_facebook_loginbutton_blue_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable-xhdpi/com_facebook_loginbutton_blue_normal.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_loginbutton_blue_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/com_facebook_loginbutton_blue_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/com_facebook_loginbutton_blue_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_loginbutton_blue_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/com_facebook_loginbutton_blue_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/com_facebook_loginbutton_blue_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_loginbutton_blue_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable-hdpi/com_facebook_loginbutton_blue_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable-xhdpi/com_facebook_loginbutton_blue_pressed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-hdpi/com_facebook_logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-xhdpi/com_facebook_logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-hdpi/com_facebook_logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-xhdpi/com_facebook_logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable-hdpi/com_facebook_logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable-xhdpi/com_facebook_logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_picker_list_focused.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_picker_list_focused.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_picker_list_focused.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_picker_list_longpressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_picker_list_longpressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_picker_list_longpressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_picker_list_pressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_picker_list_pressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_picker_list_pressed.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_picker_list_selector_disabled.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_picker_list_selector_disabled.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_picker_list_selector_disabled.9.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_place_default_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_place_default_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_place_default_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_profile_default_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_profile_default_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_profile_default_icon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_profile_picture_blank_portrait.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_profile_picture_blank_portrait.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_profile_picture_blank_portrait.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_profile_picture_blank_square.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_profile_picture_blank_square.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_profile_picture_blank_square.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/.classpath" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/.project" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/AccessToken.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/AccessTokenSource.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/AndroidManifest.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/android/AsyncFacebookRunner.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/AuthorizationClient.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/source/buildConfig/debug/com/facebook/android/BuildConfig.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/source/buildConfig/release/com/facebook/android/BuildConfig.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/gen/com/facebook/android/BuildConfig.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/internal/CacheableRequestBatch.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/android/DialogError.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/android/Facebook.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/FacebookAuthorizationException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/FacebookDialogException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/android/FacebookError.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/FacebookException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/widget/FacebookFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/FacebookGraphObjectException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/FacebookOperationCanceledException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/FacebookRequestError.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/FacebookSdkVersion.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/FacebookServiceException.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/android/FbDialog.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/internal/FileLruCache.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/widget/FriendPickerFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/GetTokenClient.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/model/GraphLocation.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/model/GraphMultiResult.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/model/GraphObject.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/widget/GraphObjectAdapter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/widget/GraphObjectCursor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/model/GraphObjectList.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/widget/GraphObjectPagingLoader.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/model/GraphPlace.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/model/GraphUser.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/HttpMethod.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/widget/ImageDownloader.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/widget/ImageRequest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/widget/ImageResponse.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/widget/ImageResponseCache.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/InsightsLogger.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/model/JsonUtil.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/LegacyHelper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/internal/Logger.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/LoggingBehavior.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/LoginActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/widget/LoginButton.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/gen/com/facebook/android/Manifest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/NativeProtocol.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/NonCachingTokenCachingStrategy.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/model/OpenGraphAction.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/widget/PickerFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/widget/PlacePickerFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/widget/ProfilePictureView.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/model/PropertyName.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/source/r/debug/com/facebook/android/R.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/source/r/release/com/facebook/android/R.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/gen/com/facebook/android/R.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/Request.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/RequestAsyncTask.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/RequestBatch.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/Response.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/internal/ServerProtocol.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/Session.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/internal/SessionAuthorizationType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/SessionDefaultAudience.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/SessionLoginBehavior.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/SessionState.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/internal/SessionTracker.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/Settings.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/SharedPreferencesTokenCachingStrategy.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/widget/SimpleGraphObjectCursor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/TestSession.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/TokenCachingStrategy.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/UiLifecycleHelper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/widget/UrlRedirectCache.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/widget/UserSettingsFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/android/Util.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/internal/Utility.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/internal/Validate.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/widget/WebDialog.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/widget/WorkQueue.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/abs__action_bar_home.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/abs__action_bar_home.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/abs__action_bar_tab.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/abs__action_bar_tab.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/abs__action_bar_tab_bar_view.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/abs__action_bar_tab_bar_view.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/abs__action_bar_title_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/abs__action_bar_title_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/abs__action_menu_item_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/abs__action_menu_item_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/abs__action_menu_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/abs__action_menu_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/abs__action_mode_bar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/abs__action_mode_bar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/abs__action_mode_close_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout-large/abs__action_mode_close_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/abs__action_mode_close_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout-large/abs__action_mode_close_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/abs__activated_background_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/abs__activated_background_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/abs__activated_background_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/abs__activated_background_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/abs__activity_chooser_view.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/abs__activity_chooser_view.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/abs__activity_chooser_view_list_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/abs__activity_chooser_view_list_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/abs__btn_cab_done_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/abs__btn_cab_done_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/abs__btn_cab_done_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/abs__btn_cab_done_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/abs__ic_clear.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/abs__ic_clear.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/abs__ic_clear_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/abs__ic_clear_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/abs__ic_menu_moreoverflow_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/abs__ic_menu_moreoverflow_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/abs__ic_menu_moreoverflow_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/abs__ic_menu_moreoverflow_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/abs__item_background_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/abs__item_background_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/abs__item_background_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/abs__item_background_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/abs__list_menu_item_checkbox.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/abs__list_menu_item_checkbox.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/abs__list_menu_item_icon.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/abs__list_menu_item_icon.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/abs__list_menu_item_radio.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/abs__list_menu_item_radio.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/abs__list_selector_background_transition_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/abs__list_selector_background_transition_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/abs__list_selector_background_transition_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/abs__list_selector_background_transition_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/abs__list_selector_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/abs__list_selector_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/abs__list_selector_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/abs__list_selector_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/abs__popup_menu_item_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/abs__popup_menu_item_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/color/abs__primary_text_disable_only_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/color/abs__primary_text_disable_only_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/color/abs__primary_text_disable_only_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/color/abs__primary_text_disable_only_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/color/abs__primary_text_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/color/abs__primary_text_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/color/abs__primary_text_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/color/abs__primary_text_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/abs__progress_horizontal_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/abs__progress_horizontal_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/abs__progress_horizontal_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/abs__progress_horizontal_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/abs__progress_medium_holo.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable-v11/abs__progress_medium_holo.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/abs__progress_medium_holo.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable-v11/abs__progress_medium_holo.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/abs__screen_action_bar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout-xlarge/abs__screen_action_bar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/abs__screen_action_bar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout-xlarge/abs__screen_action_bar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/abs__screen_action_bar_overlay.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout-xlarge/abs__screen_action_bar_overlay.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/abs__screen_action_bar_overlay.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout-xlarge/abs__screen_action_bar_overlay.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/abs__screen_simple.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/abs__screen_simple.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/abs__screen_simple_overlay_action_mode.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/abs__screen_simple_overlay_action_mode.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/abs__search_dropdown_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/abs__search_dropdown_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/abs__search_dropdown_item_icons_2line.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/abs__search_dropdown_item_icons_2line.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/abs__search_dropdown_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/abs__search_dropdown_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/abs__search_view.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/abs__search_view.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/abs__simple_dropdown_hint.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/abs__simple_dropdown_hint.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/abs__spinner_ab_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/abs__spinner_ab_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/abs__spinner_ab_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/abs__spinner_ab_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/abs__tab_indicator_ab_holo.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/abs__tab_indicator_ab_holo.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/abs__textfield_searchview_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/abs__textfield_searchview_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/abs__textfield_searchview_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/abs__textfield_searchview_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/abs__textfield_searchview_right_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/abs__textfield_searchview_right_holo_dark.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/abs__textfield_searchview_right_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/abs__textfield_searchview_right_holo_light.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/values/attrs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_button_check.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_button_check.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_button_check.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/com_facebook_friendpickerfragment.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/com_facebook_friendpickerfragment.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/layout/com_facebook_friendpickerfragment.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/com_facebook_login_activity_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/com_facebook_login_activity_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/layout/com_facebook_login_activity_layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_loginbutton_blue.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_loginbutton_blue.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_loginbutton_blue.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_loginbutton_silver.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_loginbutton_silver.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_loginbutton_silver.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/com_facebook_picker_activity_circle_row.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/com_facebook_picker_activity_circle_row.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/layout/com_facebook_picker_activity_circle_row.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/com_facebook_picker_checkbox.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/com_facebook_picker_checkbox.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/layout/com_facebook_picker_checkbox.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/com_facebook_picker_image.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/com_facebook_picker_image.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/layout/com_facebook_picker_image.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_picker_item_background.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_picker_item_background.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_picker_item_background.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/com_facebook_picker_list_row.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/com_facebook_picker_list_row.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/layout/com_facebook_picker_list_row.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/com_facebook_picker_list_section_header.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/com_facebook_picker_list_section_header.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/layout/com_facebook_picker_list_section_header.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_picker_list_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_picker_list_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_picker_list_selector.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_picker_list_selector_background_transition.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_picker_list_selector_background_transition.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_picker_list_selector_background_transition.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/com_facebook_picker_search_box.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/com_facebook_picker_search_box.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/layout/com_facebook_picker_search_box.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/com_facebook_picker_title_bar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/com_facebook_picker_title_bar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/layout/com_facebook_picker_title_bar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/com_facebook_picker_title_bar_stub.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/com_facebook_picker_title_bar_stub.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/layout/com_facebook_picker_title_bar_stub.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_picker_top_button.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_picker_top_button.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_picker_top_button.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/com_facebook_placepickerfragment.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/com_facebook_placepickerfragment.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/layout/com_facebook_placepickerfragment.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/com_facebook_placepickerfragment_list_row.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/com_facebook_placepickerfragment_list_row.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/layout/com_facebook_placepickerfragment_list_row.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_top_background.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_top_background.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_top_background.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_top_button.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_top_button.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_top_button.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/com_facebook_usersettingsfragment.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/com_facebook_usersettingsfragment.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/layout/com_facebook_usersettingsfragment.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/drawable/com_facebook_usersettingsfragment_background_gradient.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/drawable/com_facebook_usersettingsfragment_background_gradient.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/drawable/com_facebook_usersettingsfragment_background_gradient.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/src/com/facebook/internal/package-info.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/project.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/sherlock_spinner_dropdown_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout-v14/sherlock_spinner_dropdown_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/sherlock_spinner_dropdown_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout-v14/sherlock_spinner_dropdown_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout/sherlock_spinner_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/layout-v14/sherlock_spinner_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout/sherlock_spinner_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/layout-v14/sherlock_spinner_item.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/values/strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/values-es/strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/values-he/strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/values-iw/strings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/res/values/styles.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/values/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/values-es/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/values-he/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/values-iw/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/values-land/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/values-large-hdpi-1024x600/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/values-large-land-hdpi-1024x600/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/values-large-land-mdpi-1024x600/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/values-large-mdpi-1024x600/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/values-sw600dp/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/values-v11/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/values-v14/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/values-w360dp/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/values-w480dp/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/values-w500dp/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/values-w600dp/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/debug/values-xlarge/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/values/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/values-es/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/values-he/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/values-iw/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/values-land/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/values-large-hdpi-1024x600/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/values-large-land-hdpi-1024x600/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/values-large-land-mdpi-1024x600/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/values-large-mdpi-1024x600/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/values-sw600dp/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/values-v11/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/values-v14/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/values-w360dp/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/values-w480dp/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/values-w500dp/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/values-w600dp/values.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libraries/facebook/build/res/all/release/values-xlarge/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Coupers.iws" />
@@ -233,10 +1154,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DealMenuFragment.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="DealMenuFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealMenuFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="317" column="0" selection-start="13504" selection-end="13504" vertical-scroll-proportion="0.030874785" vertical-offset="4950" max-vertical-offset="6912">
+            <state line="317" column="0" selection-start="13504" selection-end="13504" vertical-scroll-proportion="0.0" vertical-offset="4950" max-vertical-offset="6912">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.gradle" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/settings.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="0" selection-start="42" selection-end="42" vertical-scroll-proportion="0.030303031" vertical-offset="0" max-vertical-offset="594">
               <folding />
             </state>
           </provider>
@@ -476,62 +1406,6 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="widget" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Coupers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CoupersProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="facebook" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="widget" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LoginButton" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ClassTreeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Coupers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CoupersProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="facebook" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -573,11 +1447,41 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
+              <option name="myItemId" value="libs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoupersProject" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
+              <option name="myItemId" value="libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="facebook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gen" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="facebook" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -610,140 +1514,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Coupers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Coupers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CoupersProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Coupers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Coupers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CoupersProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Coupers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Coupers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CoupersProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Coupers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Coupers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CoupersProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Coupers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Coupers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="CoupersProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Coupers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="coupers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1024,7 +1794,11 @@
       <created>1375938237932</created>
       <updated>1375938237932</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Facebook Login implemented, usage of ProfilePictureView">
+      <created>1376184358357</created>
+      <updated>1376184358357</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1052,7 +1826,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="48" y="-4" width="1319" height="773" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.6703297" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2199037" sideWeight="0.5516969" order="7" side_tool="false" content_ui="tabs" />
@@ -1064,20 +1838,20 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23266219" sideWeight="0.19389111" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32744783" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32179385" sideWeight="0.3916533" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37560192" sideWeight="0.4988161" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33774835" sideWeight="0.49962714" order="7" side_tool="false" content_ui="tabs" x="703" y="183" width="1257" height="721" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296617" sideWeight="0.94863564" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32850242" sideWeight="0.49962714" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28773233" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.32289335" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296617" sideWeight="0.94863564" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2608353" sideWeight="0.5377207" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26042485" sideWeight="0.62439805" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.042384107" sideWeight="0.49888143" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24940805" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26092714" sideWeight="0.49962714" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37560192" sideWeight="0.4988161" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.397351" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -1150,7 +1924,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created login screen but no functionality added, this commit is prior to the implementation of facebook login and usage of the OpenGraph methods to post to Facebook" />
+    <option name="LAST_COMMIT_MESSAGE" value="Facebook Login implemented, usage of ProfilePictureView" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1174,6 +1948,7 @@
     <MESSAGE value="Use of WebService to retrieve locations with deals, also use of location service to determine nearby deals, overall cleanup of code and extended definition of data dictionary" />
     <MESSAGE value="Use of WebService to retrieve locations with deals by city and category, also user of webservice to retrieve deals by location, adjustment on layout for smaller densities and additional clean up" />
     <MESSAGE value="Created login screen but no functionality added, this commit is prior to the implementation of facebook login and usage of the OpenGraph methods to post to Facebook" />
+    <MESSAGE value="Facebook Login implemented, usage of ProfilePictureView" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1183,11 +1958,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/java/lang/UnsupportedOperationException.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="11" selection-start="298" selection-end="298" vertical-scroll-proportion="0.24784854" vertical-offset="0" max-vertical-offset="581" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/libraries/facebook/src/com/facebook/Session.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="920" column="23" selection-start="37697" selection-end="37697" vertical-scroll-proportion="0.0259366" vertical-offset="16542" max-vertical-offset="34272">
@@ -1217,7 +1987,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/libraries/facebook/src/com/facebook/SessionState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="33" selection-start="2816" selection-end="2816" vertical-scroll-proportion="0.0" vertical-offset="1164" max-vertical-offset="1962" />
+        <state line="86" column="33" selection-start="2816" selection-end="2816" vertical-scroll-proportion="0.0" vertical-offset="1164" max-vertical-offset="1962">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/libraries/facebook/src/com/facebook/widget/LoginButton.java">
@@ -1287,7 +2059,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealMenuFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="317" column="0" selection-start="13504" selection-end="13504" vertical-scroll-proportion="0.030874785" vertical-offset="5004" max-vertical-offset="6966">
+        <state line="317" column="0" selection-start="13504" selection-end="13504" vertical-scroll-proportion="0.0" vertical-offset="4950" max-vertical-offset="6912">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="42" selection-end="42" vertical-scroll-proportion="0.030303031" vertical-offset="0" max-vertical-offset="594">
           <folding />
         </state>
       </provider>
