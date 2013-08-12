@@ -40,25 +40,6 @@ import java.util.HashMap;
 
 public class StartActivity extends Activity {
 
-
-    // variables for test of coupers on Amazon AWS
-
-    private static final String URL_WS = "http://coupers.elasticbeanstalk.com/CoupersWS/Coupers.asmx";
-
-
-
-    private static final String[] sampleACTV = new String[] {
-            "android", "iphone", "blackberry"
-    };
-
-
-    // All static variables
-    static final String URL = "http://marvinduran.com/pepe/data/dealslogos.xml";
-
-    private boolean DealsLoaded = false;
-    private boolean FavoritesLoaded = false;
-    private int user_id;
-
     private static final int NO_METHOD_DEFINED = -999;
     private static final int MAIL_LOGIN = 1;
     private static final int FACEBOOK_LOGIN = 2;
@@ -110,6 +91,8 @@ public class StartActivity extends Activity {
             if (session != null && session.isOpened()){
                 setContentView(R.layout.activity_start);
                 LoadData();
+            }else if (session != null && session.getState()==SessionState.CREATED_TOKEN_LOADED){
+                setContentView(R.layout.activity_start);
             }else
                 setContentView(R.layout.activity_login);
         }else
@@ -124,7 +107,6 @@ public class StartActivity extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
-        //if (login_method==FACEBOOK_LOGIN)
         uiHelper.onPause();
         isResumed=false;
     }
@@ -132,10 +114,8 @@ public class StartActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        //if (login_method==FACEBOOK_LOGIN)
         uiHelper.onResume();
         isResumed=true;
-
     }
 
     @Override
@@ -159,11 +139,6 @@ public class StartActivity extends Activity {
     private void onSessionStateChange(Session session, SessionState state, Exception exception) {
         if (isResumed) {
             //TODO Review if need to use fragments on login
-           /* FragmentManager manager = getSupportFragmentManager();
-            int backStackSize = manager.getBackStackEntryCount();
-            for (int i = 0; i < backStackSize; i++) {
-                manager.popBackStack();
-            }*/
             // check for the OPENED state instead of session.isOpened() since for the
             // OPENED_TOKEN_UPDATED state, the selection fragment should already be showing.
             if (state.equals(SessionState.OPENED)) {
@@ -180,10 +155,7 @@ public class StartActivity extends Activity {
                         }
                     }
                 });
-                //showFragment(SELECTION, false);
             } else if (state.isClosed()) {
-                //showFragment(SPLASH, false);
-                //DO NOTHING, user should select appropriate login method
                 PreferenceManager.getDefaultSharedPreferences(a).edit().putInt("login_method", NO_METHOD_DEFINED).commit();
             }
         }

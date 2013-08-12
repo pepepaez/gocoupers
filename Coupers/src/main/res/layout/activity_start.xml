@@ -24,7 +24,8 @@
             android:text="@string/loading_progress_bar"
             android:id="@+id/textView"
             android:layout_below="@+id/progressBar"
-            android:layout_centerHorizontal="true"/>
+            android:layout_centerHorizontal="true"
+            android:textColor="#EFE6E6"/>
 
     <ImageView
             android:layout_width="45dp"

@@ -33,6 +33,7 @@
     <string name="login_email">enter your email</string>
     <string name="login_password">enter your password</string>
     <string name="progress_dialog_text">Announcing, please wait...</string>
+    <string name="progress_loading_deals">Loading deals, please wait...</string>
     <string name="result_dialog_text">Posted Open Graph action, id: %1$s</string>
     <string name="result_dialog_button_text">Thanks!</string>
     <string name="result_dialog_title">Result</string>

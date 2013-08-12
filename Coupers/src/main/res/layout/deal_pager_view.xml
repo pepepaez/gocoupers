@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_height="fill_parent"
-        android:layout_width="fill_parent">
+
 
 <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:columnOrderPreserved="false"
-        android:clickable="false">
+        android:clickable="false"
+        >
 
     <TextView
             android:layout_width="70dp"
@@ -54,7 +53,7 @@
 
     <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="120dp"
+            android:layout_height="50dp"
             android:id="@+id/level_redeem_code"
             android:src="@drawable/barcode"
             android:layout_below="@+id/textView"
@@ -77,11 +76,11 @@
             android:id="@+id/ratingBar"
             android:layout_below="@+id/textView4"
             android:layout_alignParentLeft="true"
-            android:numStars="5"
-            android:layout_toLeftOf="@+id/share_button"
+            android:numStars="3"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:layout_marginRight="5dp"/>
+            android:layout_toLeftOf="@+id/level_deal_description"
+            android:layout_marginLeft="10dp"/>
 
     <TextView
             android:layout_width="wrap_content"
@@ -91,7 +90,8 @@
             android:id="@+id/textView4"
             android:layout_below="@+id/deal_description"
             android:layout_alignParentLeft="true"
-            android:paddingTop="10dp"/>
+            android:paddingTop="10dp"
+            android:layout_marginLeft="10dp"/>
 
     <TextView
             android:layout_width="wrap_content"
@@ -101,16 +101,18 @@
             android:id="@+id/textView"
             android:paddingTop="10dp"
             android:layout_below="@+id/ratingBar"
-            android:layout_alignParentLeft="true"/>
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"/>
 
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Facebook Share"
             android:id="@+id/share_fb"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/level_redeem_code"/>
+            android:layout_alignBottom="@+id/share_button"
+            android:layout_toRightOf="@+id/ratingBar"
+            android:layout_alignTop="@+id/share_button"
+            android:layout_alignRight="@+id/level_deal_description"/>
 
 </RelativeLayout>
 
-</ScrollView>

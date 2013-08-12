@@ -181,7 +181,6 @@ public class CardFlipActivity extends Activity
     }
 
     public void handlePost(){
-
         pendingAnnounce = false;
         Session session = Session.getActiveSession();
 
@@ -197,8 +196,8 @@ public class CardFlipActivity extends Activity
         }
 
         // Show a progress dialog because sometimes the requests can take a while.
-        //progressDialog = ProgressDialog.show(this, "",
-        //        getResources().getString(R.string.progress_dialog_text), true);
+        progressDialog = ProgressDialog.show(this, "",
+                getResources().getString(R.string.progress_dialog_text), true);
 
         // Run this in a background thread since some of the populate methods may take
         // a non-trivial amount of time.
@@ -207,8 +206,6 @@ public class CardFlipActivity extends Activity
             @Override
             protected Response doInBackground(Void... voids) {
                 GetAction getAction = GraphObject.Factory.create(GetAction.class);
-                //Set Place
-                //getAction.setPlace();
 
                 //Set Deal
                 DealGraphObject og_deal =
@@ -408,27 +405,6 @@ public class CardFlipActivity extends Activity
 
     }
 
-    private interface DealGraphObject extends GraphObject {
-        // A URL
-        public String getUrl();
-        public void setUrl(String url);
-
-        // An ID
-        public String getId();
-        public void setId(String id);
-    }
-
-    private interface GetAction extends OpenGraphAction {
-        // The deal object
-        public DealGraphObject getDeal();
-        public void setDeal(DealGraphObject deal);
-    }
-
-    private interface PostResponse extends GraphObject {
-        String getId();
-    }
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
@@ -529,82 +505,26 @@ public class CardFlipActivity extends Activity
         invalidateOptionsMenu();
     }
 
+    private interface DealGraphObject extends GraphObject {
+        // A URL
+        public String getUrl();
+        public void setUrl(String url);
 
-
-
-
-
-
-    /**
-     * A fragment representing the front of the card.
-     */
-    public  class CardFrontFragment extends DialogFragment {
-        private int resImage= 0;
-        //private final Context context = this.getActivity().getBaseContext();
-
-        public CardFrontFragment(int res) {
-            resImage = res;
-
-
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-
-            return inflater.inflate(R.layout.location_card_front, null); //container, false);
-        }
-
-        @Override
-        public void onActivityCreated(Bundle savedInstanceState) {
-            super.onActivityCreated(savedInstanceState);
-            /*ImageView myImage = (ImageView) findViewById(R.id.frontImage);
-            if(myImage !=null)
-                myImage.setImageResource(resImage);*/
-            /*Button shareButton = (Button) findViewById(R.id.share_button);
-            shareButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    LayoutInflater inflater = getActivity().getLayoutInflater();
-
-                    //Find screen size
-                    WindowManager manager = (WindowManager) getSystemService(WINDOW_SERVICE);
-                    Display display = manager.getDefaultDisplay();
-                    Point point = new Point();
-                    display.getSize(point);
-                    int width = point.x;
-                    int height = point.y;
-                    int smallerDimension = width < height ? width : height;
-                    smallerDimension = smallerDimension * 3/4;
-
-                    View sharedealview = inflater.inflate(R.layout.share_deal,null);
-                    QRCodeEncoder qrcodeDeal = new QRCodeEncoder("USER:112764576837312|DEAL_ID:817628397A213|DATE:20130706|TIME:1653|LOCATION_CITY:MEXICALI|LOCATION_STATE:BC|LOCATION_COUNTRY:MX",null, Contents.Type.TEXT, null,smallerDimension);
-
-                    builder.setView(sharedealview);
-                    ImageView dealqrcode = (ImageView) sharedealview.findViewById(R.id.deal_qrcode);
-                    Bitmap qrcode = null;
-                    try
-                    {
-                        qrcode = qrcodeDeal.encodeAsBitmap();
-                    }
-                    catch(Exception e)
-                    {
-                        //TODO if error change dialog to say there was an error
-                    }
-                    if(dealqrcode != null || qrcode == null ) dealqrcode.setImageBitmap(qrcode);
-                    builder.setNeutralButton(R.string.share_deal_dialog_button,new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-
-                        }
-                    });
-                    builder.setTitle(R.string.share_deal_dialog_title);
-                    builder.show();
-                }
-            });*/
-        }
+        // An ID
+        public String getId();
+        public void setId(String id);
     }
+
+    private interface GetAction extends OpenGraphAction {
+        // The deal object
+        public DealGraphObject getDeal();
+        public void setDeal(DealGraphObject deal);
+    }
+
+    private interface PostResponse extends GraphObject {
+        String getId();
+    }
+
 
     /**
      * A fragment representing the back of the card.
@@ -626,7 +546,6 @@ public class CardFlipActivity extends Activity
         @Override
         public void onActivityCreated(Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
-
 
         }
     }

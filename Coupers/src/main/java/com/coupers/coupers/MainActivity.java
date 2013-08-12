@@ -1,6 +1,7 @@
 package com.coupers.coupers;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -42,6 +43,7 @@ public class MainActivity extends SlidingFragmentActivity {
     private CoupersLocation selected_location = null;
     private  boolean gps_available=false;
     private boolean nearby_locations=false;
+    public ProgressDialog progressDialog;
     ViewPager vp;
 
     @Override
@@ -184,6 +186,10 @@ public class MainActivity extends SlidingFragmentActivity {
 	}
 
     public void onDealPressed(int location_id) {
+
+        progressDialog = ProgressDialog.show(this, "",
+                getResources().getString(R.string.progress_loading_deals), true);
+
         CoupersObject obj = new CoupersObject("http://tempuri.org/GetLocationDeals",
                 "http://coupers.elasticbeanstalk.com/CoupersWS/Coupers.asmx",
                 "GetLocationDeals");
@@ -230,7 +236,10 @@ public class MainActivity extends SlidingFragmentActivity {
         Intent intent = CardFlipActivity.newInstance(this,selected_location);
 
         startActivity(intent);
-
+        if (progressDialog != null){
+            progressDialog.dismiss();
+            progressDialog = null;
+        }
     }
 
     // Adapter used to display
