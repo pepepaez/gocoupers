@@ -57,11 +57,11 @@
         <item>@drawable/list_selector_look_good</item>
     </string-array>
     <string-array name="deals_menu_icon">
-        <item>@drawable/coupers_icon3</item>
-        <item>@drawable/coupers_icon3</item>
-        <item>@drawable/coupers_icon3</item>
-        <item>@drawable/coupers_icon3</item>
-        <item>@drawable/coupers_icon3</item>
+        <item>@drawable/coupers_iconos_comida</item>
+        <item>@drawable/coupers_iconos_boliche</item>
+        <item>@drawable/coupers_iconos_hoja</item>
+        <item>@drawable/coupers_iconos_gimnasio</item>
+        <item>@drawable/coupers_iconos_like</item>
     </string-array>
     <string-array name="deals_menu_id">
         <item>10</item>
@@ -805,14 +805,15 @@
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/ids.xml -->
     <item name="action_flip" type="id"/>
     <item name="action_next" type="id"/>
+    <item name="add_location_favorite" type="id"/>
     <item name="deal_scan" type="id"/>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComSlidingMenuLibrarySlidingMenuLibrary01.aar/res/values/values.xml -->
     <item name="selected_view" type="id"/>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS02.aar/res/values/values.xml -->
     <integer name="abs__max_action_buttons">2</integer>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/integers.xml -->
-    <integer name="card_flip_time_full">1000</integer>
-    <integer name="card_flip_time_half">500</integer>
+    <integer name="card_flip_time_full">1400</integer>
+    <integer name="card_flip_time_half">700</integer>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/vpi__defaults.xml -->
     <integer name="default_circle_indicator_orientation">0</integer>
     <integer name="default_title_indicator_footer_indicator_style">2</integer>
@@ -840,6 +841,7 @@
     <string name="action_photo">View photo</string>
     <string name="action_scan">Scan Deal</string>
     <string name="action_settings">Settings</string>
+    <string name="add_location_favorite">Add Location to Favorites</string>
     <string name="app_name">Coupers!</string>
     <string name="city">mexicali</string>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/CoupersProjectLibrariesFacebookUnspecified.aar/res/values/values.xml -->
@@ -894,6 +896,7 @@
     <string name="login_password">enter your password</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis euismod mi, eu pretium dolor. Phasellus auctor feugiat ante, quis cursus turpis condimentum eu.</string>
     <string name="main_hub_ui"></string>
+    <string name="progress_adding_favorite">Adding to favorites, please wait...</string>
     <string name="progress_dialog_text">Announcing, please wait...</string>
     <string name="progress_loading_deals">Loading deals, please wait...</string>
     <string name="redeem_code">Redeem code</string>

@@ -17,6 +17,18 @@
             android:layout_alignBottom="@+id/item_menu_icon"/>
 
     <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/background"
+            android:layout_alignTop="@+id/item_menu_icon"
+            android:layout_alignLeft="@+id/item_menu_icon"
+            android:layout_alignBottom="@+id/item_menu_icon"
+            android:layout_alignRight="@+id/item_menu_icon"
+            android:layout_margin="10dp"
+            android:background="@drawable/round_corners"
+            />
+
+    <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:id="@+id/item_menu_icon"

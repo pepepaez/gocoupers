@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 
+import com.coupers.coupers.CardFlipActivity;
 import com.coupers.coupers.DealMenuFragment;
 import com.coupers.coupers.MainActivity;
 import com.coupers.coupers.StartActivity;
@@ -76,7 +77,7 @@ public class CoupersServer extends AsyncTask<String,Void,String> {
                 response="ok";
             } catch (Exception e) {
                 e.printStackTrace();
-                response=mContext==null? mContext.getString(R.string.server_connection_error):mActivity.getString(R.string.server_connection_error);
+                //response=mContext==null? mContext.getString(R.string.server_connection_error):mActivity.getString(R.string.server_connection_error);
             }
         }
         return response;
@@ -88,10 +89,10 @@ public class CoupersServer extends AsyncTask<String,Void,String> {
 
 
         if (mContext!=null){
-            if (result.equals(mContext.getString(R.string.server_connection_error)))
-            {
+            //if (result.equals(mContext.getString(R.string.server_connection_error)))
+            //{
                 //TODO instantiate an activity to show server connection error, finalize app.
-            }
+            //}
             if(mContext instanceof DealMenuFragment){
                 ((DealMenuFragment) mContext).Update(aServerData, mObject.getMETHOD_NAME());
             }
@@ -103,6 +104,8 @@ public class CoupersServer extends AsyncTask<String,Void,String> {
                 ((StartActivity) mActivity).Update(aServerData, mObject.getMETHOD_NAME());
             if(mActivity instanceof MainActivity)
                 ((MainActivity) mActivity).Update(aServerData, mObject.getMETHOD_NAME());
+            if (mActivity instanceof CardFlipActivity)
+                ((CardFlipActivity) mActivity).Update(aServerData,mObject.getMETHOD_NAME());
         }
     }
 

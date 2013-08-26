@@ -27,8 +27,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.androidquery.AQuery;
@@ -36,6 +39,8 @@ import com.coupers.entities.CoupersDeal;
 import com.coupers.entities.CoupersLocation;
 import com.coupers.entities.WebServiceDataFields;
 import com.coupers.utils.Contents;
+import com.coupers.utils.CoupersObject;
+import com.coupers.utils.CoupersServer;
 import com.coupers.utils.QRCodeEncoder;
 import com.facebook.FacebookRequestError;
 import com.facebook.HttpMethod;
@@ -53,6 +58,7 @@ import com.google.zxing.BarcodeFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -99,8 +105,11 @@ public class CardFlipActivity extends Activity
      */
     private Handler mHandler = new Handler();
     public Activity a;
+    public boolean isFavorite = false;
     private CoupersLocation data;
     private CoupersDeal deal;
+    private CoupersApp app;
+    private Menu menu;
 
     /**
      * Whether or not we're showing the back of the card (otherwise showing the front).
@@ -117,9 +126,11 @@ public class CardFlipActivity extends Activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_flip);
+        app = (CoupersApp) getApplication();
 
         if (getIntent().getExtras() != null) {
             data = (CoupersLocation) getIntent().getExtras().getSerializable("data");
+            if (app != null) isFavorite = app.isFavorite(data.location_id);
         }
 
 
@@ -411,14 +422,22 @@ public class CardFlipActivity extends Activity
 
         // Add either a "photo" or "finish" button to the action bar, depending on which page
         // is currently selected.
-        MenuItem item = menu.add(Menu.NONE, R.id.action_flip, Menu.NONE,
+        MenuItem item_favorite = menu.add(Menu.NONE, R.id.add_location_favorite, Menu.NONE,R.string.add_location_favorite);
+        item_favorite.setIcon(isFavorite
+                ? R.drawable.coupers_location_favorite2
+                : R.drawable.coupers_location_not_favorite);
+        item_favorite.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+
+        MenuItem item_info = menu.add(Menu.NONE, R.id.action_flip, Menu.NONE,
                 mShowingBack
                         ? R.string.action_photo
                         : R.string.action_info);
-        item.setIcon(mShowingBack
+        item_info.setIcon(mShowingBack
                 ? R.drawable.ic_action_photo
                 : R.drawable.ic_action_info);
-        item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        item_info.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+
+        this.menu = menu;
         return true;
     }
 
@@ -437,10 +456,44 @@ public class CardFlipActivity extends Activity
             case R.id.action_flip:
                 flipCard();
                 return true;
+            case R.id.add_location_favorite:
+                progressDialog = ProgressDialog.show(this, "",getResources().getString(R.string.progress_adding_favorite), true);
+                AddLocationFavorite();
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void AddLocationFavorite(){
+        CoupersObject obj = new CoupersObject("http://tempuri.org/AddUserLocToFav",
+                "http://coupers.elasticbeanstalk.com/CoupersWS/Coupers.asmx",
+                "AddUserLocToFav");
+        obj.addParameter("location_id",String.valueOf(data.location_id));
+        obj.addParameter("user_id",((CoupersApp)getApplication()).getUser_id());
+        String _tag[]={
+                WebServiceDataFields.COLUMN1};
+        obj.setTag(_tag);
+
+        CoupersServer server = new CoupersServer(obj,this);
+
+        server.execute("dummy string");
+    }
+
+    public void Update(ArrayList<HashMap<String, String>> aResult, String WebServiceExecuted)
+    {
+
+        if (WebServiceExecuted=="AddUserLocToFav") {
+            ((CoupersApp) getApplication()).RefreshFavorites();
+            this.menu.getItem(0).setIcon(R.drawable.coupers_location_favorite2);
+            if (progressDialog!=null){
+                progressDialog.dismiss();
+                progressDialog=null;
+            }
+        }
+
+    }
+
 
     private void flipCard() {
         if (mShowingBack) {

@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.AsyncTask;
@@ -27,6 +29,7 @@ import com.facebook.Response;
 import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.UiLifecycleHelper;
+import com.facebook.model.GraphLocation;
 import com.facebook.model.GraphUser;
 
 
@@ -34,8 +37,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.HashMap;
-
-
+import java.util.List;
+import java.util.Locale;
 
 
 public class StartActivity extends Activity {
@@ -43,10 +46,19 @@ public class StartActivity extends Activity {
     private static final int NO_METHOD_DEFINED = -999;
     private static final int MAIL_LOGIN = 1;
     private static final int FACEBOOK_LOGIN = 2;
+    private static final String NO_LOCATION_AVAILABLE = "nla";
+    private static final String NO_USER_ID_AVAILABLE = "nuida";
     private int login_method=NO_METHOD_DEFINED;
+    public String user_id;
+    public String user_location;
+    private boolean registered = false;
+    private GraphUser fb_user;
     private Activity a;
+    public boolean exit_next=false;
+
 
     private boolean isResumed = false;
+    private CoupersApp app = null;
     private UiLifecycleHelper uiHelper;
     private Session.StatusCallback callback = new Session.StatusCallback() {
         @Override
@@ -65,6 +77,11 @@ public class StartActivity extends Activity {
 
         //read login method id
         login_method = PreferenceManager.getDefaultSharedPreferences(this).getInt("login_method", NO_METHOD_DEFINED);
+        user_id = PreferenceManager.getDefaultSharedPreferences(this).getString("user_id",NO_USER_ID_AVAILABLE);
+        user_location = PreferenceManager.getDefaultSharedPreferences(this).getString("user_location",NO_LOCATION_AVAILABLE);
+        registered = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("registered", false);
+        app = (CoupersApp) getApplication();
+        app.setUser_id(user_id);
 
 
         uiHelper = new UiLifecycleHelper(this, callback);
@@ -74,16 +91,18 @@ public class StartActivity extends Activity {
         //First time loading or no data found
         if (login_method==NO_METHOD_DEFINED){
             //Login screen
-            setContentView(R.layout.activity_login);
+            setContentView(R.layout.activity_login_only_facebook);
             Button login_btn = (Button) findViewById(R.id.login_button);
-            login_btn.setOnClickListener(new View.OnClickListener() {
-                //TODO implement email login mechanism
-                @Override
-                public void onClick(View view) {
-                    setContentView(R.layout.activity_start);
-                    LoadData();
-                }
-            });
+            if (login_btn!=null){
+                login_btn.setOnClickListener(new View.OnClickListener() {
+                    //TODO implement email login mechanism
+                    @Override
+                    public void onClick(View view) {
+                        setContentView(R.layout.activity_start);
+                        LoadData();
+                    }
+                });
+            }
         }else if (login_method==FACEBOOK_LOGIN){
             //Facebook UI Helper to keep track of session state
 
@@ -94,10 +113,10 @@ public class StartActivity extends Activity {
             }else if (session != null && session.getState()==SessionState.CREATED_TOKEN_LOADED){
                 setContentView(R.layout.activity_start);
             }else
-                setContentView(R.layout.activity_login);
+                setContentView(R.layout.activity_login_only_facebook);
         }else
             {
-                setContentView(R.layout.activity_login);
+                setContentView(R.layout.activity_login_only_facebook);
             }
 
 
@@ -116,6 +135,14 @@ public class StartActivity extends Activity {
         super.onResume();
         uiHelper.onResume();
         isResumed=true;
+
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if (isTaskRoot() && exit_next)
+            finish();
     }
 
     @Override
@@ -151,21 +178,76 @@ public class StartActivity extends Activity {
                             Log.i("FB User Id ", user.getId());
                             PreferenceManager.getDefaultSharedPreferences(a).edit().putInt("login_method",FACEBOOK_LOGIN).commit();
                             setContentView(R.layout.activity_start);
-                            LoadData();
+                            //LoadData();
+                            Session session = Session.getActiveSession();
+                            if(session!=null && session.isOpened()) makeMeRequest(session);
+
                         }
                     }
                 });
             } else if (state.isClosed()) {
                 PreferenceManager.getDefaultSharedPreferences(a).edit().putInt("login_method", NO_METHOD_DEFINED).commit();
+                setContentView(R.layout.activity_login_only_facebook);
             }
         }
+    }
+
+    private void makeMeRequest(final Session session) {
+        // Make an API call to get user data and define a
+        // new callback to handle the response.
+        Request request = Request.newMeRequest(session,
+                new Request.GraphUserCallback() {
+                    @Override
+                    public void onCompleted(GraphUser user, Response response) {
+                        // If the response is successful
+                        if (session == Session.getActiveSession()) {
+                            if (user != null) {
+                                /*Geocoder gcd = new Geocoder(getApplicationContext(), Locale.getDefault());
+                                List<Address> addresses = gcd.getFromLocation(lat, lng, 1);
+                                if (addresses.size() > 0)
+                                    System.out.println(addresses.get(0).getLocality());*/
+                                if(!registered)
+                                    RegisterUser(user.getId(),user.getName(),"mexicali",user.getUsername());
+                                else
+                                    LoadData();
+                                fb_user = user;
+                                //LoadData();
+                            }
+                        }
+                        if (response.getError() != null) {
+                            // Handle errors, will do so later.
+                        }
+                    }
+                });
+        request.executeAsync();
+    }
+
+    private void RegisterUser(String fb_user_id,
+                              String fb_user_name,
+                              String fb_user_location,
+                              String fb_user_username){
+        CoupersObject obj = new CoupersObject("http://tempuri.org/LoginUserFacebook",
+                "http://coupers.elasticbeanstalk.com/CoupersWS/Coupers.asmx",
+                "LoginUserFacebook");
+        obj.addParameter("facebook_id",fb_user_id);
+        obj.addParameter("user_city",fb_user_location);
+        obj.addParameter("username",fb_user_username);
+
+        String _tag[]={
+                WebServiceDataFields.USER_ID,
+                WebServiceDataFields.RESULT_CODE};
+        obj.setTag(_tag);
+
+        CoupersServer server = new CoupersServer(obj,this);
+
+        server.execute("dummy string");
     }
 
     private void LoadData(){
         CoupersObject obj = new CoupersObject("http://tempuri.org/GetCityDeals",
                 "http://coupers.elasticbeanstalk.com/CoupersWS/Coupers.asmx",
                 "GetCityDeals");
-        obj.addParameter("city",getResources().getString(R.string.city));
+        obj.addParameter("city","mexicali");
         String _tag[]={
                 WebServiceDataFields.LOCATION_ID,
                 WebServiceDataFields.LOCATION_NAME,
@@ -190,7 +272,29 @@ public class StartActivity extends Activity {
         server.execute("dummy string");
     }
 
-    public void Update(ArrayList<HashMap<String, String>> aData, String WSExecuted){
+
+    public void Update(ArrayList<HashMap<String, String>> aResult, String WebServiceExecuted)
+    {
+
+        if (WebServiceExecuted=="LoginUserFacebook") CompleteRegistration(aResult);
+
+        if (WebServiceExecuted == "GetCityDeals") LoadMainUI(aResult);
+
+    }
+
+    public void CompleteRegistration(ArrayList<HashMap<String, String>> aData){
+        HashMap<String, String> map;
+        if (aData.size()>0){
+            map = aData.get(0);
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putString("user_id",map.get(WebServiceDataFields.USER_ID)).commit();
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putString("user_location","mexicali").commit();
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean("registered", true).commit();
+            app.setUser_id(map.get(WebServiceDataFields.USER_ID));
+            LoadData();
+        }
+    }
+
+    public void LoadMainUI(ArrayList<HashMap<String, String>> aData){
 
         ArrayList<CoupersLocation> mData = new ArrayList<CoupersLocation>();
         LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
@@ -243,9 +347,11 @@ public class StartActivity extends Activity {
         intent.putExtra("data",mData);
         intent.putExtra("gps",geoloc!=null);
         intent.putExtra("nearby",nearby_locations);
-
+        exit_next=true;
         startActivity(intent);
 
     }
+
+
 
 }

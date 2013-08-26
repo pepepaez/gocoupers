@@ -41,6 +41,9 @@ public class  WebServiceDataFields {
     public static final String LEVEL_SHARE_CODE = "level_share_code";
     public static final String LEVEL_REDEEM_CODE = "level_redeem_code";
     public static final String LEVEL_DEAL_DESCRIPTION = "level_deal_descripcion";
+    public static final String USER_ID = "user_id";
+    public static final String RESULT_CODE = "result_code";
+    public static final String COLUMN1 = "Column1";
 
 
 

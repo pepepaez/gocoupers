@@ -49,6 +49,7 @@ public class DealMenuFragment extends Fragment {
     private int last_position=-999;
     private ProfilePictureView profilePictureView;
     private TextView userNameView;
+    private CoupersApp app = null;
 
     public class CoupersMenuItem{
         public String item_text = "";
@@ -96,7 +97,7 @@ public class DealMenuFragment extends Fragment {
         CoupersObject obj = new CoupersObject("http://tempuri.org/GetUserFavoriteLocations",
                 "http://coupers.elasticbeanstalk.com/CoupersWS/Coupers.asmx",
                 "GetUserFavoriteLocations");
-        obj.addParameter("user_id","1");
+        obj.addParameter("user_id",app.getUser_id());
         String _tag[]={
                 WebServiceDataFields.FAVLOC_LOCATION_ID,
                 WebServiceDataFields.FAVLOC_CATEGORY_ID,
@@ -144,6 +145,7 @@ public class DealMenuFragment extends Fragment {
                 map.put(WebServiceDataFields.FAVLOC_NEW_DEAL_COUNT, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_NEW_DEAL_COUNT).toString());
 
                 adapter.addFavorite(map);
+                if(app!=null) app.addFavorite(map);
 
             }
         }
@@ -276,9 +278,9 @@ public class DealMenuFragment extends Fragment {
     }
 
 
-    public DealMenuFragment(ArrayList<CoupersLocation> data)
+    public DealMenuFragment(CoupersApp app)
     {
-        mData= data;
+        this.app = app;
     }
 
     public DealMenuFragment(){

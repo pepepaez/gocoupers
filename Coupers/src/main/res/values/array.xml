@@ -34,11 +34,11 @@
     </string-array>
 
     <string-array name="deals_menu_icon">
-        <item>@drawable/coupers_icon3</item>
-        <item>@drawable/coupers_icon3</item>
-        <item>@drawable/coupers_icon3</item>
-        <item>@drawable/coupers_icon3</item>
-        <item>@drawable/coupers_icon3</item>
+        <item>@drawable/coupers_iconos_comida</item>
+        <item>@drawable/coupers_iconos_boliche</item>
+        <item>@drawable/coupers_iconos_hoja</item>
+        <item>@drawable/coupers_iconos_gimnasio</item>
+        <item>@drawable/coupers_iconos_like</item>
     </string-array>
 
     <string-array name="birds">

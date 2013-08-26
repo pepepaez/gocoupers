@@ -26,6 +26,7 @@
     <item type="id" name="action_next" />
     <item type="id" name="action_flip" />
     <item type="id" name="deal_scan" />
+    <item type="id" name="add_location_favorite"/>
 
 
 </resources>

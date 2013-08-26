@@ -44,6 +44,7 @@ public class MainActivity extends SlidingFragmentActivity {
     private  boolean gps_available=false;
     private boolean nearby_locations=false;
     public ProgressDialog progressDialog;
+    private CoupersApp app = null;
     ViewPager vp;
 
     @Override
@@ -51,6 +52,7 @@ public class MainActivity extends SlidingFragmentActivity {
 		super.onCreate(savedInstanceState);
 		setTitle(R.string.main_hub_ui);
         setContentView(R.layout.responsive_content_frame);
+        app = (CoupersApp) getApplication();
 
         //TODO Need to make use of saved instance!!
 
@@ -96,7 +98,7 @@ public class MainActivity extends SlidingFragmentActivity {
         //TODO Change DealMenuFragment to accept mData to then pass it onto selected categories and locations
 		getSupportFragmentManager()
 		.beginTransaction()
-		.replace(R.id.menu_frame, new DealMenuFragment(mData))
+		.replace(R.id.menu_frame, new DealMenuFragment(app))
 		.commit();
 
 

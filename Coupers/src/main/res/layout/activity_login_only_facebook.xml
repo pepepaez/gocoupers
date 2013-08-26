@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity"
+    android:background="@drawable/gradient_bg_eat">
+
+    <ImageView
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:id="@+id/coupers_corner"
+            android:layout_alignParentTop="false"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/multiple_deal_indicator"/>
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/coupers_login"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/login"
+            android:layout_marginBottom="20dp"
+            android:padding="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"/>
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dash_login_right"
+            android:src="@drawable/dash_login"
+            android:paddingLeft="3dp"
+            android:layout_alignRight="@+id/coupers_corner"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dash_login_left"
+            android:src="@drawable/dash_login"
+            android:paddingRight="3dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/center_pivot"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+
+    <com.facebook.widget.LoginButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/facebook_login"
+            android:paddingRight="20dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>
