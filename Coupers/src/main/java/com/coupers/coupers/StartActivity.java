@@ -3,42 +3,28 @@ package com.coupers.coupers;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
-import android.location.Address;
-import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.FragmentManager;
-import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.coupers.entities.CoupersData;
 import com.coupers.entities.CoupersLocation;
-import com.coupers.entities.WebServiceDataFields;
 import com.coupers.utils.CoupersObject;
 import com.coupers.utils.CoupersServer;
-import com.coupers.utils.XMLParser;
 import com.facebook.Request;
 import com.facebook.Response;
 import com.facebook.Session;
 import com.facebook.SessionState;
 import com.facebook.UiLifecycleHelper;
-import com.facebook.model.GraphLocation;
 import com.facebook.model.GraphUser;
 
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
 
 
 public class StartActivity extends Activity {
@@ -226,70 +212,77 @@ public class StartActivity extends Activity {
                               String fb_user_name,
                               String fb_user_location,
                               String fb_user_username){
-        CoupersObject obj = new CoupersObject("http://tempuri.org/LoginUserFacebook",
-                "http://coupers.elasticbeanstalk.com/CoupersWS/Coupers.asmx",
-                "LoginUserFacebook");
-        obj.addParameter("facebook_id",fb_user_id);
-        obj.addParameter("user_city",fb_user_location);
-        obj.addParameter("username",fb_user_username);
+        CoupersObject obj = new CoupersObject(CoupersData.Methods.LOGIN_FACEBOOK);
+        obj.addParameter(CoupersData.Parameters.FACEBOOK_ID,fb_user_id);
+        obj.addParameter(CoupersData.Parameters.USER_CITY,fb_user_location);
+        obj.addParameter(CoupersData.Parameters.USERNAME,fb_user_username);
 
         String _tag[]={
-                WebServiceDataFields.USER_ID,
-                WebServiceDataFields.RESULT_CODE};
+                CoupersData.Fields.USER_ID,
+                CoupersData.Fields.RESULT_CODE};
         obj.setTag(_tag);
 
-        CoupersServer server = new CoupersServer(obj,this);
+        CoupersServer server = new CoupersServer(obj,new CoupersServer.ResultCallback() {
+            @Override
+            public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
+                CompleteRegistration(result);
+            }
+        });
 
         server.execute("dummy string");
     }
 
     private void LoadData(){
-        CoupersObject obj = new CoupersObject("http://tempuri.org/GetCityDeals",
-                "http://coupers.elasticbeanstalk.com/CoupersWS/Coupers.asmx",
-                "GetCityDeals");
-        obj.addParameter("city","mexicali");
+        CoupersObject obj = new CoupersObject(CoupersData.Methods.GET_CITY_DEALS);
+        obj.addParameter(CoupersData.Parameters.CITY,"mexicali");
         String _tag[]={
-                WebServiceDataFields.LOCATION_ID,
-                WebServiceDataFields.LOCATION_NAME,
-                WebServiceDataFields.LOCATION_LOGO,
-                WebServiceDataFields.LOCATION_ADDRESS,
-                WebServiceDataFields.LOCATION_CITY,
-                WebServiceDataFields.CATEGORY_ID,
-                WebServiceDataFields.LATITUDE,
-                WebServiceDataFields.LONGITUDE,
-                WebServiceDataFields.LOCATION_DESCRIPTION,
-                WebServiceDataFields.LOCATION_WEBSITE_URL,
-                WebServiceDataFields.LOCATION_THUMBNAIL,
-                WebServiceDataFields.LOCATION_PHONE_NUMBER1,
-                WebServiceDataFields.LOCATION_PHONE_NUMBER2,
-                WebServiceDataFields.LOCATION_HOURS_OPERATION1,
-                WebServiceDataFields.LEVEL_DEAL_LEGEND,
-                WebServiceDataFields.COUNTDEALS};
+                CoupersData.Fields.LOCATION_ID,
+                CoupersData.Fields.LOCATION_NAME,
+                CoupersData.Fields.LOCATION_LOGO,
+                CoupersData.Fields.LOCATION_ADDRESS,
+                CoupersData.Fields.LOCATION_CITY,
+                CoupersData.Fields.CATEGORY_ID,
+                CoupersData.Fields.LATITUDE,
+                CoupersData.Fields.LONGITUDE,
+                CoupersData.Fields.LOCATION_DESCRIPTION,
+                CoupersData.Fields.LOCATION_WEBSITE_URL,
+                CoupersData.Fields.LOCATION_THUMBNAIL,
+                CoupersData.Fields.LOCATION_PHONE_NUMBER1,
+                CoupersData.Fields.LOCATION_PHONE_NUMBER2,
+                CoupersData.Fields.LOCATION_HOURS_OPERATION1,
+                CoupersData.Fields.LEVEL_DEAL_LEGEND,
+                CoupersData.Fields.COUNTDEALS};
         obj.setTag(_tag);
 
-        CoupersServer server = new CoupersServer(obj,this);
+        CoupersServer server = new CoupersServer(obj,new CoupersServer.ResultCallback() {
+            @Override
+            public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
+                LoadMainUI(result);
+            }
+        });
 
         server.execute("dummy string");
     }
 
 
-    public void Update(ArrayList<HashMap<String, String>> aResult, String WebServiceExecuted)
+    //TODO remove if callbacks work
+/*    public void Update(ArrayList<HashMap<String, String>> aResult, String WebServiceExecuted)
     {
 
         if (WebServiceExecuted=="LoginUserFacebook") CompleteRegistration(aResult);
 
         if (WebServiceExecuted == "GetCityDeals") LoadMainUI(aResult);
 
-    }
+    }*/
 
     public void CompleteRegistration(ArrayList<HashMap<String, String>> aData){
         HashMap<String, String> map;
         if (aData.size()>0){
             map = aData.get(0);
-            PreferenceManager.getDefaultSharedPreferences(this).edit().putString("user_id",map.get(WebServiceDataFields.USER_ID)).commit();
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putString("user_id",map.get(CoupersData.Fields.USER_ID)).commit();
             PreferenceManager.getDefaultSharedPreferences(this).edit().putString("user_location","mexicali").commit();
             PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean("registered", true).commit();
-            app.setUser_id(map.get(WebServiceDataFields.USER_ID));
+            app.setUser_id(map.get(CoupersData.Fields.USER_ID));
             LoadData();
         }
     }
@@ -315,21 +308,21 @@ public class StartActivity extends Activity {
         //Go through data to create 2 data sets, one with locations nearby and the rest
         for (HashMap<String, String> map : aData){
             CoupersLocation mLocation = new CoupersLocation(
-                    Integer.valueOf(map.get(WebServiceDataFields.LOCATION_ID)),
-                    Integer.valueOf(map.get(WebServiceDataFields.CATEGORY_ID)),
-                    map.get(WebServiceDataFields.LOCATION_NAME),
-                    map.get(WebServiceDataFields.LOCATION_DESCRIPTION),
-                    map.get(WebServiceDataFields.LOCATION_WEBSITE_URL),
-                    map.get(WebServiceDataFields.LOCATION_LOGO),
-                    map.get(WebServiceDataFields.LOCATION_THUMBNAIL),
-                    map.get(WebServiceDataFields.LOCATION_ADDRESS),
-                    map.get(WebServiceDataFields.LOCATION_CITY),
-                    map.get(WebServiceDataFields.LOCATION_PHONE_NUMBER1),
-                    map.get(WebServiceDataFields.LOCATION_PHONE_NUMBER2),
-                    Double.valueOf(map.get(WebServiceDataFields.LATITUDE)),
-                    Double.valueOf(map.get(WebServiceDataFields.LONGITUDE)));
-            mLocation.TopDeal = map.get(WebServiceDataFields.LEVEL_DEAL_LEGEND);
-            mLocation.CountDeals = map.get(WebServiceDataFields.COUNTDEALS);
+                    Integer.valueOf(map.get(CoupersData.Fields.LOCATION_ID)),
+                    Integer.valueOf(map.get(CoupersData.Fields.CATEGORY_ID)),
+                    map.get(CoupersData.Fields.LOCATION_NAME),
+                    map.get(CoupersData.Fields.LOCATION_DESCRIPTION),
+                    map.get(CoupersData.Fields.LOCATION_WEBSITE_URL),
+                    map.get(CoupersData.Fields.LOCATION_LOGO),
+                    map.get(CoupersData.Fields.LOCATION_THUMBNAIL),
+                    map.get(CoupersData.Fields.LOCATION_ADDRESS),
+                    map.get(CoupersData.Fields.LOCATION_CITY),
+                    map.get(CoupersData.Fields.LOCATION_PHONE_NUMBER1),
+                    map.get(CoupersData.Fields.LOCATION_PHONE_NUMBER2),
+                    Double.valueOf(map.get(CoupersData.Fields.LATITUDE)),
+                    Double.valueOf(map.get(CoupersData.Fields.LONGITUDE)));
+            mLocation.TopDeal = map.get(CoupersData.Fields.LEVEL_DEAL_LEGEND);
+            mLocation.CountDeals = map.get(CoupersData.Fields.COUNTDEALS);
             if (geoloc!=null){
                 Location.distanceBetween(latitude,longitude,mLocation.location_latitude,mLocation.location_longitude,results);
                 distance = results[0];

@@ -2,7 +2,7 @@ package com.coupers.coupers;
 
 import android.app.Application;
 
-import com.coupers.entities.WebServiceDataFields;
+import com.coupers.entities.CoupersLocation;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,7 +15,8 @@ public class CoupersApp extends Application {
     private String user_id;
     private boolean refresh = false;
     private List<String> need_refresh;
-    private ArrayList<HashMap<String, String>> FavoriteLocations = new ArrayList<HashMap<String, String>>();
+    private ArrayList<HashMap<String, String>> FavoriteLocations2 = new ArrayList<HashMap<String, String>>();
+    private ArrayList<CoupersLocation> FavoriteLocations = new ArrayList<CoupersLocation>();
 
     public String getUser_id() {
         return user_id;
@@ -44,15 +45,33 @@ public class CoupersApp extends Application {
 
     public void addFavorite (final HashMap<String,String> item)
     {
+        //FavoriteLocations.add(item);
+    }
+
+    public void addFavorite(final CoupersLocation item){
         FavoriteLocations.add(item);
+    }
+
+    public boolean removeFavorite (int location_id){
+        boolean result = false;
+        for (CoupersLocation location: FavoriteLocations){
+            if (Integer.valueOf(location.location_id)==location_id)
+                FavoriteLocations.remove(location);
+                result=true;
+        }
+        return result;
     }
 
     public boolean isFavorite(int location_id){
         boolean result = false;
-        for (HashMap<String,String> map: FavoriteLocations){
-            if (Integer.valueOf(map.get(WebServiceDataFields.LOCATION_ID))==location_id)
+        for (CoupersLocation location: FavoriteLocations){
+            if (Integer.valueOf(location.location_id)==location_id)
                 result=true;
         }
         return result;
+    }
+
+    public interface StatusCallback {
+        public void call(int something);
     }
 }

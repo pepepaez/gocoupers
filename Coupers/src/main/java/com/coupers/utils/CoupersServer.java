@@ -1,21 +1,11 @@
 package com.coupers.utils;
 
-import android.app.Activity;
 import android.os.AsyncTask;
-import android.support.v4.app.Fragment;
-
-import com.coupers.coupers.CardFlipActivity;
-import com.coupers.coupers.DealMenuFragment;
-import com.coupers.coupers.MainActivity;
-import com.coupers.coupers.StartActivity;
-import com.coupers.coupers.R;
-
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.PropertyInfo;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -26,20 +16,15 @@ import java.util.HashMap;
 public class CoupersServer extends AsyncTask<String,Void,String> {
 
     private CoupersObject mObject;
-    private Fragment mContext;
-    private Activity mActivity;
+    private ResultCallback call_me;
     ArrayList<HashMap<String, String>> aServerData = new ArrayList<HashMap<String, String>>();
 
-    public CoupersServer(CoupersObject obj, Fragment context){
-        mObject = obj;
-        mContext = context;
-    }
+    public CoupersServer(CoupersObject obj, ResultCallback listener)
+    {
+        mObject=obj;
+        call_me = listener;
 
-    public CoupersServer(CoupersObject obj, Activity activity){
-        mObject = obj;
-        mActivity = activity;
     }
-
 
     @Override
     protected String doInBackground(String... params){
@@ -77,7 +62,6 @@ public class CoupersServer extends AsyncTask<String,Void,String> {
                 response="ok";
             } catch (Exception e) {
                 e.printStackTrace();
-                //response=mContext==null? mContext.getString(R.string.server_connection_error):mActivity.getString(R.string.server_connection_error);
             }
         }
         return response;
@@ -87,26 +71,12 @@ public class CoupersServer extends AsyncTask<String,Void,String> {
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
 
+        call_me.Update(aServerData,mObject.getMETHOD_NAME(),null);
 
-        if (mContext!=null){
-            //if (result.equals(mContext.getString(R.string.server_connection_error)))
-            //{
-                //TODO instantiate an activity to show server connection error, finalize app.
-            //}
-            if(mContext instanceof DealMenuFragment){
-                ((DealMenuFragment) mContext).Update(aServerData, mObject.getMETHOD_NAME());
-            }
-        }
+    }
 
-        if (mActivity!=null)
-        {
-            if (mActivity instanceof StartActivity)
-                ((StartActivity) mActivity).Update(aServerData, mObject.getMETHOD_NAME());
-            if(mActivity instanceof MainActivity)
-                ((MainActivity) mActivity).Update(aServerData, mObject.getMETHOD_NAME());
-            if (mActivity instanceof CardFlipActivity)
-                ((CardFlipActivity) mActivity).Update(aServerData,mObject.getMETHOD_NAME());
-        }
+    public interface ResultCallback{
+        public void Update(ArrayList<HashMap<String,String>> result, String method_name, Exception e);
     }
 
 }

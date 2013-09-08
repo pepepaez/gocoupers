@@ -22,10 +22,17 @@ public class CoupersObject {
         METHOD_NAME = method_name;
     }
 
-    public  CoupersObject(String soap_action, String url, String method_name){
+/*    public  CoupersObject(String soap_action, String url, String method_name){
         NAMESPACE = "http://tempuri.org/";
         SOAP_ACTION = soap_action;
         URL = url;
+        METHOD_NAME = method_name;
+    }*/
+
+    public CoupersObject(String method_name){
+        NAMESPACE = "http://tempuri.org/";
+        SOAP_ACTION = NAMESPACE + method_name;
+        URL = "http://coupers.elasticbeanstalk.com/CoupersWS/Coupers.asmx";
         METHOD_NAME = method_name;
     }
 

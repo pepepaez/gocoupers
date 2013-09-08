@@ -27,10 +27,6 @@ public class DealGridFragment extends Fragment {
         mNearby = nearby;
     }
 
-    public DealGridFragment(){
-
-    }
-
     public boolean NearbyDeal(){
         return mNearby;
     }
@@ -62,7 +58,6 @@ public class DealGridFragment extends Fragment {
                     return;
 
                 int location_id = ((DealAdapter)gv.getAdapter()).getLocationId(position);
-                //TextView dealID = (TextView) view.findViewById(R.id.deal_id);
                 MainActivity activity = (MainActivity) getActivity();
 
                 activity.onDealPressed(location_id);

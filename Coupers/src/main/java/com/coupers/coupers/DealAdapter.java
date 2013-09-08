@@ -10,11 +10,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.androidquery.AQuery;
+import com.coupers.entities.CoupersData;
 import com.coupers.entities.CoupersLocation;
-import com.coupers.entities.WebServiceDataFields;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Created by pepe on 6/30/13.
@@ -99,19 +98,19 @@ public class DealAdapter extends BaseAdapter {
         {
             switch(location.category_id)
             {
-                case WebServiceDataFields.CATEGORY_ID_EAT:
+                case CoupersData.Fields.CATEGORY_ID_EAT:
                     vi.setBackgroundResource(R.drawable.list_selector_eat);
                     break;
-                case WebServiceDataFields.CATEGORY_ID_FEEL_GOOD:
+                case CoupersData.Fields.CATEGORY_ID_FEEL_GOOD:
                     vi.setBackgroundResource(R.drawable.list_selector_feel_good);
                     break;
-                case WebServiceDataFields.CATEGORY_ID_HAVE_FUN:
+                case CoupersData.Fields.CATEGORY_ID_HAVE_FUN:
                     vi.setBackgroundResource(R.drawable.list_selector_have_fun);
                     break;
-                case WebServiceDataFields.CATEGORY_ID_LOOK_GOOD:
+                case CoupersData.Fields.CATEGORY_ID_LOOK_GOOD:
                     vi.setBackgroundResource(R.drawable.list_selector_look_good);
                     break;
-                case WebServiceDataFields.CATEGORY_ID_RELAX:
+                case CoupersData.Fields.CATEGORY_ID_RELAX:
                     vi.setBackgroundResource(R.drawable.list_selector_relax);
                     break;
 

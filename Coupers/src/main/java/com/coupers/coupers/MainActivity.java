@@ -17,21 +17,13 @@ import com.actionbarsherlock.view.MenuItem;
 import com.coupers.entities.CoupersDeal;
 import com.coupers.entities.CoupersDealLevel;
 import com.coupers.entities.CoupersLocation;
-import com.coupers.entities.WebServiceDataFields;
+import com.coupers.entities.CoupersData;
 import com.coupers.utils.CoupersObject;
 import com.coupers.utils.CoupersServer;
 import com.coupers.utils.IntentIntegrator;
 import com.coupers.utils.IntentResult;
-import com.coupers.utils.XMLParser;
-import com.facebook.Request;
-import com.facebook.Response;
-import com.facebook.Session;
-import com.facebook.model.GraphUser;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -121,6 +113,9 @@ public class MainActivity extends SlidingFragmentActivity {
             case R.id.deal_scan:
                 IntentIntegrator integrator = new IntentIntegrator(this);
                 integrator.initiateScan();
+                return true;
+            case R.id.open_settings:
+                return true;
 
 		}
 		return super.onOptionsItemSelected(item);
@@ -157,11 +152,13 @@ public class MainActivity extends SlidingFragmentActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
 
-        // Add either a "photo" or "finish" button to the action bar, depending on which page
-        // is currently selected.
-        MenuItem item = menu.add(Menu.NONE, R.id.deal_scan, Menu.NONE,R.string.action_scan);
-        item.setIcon(R.drawable.ic_action_barcode);
-        item.setShowAsAction(android.view.MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        MenuItem scan_option = menu.add(Menu.NONE, R.id.deal_scan, Menu.NONE,R.string.action_scan);
+        scan_option.setIcon(R.drawable.coupers_iconos_scan);
+        scan_option.setShowAsAction(android.view.MenuItem.SHOW_AS_ACTION_IF_ROOM);
+
+        MenuItem settings_option = menu.add(Menu.NONE, R.id.open_settings, Menu.NONE,R.string.open_settings);
+        settings_option.setIcon(R.drawable.coupers_iconos_settings);
+        settings_option.setShowAsAction(android.view.MenuItem.SHOW_AS_ACTION_IF_ROOM);
         return true;
     }
 
@@ -192,26 +189,29 @@ public class MainActivity extends SlidingFragmentActivity {
         progressDialog = ProgressDialog.show(this, "",
                 getResources().getString(R.string.progress_loading_deals), true);
 
-        CoupersObject obj = new CoupersObject("http://tempuri.org/GetLocationDeals",
-                "http://coupers.elasticbeanstalk.com/CoupersWS/Coupers.asmx",
-                "GetLocationDeals");
-        obj.addParameter("location_id",String.valueOf(location_id));
+        CoupersObject obj = new CoupersObject(CoupersData.Methods.GET_LOCATION_DEALS);
+        obj.addParameter(CoupersData.Parameters.LOCATION_ID,String.valueOf(location_id));
         String _tag[]={
-                WebServiceDataFields.DEAL_ID,
-                WebServiceDataFields.LOCATION_ID,
-                WebServiceDataFields.DEAL_START_DATE,
-                WebServiceDataFields.DEAL_END_DATE,
-                WebServiceDataFields.DEAL_DAY_SPECIAL,
-                WebServiceDataFields.LEVEL_ID,
-                WebServiceDataFields.LEVEL_START_AT,
-                WebServiceDataFields.LEVEL_SHARE_CODE,
-                WebServiceDataFields.LEVEL_REDEEM_CODE,
-                WebServiceDataFields.LEVEL_DEAL_LEGEND,
-                WebServiceDataFields.LEVEL_DEAL_DESCRIPTION
+                CoupersData.Fields.DEAL_ID,
+                CoupersData.Fields.LOCATION_ID,
+                CoupersData.Fields.DEAL_START_DATE,
+                CoupersData.Fields.DEAL_END_DATE,
+                CoupersData.Fields.DEAL_DAY_SPECIAL,
+                CoupersData.Fields.LEVEL_ID,
+                CoupersData.Fields.LEVEL_START_AT,
+                CoupersData.Fields.LEVEL_SHARE_CODE,
+                CoupersData.Fields.LEVEL_REDEEM_CODE,
+                CoupersData.Fields.LEVEL_DEAL_LEGEND,
+                CoupersData.Fields.LEVEL_DEAL_DESCRIPTION
         };
         obj.setTag(_tag);
 
-        CoupersServer server = new CoupersServer(obj,this);
+        CoupersServer server = new CoupersServer(obj,new CoupersServer.ResultCallback() {
+            @Override
+            public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
+                UpdateDeals(result);
+            }
+        });
 
         for (CoupersLocation location:mData)
         if (location.location_id == location_id) selected_location = location;
@@ -220,17 +220,17 @@ public class MainActivity extends SlidingFragmentActivity {
 
     }
 
-    public void Update(ArrayList<HashMap<String, String>> aResult, String WebServiceExecuted){
+    public void UpdateDeals(ArrayList<HashMap<String, String>> aResult){
 
         for (HashMap<String,String> map: aResult) {
-            CoupersDeal deal = new CoupersDeal(Integer.valueOf(map.get(WebServiceDataFields.DEAL_ID)), map.get(WebServiceDataFields.DEAL_START_DATE), map.get(WebServiceDataFields.DEAL_END_DATE));
+            CoupersDeal deal = new CoupersDeal(Integer.valueOf(map.get(CoupersData.Fields.DEAL_ID)), map.get(CoupersData.Fields.DEAL_START_DATE), map.get(CoupersData.Fields.DEAL_END_DATE));
             CoupersDealLevel level = new CoupersDealLevel(
-                    Integer.valueOf(map.get(WebServiceDataFields.LEVEL_ID)),
-                    Integer.valueOf(map.get(WebServiceDataFields.LEVEL_START_AT)),
-                    map.get(WebServiceDataFields.LEVEL_SHARE_CODE),
-                    map.get(WebServiceDataFields.LEVEL_REDEEM_CODE),
-                    map.get(WebServiceDataFields.LEVEL_DEAL_LEGEND),
-                    map.get(WebServiceDataFields.LEVEL_DEAL_DESCRIPTION));
+                    Integer.valueOf(map.get(CoupersData.Fields.LEVEL_ID)),
+                    Integer.valueOf(map.get(CoupersData.Fields.LEVEL_START_AT)),
+                    map.get(CoupersData.Fields.LEVEL_SHARE_CODE),
+                    map.get(CoupersData.Fields.LEVEL_REDEEM_CODE),
+                    map.get(CoupersData.Fields.LEVEL_DEAL_LEGEND),
+                    map.get(CoupersData.Fields.LEVEL_DEAL_DESCRIPTION));
             deal.deal_levels.put(level.level_id,level);
             selected_location.location_deals.put(deal.deal_id, deal);
         }

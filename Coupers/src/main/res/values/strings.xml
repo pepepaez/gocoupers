@@ -13,6 +13,7 @@
     <string name="action_info">Photo info</string>
     <string name="action_photo">View photo</string>
     <string name="action_scan">Scan Deal</string>
+    <string name="open_settings">Open Settings</string>
     <string name="add_location_favorite">Add Location to Favorites</string>
     <string name="share_deal_dialog_title">Scan to share!</string>
     <string name="share_deal_dialog_button">Done!</string>
@@ -36,6 +37,7 @@
     <string name="progress_dialog_text">Announcing, please wait...</string>
     <string name="progress_loading_deals">Loading deals, please wait...</string>
     <string name="progress_adding_favorite">Adding to favorites, please wait...</string>
+    <string name="progress_removing_favorite">Removing from favorites, please wait...</string>
     <string name="result_dialog_text">Posted Open Graph action, id: %1$s</string>
     <string name="result_dialog_button_text">Thanks!</string>
     <string name="result_dialog_title">Result</string>

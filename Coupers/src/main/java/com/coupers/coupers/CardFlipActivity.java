@@ -7,41 +7,22 @@ import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.TypedArray;
-import android.graphics.Bitmap;
-import android.graphics.Point;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewParent;
-import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.androidquery.AQuery;
 import com.coupers.entities.CoupersDeal;
 import com.coupers.entities.CoupersLocation;
-import com.coupers.entities.WebServiceDataFields;
-import com.coupers.utils.Contents;
+import com.coupers.entities.CoupersData;
 import com.coupers.utils.CoupersObject;
 import com.coupers.utils.CoupersServer;
-import com.coupers.utils.QRCodeEncoder;
 import com.facebook.FacebookRequestError;
 import com.facebook.HttpMethod;
 import com.facebook.Request;
@@ -53,11 +34,9 @@ import com.facebook.UiLifecycleHelper;
 import com.facebook.model.GraphObject;
 import com.facebook.model.GraphUser;
 import com.facebook.model.OpenGraphAction;
-import com.google.zxing.BarcodeFormat;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
@@ -424,7 +403,7 @@ public class CardFlipActivity extends Activity
         // is currently selected.
         MenuItem item_favorite = menu.add(Menu.NONE, R.id.add_location_favorite, Menu.NONE,R.string.add_location_favorite);
         item_favorite.setIcon(isFavorite
-                ? R.drawable.coupers_location_favorite2
+                ? R.drawable.coupers_location_favorite
                 : R.drawable.coupers_location_not_favorite);
         item_favorite.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
@@ -457,8 +436,14 @@ public class CardFlipActivity extends Activity
                 flipCard();
                 return true;
             case R.id.add_location_favorite:
-                progressDialog = ProgressDialog.show(this, "",getResources().getString(R.string.progress_adding_favorite), true);
-                AddLocationFavorite();
+                if (!isFavorite){
+                    progressDialog = ProgressDialog.show(this, "",getResources().getString(R.string.progress_adding_favorite), true);
+                    AddLocationFavorite();
+                }else
+                {
+                    progressDialog = ProgressDialog.show(this, "",getResources().getString(R.string.progress_removing_favorite), true);
+                    RemoveLocationFavorite();
+                }
                 return true;
         }
 
@@ -466,26 +451,58 @@ public class CardFlipActivity extends Activity
     }
 
     public void AddLocationFavorite(){
-        CoupersObject obj = new CoupersObject("http://tempuri.org/AddUserLocToFav",
-                "http://coupers.elasticbeanstalk.com/CoupersWS/Coupers.asmx",
-                "AddUserLocToFav");
-        obj.addParameter("location_id",String.valueOf(data.location_id));
-        obj.addParameter("user_id",((CoupersApp)getApplication()).getUser_id());
+        CoupersObject obj = new CoupersObject(CoupersData.Methods.ADD_LOCATION_FAVORITE);
+        obj.addParameter(CoupersData.Parameters.LOCATION_ID,String.valueOf(data.location_id));
+        obj.addParameter(CoupersData.Parameters.USER_ID,((CoupersApp)getApplication()).getUser_id());
         String _tag[]={
-                WebServiceDataFields.COLUMN1};
+                CoupersData.Fields.RESULT_CODE};
         obj.setTag(_tag);
 
-        CoupersServer server = new CoupersServer(obj,this);
+        CoupersServer server = new CoupersServer(obj,new CoupersServer.ResultCallback() {
+            @Override
+            public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
+                toggleFavorite(result,method_name);
+            }
+        });
 
         server.execute("dummy string");
     }
 
-    public void Update(ArrayList<HashMap<String, String>> aResult, String WebServiceExecuted)
+    public void RemoveLocationFavorite(){
+        CoupersObject obj = new CoupersObject(CoupersData.Methods.REMOVE_LOCATION_FAVORITE);
+        obj.addParameter(CoupersData.Parameters.LOCATION_ID,String.valueOf(data.location_id));
+        obj.addParameter(CoupersData.Parameters.USER_ID,((CoupersApp)getApplication()).getUser_id());
+        String _tag[]={
+                CoupersData.Fields.RESULT_CODE};
+        obj.setTag(_tag);
+
+        CoupersServer server = new CoupersServer(obj,new CoupersServer.ResultCallback() {
+            @Override
+            public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
+                toggleFavorite(result,method_name);
+            }
+        });
+
+        server.execute("dummy string");
+    }
+
+    public void toggleFavorite(ArrayList<HashMap<String, String>> aResult, String WebServiceExecuted)
     {
 
-        if (WebServiceExecuted=="AddUserLocToFav") {
+        if (WebServiceExecuted=="AddUserLocToFav" || WebServiceExecuted=="RemoveUserLocFromFav") {
             ((CoupersApp) getApplication()).RefreshFavorites();
-            this.menu.getItem(0).setIcon(R.drawable.coupers_location_favorite2);
+
+            isFavorite=!isFavorite;
+            if (isFavorite)
+            {
+                ((CoupersApp) getApplication()).addFavorite(data);
+                this.menu.getItem(0).setIcon(R.drawable.coupers_location_favorite);
+            }
+            else
+            {
+                ((CoupersApp) getApplication()).removeFavorite(data.location_id);
+                this.menu.getItem(0).setIcon(R.drawable.coupers_location_not_favorite);
+            }
             if (progressDialog!=null){
                 progressDialog.dismiss();
                 progressDialog=null;
@@ -512,10 +529,6 @@ public class CardFlipActivity extends Activity
         if (getIntent().getExtras() != null) {
             pos = getIntent().getExtras().getInt("pos");
         }
-        String[] birdNames = getResources().getStringArray(R.array.birds);
-        String birdName = birdNames[pos];
-        String[] birdDescriptions = getResources().getStringArray(R.array.birds_desc);
-        String birdDesc = birdDescriptions[pos];
 
         getFragmentManager()
                 .beginTransaction()
@@ -530,7 +543,7 @@ public class CardFlipActivity extends Activity
                         // Replace any fragments currently in the container view with a fragment
                         // representing the next page (indicated by the just-incremented currentPage
                         // variable).
-                .replace(R.id.container, new CardBackFragment(birdName,birdDesc))
+                .replace(R.id.container, new CardBackFragment(data))
 
                         // Add this transaction to the back stack, allowing users to press Back
                         // to get to the front of the card.
@@ -583,18 +596,33 @@ public class CardFlipActivity extends Activity
      * A fragment representing the back of the card.
      */
     public class CardBackFragment extends DialogFragment {
-        private String resName = "";
-        private String resDescription = "";
+        private CoupersLocation location;
 
-        public CardBackFragment( String name, String desc) {
-            resName = name;
-            resDescription  = desc;
+        public CardBackFragment(CoupersLocation location){
+            this.location = location;
         }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.location_card_back, container, false);
+            View view = inflater.inflate(R.layout.location_card_back, container, false);
+
+            TextView location_name = (TextView) view.findViewById(R.id.location_name);
+            TextView location_city = (TextView) view.findViewById(R.id.location_city);
+            TextView location_address = (TextView) view.findViewById(R.id.location_address);
+            TextView location_website_url = (TextView) view.findViewById(R.id.location_website_url);
+            TextView location_phone_number1 = (TextView) view.findViewById(R.id.location_phone_number1);
+            TextView location_phone_number2 = (TextView) view.findViewById(R.id.location_phone_number2);
+            TextView location_hours_operation1 = (TextView) view.findViewById(R.id.location_hours_operation1);
+
+            if (location_name!=null) location_name.setText(location.location_name);
+            if (location_city!=null) location_city.setText(location.location_city);
+            if (location_address!=null) location_address.setText(location.location_address);
+            if (location_website_url!=null) location_website_url.setText(location.location_website_url);
+            if (location_phone_number1!=null) location_phone_number1.setText(location.location_phone_number1);
+            if (location_phone_number2!=null) location_phone_number2.setText(location.location_phone_number2);
+
+            return view;
         }
         @Override
         public void onActivityCreated(Bundle savedInstanceState) {

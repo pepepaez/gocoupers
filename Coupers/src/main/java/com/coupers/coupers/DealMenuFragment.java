@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.location.Location;
 import android.location.LocationManager;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -14,11 +13,10 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.coupers.entities.CoupersData;
 import com.coupers.entities.CoupersLocation;
-import com.coupers.entities.WebServiceDataFields;
 import com.coupers.utils.CoupersObject;
 import com.coupers.utils.CoupersServer;
 import com.facebook.Request;
@@ -26,12 +24,6 @@ import com.facebook.Response;
 import com.facebook.Session;
 import com.facebook.model.GraphUser;
 import com.facebook.widget.ProfilePictureView;
-
-import org.ksoap2.SoapEnvelope;
-import org.ksoap2.serialization.PropertyInfo;
-import org.ksoap2.serialization.SoapObject;
-import org.ksoap2.serialization.SoapSerializationEnvelope;
-import org.ksoap2.transport.HttpTransportSE;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -50,6 +42,12 @@ public class DealMenuFragment extends Fragment {
     private ProfilePictureView profilePictureView;
     private TextView userNameView;
     private CoupersApp app = null;
+    private CoupersApp.StatusCallback callme = new CoupersApp.StatusCallback() {
+        @Override
+        public void call(int something) {
+
+        }
+    };
 
     public class CoupersMenuItem{
         public String item_text = "";
@@ -65,6 +63,26 @@ public class DealMenuFragment extends Fragment {
             this.category_id = id;
             this.is_location = false;
         }
+    }
+
+    //ACTIVITY CONTROL
+    public DealMenuFragment(CoupersApp app) {
+        this.app = app;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("filter", mFilter);
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        Session session = Session.getActiveSession();
+        if(session!=null && session.isOpened()) makeMeRequest(session);
+
     }
 
 	@Override
@@ -87,37 +105,73 @@ public class DealMenuFragment extends Fragment {
 		return lv;
 	}
 
+    //COUPERS CONTROL
     public void LoadFavorites(){
         //TODO if not saved on the device then
-        LoadFromServer();
+        LoadFavoriteFromServer();
         //TODO otherwise use from the device
     }
 
-    public void LoadFromServer(){
-        CoupersObject obj = new CoupersObject("http://tempuri.org/GetUserFavoriteLocations",
-                "http://coupers.elasticbeanstalk.com/CoupersWS/Coupers.asmx",
-                "GetUserFavoriteLocations");
-        obj.addParameter("user_id",app.getUser_id());
+    public void LoadFavoriteFromServer(){
+        CoupersObject obj = new CoupersObject(CoupersData.Methods.GET_USER_FAVORITE_LOCATIONS);
+        obj.addParameter(CoupersData.Parameters.USER_ID,app.getUser_id());
         String _tag[]={
-                WebServiceDataFields.FAVLOC_LOCATION_ID,
-                WebServiceDataFields.FAVLOC_CATEGORY_ID,
-                WebServiceDataFields.FAVLOC_LOCATION_NAME,
-                WebServiceDataFields.FAVLOC_LOCATION_LOGO,
-                WebServiceDataFields.FAVLOC_NEW_DEAL_COUNT};
+                CoupersData.Fields.LOCATION_ID,
+                CoupersData.Fields.CATEGORY_ID,
+                CoupersData.Fields.LOCATION_NAME,
+                CoupersData.Fields.LOCATION_LOGO,
+                CoupersData.Fields.LOCATION_ADDRESS,
+                CoupersData.Fields.LOCATION_CITY,
+                CoupersData.Fields.LOCATION_DESCRIPTION,
+                CoupersData.Fields.LOCATION_WEBSITE_URL,
+                CoupersData.Fields.LOCATION_THUMBNAIL,
+                CoupersData.Fields.LOCATION_PHONE_NUMBER1,
+                CoupersData.Fields.LOCATION_PHONE_NUMBER2,
+                CoupersData.Fields.LOCATION_HOURS_OPERATION1,
+                CoupersData.Fields.FAVORITE_NEW_DEAL_COUNT};
         obj.setTag(_tag);
 
-        CoupersServer server = new CoupersServer(obj,this);
+       CoupersServer server = new CoupersServer(obj,new CoupersServer.ResultCallback() {
+           @Override
+           public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
+               UpdateMenu(result);
+           }
+       });
 
         server.execute("dummy string");
     }
 
-    public void Update(ArrayList<HashMap<String, String>> aResult, String WebServiceExecuted)
-    {
+    private void LoadCategoryDeals(int CategoryId){
+        CoupersObject obj = new CoupersObject(CoupersData.Methods.GET_CATEGORY_DEALS);
+        obj.addParameter(CoupersData.Parameters.CITY,getResources().getString(R.string.city));
+        obj.addParameter(CoupersData.Parameters.CATEGORY_ID,String.valueOf(CategoryId));
+        String _tag[]={
+                CoupersData.Fields.LOCATION_ID,
+                CoupersData.Fields.LOCATION_NAME,
+                CoupersData.Fields.LOCATION_LOGO,
+                CoupersData.Fields.LOCATION_ADDRESS,
+                CoupersData.Fields.LOCATION_CITY,
+                CoupersData.Fields.CATEGORY_ID,
+                CoupersData.Fields.LATITUDE,
+                CoupersData.Fields.LONGITUDE,
+                CoupersData.Fields.LOCATION_DESCRIPTION,
+                CoupersData.Fields.LOCATION_WEBSITE_URL,
+                CoupersData.Fields.LOCATION_THUMBNAIL,
+                CoupersData.Fields.LOCATION_PHONE_NUMBER1,
+                CoupersData.Fields.LOCATION_PHONE_NUMBER2,
+                CoupersData.Fields.LOCATION_HOURS_OPERATION1,
+                CoupersData.Fields.LEVEL_DEAL_LEGEND,
+                CoupersData.Fields.COUNTDEALS};
+        obj.setTag(_tag);
 
-        if (WebServiceExecuted=="GetUserFavoriteLocations") UpdateMenu(aResult);
+        CoupersServer server = new CoupersServer(obj,new CoupersServer.ResultCallback() {
+            @Override
+            public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
+                UpdateDeals(result);
+            }
+        });
 
-        if (WebServiceExecuted == "GetCategoryDeals") UpdateDeals(aResult);
-
+        server.execute("dummy string");
     }
 
     public void UpdateMenu(ArrayList<HashMap<String, String>> aFavLocList){
@@ -135,19 +189,33 @@ public class DealMenuFragment extends Fragment {
         {
             adapter.addHeader(getString(R.string.favorites));
 
-            for (int j =0;j< (aFavLocList.size()>3 ? 3: aFavLocList.size());j++)
-            {
-                HashMap<String, String> map = new HashMap<String, String>();
-                map.put(WebServiceDataFields.FAVLOC_LOCATION_ID, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_LOCATION_ID).toString());
-                map.put(WebServiceDataFields.FAVLOC_CATEGORY_ID, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_CATEGORY_ID).toString());
-                map.put(WebServiceDataFields.FAVLOC_LOCATION_NAME, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_LOCATION_NAME).toString());
-                map.put(WebServiceDataFields.FAVLOC_LOCATION_LOGO, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_LOCATION_LOGO).toString());
-                map.put(WebServiceDataFields.FAVLOC_NEW_DEAL_COUNT, aFavLocList.get(j).get(WebServiceDataFields.FAVLOC_NEW_DEAL_COUNT).toString());
+            int j;
+            j=0;
+            for (HashMap<String, String> map : aFavLocList){
+                CoupersLocation mLocation = new CoupersLocation(
+                        Integer.valueOf(map.get(CoupersData.Fields.LOCATION_ID)),
+                        Integer.valueOf(map.get(CoupersData.Fields.CATEGORY_ID)),
+                        map.get(CoupersData.Fields.LOCATION_NAME),
+                        map.get(CoupersData.Fields.LOCATION_DESCRIPTION),
+                        map.get(CoupersData.Fields.LOCATION_WEBSITE_URL),
+                        map.get(CoupersData.Fields.LOCATION_LOGO),
+                        map.get(CoupersData.Fields.LOCATION_THUMBNAIL),
+                        map.get(CoupersData.Fields.LOCATION_ADDRESS),
+                        map.get(CoupersData.Fields.LOCATION_CITY),
+                        map.get(CoupersData.Fields.LOCATION_PHONE_NUMBER1),
+                        map.get(CoupersData.Fields.LOCATION_PHONE_NUMBER2),
+                        0,0);
+                        //Double.valueOf(map.get(CoupersData.Fields.LATITUDE)),
+                        //Double.valueOf(map.get(CoupersData.Fields.LONGITUDE)));
+                mLocation.CountDeals = map.get(CoupersData.Fields.FAVORITE_NEW_DEAL_COUNT);
+                j++;
 
-                adapter.addFavorite(map);
-                if(app!=null) app.addFavorite(map);
-
+                if (j<=3){
+                    adapter.addFavorite(mLocation);
+                }
+                if(app!=null) app.addFavorite(mLocation);
             }
+
         }
         adapter.addHeader(getString(R.string.i_want_to));
 
@@ -167,15 +235,16 @@ public class DealMenuFragment extends Fragment {
                                     long id) {
                 if (getActivity() == null)
                     return;
-                ((MenuAdapter)lv.getAdapter()).AnimateInOut(view,true);
-                if (last_view_selected!=null)((MenuAdapter)lv.getAdapter()).AnimateInOut(last_view_selected, false);
+                ((MenuAdapter) lv.getAdapter()).AnimateInOut(view, true);
+                if (last_view_selected != null)
+                    ((MenuAdapter) lv.getAdapter()).AnimateInOut(last_view_selected, false);
                 last_view_selected = view;
                 ImageView option_selected = (ImageView) view.findViewById(R.id.selected_indicator);
                 if (option_selected != null) {
                     int category_id = ((MenuAdapter) lv.getAdapter()).getCategoryId(position);
-                    ((ProgressBar)view.findViewById(R.id.loading)).setVisibility(View.VISIBLE);
+                    view.findViewById(R.id.loading).setVisibility(View.VISIBLE);
                     LoadCategoryDeals(category_id);
-                }else{
+                } else {
                     ImageView favorite_location = (ImageView) view.findViewById(R.id.favorite_location);
                     if (favorite_location != null) {
                         //TODO call CardFlipActivity for selected location
@@ -186,36 +255,6 @@ public class DealMenuFragment extends Fragment {
 
             }
         });
-    }
-
-    private void LoadCategoryDeals(int CategoryId){
-        CoupersObject obj = new CoupersObject("http://tempuri.org/GetCategoryDeals",
-                "http://coupers.elasticbeanstalk.com/CoupersWS/Coupers.asmx",
-                "GetCategoryDeals");
-        obj.addParameter("city",getResources().getString(R.string.city));
-        obj.addParameter("category_id",String.valueOf(CategoryId));
-        String _tag[]={
-                WebServiceDataFields.LOCATION_ID,
-                WebServiceDataFields.LOCATION_NAME,
-                WebServiceDataFields.LOCATION_LOGO,
-                WebServiceDataFields.LOCATION_ADDRESS,
-                WebServiceDataFields.LOCATION_CITY,
-                WebServiceDataFields.CATEGORY_ID,
-                WebServiceDataFields.LATITUDE,
-                WebServiceDataFields.LONGITUDE,
-                WebServiceDataFields.LOCATION_DESCRIPTION,
-                WebServiceDataFields.LOCATION_WEBSITE_URL,
-                WebServiceDataFields.LOCATION_THUMBNAIL,
-                WebServiceDataFields.LOCATION_PHONE_NUMBER1,
-                WebServiceDataFields.LOCATION_PHONE_NUMBER2,
-                WebServiceDataFields.LOCATION_HOURS_OPERATION1,
-                WebServiceDataFields.LEVEL_DEAL_LEGEND,
-                WebServiceDataFields.COUNTDEALS};
-        obj.setTag(_tag);
-
-        CoupersServer server = new CoupersServer(obj,this);
-
-        server.execute("dummy string");
     }
 
     public void UpdateDeals(ArrayList<HashMap<String, String>> aData)
@@ -239,21 +278,21 @@ public class DealMenuFragment extends Fragment {
         //Go through data to create 2 data sets, one with locations nearby and the rest
         for (HashMap<String, String> map : aData){
             CoupersLocation mLocation = new CoupersLocation(
-                    Integer.valueOf(map.get(WebServiceDataFields.LOCATION_ID)),
-                    Integer.valueOf(map.get(WebServiceDataFields.CATEGORY_ID)),
-                    map.get(WebServiceDataFields.LOCATION_NAME),
-                    map.get(WebServiceDataFields.LOCATION_DESCRIPTION),
-                    map.get(WebServiceDataFields.LOCATION_WEBSITE_URL),
-                    map.get(WebServiceDataFields.LOCATION_LOGO),
-                    map.get(WebServiceDataFields.LOCATION_THUMBNAIL),
-                    map.get(WebServiceDataFields.LOCATION_ADDRESS),
-                    map.get(WebServiceDataFields.LOCATION_CITY),
-                    map.get(WebServiceDataFields.LOCATION_PHONE_NUMBER1),
-                    map.get(WebServiceDataFields.LOCATION_PHONE_NUMBER2),
-                    Double.valueOf(map.get(WebServiceDataFields.LATITUDE)),
-                    Double.valueOf(map.get(WebServiceDataFields.LONGITUDE)));
-            mLocation.TopDeal = map.get(WebServiceDataFields.LEVEL_DEAL_LEGEND);
-            mLocation.CountDeals = map.get(WebServiceDataFields.COUNTDEALS);
+                    Integer.valueOf(map.get(CoupersData.Fields.LOCATION_ID)),
+                    Integer.valueOf(map.get(CoupersData.Fields.CATEGORY_ID)),
+                    map.get(CoupersData.Fields.LOCATION_NAME),
+                    map.get(CoupersData.Fields.LOCATION_DESCRIPTION),
+                    map.get(CoupersData.Fields.LOCATION_WEBSITE_URL),
+                    map.get(CoupersData.Fields.LOCATION_LOGO),
+                    map.get(CoupersData.Fields.LOCATION_THUMBNAIL),
+                    map.get(CoupersData.Fields.LOCATION_ADDRESS),
+                    map.get(CoupersData.Fields.LOCATION_CITY),
+                    map.get(CoupersData.Fields.LOCATION_PHONE_NUMBER1),
+                    map.get(CoupersData.Fields.LOCATION_PHONE_NUMBER2),
+                    Double.valueOf(map.get(CoupersData.Fields.LATITUDE)),
+                    Double.valueOf(map.get(CoupersData.Fields.LONGITUDE)));
+            mLocation.TopDeal = map.get(CoupersData.Fields.LEVEL_DEAL_LEGEND);
+            mLocation.CountDeals = map.get(CoupersData.Fields.COUNTDEALS);
             if (geoloc!=null){
                 Location.distanceBetween(latitude,longitude,mLocation.location_latitude,mLocation.location_longitude,results);
                 distance = results[0];
@@ -271,31 +310,13 @@ public class DealMenuFragment extends Fragment {
 
         if (getActivity() instanceof MainActivity) {
             MainActivity ra = (MainActivity) getActivity();
-            ((ProgressBar)last_view_selected.findViewById(R.id.loading)).setVisibility(View.INVISIBLE);
+            last_view_selected.findViewById(R.id.loading).setVisibility(View.INVISIBLE);
             ra.switchContent(mData,geoloc!=null, nearby_locations);
         }
 
     }
 
-
-    public DealMenuFragment(CoupersApp app)
-    {
-        this.app = app;
-    }
-
-    public DealMenuFragment(){
-
-    }
-
-	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {
-		super.onActivityCreated(savedInstanceState);
-
-        Session session = Session.getActiveSession();
-        if(session!=null && session.isOpened()) makeMeRequest(session);
-
-	}
-
+    //FACEBOOK REQUESTS
     private void makeMeRequest(final Session session) {
         // Make an API call to get user data and define a
         // new callback to handle the response.
@@ -321,14 +342,6 @@ public class DealMenuFragment extends Fragment {
         request.executeAsync();
     }
 
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putString("filter", mFilter);
-        //outState.putSerializable("lk",mNL);
-
-    }
-
     private void loadLocation(int location_id) {
         if (getActivity() == null)
             return;
@@ -338,85 +351,5 @@ public class DealMenuFragment extends Fragment {
             ra.onDealPressed(location_id);
         }
     }
-
-
-    //LOAD FAVORITES
-    private class LoadFavorites extends AsyncTask<String,Void,String> {
-
-        private static final String NAMESPACE = "http://tempuri.org/";
-        private static final String SOAP_ACTION = "http://tempuri.org/GetUserFavoriteLocations";
-        private static final String URL = "http://coupers.elasticbeanstalk.com/CoupersWS/Coupers.asmx";
-        private static final String METHOD_NAME = "GetUserFavoriteLocations";
-
-        ArrayList<HashMap<String, String>> FavLocList = new ArrayList<HashMap<String, String>>();
-
-        @Override
-        protected String doInBackground(String... params){
-            String response = null;
-
-            for(String param : params){
-
-                SoapObject request = new SoapObject(NAMESPACE, METHOD_NAME);
-                SoapSerializationEnvelope envelope =  new SoapSerializationEnvelope(SoapEnvelope.VER11);PropertyInfo property = new PropertyInfo();
-                request.addProperty("user_id",1);
-                envelope.dotNet=true;
-                envelope.setOutputSoapObject(request);
-                HttpTransportSE androidHttpTransport = new HttpTransportSE(URL);
-
-                try {
-                    androidHttpTransport.call(SOAP_ACTION, envelope);
-                    SoapObject result = (SoapObject) envelope.bodyIn;
-                    SoapObject soData = (SoapObject) ((SoapObject) ((SoapObject) result.getProperty(0)).getProperty(1)).getProperty(0);
-                    /*SoapObject soResponse = (SoapObject) result.getProperty("GetUserFavoriteLocationsResponse");
-                    SoapObject soResult = (SoapObject) soResponse.getProperty("GetUserFavoriteLocationsResult");
-                    SoapObject soDiffgram = (SoapObject) soResult.getProperty("diffgram") ;
-                    SoapObject soNewDataSet = (SoapObject) soDiffgram.getProperty("NewDataSet") ;*/
-                    SoapObject soTable;
-
-
-
-                    String _tag[]={
-                            WebServiceDataFields.FAVLOC_LOCATION_ID,
-                            WebServiceDataFields.FAVLOC_CATEGORY_ID,
-                            WebServiceDataFields.FAVLOC_LOCATION_NAME,
-                            WebServiceDataFields.FAVLOC_LOCATION_LOGO,
-                            WebServiceDataFields.FAVLOC_NEW_DEAL_COUNT};
-
-                    for (int j=0;j<soData.getPropertyCount();j++)
-                    {
-                        soTable = (SoapObject) soData.getProperty(j) ;
-                        //System.out.println(Table.toString());
-                        HashMap<String, String> map = new HashMap<String, String>();
-                        //TODO Use same static fields from MainActivity to create the map
-                        for(int p =0;p<_tag.length;p++)
-                            map.put(_tag[p].toString(),soTable.getPropertyAsString(_tag[p]));
-                        FavLocList.add(map);
-                    }
-                    response="ok";
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    response=getString(R.string.server_connection_error);
-                }
-            }
-            return response;
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-            if (result.equals(getString(R.string.server_connection_error)))
-            {
-                //TODO instantiate an activity to show server connection error, finalize app.
-            }
-
-            //mContainer.findViewById(R.id.progressBar).setVisibility(View.INVISIBLE);
-            //mContainer.findViewById(R.id.textView).setVisibility(View.INVISIBLE);
-
-            //UpdateMenu(FavLocList);
-
-        }
-
-    }
-
 
 }

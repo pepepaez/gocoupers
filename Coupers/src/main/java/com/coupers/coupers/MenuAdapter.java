@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.androidquery.AQuery;
-import com.coupers.entities.WebServiceDataFields;
+import com.coupers.entities.CoupersLocation;
 import com.coupers.utils.ImageLoader;
 
 import java.util.ArrayList;
@@ -34,7 +34,8 @@ public class MenuAdapter extends BaseAdapter {
     private ArrayList mData = new ArrayList();
     private TreeSet mHeaderSet = new TreeSet();
     private TreeSet mFavoriteSet = new TreeSet();
-    private HashMap<String, HashMap<String, String>> mFavoriteData = new HashMap<String, HashMap<String, String>>();
+    private HashMap<String, HashMap<String, String>> mFavoriteData2 = new HashMap<String, HashMap<String, String>>();
+    private HashMap<String, CoupersLocation> mFavoriteData = new HashMap<String, CoupersLocation>();
     private ArrayList<DealMenuFragment.CoupersMenuItem> mItems = new ArrayList<DealMenuFragment.CoupersMenuItem>();
 
 
@@ -66,19 +67,26 @@ public class MenuAdapter extends BaseAdapter {
 
     }
 
-    public void addFavorite (final HashMap<String,String> item)
+    /*public void addFavorite (final HashMap<String,String> item)
     {
-        mData.add(item.get(WebServiceDataFields.FAVLOC_LOCATION_ID).toString());
+        mData.add(item.get(CoupersData.LOCATION_ID).toString());
         mItems.add(null);
         mFavoriteSet.add(mData.size() - 1);
         mFavoriteData.put("item" + String.valueOf(mData.size() - 1), item);
         notifyDataSetChanged();
 
+    }*/
+
+    public void addFavorite (final CoupersLocation item){
+        mData.add(item.location_id);
+        mItems.add(null);
+        mFavoriteSet.add(mData.size() - 1);
+        mFavoriteData.put("item" + String.valueOf(mData.size() - 1), item);
     }
 
     public int getLocationId(int position){
 
-        return Integer.valueOf(mFavoriteData.get("item"+String.valueOf(position)).get(WebServiceDataFields.FAVLOC_LOCATION_ID));
+        return Integer.valueOf(mFavoriteData.get("item"+String.valueOf(position)).location_id);
 
     }
 
@@ -152,14 +160,15 @@ public class MenuAdapter extends BaseAdapter {
                     break;
                 case TYPE_FAVORITE:
                     convertView = inflater.inflate(R.layout.list_menu_favorite,null);
+                    CoupersLocation location = mFavoriteData.get("item"+String.valueOf(position));
                     holder.textView = (TextView) convertView.findViewById(R.id.item_menu_text);
-                    holder.textView.setText(mFavoriteData.get("item"+String.valueOf(position)).get(WebServiceDataFields.FAVLOC_LOCATION_ID));
+                    holder.textView.setText(String.valueOf(location.location_id));
                     holder.logo = (ImageView) convertView.findViewById(R.id.location_logo);
                     holder.textView.setVisibility(View.INVISIBLE);
                     AQuery aq = new AQuery(convertView);
-                    aq.id(R.id.location_logo).image(mFavoriteData.get("item"+String.valueOf(position)).get(WebServiceDataFields.FAVLOC_LOCATION_LOGO),true,true);
+                    aq.id(R.id.location_logo).image(location.location_logo,true,true);
                     holder.dealcount = (TextView) convertView.findViewById(R.id.new_deal_count);
-                    holder.dealcount.setText(mFavoriteData.get("item"+String.valueOf(position)).get(WebServiceDataFields.FAVLOC_NEW_DEAL_COUNT));
+                    holder.dealcount.setText(location.CountDeals);
                     break;
             }
             convertView.setTag(holder);
