@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="ComABSABS04.aar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/libraries/facebook/build/exploded-bundles/ComABSABS04.aar/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/libraries/facebook/build/exploded-bundles/ComABSABS04.aar/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

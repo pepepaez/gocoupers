@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.androidquery.AQuery;
+import com.androidquery.callback.BitmapAjaxCallback;
 import com.androidquery.callback.ImageOptions;
 import com.coupers.entities.CoupersData;
 import com.coupers.entities.CoupersDeal;
@@ -62,13 +63,16 @@ public class LocationFrontFragment extends DialogFragment {
         ImageView location_logo = (ImageView) fragmentView.findViewById(R.id.location_logo);
         location_logo.setBackgroundResource(bgResource);
 
-        aq.id(R.id.location_logo).image(data.location_logo,true,true);
+
+        aq.id(R.id.location_logo).image(data.location_logo, true, true);
 
         ImageOptions options = new ImageOptions();
         options.fileCache=true;
         options.memCache=true;
-        options.anchor= 0;
-        aq.id(R.id.location_thumbnail).image(data.location_thumbnail,options);//true,true,0,0,null,AQuery.FADE_IN,7.0f / 16.0f);
+        options.ratio=AQuery.RATIO_PRESERVE;
+        options.anchor= AQuery.ANCHOR_DYNAMIC;
+        aq.id(R.id.location_thumbnail).image(data.location_thumbnail,true,true);//true,true,0,0,null,AQuery.FADE_IN,7.0f / 16.0f);
+        //aq.id(R.id.location_thumbnail).webImage(data.location_thumbnail);
         ViewPager vp = (ViewPager) fragmentView.findViewById(R.id.deal_pager);
         DealPagerAdapter dealPager=new DealPagerAdapter(inflater,getActivity(), bgResource);
 

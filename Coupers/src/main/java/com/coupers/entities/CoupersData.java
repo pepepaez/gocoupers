@@ -1,10 +1,19 @@
 package com.coupers.entities;
 
+import android.view.View;
+
 /**
  * Created by pepe on 7/20/13.
  */
 public final class CoupersData {
 
+    public static final class Categories{
+        public final static int EAT = 10;
+        public final static int HAVE_FUN = 20;
+        public final static int RELAX = 30;
+        public final static int FEEL_GOOD = 40;
+        public final static int LOOK_GOOD = 50;
+    }
     public static final class Parameters{
         public final static String USER_ID="user_id";
         public final static String CITY = "city";
@@ -14,6 +23,8 @@ public final class CoupersData {
         public final static String FACEBOOK_ID = "facebook_id";
         public final static String USER_CITY = "user_city";
         public final static String USERNAME = "username";
+        public final static String FACEBOOK_POST_ID = "post_id";
+        public final static String GCM_ID = "pushnotification_id";
     }
 
     public static final class Fields {
@@ -70,6 +81,16 @@ public final class CoupersData {
         public final static String GET_LOCATION_DEALS = "GetLocationDeals";
         public final static String GET_CITY_DEALS = "GetCityDeals";
         public final static String LOGIN_FACEBOOK = "LoginUserFacebook";
+        public final static String SHARE_DEAL_FACEBOOK = "ShareDealFacebook";
+        public final static String SAVE_PUSH_NOTIFICATION_ID = "SavePushNotificationid";
+    }
+
+    public static final class Interfaces{
+        public interface CallBack{
+            public void update(String result);
+            public void update(int location_id);
+            public void update(CoupersLocation location);
+        }
     }
 
 }

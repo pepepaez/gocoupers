@@ -23,7 +23,8 @@
             android:layout_toRightOf="@+id/leftpadding"
             android:layout_toLeftOf="@+id/rightpadding"
             android:layout_above="@+id/imageView2"
-            android:layout_below="@+id/imageView3"/>
+            android:layout_below="@+id/imageView3"
+        android:background="#3a3a3a" />
 
     <ImageButton
             android:layout_width="wrap_content"

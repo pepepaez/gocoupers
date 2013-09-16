@@ -2,6 +2,7 @@ package com.coupers.coupers;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Bitmap;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 
 import com.coupers.entities.CoupersData;
 import com.coupers.entities.CoupersDeal;
+import com.coupers.entities.CoupersLocation;
 import com.coupers.utils.Contents;
 import com.coupers.utils.CoupersObject;
 import com.coupers.utils.CoupersServer;
@@ -34,6 +36,7 @@ import java.util.HashMap;
 public class DealPagerAdapter extends PagerAdapter {
 
     private LayoutInflater mInflater;
+    private ProgressDialog progressDialog=null;
     private final Activity a;
     private  int bg=R.drawable.list_selector_eat;
 
@@ -110,6 +113,7 @@ public class DealPagerAdapter extends PagerAdapter {
             saveDeal.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    progressDialog = ProgressDialog.show(saveDeal.getContext(), "", a.getResources().getString(R.string.progress_saving_deal), true);
                     CoupersObject obj = new CoupersObject(CoupersData.Methods.SAVE_DEAL);
                     obj.addParameter(CoupersData.Parameters.USER_ID,((CoupersApp)a.getApplication()).getUser_id());
                     obj.addParameter(CoupersData.Parameters.DEAL_ID,String.valueOf(aDeal.get(position).deal_id));
@@ -121,6 +125,11 @@ public class DealPagerAdapter extends PagerAdapter {
                         @Override
                         public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
                             //TODO add code to check if all is OK
+                            if (progressDialog!=null)
+                            {
+                                progressDialog.dismiss();
+                                progressDialog=null;
+                            }
                             saveDeal.setImageResource(R.drawable.save_deal_sel);
                         }
                     });
@@ -133,14 +142,29 @@ public class DealPagerAdapter extends PagerAdapter {
 
 
         //--- Create facebook share button
-        ImageButton shareFacebook = (ImageButton) layout.findViewById(R.id.facebook_share);
+        final ImageButton shareFacebook = (ImageButton) layout.findViewById(R.id.facebook_share);
         if (shareFacebook!=null)
         {
             shareFacebook.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if (a instanceof CardFlipActivity)
-                        ((CardFlipActivity)a).postFacebook(aDeal.get(position));
+                        ((CardFlipActivity)a).postFacebook(aDeal.get(position),new CoupersData.Interfaces.CallBack() {
+                            @Override
+                            public void update(String result) {
+                                shareFacebook.setImageResource(R.drawable.share_facebook_sel);
+                            }
+
+                            @Override
+                            public void update(int location_id) {
+
+                            }
+
+                            @Override
+                            public void update(CoupersLocation location) {
+
+                            }
+                        });
                 }
             });
         }

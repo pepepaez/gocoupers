@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.coupers.entities.CoupersData;
 import com.coupers.entities.CoupersLocation;
+import com.coupers.utils.CoupersMenuItem;
 import com.coupers.utils.CoupersObject;
 import com.coupers.utils.CoupersServer;
 import com.facebook.Request;
@@ -42,38 +43,51 @@ public class DealMenuFragment extends Fragment {
     private ProfilePictureView profilePictureView;
     private TextView userNameView;
     private CoupersApp app = null;
-    private CoupersApp.StatusCallback callme = new CoupersApp.StatusCallback() {
-        @Override
-        public void call(int something) {
-
-        }
-    };
-
-    public class CoupersMenuItem{
-        public String item_text = "";
-        public int item_icon = R.drawable.coupers_icon3;
-        public int item_bg = R.drawable.list_selector_eat;
-        public int category_id = -999;
-        public int location_id = -999;
-        public boolean is_location = false;
-        public CoupersMenuItem(String text, int icon, int bg, int id){
-            this.item_text = text;
-            this.item_icon = icon;
-            this.item_bg = bg;
-            this.category_id = id;
-            this.is_location = false;
-        }
-    }
 
     //ACTIVITY CONTROL
     public DealMenuFragment(CoupersApp app) {
         this.app = app;
+        this.app.registerCallBack(new CoupersData.Interfaces.CallBack() {
+            @Override
+            public void update(String result) {
+
+            }
+
+            @Override
+            public void update(int location_id) {
+                GridView lv;
+                MenuAdapter adapter=null;
+                lv= (GridView) mContainer.findViewById(R.id.gridView);
+                if (lv!=null)
+                    adapter = (MenuAdapter) lv.getAdapter();
+                if (adapter!=null)
+                    adapter.removeFavorite(location_id);
+
+            }
+
+            @Override
+            public void update(CoupersLocation location) {
+                GridView lv;
+                MenuAdapter adapter=null;
+                CoupersMenuItem item = new CoupersMenuItem(location);
+                lv= (GridView) mContainer.findViewById(R.id.gridView);
+                if (lv!=null)
+                    adapter = (MenuAdapter) lv.getAdapter();
+                if (adapter!=null)
+                    adapter.insertFavorite(item);
+            }
+        });
+    }
+
+    public DealMenuFragment(){
+
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString("filter", mFilter);
+        //outState.putSerializable("app", app);
     }
 
     @Override
@@ -88,6 +102,8 @@ public class DealMenuFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        if (savedInstanceState!=null)
+            app=(CoupersApp)savedInstanceState.getSerializable("app");
         mContainer = container;
 
         ImageButton settings = (ImageButton) container.findViewById(R.id.settings);
@@ -134,6 +150,7 @@ public class DealMenuFragment extends Fragment {
        CoupersServer server = new CoupersServer(obj,new CoupersServer.ResultCallback() {
            @Override
            public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
+           if (isAdded())
                UpdateMenu(result);
            }
        });
@@ -141,7 +158,7 @@ public class DealMenuFragment extends Fragment {
         server.execute("dummy string");
     }
 
-    private void LoadCategoryDeals(int CategoryId){
+    private void loadCategoryDeals(int CategoryId){
         CoupersObject obj = new CoupersObject(CoupersData.Methods.GET_CATEGORY_DEALS);
         obj.addParameter(CoupersData.Parameters.CITY,getResources().getString(R.string.city));
         obj.addParameter(CoupersData.Parameters.CATEGORY_ID,String.valueOf(CategoryId));
@@ -183,11 +200,11 @@ public class DealMenuFragment extends Fragment {
         TypedArray deals_menu_icon = getResources().obtainTypedArray(R.array.deals_menu_icon);
 
         //Create adapter
-        MenuAdapter adapter=new MenuAdapter(this.getActivity());
+        final MenuAdapter adapter=new MenuAdapter(this.getActivity());
 
         if (aFavLocList.size()>0)
         {
-            adapter.addHeader(getString(R.string.favorites));
+            adapter.addHeader(new CoupersMenuItem(getString(R.string.favorites)));
 
             int j;
             j=0;
@@ -210,14 +227,16 @@ public class DealMenuFragment extends Fragment {
                 mLocation.CountDeals = map.get(CoupersData.Fields.FAVORITE_NEW_DEAL_COUNT);
                 j++;
 
-                if (j<=3){
-                    adapter.addFavorite(mLocation);
-                }
+                CoupersMenuItem item = new CoupersMenuItem(mLocation);
+
+                //if (j<=3){
+                    adapter.addFavorite(item);
+                //}
                 if(app!=null) app.addFavorite(mLocation);
             }
 
         }
-        adapter.addHeader(getString(R.string.i_want_to));
+        adapter.addHeader(new CoupersMenuItem(getString(R.string.i_want_to)));
 
         for (int i=0; i<deals_menu.length();i++)
         {
@@ -225,36 +244,34 @@ public class DealMenuFragment extends Fragment {
             adapter.addItem(item);
         }
 
-        lv.setAdapter(adapter);
+        if(lv!=null)
+        {
+            lv.setAdapter(adapter);
 
+            //Set OnClick event
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView parent, View view, int position,
+                                        long id) {
+                    if (getActivity() == null)
+                        return;
 
-        //Set OnClick event
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView parent, View view, int position,
-                                    long id) {
-                if (getActivity() == null)
-                    return;
-                ((MenuAdapter) lv.getAdapter()).AnimateInOut(view, true);
-                if (last_view_selected != null)
-                    ((MenuAdapter) lv.getAdapter()).AnimateInOut(last_view_selected, false);
-                last_view_selected = view;
-                ImageView option_selected = (ImageView) view.findViewById(R.id.selected_indicator);
-                if (option_selected != null) {
-                    int category_id = ((MenuAdapter) lv.getAdapter()).getCategoryId(position);
-                    view.findViewById(R.id.loading).setVisibility(View.VISIBLE);
-                    LoadCategoryDeals(category_id);
-                } else {
-                    ImageView favorite_location = (ImageView) view.findViewById(R.id.favorite_location);
-                    if (favorite_location != null) {
-                        //TODO call CardFlipActivity for selected location
-                        int location_id = ((MenuAdapter) lv.getAdapter()).getLocationId(position);
-                        loadLocation(location_id);
+                    switch (adapter.getItemViewType(position))
+                    {
+                        case CoupersMenuItem.TYPE_CATEGORY:
+                            adapter.AnimateInOut(view,true);
+                            if (last_view_selected != null)
+                                adapter.AnimateInOut(last_view_selected, false);
+                            last_view_selected = view;
+                            view.findViewById(R.id.loading).setVisibility(View.VISIBLE);
+                            loadCategoryDeals(adapter.getCategoryId(position));
+                            return;
+                        case CoupersMenuItem.TYPE_LOCATION:
+                            loadLocation(adapter.getLocation(position));
                     }
                 }
-
-            }
-        });
+            });
+        }
     }
 
     public void UpdateDeals(ArrayList<HashMap<String, String>> aData)
@@ -342,13 +359,13 @@ public class DealMenuFragment extends Fragment {
         request.executeAsync();
     }
 
-    private void loadLocation(int location_id) {
+    private void loadLocation(CoupersLocation location) {
         if (getActivity() == null)
             return;
 
         if (getActivity() instanceof MainActivity) {
             MainActivity ra = (MainActivity) getActivity();
-            ra.onDealPressed(location_id);
+            ra.onDealPressed(location);
         }
     }
 

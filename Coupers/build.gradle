@@ -4,8 +4,6 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:0.5.+'
-
-
     }
 }
 apply plugin: 'android'
@@ -16,9 +14,12 @@ repositories{
 }
 
 dependencies {
+
+    compile 'com.android.support:support-v4:18.0.0'
     compile project(':libraries:facebook')
-    compile('com.ABS:ABS:0.2')
-    compile('com.SlidingMenuLibrary:SlidingMenuLibrary:0.1')
+    compile project(':libraries:google-play-services_lib')
+    compile('com.ABS:ABS:0.5')
+    compile('com.SlidingMenuLibrary:SlidingMenuLibrary:0.3')
     compile('com.ksoap2:ksoap2:3.0')
     compile('com.google.zxing:core:2.2')
     compile('com.aquery:aquery:0.25.10')

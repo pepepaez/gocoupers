@@ -2,6 +2,10 @@
   <library name="ComSlidingMenuLibrarySlidingMenuLibrary01.aar">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/Coupers/build/exploded-bundles/ComSlidingMenuLibrarySlidingMenuLibrary01.aar/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/Coupers/build/exploded-bundles/ComSlidingMenuLibrarySlidingMenuLibrary01.aar/res" />
+      <root url="jar://$PROJECT_DIR$/Coupers/build/exploded-bundles/ComSlidingMenuLibrarySlidingMenuLibrary01.aar/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/Coupers/build/exploded-bundles/ComSlidingMenuLibrarySlidingMenuLibrary01.aar/res" />
+      <root url="jar://$PROJECT_DIR$/Coupers/build/exploded-bundles/ComSlidingMenuLibrarySlidingMenuLibrary01.aar/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -13,11 +13,9 @@ import android.widget.TextView;
 
 import com.androidquery.AQuery;
 import com.coupers.entities.CoupersLocation;
-import com.coupers.utils.ImageLoader;
+import com.coupers.utils.CoupersMenuItem;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.TreeSet;
 
 /**
  * Created by pepe on 7/11/13.
@@ -26,18 +24,11 @@ public class MenuAdapter extends BaseAdapter {
 
     private Activity activity;
     private static LayoutInflater inflater=null;
-    public ImageLoader imageLoader;
-    private static final int TYPE_ITEM = 0;
+    private static final int TYPE_CATEGORY = 0;
     private static final int TYPE_HEADER = 1;
     private static final int TYPE_FAVORITE = 2;
     private static final int TYPE_MAX_COUNT = TYPE_FAVORITE + 1;
-    private ArrayList mData = new ArrayList();
-    private TreeSet mHeaderSet = new TreeSet();
-    private TreeSet mFavoriteSet = new TreeSet();
-    private HashMap<String, HashMap<String, String>> mFavoriteData2 = new HashMap<String, HashMap<String, String>>();
-    private HashMap<String, CoupersLocation> mFavoriteData = new HashMap<String, CoupersLocation>();
-    private ArrayList<DealMenuFragment.CoupersMenuItem> mItems = new ArrayList<DealMenuFragment.CoupersMenuItem>();
-
+    private ArrayList <CoupersMenuItem> mDataSet = new ArrayList<CoupersMenuItem>();
 
 
     public MenuAdapter(Activity a)
@@ -48,55 +39,121 @@ public class MenuAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return mData.size();
+        return mDataSet.size();
     }
 
-    public void addItem(final DealMenuFragment.CoupersMenuItem item_details)
+    public void addItem(final CoupersMenuItem item_details)
     {
-        mData.add(item_details.item_text);
-        mItems.add(item_details);
+        mDataSet.add(item_details);
         notifyDataSetChanged();
     }
 
-    public void addHeader(final String item)
+    public void addHeader(final CoupersMenuItem item)
     {
-        mData.add(item);
-        mItems.add(null);
-        mHeaderSet.add(mData.size() - 1);
-        notifyDataSetChanged();
-
+        addItem(item);
     }
 
-    /*public void addFavorite (final HashMap<String,String> item)
+    public void addFavorite(final CoupersMenuItem item)
     {
-        mData.add(item.get(CoupersData.LOCATION_ID).toString());
-        mItems.add(null);
-        mFavoriteSet.add(mData.size() - 1);
-        mFavoriteData.put("item" + String.valueOf(mData.size() - 1), item);
+        addItem(item);
+    }
+
+    public void removeFavorite(final int location_id)
+    {
+
+        CoupersMenuItem favorite = findFavorite(location_id);
+        if (favorite !=null)
+            mDataSet.remove(favorite);
+        if (countFavorite()<=0)
+        {
+            CoupersMenuItem header = findHeader(activity.getString(R.string.favorites));
+            if (header!=null)
+                mDataSet.remove(header);
+        }
         notifyDataSetChanged();
+        //notifyDataSetInvalidated();
+    }
 
-    }*/
+    public void insertFavorite(final CoupersMenuItem favorite)
+    {
+        ArrayList<CoupersMenuItem> tempSet = new ArrayList<CoupersMenuItem>();
+        CoupersMenuItem temp_header = new CoupersMenuItem(activity.getString(R.string.favorites));
+        for (CoupersMenuItem item : mDataSet)
+        {
+            if (item.item_type==CoupersMenuItem.TYPE_HEADER)
+                if (item.item_text == activity.getString(R.string.i_want_to))
+                {
+                    if (countFavorite()==0)
+                        tempSet.add(temp_header);
+                    tempSet.add(favorite);
+                }
+            tempSet.add(item);
+        }
+        mDataSet = null;
+        mDataSet = tempSet;
+        notifyDataSetChanged();
+    }
 
-    public void addFavorite (final CoupersLocation item){
-        mData.add(item.location_id);
-        mItems.add(null);
-        mFavoriteSet.add(mData.size() - 1);
-        mFavoriteData.put("item" + String.valueOf(mData.size() - 1), item);
+    private int countFavorite(){
+        int i = 0;
+        for (CoupersMenuItem item : mDataSet)
+            if (item.item_type==CoupersMenuItem.TYPE_LOCATION)
+                i++;
+        return i;
+    }
+    private CoupersMenuItem findFavorite(int location_id)
+    {
+        for (CoupersMenuItem item : mDataSet)
+        {
+            if (item.item_type==CoupersMenuItem.TYPE_LOCATION)
+            {
+                CoupersLocation location = item.getLocation();
+                if (location.location_id==location_id)
+                    return item;
+            }
+        }
+        return null;
+    }
+
+    private CoupersMenuItem findHeader(String header_text){
+        for (CoupersMenuItem item : mDataSet)
+        {
+            if (item.item_type==CoupersMenuItem.TYPE_HEADER)
+            {
+                if (item.item_text == header_text)
+                    return item;
+            }
+        }
+        return null;
     }
 
     public int getLocationId(int position){
 
-        return Integer.valueOf(mFavoriteData.get("item"+String.valueOf(position)).location_id);
+        if(mDataSet.get(position).item_type==CoupersMenuItem.TYPE_LOCATION)
+            return mDataSet.get(position).getLocation().location_id;
+        else
+            return -1;
+
+    }
+
+    public CoupersLocation getLocation(int position){
+        if(mDataSet.get(position).item_type==CoupersMenuItem.TYPE_LOCATION)
+            return mDataSet.get(position).getLocation();
+        else
+            return null;
 
     }
 
     public int getCategoryId(int position) {
-        return mItems.get(position).category_id;
+        if (mDataSet.get(position).item_type==CoupersMenuItem.TYPE_CATEGORY)
+            return mDataSet.get(position).category_id;
+        else
+            return -1;
     }
 
     @Override
     public int getItemViewType(int position) {
-        return mHeaderSet.contains(position) ? TYPE_HEADER : mFavoriteSet.contains(position ) ? TYPE_FAVORITE : TYPE_ITEM;
+        return mDataSet.get(position).item_type;
     }
 
     @Override
@@ -106,7 +163,7 @@ public class MenuAdapter extends BaseAdapter {
     }
 
     public Object getItem(int position) {
-        return mData.get(position);
+        return mDataSet.get(position);
     }
 
     public long getItemId(int position) {
@@ -138,17 +195,18 @@ public class MenuAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         ViewHolder holder = null;
+
         int type = getItemViewType(position);
-        if(convertView==null){
+        //if(convertView==null){
             holder = new ViewHolder();
             switch (type){
-                case TYPE_ITEM:
+                case TYPE_CATEGORY:
                     convertView = inflater.inflate(R.layout.list_menu_item,null);
                     holder.textView = (TextView) convertView.findViewById(R.id.item_menu_text);
-                    holder.textView.setText(mData.get(position).toString());
+                    holder.textView.setText(mDataSet.get(position).item_text);
                     holder.icon = (ImageView) convertView.findViewById(R.id.item_menu_icon);
-                    holder.icon.setImageResource(mItems.get(position).item_icon);
-                    convertView.setBackgroundResource(mItems.get(position).item_bg);
+                    holder.icon.setImageResource(mDataSet.get(position).item_icon);
+                    convertView.setBackgroundResource(mDataSet.get(position).item_bg);
                     holder.indicator = (ImageView) convertView.findViewById(R.id.selected_indicator);
                     //holder.indicator.setBackgroundResource(android.R.color.white);
                     //holder.indicator.setPadding(5,0,0,0);
@@ -156,11 +214,11 @@ public class MenuAdapter extends BaseAdapter {
                 case TYPE_HEADER:
                     convertView = inflater.inflate(R.layout.list_menu_header,null);
                     holder.textView = (TextView) convertView.findViewById(R.id.item_menu_text);
-                    holder.textView.setText(mData.get(position).toString());
+                    holder.textView.setText(mDataSet.get(position).item_text);
                     break;
                 case TYPE_FAVORITE:
                     convertView = inflater.inflate(R.layout.list_menu_favorite,null);
-                    CoupersLocation location = mFavoriteData.get("item"+String.valueOf(position));
+                    CoupersLocation location = mDataSet.get(position).getLocation();
                     holder.textView = (TextView) convertView.findViewById(R.id.item_menu_text);
                     holder.textView.setText(String.valueOf(location.location_id));
                     holder.logo = (ImageView) convertView.findViewById(R.id.location_logo);
@@ -169,13 +227,14 @@ public class MenuAdapter extends BaseAdapter {
                     aq.id(R.id.location_logo).image(location.location_logo,true,true);
                     holder.dealcount = (TextView) convertView.findViewById(R.id.new_deal_count);
                     holder.dealcount.setText(location.CountDeals);
+                    convertView.setBackgroundResource(mDataSet.get(position).item_bg);
                     break;
             }
             convertView.setTag(holder);
 
-        }else{
+  /*      }else{
             holder = (ViewHolder) convertView.getTag();
-        }
+        }*/
 
         return convertView;
 

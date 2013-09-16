@@ -2,4 +2,4 @@
 <com.jeremyfeinstein.slidingmenu.lib.SlidingMenu xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/slidingmenumain"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" /><!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComSlidingMenuLibrarySlidingMenuLibrary01.aar/res/layout/slidingmenumain.xml -->
+    android:layout_height="fill_parent" /><!-- From: file:/home/pepe/AndroidProjects/SlidingMenu_Library/res/layout/slidingmenumain.xml --><!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComSlidingMenuLibrarySlidingMenuLibrary03.aar/res/layout/slidingmenumain.xml -->

@@ -27,6 +27,10 @@ public class DealGridFragment extends Fragment {
         mNearby = nearby;
     }
 
+    public DealGridFragment(){
+
+    }
+
     public boolean NearbyDeal(){
         return mNearby;
     }
@@ -42,7 +46,7 @@ public class DealGridFragment extends Fragment {
         final GridView gv = new GridView(getActivity()); //GridView) container.findViewById(R.id.gridView);
         //container.removeView(container.findViewById(R.id.gridView));
 
-        DealAdapter adapter = new DealAdapter(this.getActivity());
+        final DealAdapter adapter = new DealAdapter(this.getActivity());
         for (CoupersLocation location : mData) {
             if (location.Nearby==this.mNearby)
                 adapter.addLocation(location);
@@ -57,10 +61,8 @@ public class DealGridFragment extends Fragment {
                 if (getActivity() == null)
                     return;
 
-                int location_id = ((DealAdapter)gv.getAdapter()).getLocationId(position);
                 MainActivity activity = (MainActivity) getActivity();
-
-                activity.onDealPressed(location_id);
+                activity.onDealPressed(adapter.getLocation(position));
 
             }
         });

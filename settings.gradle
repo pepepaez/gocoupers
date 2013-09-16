@@ -1,1 +1,1 @@
-include ':Coupers', ':libraries:facebook'
+include ':Coupers', ':libraries:facebook', ':libraries:google-play-services_lib'

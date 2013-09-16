@@ -220,6 +220,41 @@ public class MainActivity extends SlidingFragmentActivity {
 
     }
 
+    public void onDealPressed(CoupersLocation location) {
+
+        progressDialog = ProgressDialog.show(this, "",
+                getResources().getString(R.string.progress_loading_deals), true);
+
+        CoupersObject obj = new CoupersObject(CoupersData.Methods.GET_LOCATION_DEALS);
+        obj.addParameter(CoupersData.Parameters.LOCATION_ID,String.valueOf(location.location_id));
+        String _tag[]={
+                CoupersData.Fields.DEAL_ID,
+                CoupersData.Fields.LOCATION_ID,
+                CoupersData.Fields.DEAL_START_DATE,
+                CoupersData.Fields.DEAL_END_DATE,
+                CoupersData.Fields.DEAL_DAY_SPECIAL,
+                CoupersData.Fields.LEVEL_ID,
+                CoupersData.Fields.LEVEL_START_AT,
+                CoupersData.Fields.LEVEL_SHARE_CODE,
+                CoupersData.Fields.LEVEL_REDEEM_CODE,
+                CoupersData.Fields.LEVEL_DEAL_LEGEND,
+                CoupersData.Fields.LEVEL_DEAL_DESCRIPTION
+        };
+        obj.setTag(_tag);
+
+        CoupersServer server = new CoupersServer(obj,new CoupersServer.ResultCallback() {
+            @Override
+            public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
+                UpdateDeals(result);
+            }
+        });
+
+        selected_location = location;
+
+        server.execute("dummy string");
+
+    }
+
     public void UpdateDeals(ArrayList<HashMap<String, String>> aResult){
 
         for (HashMap<String,String> map: aResult) {

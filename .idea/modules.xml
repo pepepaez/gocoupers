@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/CoupersAPI/CoupersAPI.iml" filepath="$PROJECT_DIR$/CoupersAPI/CoupersAPI.iml" />
       <module fileurl="file://$PROJECT_DIR$/CoupersProject.iml" filepath="$PROJECT_DIR$/CoupersProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/libraries/facebook/facebook.iml" filepath="$PROJECT_DIR$/libraries/facebook/facebook.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libraries/google-play-services_lib/google-play-services_lib.iml" filepath="$PROJECT_DIR$/libraries/google-play-services_lib/google-play-services_lib.iml" />
     </modules>
   </component>
 </project>

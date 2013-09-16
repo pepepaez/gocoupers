@@ -57,9 +57,9 @@
             android:layout_width="fill_parent"
             android:layout_height="1dp"
             android:id="@+id/imageView"
-            android:background="#dee0e2"
+            android:background="#3a3a3a"
             android:layout_alignBottom="@+id/item_menu_icon"
-            android:layout_toRightOf="@+id/selected_indicator"/>
+        android:layout_alignParentLeft="true" />
 
     <ProgressBar
             android:layout_width="wrap_content"

@@ -3,6 +3,7 @@ package com.coupers.coupers;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DialogFragment;
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -16,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.coupers.entities.CoupersDeal;
@@ -34,6 +36,13 @@ import com.facebook.UiLifecycleHelper;
 import com.facebook.model.GraphObject;
 import com.facebook.model.GraphUser;
 import com.facebook.model.OpenGraphAction;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -88,6 +97,7 @@ public class CardFlipActivity extends Activity
     private CoupersLocation data;
     private CoupersDeal deal;
     private CoupersApp app;
+    private CoupersData.Interfaces.CallBack coupers_call_back=null;
     private Menu menu;
 
     /**
@@ -165,8 +175,9 @@ public class CardFlipActivity extends Activity
             uiHelper.onActivityResult(requestCode,resultCode,data);
     }
 
-    public void postFacebook(CoupersDeal deal){
+    public void postFacebook(CoupersDeal deal, CoupersData.Interfaces.CallBack listener){
         this.deal = deal;
+        this.coupers_call_back=listener;
         handlePost();
     }
 
@@ -245,13 +256,28 @@ public class CardFlipActivity extends Activity
         PostResponse postResponse = response.getGraphObjectAs(PostResponse.class);
 
         if (postResponse != null && postResponse.getId() != null) {
-            String dialogBody = String.format(getString(R.string.result_dialog_text), postResponse.getId());
-            new AlertDialog.Builder(this)
-                    .setPositiveButton(R.string.result_dialog_button_text, null)
-                    .setTitle(R.string.result_dialog_title)
-                    .setMessage(dialogBody)
-                    .show();
-            //init(null);
+            CoupersObject obj = new CoupersObject(CoupersData.Methods.SHARE_DEAL_FACEBOOK);
+            obj.addParameter(CoupersData.Parameters.USER_ID,((CoupersApp)getApplication()).getUser_id());
+            obj.addParameter(CoupersData.Parameters.DEAL_ID,String.valueOf(this.deal.deal_id));
+            obj.addParameter(CoupersData.Parameters.FACEBOOK_POST_ID,postResponse.getId());
+            String _tag[]={
+                    CoupersData.Fields.COLUMN1};
+            obj.setTag(_tag);
+
+            CoupersServer server = new CoupersServer(obj,new CoupersServer.ResultCallback() {
+                @Override
+                public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
+                    //TODO add code to check if all is OK
+                    if (progressDialog!=null)
+                    {
+                        progressDialog.dismiss();
+                        progressDialog=null;
+                    }
+                    coupers_call_back.update("ok");
+                }
+            });
+
+            server.execute("dummy string");
         } else {
             handleError(response.getError());
         }
@@ -514,6 +540,9 @@ public class CardFlipActivity extends Activity
 
     private void flipCard() {
         if (mShowingBack) {
+            Fragment map = getFragmentManager().findFragmentById(R.id.map);
+            if (map!=null)
+                getFragmentManager().beginTransaction().remove(map).commit();
             getFragmentManager().popBackStack();
             return;
         }
@@ -598,6 +627,11 @@ public class CardFlipActivity extends Activity
     public class CardBackFragment extends DialogFragment {
         private CoupersLocation location;
 
+        final LatLng HAMBURG = new LatLng(53.558, 9.927);
+        final LatLng KIEL = new LatLng(53.551, 9.993);
+        private LatLng location_map;
+        private GoogleMap map;
+
         public CardBackFragment(CoupersLocation location){
             this.location = location;
         }
@@ -607,6 +641,47 @@ public class CardFlipActivity extends Activity
                                  Bundle savedInstanceState) {
             View view = inflater.inflate(R.layout.location_card_back, container, false);
 
+            MapFragment map_fragment =((MapFragment) getFragmentManager().findFragmentById(R.id.map));
+            if (map_fragment!=null)
+            {
+                map= map_fragment.getMap();
+                location_map = new LatLng(location.location_latitude,location.location_longitude);
+                Marker location_pin = map.addMarker(new MarkerOptions()
+                        .position(location_map)
+                        .title(location.location_name)
+                        .snippet(location.location_description)
+                        );
+
+                // Move the camera instantly to hamburg with a zoom of 15.
+                map.moveCamera(CameraUpdateFactory.newLatLngZoom(location_map, 15));
+
+                // Zoom in, animating the camera.
+                //map.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
+            }
+            int bgResource=R.drawable.list_selector_eat;
+            if (location !=null)
+            {
+                switch(location.category_id)
+                {
+                    case CoupersData.Fields.CATEGORY_ID_EAT:
+                        bgResource = R.drawable.list_selector_eat;
+                        break;
+                    case CoupersData.Fields.CATEGORY_ID_FEEL_GOOD:
+                        bgResource= R.drawable.list_selector_feel_good;
+                        break;
+                    case CoupersData.Fields.CATEGORY_ID_HAVE_FUN:
+                        bgResource = R.drawable.list_selector_have_fun;
+                        break;
+                    case CoupersData.Fields.CATEGORY_ID_LOOK_GOOD:
+                        bgResource= R.drawable.list_selector_look_good;
+                        break;
+                    case CoupersData.Fields.CATEGORY_ID_RELAX:
+                        bgResource=R.drawable.list_selector_relax;
+                        break;
+                }
+            }
+
+            ImageView transparency = (ImageView) view.findViewById(R.id.transparency);
             TextView location_name = (TextView) view.findViewById(R.id.location_name);
             TextView location_city = (TextView) view.findViewById(R.id.location_city);
             TextView location_address = (TextView) view.findViewById(R.id.location_address);
@@ -615,6 +690,7 @@ public class CardFlipActivity extends Activity
             TextView location_phone_number2 = (TextView) view.findViewById(R.id.location_phone_number2);
             TextView location_hours_operation1 = (TextView) view.findViewById(R.id.location_hours_operation1);
 
+            if (transparency!=null) transparency.setBackgroundResource(bgResource);
             if (location_name!=null) location_name.setText(location.location_name);
             if (location_city!=null) location_city.setText(location.location_city);
             if (location_address!=null) location_address.setText(location.location_address);

@@ -60,7 +60,7 @@
             android:layout_width="fill_parent"
             android:layout_height="1dp"
             android:id="@+id/imageView5"
-            android:background="#ec7f79"
+            android:background="#3a3a3a"
             android:layout_alignParentLeft="true"/>
 
 </RelativeLayout>

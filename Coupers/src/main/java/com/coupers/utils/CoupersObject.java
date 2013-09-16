@@ -15,20 +15,6 @@ public class CoupersObject {
     private ArrayList<String> parameterValue = new ArrayList<String>();
     private String tag[];
 
-    public  CoupersObject(String namespace, String soap_action, String url, String method_name){
-        NAMESPACE = namespace;
-        SOAP_ACTION = soap_action;
-        URL = url;
-        METHOD_NAME = method_name;
-    }
-
-/*    public  CoupersObject(String soap_action, String url, String method_name){
-        NAMESPACE = "http://tempuri.org/";
-        SOAP_ACTION = soap_action;
-        URL = url;
-        METHOD_NAME = method_name;
-    }*/
-
     public CoupersObject(String method_name){
         NAMESPACE = "http://tempuri.org/";
         SOAP_ACTION = NAMESPACE + method_name;
