@@ -277,7 +277,7 @@ public class CardFlipActivity extends Activity
                 }
             });
 
-            server.execute("dummy string");
+            server.execute();
         } else {
             handleError(response.getError());
         }
@@ -491,7 +491,7 @@ public class CardFlipActivity extends Activity
             }
         });
 
-        server.execute("dummy string");
+        server.execute();
     }
 
     public void RemoveLocationFavorite(){
@@ -509,7 +509,7 @@ public class CardFlipActivity extends Activity
             }
         });
 
-        server.execute("dummy string");
+        server.execute();
     }
 
     public void toggleFavorite(ArrayList<HashMap<String, String>> aResult, String WebServiceExecuted)

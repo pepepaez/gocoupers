@@ -226,7 +226,7 @@ public class MenuAdapter extends BaseAdapter {
                     AQuery aq = new AQuery(convertView);
                     aq.id(R.id.location_logo).image(location.location_logo,true,true);
                     holder.dealcount = (TextView) convertView.findViewById(R.id.new_deal_count);
-                    holder.dealcount.setText(location.CountDeals);
+                    holder.dealcount.setText(String.valueOf(location.CountDeals));
                     convertView.setBackgroundResource(mDataSet.get(position).item_bg);
                     break;
             }

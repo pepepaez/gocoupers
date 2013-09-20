@@ -121,6 +121,16 @@ public class MainActivity extends SlidingFragmentActivity {
 		return super.onOptionsItemSelected(item);
 	}
 
+    //region Activity Control
+    @Override
+	public void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+        outState.putSerializable("data",mData);
+        outState.putBoolean("gps",gps_available);
+        outState.putBoolean("nearby",nearby_locations);
+
+	}
+
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
         if (scanResult != null && scanResult.getContents() != null) {
@@ -138,16 +148,6 @@ public class MainActivity extends SlidingFragmentActivity {
         // else continue with any other code you need in the method
     }
 
-	@Override
-	public void onSaveInstanceState(Bundle outState) {
-		super.onSaveInstanceState(outState);
-		//getSupportFragmentManager().putFragment(outState, "mContent", mContent);
-        outState.putSerializable("data",mData);
-        outState.putBoolean("gps",gps_available);
-        outState.putBoolean("nearby",nearby_locations);
-
-	}
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
@@ -161,7 +161,7 @@ public class MainActivity extends SlidingFragmentActivity {
         settings_option.setShowAsAction(android.view.MenuItem.SHOW_AS_ACTION_IF_ROOM);
         return true;
     }
-
+    //endregion
 
 	public void switchContent(ArrayList<CoupersLocation> mData, boolean gps_available, boolean nearby_locations) {
 
@@ -184,41 +184,6 @@ public class MainActivity extends SlidingFragmentActivity {
 		}, 50);
 	}
 
-    public void onDealPressed(int location_id) {
-
-        progressDialog = ProgressDialog.show(this, "",
-                getResources().getString(R.string.progress_loading_deals), true);
-
-        CoupersObject obj = new CoupersObject(CoupersData.Methods.GET_LOCATION_DEALS);
-        obj.addParameter(CoupersData.Parameters.LOCATION_ID,String.valueOf(location_id));
-        String _tag[]={
-                CoupersData.Fields.DEAL_ID,
-                CoupersData.Fields.LOCATION_ID,
-                CoupersData.Fields.DEAL_START_DATE,
-                CoupersData.Fields.DEAL_END_DATE,
-                CoupersData.Fields.DEAL_DAY_SPECIAL,
-                CoupersData.Fields.LEVEL_ID,
-                CoupersData.Fields.LEVEL_START_AT,
-                CoupersData.Fields.LEVEL_SHARE_CODE,
-                CoupersData.Fields.LEVEL_REDEEM_CODE,
-                CoupersData.Fields.LEVEL_DEAL_LEGEND,
-                CoupersData.Fields.LEVEL_DEAL_DESCRIPTION
-        };
-        obj.setTag(_tag);
-
-        CoupersServer server = new CoupersServer(obj,new CoupersServer.ResultCallback() {
-            @Override
-            public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
-                UpdateDeals(result);
-            }
-        });
-
-        for (CoupersLocation location:mData)
-        if (location.location_id == location_id) selected_location = location;
-
-        server.execute("dummy string");
-
-    }
 
     public void onDealPressed(CoupersLocation location) {
 
@@ -251,15 +216,16 @@ public class MainActivity extends SlidingFragmentActivity {
 
         selected_location = location;
 
-        server.execute("dummy string");
+        server.execute();
 
     }
 
     public void UpdateDeals(ArrayList<HashMap<String, String>> aResult){
 
         for (HashMap<String,String> map: aResult) {
-            CoupersDeal deal = new CoupersDeal(Integer.valueOf(map.get(CoupersData.Fields.DEAL_ID)), map.get(CoupersData.Fields.DEAL_START_DATE), map.get(CoupersData.Fields.DEAL_END_DATE));
+            CoupersDeal deal = new CoupersDeal(Integer.valueOf(map.get(CoupersData.Fields.LOCATION_ID)),Integer.valueOf(map.get(CoupersData.Fields.DEAL_ID)), map.get(CoupersData.Fields.DEAL_START_DATE), map.get(CoupersData.Fields.DEAL_END_DATE));
             CoupersDealLevel level = new CoupersDealLevel(
+                    Integer.valueOf(map.get(CoupersData.Fields.DEAL_ID)),
                     Integer.valueOf(map.get(CoupersData.Fields.LEVEL_ID)),
                     Integer.valueOf(map.get(CoupersData.Fields.LEVEL_START_AT)),
                     map.get(CoupersData.Fields.LEVEL_SHARE_CODE),

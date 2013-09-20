@@ -1,5 +1,6 @@
 package com.coupers.entities;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.view.View;
 
 /**
@@ -14,6 +15,7 @@ public final class CoupersData {
         public final static int FEEL_GOOD = 40;
         public final static int LOOK_GOOD = 50;
     }
+
     public static final class Parameters{
         public final static String USER_ID="user_id";
         public final static String CITY = "city";
@@ -90,6 +92,51 @@ public final class CoupersData {
             public void update(String result);
             public void update(int location_id);
             public void update(CoupersLocation location);
+        }
+    }
+
+    public static final class SQLiteDictionary{
+        public static final class tb_Location {
+            public static final String table_name = "tb_location";
+
+            public static final String location_id = "location_id";
+            public static final String category_id = "category_id";
+            public static final String location_name = "location_name";
+            public static final String location_description = "location_description";
+            public static final String location_logo = "location_logo";
+            public static final String location_thumbnail = "location_thumbnail";
+            public static final String location_address = "location_address";
+            public static final String location_city = "location_city";
+            public static final String location_latitude = "location_latitude";
+            public static final String location_longitude = "location_longitude";
+            public static final String location_phone_number1 = "location_phone_number1";
+            public static final String location_phone_number2 = "location_phone_number2";
+            public static final String location_website = "location_website";
+            public static final String location_hours_operation = "location_hours_operation";
+            public static final String isFavorite = "isfavorite";
+        }
+        public static final class tb_Deal {
+            public static final String table_name = "tb_deal";
+
+            public static final String deal_id = "deal_id";
+            public static final String location_id = "location_id";
+            public static final String deal_start_date = "deal_start_date";
+            public static final String deal_end_date = "deal_end_date";
+            public static final String saved_deal = "saved_deal";
+            public static final String fb_post_id = "fb_post_id";
+            public static final String current_level_id = "current_level_id";
+            public static final String share_count = "share_count";
+        }
+        public static final class tb_DealLevel{
+            public static final String table_name = "tb_deal_level";
+
+            public static final String deal_id = "deal_id";
+            public static final String level_id = "level_id";
+            public static final String level_deal_legend = "level_deal_legend";
+            public static final String level_deal_description = "level_deal_description";
+            public static final String level_redeem_code = "level_redeem_code";
+            public static final String level_share_code = "level_share_code";
+            public static final String level_start_at = "level_start_at";
         }
     }
 

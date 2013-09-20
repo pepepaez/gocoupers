@@ -1,9 +1,11 @@
 package com.coupers.coupers;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.coupers.entities.CoupersData;
 import com.coupers.entities.CoupersLocation;
+import com.coupers.utils.CoupersDBHelper;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,6 +17,8 @@ import java.util.List;
  */
 public class CoupersApp extends Application {
     private String user_id;
+    private Context context;
+    public CoupersDBHelper db;
     private boolean refresh = false;
     private List<String> need_refresh;
     private ArrayList<HashMap<String, String>> FavoriteLocations2 = new ArrayList<HashMap<String, String>>();
@@ -32,8 +36,10 @@ public class CoupersApp extends Application {
         this.user_id = user_id;
     }
 
-    public void initialize()
+    public void initialize(Context context)
     {
+        this.context = context;
+        db = new CoupersDBHelper(this.context);
         this.FavoriteLocations= new ArrayList<CoupersLocation>();
     }
 
@@ -61,6 +67,11 @@ public class CoupersApp extends Application {
 
     public void addFavorite(final CoupersLocation item){
         FavoriteLocations.add(item);
+        item.location_isfavorite=true;
+        if (!db.exists(item))
+            db.addLocation(item);
+        else
+            db.toggleLocationFavorite(item.location_id,item.location_isfavorite);
         if (callBack!=null) callBack.update(item);
     }
 
@@ -74,6 +85,12 @@ public class CoupersApp extends Application {
         }
         if (result && loc!=null)
         {
+            loc.location_isfavorite=false;
+            if (!db.exists(loc))
+                db.addLocation(loc);
+            else
+                db.toggleLocationFavorite(loc.location_id,loc.location_isfavorite);
+
             FavoriteLocations.remove(loc);
             if (callBack!=null) callBack.update(location_id);
         }
@@ -87,5 +104,15 @@ public class CoupersApp extends Application {
                 result=true;
         }
         return result;
+    }
+
+    //TODO set saved deal
+    public void setSavedDeal(int deal_id){
+
+    }
+
+    //TODO set FB post ID
+    public void setFB_PostID(int deal_id, String post_id){
+
     }
 }

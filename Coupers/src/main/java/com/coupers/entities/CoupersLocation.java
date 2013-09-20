@@ -1,11 +1,18 @@
 package com.coupers.entities;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+
+import com.google.android.gms.internal.db;
+
 import org.ksoap2.serialization.PropertyInfo;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Hashtable;
+
+import static com.coupers.entities.CoupersData.SQLiteDictionary.*;
 
 /**
  * Created by pepe on 7/13/13.
@@ -26,9 +33,10 @@ public class CoupersLocation implements Serializable
     public String location_phone_number2;
     public double location_latitude;
     public double location_longitude;
+    public boolean location_isfavorite = false;
     public HashMap<Integer, CoupersDeal> location_deals = new HashMap<Integer, CoupersDeal>();
 
-    public String CountDeals;
+    public int CountDeals=0;
     public String TopDeal;
     public boolean Nearby = false;
 
@@ -46,6 +54,55 @@ public class CoupersLocation implements Serializable
         this.location_phone_number2 = location_phone_number2;
         this.location_latitude = location_latitude;
         this.location_longitude = location_longitude;
+    }
+
+    public CoupersLocation(Cursor dbcursor){
+        this.location_id = dbcursor.getInt(dbcursor.getColumnIndex(tb_Location.location_id));
+        this.category_id = dbcursor.getInt(dbcursor.getColumnIndex(tb_Location.category_id));
+        this.location_name = dbcursor.getString(dbcursor.getColumnIndex(tb_Location.location_name));
+        this.location_description = dbcursor.getString(dbcursor.getColumnIndex(tb_Location.location_description));
+        this.location_website_url = dbcursor.getString(dbcursor.getColumnIndex(tb_Location.location_website));
+        this.location_logo = dbcursor.getString(dbcursor.getColumnIndex(tb_Location.location_logo));
+        this.location_thumbnail = dbcursor.getString(dbcursor.getColumnIndex(tb_Location.location_thumbnail));
+        this.location_address = dbcursor.getString(dbcursor.getColumnIndex(tb_Location.location_address));
+        this.location_city = dbcursor.getString(dbcursor.getColumnIndex(tb_Location.location_city));
+        this.location_phone_number1 = dbcursor.getString(dbcursor.getColumnIndex(tb_Location.location_phone_number1));
+        this.location_phone_number2 = dbcursor.getString(dbcursor.getColumnIndex(tb_Location.location_phone_number2));
+        this.location_latitude = dbcursor.getDouble(dbcursor.getColumnIndex(tb_Location.location_latitude));;
+        this.location_longitude = dbcursor.getDouble(dbcursor.getColumnIndex(tb_Location.location_longitude));;
+        if (dbcursor.getInt(dbcursor.getColumnIndex(tb_Location.isFavorite))==1)
+            this.location_isfavorite=true;
+    }
+
+    public int isFavorite(){
+        int result = 0;
+        if (location_isfavorite)
+            result = 1;
+        return result;
+    }
+
+    public ContentValues getSQLiteValues(){
+        ContentValues values = new ContentValues();
+
+        values.put(tb_Location.location_id, this.location_id);
+        values.put(tb_Location.category_id, this.category_id);
+        values.put(tb_Location.location_name,this.location_name);
+        values.put(tb_Location.location_description,this.location_description);
+        values.put(tb_Location.location_website, this.location_website_url);
+        values.put(tb_Location.location_logo, this.location_logo);
+        values.put(tb_Location.location_thumbnail, this.location_thumbnail);
+        values.put(tb_Location.location_thumbnail, this.location_thumbnail);
+        values.put(tb_Location.location_address, this.location_address);
+        values.put(tb_Location.location_city, this.location_city);
+        values.put(tb_Location.location_phone_number1, this.location_phone_number1);
+        values.put(tb_Location.location_phone_number2, this.location_phone_number2);
+        values.put(tb_Location.location_latitude, this.location_latitude);
+        values.put(tb_Location.location_longitude, this.location_longitude);
+        values.put(tb_Location.location_hours_operation, "nothing really");
+        values.put(tb_Location.isFavorite,this.isFavorite());
+
+
+        return values;
     }
 
 

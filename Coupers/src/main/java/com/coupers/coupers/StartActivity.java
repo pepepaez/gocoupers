@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.AsyncTask;
@@ -43,13 +45,13 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
 public class StartActivity extends Activity {
 
     private static final int NO_METHOD_DEFINED = -999;
-    private static final int MAIL_LOGIN = 1;
     private static final int FACEBOOK_LOGIN = 2;
     private static final String NO_LOCATION_AVAILABLE = "nla";
     private static final String NO_USER_ID_AVAILABLE = "nuida";
@@ -60,8 +62,6 @@ public class StartActivity extends Activity {
     private GraphUser fb_user;
     private Activity a;
     public boolean exit_next=false;
-
-
     private boolean isResumed = false;
     private CoupersApp app = null;
     private UiLifecycleHelper uiHelper;
@@ -72,28 +72,16 @@ public class StartActivity extends Activity {
         }
     };
 
-    static final LatLng HAMBURG = new LatLng(53.558, 9.927);
-    static final LatLng KIEL = new LatLng(53.551, 9.993);
-    private GoogleMap map;
-
     //GCM Variables
     public static final String EXTRA_MESSAGE = "message";
     public static final String PROPERTY_REG_ID = "registration_id";
     private static final String PROPERTY_APP_VERSION = "appVersion";
     private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
 
-    /**
-     * Substitute you own sender ID here. This is the project number you got
-     * from the API Console, as described in "Getting Started."
-     */
     String SENDER_ID = "1020354503637";
 
-    /**
-     * Tag used on log messages.
-     */
-    static final String TAG = "GCMCoupers";
+    static final String TAG = "CoupersLog";
 
-    TextView mDisplay;
     GoogleCloudMessaging gcm;
     AtomicInteger msgId = new AtomicInteger();
     SharedPreferences prefs;
@@ -104,24 +92,6 @@ public class StartActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        /*setContentView(R.layout.map_view);
-        map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map))
-                .getMap();
-        Marker hamburg = map.addMarker(new MarkerOptions().position(HAMBURG)
-                .title("Hamburg"));
-        Marker kiel = map.addMarker(new MarkerOptions()
-                .position(KIEL)
-                .title("Kiel")
-                .snippet("Kiel is cool")
-                .icon(BitmapDescriptorFactory
-                        .fromResource(R.drawable.ic_launcher)));
-
-        // Move the camera instantly to hamburg with a zoom of 15.
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(HAMBURG, 15));
-
-        // Zoom in, animating the camera.
-        map.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);*/
 
         context = getApplicationContext();
 
@@ -135,7 +105,10 @@ public class StartActivity extends Activity {
                 registerInBackground();
             }
             else
+            {
+
                 Log.i(TAG, regid);
+            }
         } else
         {
             Log.i(TAG, "No valid Google Play Services APK found.");
@@ -143,19 +116,24 @@ public class StartActivity extends Activity {
 
         setTitle(R.string.main_hub_ui);
         a = this;
-        //store user id
-        //PreferenceManager.getDefaultSharedPreferences(this).edit().putString("MYLABEL", "myStringToSave").commit();
 
         //read login method id
         login_method = PreferenceManager.getDefaultSharedPreferences(this).getInt("login_method", NO_METHOD_DEFINED);
-        user_id = PreferenceManager.getDefaultSharedPreferences(this).getString("user_id",NO_USER_ID_AVAILABLE);
+        user_id = PreferenceManager.getDefaultSharedPreferences(this).getString("user_id", NO_USER_ID_AVAILABLE);
         user_location = PreferenceManager.getDefaultSharedPreferences(this).getString("user_location",NO_LOCATION_AVAILABLE);
         registered = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("registered", false);
+
+        //get app
         app = (CoupersApp) getApplication();
-        app.initialize();
+        app.initialize(this);
+
         app.setUser_id(user_id);
 
 
+        if (!regid.isEmpty())
+            sendRegistrationIdToBackend(regid);
+
+        //Initialize Facebook helper
         uiHelper = new UiLifecycleHelper(this, callback);
         uiHelper.onCreate(savedInstanceState);
 
@@ -171,7 +149,7 @@ public class StartActivity extends Activity {
                     @Override
                     public void onClick(View view) {
                         setContentView(R.layout.activity_start);
-                        LoadData();
+                        loadDeals();
                     }
                 });
             }
@@ -181,7 +159,7 @@ public class StartActivity extends Activity {
             Session session = Session.getActiveSession();
             if (session != null && session.isOpened()){
                 setContentView(R.layout.activity_start);
-                LoadData();
+                loadDeals();
             }else if (session != null && session.getState()==SessionState.CREATED_TOKEN_LOADED){
                 setContentView(R.layout.activity_start);
             }else
@@ -191,10 +169,137 @@ public class StartActivity extends Activity {
                 setContentView(R.layout.activity_login_only_facebook);
             }
 
+    }
 
+    // <editor-fold desc="Coupers Methods - Deal Loading">
+    private void loadDeals(){
+        ArrayList<CoupersLocation> data;
+        data = app.db.getAllLocations();
+        if (data.size()>0)
+            parseDeals(data);
+        else
+            loadDealsWS();
 
     }
 
+    private void loadDealsWS(){
+        CoupersObject obj = new CoupersObject(CoupersData.Methods.GET_CITY_DEALS);
+        obj.addParameter(CoupersData.Parameters.CITY,"mexicali");
+        String _tag[]={
+                CoupersData.Fields.LOCATION_ID,
+                CoupersData.Fields.LOCATION_NAME,
+                CoupersData.Fields.LOCATION_LOGO,
+                CoupersData.Fields.LOCATION_ADDRESS,
+                CoupersData.Fields.LOCATION_CITY,
+                CoupersData.Fields.CATEGORY_ID,
+                CoupersData.Fields.LATITUDE,
+                CoupersData.Fields.LONGITUDE,
+                CoupersData.Fields.LOCATION_DESCRIPTION,
+                CoupersData.Fields.LOCATION_WEBSITE_URL,
+                CoupersData.Fields.LOCATION_THUMBNAIL,
+                CoupersData.Fields.LOCATION_PHONE_NUMBER1,
+                CoupersData.Fields.LOCATION_PHONE_NUMBER2,
+                CoupersData.Fields.LOCATION_HOURS_OPERATION1,
+                CoupersData.Fields.LEVEL_DEAL_LEGEND,
+                CoupersData.Fields.COUNTDEALS};
+        obj.setTag(_tag);
+
+        CoupersServer server = new CoupersServer(obj,new CoupersServer.ResultCallback() {
+            @Override
+            public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
+                //Parse data before loading
+
+                ArrayList<CoupersLocation> mData = new ArrayList<CoupersLocation>();
+                for (HashMap<String, String> map : result){
+                    CoupersLocation mLocation = new CoupersLocation(
+                            Integer.valueOf(map.get(CoupersData.Fields.LOCATION_ID)),
+                            Integer.valueOf(map.get(CoupersData.Fields.CATEGORY_ID)),
+                            map.get(CoupersData.Fields.LOCATION_NAME),
+                            map.get(CoupersData.Fields.LOCATION_DESCRIPTION),
+                            map.get(CoupersData.Fields.LOCATION_WEBSITE_URL),
+                            map.get(CoupersData.Fields.LOCATION_LOGO),
+                            map.get(CoupersData.Fields.LOCATION_THUMBNAIL),
+                            map.get(CoupersData.Fields.LOCATION_ADDRESS),
+                            map.get(CoupersData.Fields.LOCATION_CITY),
+                            map.get(CoupersData.Fields.LOCATION_PHONE_NUMBER1),
+                            map.get(CoupersData.Fields.LOCATION_PHONE_NUMBER2),
+                            Double.valueOf(map.get(CoupersData.Fields.LATITUDE)),
+                            Double.valueOf(map.get(CoupersData.Fields.LONGITUDE)));
+                    mLocation.TopDeal = map.get(CoupersData.Fields.LEVEL_DEAL_LEGEND);
+                    mLocation.CountDeals = Integer.valueOf(map.get(CoupersData.Fields.COUNTDEALS));
+                    mData.add(mLocation);
+                    if (!app.db.exists(mLocation))
+                        app.db.addLocation(mLocation);
+                }
+
+                parseDeals(mData);
+            }
+        });
+
+        server.execute();
+    }
+
+    private void parseDeals(ArrayList<CoupersLocation> locations){
+
+        LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+        Location geoloc = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        double latitude;
+        double longitude;
+        boolean nearby_locations=false;
+        if(geoloc != null){
+            latitude = geoloc.getLatitude();
+            longitude = geoloc.getLongitude();
+        }else{
+            latitude = -999;
+            longitude = -999;
+        }
+        float[] results = new float[1];
+        float distance = 0;
+
+        for (CoupersLocation location : locations){
+            if (geoloc!=null){
+                Location.distanceBetween(latitude,longitude,location.location_latitude,location.location_longitude,results);
+                distance = results[0];
+                if (distance < 1000){
+                    location.Nearby=true;
+                    nearby_locations = true;
+                }
+            }
+        }
+
+        findViewById(R.id.progressBar).setVisibility(View.INVISIBLE);
+        findViewById(R.id.textView).setVisibility(View.INVISIBLE);
+        Intent intent = new Intent(StartActivity.this,MainActivity.class);
+        intent.putExtra("data",locations);
+        intent.putExtra("gps",geoloc!=null);
+        intent.putExtra("nearby",nearby_locations);
+        exit_next=true;
+        startActivity(intent);
+
+    }
+
+    public String GetClosestCityName(){
+        String result="nada";
+        Geocoder geocoder = new Geocoder(context);
+        LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+        Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        List<Address> list = new ArrayList<Address>();
+        try{
+            list= geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 4);
+        }catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        if (list != null & list.size() > 0) {
+            Address address = list.get(0);
+            result = address.getLocality();
+        }
+        return result;
+
+    }
+    //</editor-fold>
+
+    // <editor-fold desc="Activity Control">
     @Override
     protected void onPause() {
         super.onPause();
@@ -234,7 +339,9 @@ public class StartActivity extends Activity {
         super.onSaveInstanceState(outState);
         uiHelper.onSaveInstanceState(outState);
     }
+    // </editor-fold>
 
+    // <editor-fold desc="GCM & Google Play Services">
     private boolean checkPlayServices() {
         int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
         if (resultCode != ConnectionResult.SUCCESS) {
@@ -352,13 +459,13 @@ public class StartActivity extends Activity {
         }.execute(null, null, null);
     }
 
-        /**
+    /**
          * Sends the registration ID to your server over HTTP, so it can use GCM/HTTP
          * or CCS to send messages to your app. Not needed for this demo since the
          * device sends upstream messages to a server that echoes back the message
          * using the 'from' address in the message.
          */
-        private void sendRegistrationIdToBackend(String pn_id) {
+    private void sendRegistrationIdToBackend(String pn_id) {
             // Your implementation here.
             CoupersObject obj = new CoupersObject(CoupersData.Methods.SAVE_PUSH_NOTIFICATION_ID);
             obj.addParameter(CoupersData.Parameters.USER_ID,app.getUser_id());
@@ -375,7 +482,7 @@ public class StartActivity extends Activity {
                 }
             });
 
-            server.execute("dummy string");
+            server.execute();
 
         }
 
@@ -396,7 +503,21 @@ public class StartActivity extends Activity {
         editor.commit();
     }
 
+    public void CompleteRegistration(ArrayList<HashMap<String, String>> aData){
+        HashMap<String, String> map;
+        if (aData.size()>0){
+            map = aData.get(0);
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putString("user_id",map.get(CoupersData.Fields.USER_ID)).commit();
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putString("user_location","mexicali").commit();
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean("registered", true).commit();
+            app.setUser_id(map.get(CoupersData.Fields.USER_ID));
+            loadDeals();
+        }
+    }
 
+    // </editor-fold>
+
+    // <editor-fold desc="Facebook Methods">
     private void onSessionStateChange(Session session, SessionState state, Exception exception) {
         if (isResumed) {
             //TODO Review if need to use fragments on login
@@ -443,7 +564,7 @@ public class StartActivity extends Activity {
                                 if(!registered)
                                     RegisterUser(user.getId(),user.getName(),"mexicali",user.getUsername());
                                 else
-                                    LoadData();
+                                    loadDeals();
                                 fb_user = user;
                                 //LoadData();
                             }
@@ -456,142 +577,27 @@ public class StartActivity extends Activity {
         request.executeAsync();
     }
 
-    private void RegisterUser(String fb_user_id,
-                              String fb_user_name,
-                              String fb_user_location,
-                              String fb_user_username){
-        CoupersObject obj = new CoupersObject(CoupersData.Methods.LOGIN_FACEBOOK);
-        obj.addParameter(CoupersData.Parameters.FACEBOOK_ID,fb_user_id);
-        obj.addParameter(CoupersData.Parameters.USER_CITY,fb_user_location);
-        obj.addParameter(CoupersData.Parameters.USERNAME,fb_user_username);
+    private void RegisterUser(String fb_user_id, String fb_user_name, String fb_user_location, String fb_user_username) {
 
-        String _tag[]={
+        CoupersObject obj = new CoupersObject(CoupersData.Methods.LOGIN_FACEBOOK);
+        obj.addParameter(CoupersData.Parameters.FACEBOOK_ID, fb_user_id);
+        obj.addParameter(CoupersData.Parameters.USER_CITY, fb_user_location);
+        obj.addParameter(CoupersData.Parameters.USERNAME, fb_user_username);
+
+        String _tag[] = {
                 CoupersData.Fields.USER_ID,
                 CoupersData.Fields.RESULT_CODE};
         obj.setTag(_tag);
 
-        CoupersServer server = new CoupersServer(obj,new CoupersServer.ResultCallback() {
+        CoupersServer server = new CoupersServer(obj, new CoupersServer.ResultCallback() {
             @Override
             public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
                 CompleteRegistration(result);
             }
         });
 
-        server.execute("dummy string");
+        server.execute();
     }
 
-    private void LoadData(){
-        CoupersObject obj = new CoupersObject(CoupersData.Methods.GET_CITY_DEALS);
-        obj.addParameter(CoupersData.Parameters.CITY,"mexicali");
-        String _tag[]={
-                CoupersData.Fields.LOCATION_ID,
-                CoupersData.Fields.LOCATION_NAME,
-                CoupersData.Fields.LOCATION_LOGO,
-                CoupersData.Fields.LOCATION_ADDRESS,
-                CoupersData.Fields.LOCATION_CITY,
-                CoupersData.Fields.CATEGORY_ID,
-                CoupersData.Fields.LATITUDE,
-                CoupersData.Fields.LONGITUDE,
-                CoupersData.Fields.LOCATION_DESCRIPTION,
-                CoupersData.Fields.LOCATION_WEBSITE_URL,
-                CoupersData.Fields.LOCATION_THUMBNAIL,
-                CoupersData.Fields.LOCATION_PHONE_NUMBER1,
-                CoupersData.Fields.LOCATION_PHONE_NUMBER2,
-                CoupersData.Fields.LOCATION_HOURS_OPERATION1,
-                CoupersData.Fields.LEVEL_DEAL_LEGEND,
-                CoupersData.Fields.COUNTDEALS};
-        obj.setTag(_tag);
-
-        CoupersServer server = new CoupersServer(obj,new CoupersServer.ResultCallback() {
-            @Override
-            public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
-                LoadMainUI(result);
-            }
-        });
-
-        server.execute("dummy string");
-    }
-
-
-    //TODO remove if callbacks work
-/*    public void Update(ArrayList<HashMap<String, String>> aResult, String WebServiceExecuted)
-    {
-
-        if (WebServiceExecuted=="LoginUserFacebook") CompleteRegistration(aResult);
-
-        if (WebServiceExecuted == "GetCityDeals") LoadMainUI(aResult);
-
-    }*/
-
-    public void CompleteRegistration(ArrayList<HashMap<String, String>> aData){
-        HashMap<String, String> map;
-        if (aData.size()>0){
-            map = aData.get(0);
-            PreferenceManager.getDefaultSharedPreferences(this).edit().putString("user_id",map.get(CoupersData.Fields.USER_ID)).commit();
-            PreferenceManager.getDefaultSharedPreferences(this).edit().putString("user_location","mexicali").commit();
-            PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean("registered", true).commit();
-            app.setUser_id(map.get(CoupersData.Fields.USER_ID));
-            LoadData();
-        }
-    }
-
-    public void LoadMainUI(ArrayList<HashMap<String, String>> aData){
-
-        ArrayList<CoupersLocation> mData = new ArrayList<CoupersLocation>();
-        LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-        Location geoloc = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        double latitude;
-        double longitude;
-        boolean nearby_locations=false;
-        if(geoloc != null){
-            latitude = geoloc.getLatitude();
-            longitude = geoloc.getLongitude();
-        }else{
-            latitude = -999;
-            longitude = -999;
-        }
-        float[] results = new float[1];
-        float distance = 0;
-
-        //Go through data to create 2 data sets, one with locations nearby and the rest
-        for (HashMap<String, String> map : aData){
-            CoupersLocation mLocation = new CoupersLocation(
-                    Integer.valueOf(map.get(CoupersData.Fields.LOCATION_ID)),
-                    Integer.valueOf(map.get(CoupersData.Fields.CATEGORY_ID)),
-                    map.get(CoupersData.Fields.LOCATION_NAME),
-                    map.get(CoupersData.Fields.LOCATION_DESCRIPTION),
-                    map.get(CoupersData.Fields.LOCATION_WEBSITE_URL),
-                    map.get(CoupersData.Fields.LOCATION_LOGO),
-                    map.get(CoupersData.Fields.LOCATION_THUMBNAIL),
-                    map.get(CoupersData.Fields.LOCATION_ADDRESS),
-                    map.get(CoupersData.Fields.LOCATION_CITY),
-                    map.get(CoupersData.Fields.LOCATION_PHONE_NUMBER1),
-                    map.get(CoupersData.Fields.LOCATION_PHONE_NUMBER2),
-                    Double.valueOf(map.get(CoupersData.Fields.LATITUDE)),
-                    Double.valueOf(map.get(CoupersData.Fields.LONGITUDE)));
-            mLocation.TopDeal = map.get(CoupersData.Fields.LEVEL_DEAL_LEGEND);
-            mLocation.CountDeals = map.get(CoupersData.Fields.COUNTDEALS);
-            if (geoloc!=null){
-                Location.distanceBetween(latitude,longitude,mLocation.location_latitude,mLocation.location_longitude,results);
-                distance = results[0];
-                if (distance < 1000){
-                    mLocation.Nearby=true;
-                    nearby_locations = true;
-                }
-            }
-            mData.add(mLocation);
-        }
-
-        findViewById(R.id.progressBar).setVisibility(View.INVISIBLE);
-        findViewById(R.id.textView).setVisibility(View.INVISIBLE);
-        Intent intent = new Intent(StartActivity.this,MainActivity.class);
-        intent.putExtra("data",mData);
-        intent.putExtra("gps",geoloc!=null);
-        intent.putExtra("nearby",nearby_locations);
-        exit_next=true;
-        startActivity(intent);
-
-    }
-
-
+    //</editor-fold>
 }

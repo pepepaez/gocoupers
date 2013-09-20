@@ -30,11 +30,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-//TODO add icons to menu options
-//TODO add settings or my deals option to menu
 public class DealMenuFragment extends Fragment {
 
-    private String mFilter = "food"; //TODO change hardcode to setting or last category used?
     private ImageView last_selected = null;
     private ViewGroup mContainer = null;
     private ArrayList<CoupersLocation> mData = new ArrayList<CoupersLocation>();
@@ -86,8 +83,6 @@ public class DealMenuFragment extends Fragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString("filter", mFilter);
-        //outState.putSerializable("app", app);
     }
 
     @Override
@@ -155,7 +150,7 @@ public class DealMenuFragment extends Fragment {
            }
        });
 
-        server.execute("dummy string");
+        server.execute();
     }
 
     private void loadCategoryDeals(int CategoryId){
@@ -188,7 +183,7 @@ public class DealMenuFragment extends Fragment {
             }
         });
 
-        server.execute("dummy string");
+        server.execute();
     }
 
     public void UpdateMenu(ArrayList<HashMap<String, String>> aFavLocList){
@@ -224,7 +219,7 @@ public class DealMenuFragment extends Fragment {
                         0,0);
                         //Double.valueOf(map.get(CoupersData.Fields.LATITUDE)),
                         //Double.valueOf(map.get(CoupersData.Fields.LONGITUDE)));
-                mLocation.CountDeals = map.get(CoupersData.Fields.FAVORITE_NEW_DEAL_COUNT);
+                mLocation.CountDeals = Integer.valueOf(map.get(CoupersData.Fields.FAVORITE_NEW_DEAL_COUNT));
                 j++;
 
                 CoupersMenuItem item = new CoupersMenuItem(mLocation);
@@ -309,7 +304,7 @@ public class DealMenuFragment extends Fragment {
                     Double.valueOf(map.get(CoupersData.Fields.LATITUDE)),
                     Double.valueOf(map.get(CoupersData.Fields.LONGITUDE)));
             mLocation.TopDeal = map.get(CoupersData.Fields.LEVEL_DEAL_LEGEND);
-            mLocation.CountDeals = map.get(CoupersData.Fields.COUNTDEALS);
+            mLocation.CountDeals = Integer.valueOf(map.get(CoupersData.Fields.COUNTDEALS));
             if (geoloc!=null){
                 Location.distanceBetween(latitude,longitude,mLocation.location_latitude,mLocation.location_longitude,results);
                 distance = results[0];

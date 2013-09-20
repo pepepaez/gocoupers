@@ -83,7 +83,7 @@ public class GcmIntentService extends IntentService {
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.drawable.logo_blanco)
+                        .setSmallIcon(R.drawable.coupers_icon3)
                         .setContentTitle("Coupers News!")
                         .setStyle(new NotificationCompat.BigTextStyle()
                                 .bigText(msg))

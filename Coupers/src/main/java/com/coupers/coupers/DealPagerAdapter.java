@@ -124,17 +124,25 @@ public class DealPagerAdapter extends PagerAdapter {
                     CoupersServer server = new CoupersServer(obj,new CoupersServer.ResultCallback() {
                         @Override
                         public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
-                            //TODO add code to check if all is OK
-                            if (progressDialog!=null)
+
+                            if (e!=null)
                             {
-                                progressDialog.dismiss();
-                                progressDialog=null;
+                                aDeal.get(position).saved_deal=true;
+                                // TODO Set Saved Deal on SQLite
+                                //TODO Set Remove Deal on SQLite and App
+                                ((CoupersApp) a.getApplication()).setSavedDeal(aDeal.get(position).deal_id);
+                                if (progressDialog!=null)
+                                {
+                                    progressDialog.dismiss();
+                                    progressDialog=null;
+                                }
+                                saveDeal.setImageResource(R.drawable.save_deal_sel);
+
                             }
-                            saveDeal.setImageResource(R.drawable.save_deal_sel);
                         }
                     });
 
-                    server.execute("dummy string");
+                    server.execute();
                 }
             });
 
