@@ -19,7 +19,8 @@
             android:layout_width="130dip"
             android:layout_height="90dip"
             android:scaleType="center"
-            android:layout_toRightOf="@+id/list_image"/>
+            android:layout_toRightOf="@+id/list_image"
+        android:padding="10dp" />
 
 
     <ImageView

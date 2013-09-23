@@ -24,14 +24,8 @@
                 android:paddingTop="4dp"
                 android:textColor="#3a3a3a"
                 />
-        <GridView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/locations_grid"
-                android:layout_gravity="left|center_vertical"
-                android:layout_marginTop="-30dp"/>
 
     </android.support.v4.view.ViewPager>
 
 
-</RelativeLayout><!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/layout/responsive_content_frame.xml -->
+</RelativeLayout>

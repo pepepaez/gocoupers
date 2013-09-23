@@ -16,25 +16,23 @@ import java.util.List;
  * Created by pepe on 8/25/13.
  */
 public class CoupersApp extends Application {
+
+    // APP DATA
     private String user_id;
+    private ArrayList<CoupersLocation> FavoriteLocations = new ArrayList<CoupersLocation>();
+    public ArrayList<CoupersLocation> locations = new ArrayList<CoupersLocation>();
+    public CoupersLocation selected_location = null;
+    public int selected_category=10;
+    public boolean nearby_locations = false;
+    public boolean gps_available = false;
+
+    // APP UTILS
     private Context context;
     public CoupersDBHelper db;
-    private boolean refresh = false;
-    private List<String> need_refresh;
-    private ArrayList<HashMap<String, String>> FavoriteLocations2 = new ArrayList<HashMap<String, String>>();
-    private ArrayList<CoupersLocation> FavoriteLocations = new ArrayList<CoupersLocation>();
     private CoupersData.Interfaces.CallBack callBack=null;
 
-    public void registerCallBack(CoupersData.Interfaces.CallBack listener){
-        this.callBack=listener;
-    }
-    public String getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(String user_id) {
-        this.user_id = user_id;
-    }
+    // APP LOGIC CONTROL
+    private boolean refresh = false;
 
     public void initialize(Context context)
     {
@@ -43,26 +41,113 @@ public class CoupersApp extends Application {
         this.FavoriteLocations= new ArrayList<CoupersLocation>();
     }
 
-    public List<String> getNeed_refresh() {
-        return need_refresh;
+    public void registerCallBack(CoupersData.Interfaces.CallBack listener){
+        this.callBack=listener;
     }
 
-    public void RefreshFavorites(){
-        refresh=true;
-        //need_refresh.add("favorites");
+    public String getUser_id() {
+        return user_id;
     }
 
-    public boolean NeedRefresh(){
-        return refresh;
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
     }
 
-    public void ResetRefresh(){
-        refresh=false;
+    public boolean exists(CoupersLocation find_location){
+        for (CoupersLocation location : locations)
+        {
+            if (location.location_id==find_location.location_id)
+            return true;
+        }
+        return false;
     }
 
-    public void addFavorite (final HashMap<String,String> item)
-    {
-        //FavoriteLocations.add(item);
+    public void resetShow(){
+        this.gps_available=false;
+        this.nearby_locations=false;
+        for (CoupersLocation location : locations)
+        {
+           location.show=false;
+        }
+    }
+
+    public void setCategory(){
+        for (CoupersLocation location : locations)
+        {
+            if (location.category_id==selected_category)
+                location.show=true;
+        }
+
+    }
+
+    public void setFavorite(CoupersLocation favorite_location){
+
+        //Update on DB
+        if (!db.exists(favorite_location))
+            db.addLocation(favorite_location);
+        else
+            db.toggleLocationFavorite(favorite_location.location_id,favorite_location.location_isfavorite);
+
+        //Update Menu
+        if (callBack!=null) callBack.update(favorite_location);
+
+        //Update App data
+        for (CoupersLocation location : locations)
+        {
+            if (location.location_id==favorite_location.location_id)
+            {
+                location.location_isfavorite=true;
+            return;
+            }
+            //TODO Save to DB
+        }
+
+        // if not found then add to list of favorites
+        locations.add(favorite_location);
+
+    }
+
+    public void unsetFavorite(CoupersLocation favorite_location){
+
+        //Update DB
+        favorite_location.location_isfavorite=false;
+        if (!db.exists(favorite_location))
+            db.addLocation(favorite_location);
+        else
+            db.toggleLocationFavorite(favorite_location.location_id,favorite_location.location_isfavorite);
+
+        //Update Menu
+        if (callBack!=null) callBack.update(favorite_location.location_id);
+
+        //Update App data
+        for (CoupersLocation location : locations)
+        {
+            if (location.location_id==favorite_location.location_id)
+            {
+                location.location_isfavorite=false;
+                return;
+            }
+            //TODO Save to DB
+        }
+    }
+
+    public ArrayList<CoupersLocation> getFavorites(){
+        ArrayList<CoupersLocation> favorites = new ArrayList<CoupersLocation>();
+        for (CoupersLocation location : locations)
+        {
+            if (location.location_isfavorite)
+                favorites.add(location);
+        }
+        return favorites;
+    }
+
+    public CoupersLocation findLocation(int location_id){
+        for (CoupersLocation location:locations)
+        {
+            if (location.location_id==location_id)
+                return location;
+        }
+        return null;
     }
 
     public void addFavorite(final CoupersLocation item){

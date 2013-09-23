@@ -1,0 +1,148 @@
+<!--
+  Copyright 2012 The Android Open Source Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#EFE6E6">
+
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/backview"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:background="#ffffff"
+        android:padding="10dp"
+        android:layout_alignParentBottom="true" />
+
+    <fragment
+        android:id="@+id/map"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        class="com.google.android.gms.maps.MapFragment"
+        android:layout_alignTop="@+id/backview"
+        android:layout_alignRight="@+id/backview"
+        android:layout_alignBottom="@+id/backview"
+        android:layout_alignLeft="@+id/backview"
+        android:layout_margin="7dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/transparency"
+        android:layout_alignTop="@+id/map"
+        android:layout_alignLeft="@+id/map"
+        android:layout_alignBottom="@+id/location_hours_operation3"
+        android:layout_marginBottom="-5dp"
+        android:background="#e75e57"
+        android:alpha="0.7"
+        android:layout_alignRight="@+id/map" />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Tlalli Bistrot"
+            android:id="@+id/location_name"
+        android:layout_alignTop="@+id/map"
+        android:layout_alignLeft="@+id/map"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp" />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Mexicali, BC"
+            android:id="@+id/location_city"
+            android:layout_below="@+id/location_name"
+            android:layout_alignLeft="@+id/location_name"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Colon 115"
+            android:id="@+id/location_address"
+            android:layout_below="@+id/location_city"
+            android:layout_alignLeft="@+id/location_city"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="www.tlalli.com.mx"
+            android:id="@+id/location_website_url"
+            android:layout_below="@+id/location_address"
+            android:layout_alignLeft="@+id/location_address"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="(686) 853-4311"
+            android:id="@+id/location_phone_number1"
+        android:layout_alignTop="@+id/location_name"
+        android:layout_alignLeft="@+id/imageView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="(686) 853-4311"
+        android:id="@+id/location_phone_number2"
+        android:layout_below="@+id/location_phone_number1"
+        android:layout_alignLeft="@+id/location_phone_number1" />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="L-V 8am - 8pm"
+            android:id="@+id/location_hours_operation1"
+        android:layout_below="@+id/location_phone_number2"
+        android:layout_alignLeft="@+id/location_phone_number1" />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Domingo Cerrado"
+            android:id="@+id/location_hours_operation2"
+        android:layout_below="@+id/location_hours_operation1"
+        android:layout_alignLeft="@+id/location_hours_operation1" />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Sabado 8am - 10pm"
+            android:id="@+id/location_hours_operation3"
+        android:layout_below="@+id/location_hours_operation2"
+        android:layout_alignLeft="@+id/location_hours_operation2" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:layout_centerInParent="true" />
+
+
+</RelativeLayout>

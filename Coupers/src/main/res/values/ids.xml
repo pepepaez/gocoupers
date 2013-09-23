@@ -28,6 +28,7 @@
     <item type="id" name="deal_scan" />
     <item type="id" name="add_location_favorite"/>
     <item type="id" name="open_settings"/>
+    <item type="id" name="ultimate_grid"/>
 
 
 </resources>

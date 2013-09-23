@@ -93,8 +93,8 @@ public class CardFlipActivity extends Activity
      */
     private Handler mHandler = new Handler();
     public Activity a;
-    public boolean isFavorite = false;
-    private CoupersLocation data;
+    //public boolean isFavorite = false;
+    //private CoupersLocation data;
     private CoupersDeal deal;
     private CoupersApp app;
     private CoupersData.Interfaces.CallBack coupers_call_back=null;
@@ -105,9 +105,9 @@ public class CardFlipActivity extends Activity
      */
     private boolean mShowingBack = false;
 
-    public static Intent newInstance(Activity activity, CoupersLocation obj){
+    public static Intent newInstance(Activity activity){
         Intent intent = new Intent(activity, CardFlipActivity.class );
-        intent.putExtra("data",obj);
+//        intent.putExtra("data",obj);
         return intent;
     }
 
@@ -117,17 +117,12 @@ public class CardFlipActivity extends Activity
         setContentView(R.layout.activity_card_flip);
         app = (CoupersApp) getApplication();
 
-        if (getIntent().getExtras() != null) {
-            data = (CoupersLocation) getIntent().getExtras().getSerializable("data");
-            if (app != null) isFavorite = app.isFavorite(data.location_id);
-        }
-
 
         if (savedInstanceState == null) {
             // If there is no saved instance state, add a fragment representing the
             // front of the card to this activity. If there is saved instance state,
             // this fragment will have already been added to the activity.
-            LocationFrontFragment loc = new LocationFrontFragment(data);
+            LocationFrontFragment loc = new LocationFrontFragment();
             getFragmentManager().beginTransaction().add(R.id.container, loc).commit();
 
         } else {
@@ -217,7 +212,7 @@ public class CardFlipActivity extends Activity
                         + "&og:type=gocoupers:deal"
                         + "&og:title=" + deal.deal_levels.get(0).level_deal_legend
                         + "&og:description=" + deal.deal_levels.get(0).level_deal_description
-                        + "&og:image=" + deal.deal_URL
+                        + "&og:image=" + app.selected_location.location_thumbnail
                         + "&body=" + deal.deal_levels.get(0).level_deal_legend;
                 og_deal.setUrl(dealURL);
                 getAction.setDeal(og_deal);
@@ -428,7 +423,7 @@ public class CardFlipActivity extends Activity
         // Add either a "photo" or "finish" button to the action bar, depending on which page
         // is currently selected.
         MenuItem item_favorite = menu.add(Menu.NONE, R.id.add_location_favorite, Menu.NONE,R.string.add_location_favorite);
-        item_favorite.setIcon(isFavorite
+        item_favorite.setIcon(app.selected_location.location_isfavorite
                 ? R.drawable.coupers_location_favorite
                 : R.drawable.coupers_location_not_favorite);
         item_favorite.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
@@ -462,7 +457,7 @@ public class CardFlipActivity extends Activity
                 flipCard();
                 return true;
             case R.id.add_location_favorite:
-                if (!isFavorite){
+                if (!app.selected_location.location_isfavorite){
                     progressDialog = ProgressDialog.show(this, "",getResources().getString(R.string.progress_adding_favorite), true);
                     AddLocationFavorite();
                 }else
@@ -478,7 +473,7 @@ public class CardFlipActivity extends Activity
 
     public void AddLocationFavorite(){
         CoupersObject obj = new CoupersObject(CoupersData.Methods.ADD_LOCATION_FAVORITE);
-        obj.addParameter(CoupersData.Parameters.LOCATION_ID,String.valueOf(data.location_id));
+        obj.addParameter(CoupersData.Parameters.LOCATION_ID,String.valueOf(app.selected_location.location_id));
         obj.addParameter(CoupersData.Parameters.USER_ID,((CoupersApp)getApplication()).getUser_id());
         String _tag[]={
                 CoupersData.Fields.RESULT_CODE};
@@ -496,7 +491,7 @@ public class CardFlipActivity extends Activity
 
     public void RemoveLocationFavorite(){
         CoupersObject obj = new CoupersObject(CoupersData.Methods.REMOVE_LOCATION_FAVORITE);
-        obj.addParameter(CoupersData.Parameters.LOCATION_ID,String.valueOf(data.location_id));
+        obj.addParameter(CoupersData.Parameters.LOCATION_ID,String.valueOf(app.selected_location.location_id));
         obj.addParameter(CoupersData.Parameters.USER_ID,((CoupersApp)getApplication()).getUser_id());
         String _tag[]={
                 CoupersData.Fields.RESULT_CODE};
@@ -515,20 +510,24 @@ public class CardFlipActivity extends Activity
     public void toggleFavorite(ArrayList<HashMap<String, String>> aResult, String WebServiceExecuted)
     {
 
-        if (WebServiceExecuted=="AddUserLocToFav" || WebServiceExecuted=="RemoveUserLocFromFav") {
-            ((CoupersApp) getApplication()).RefreshFavorites();
+        if (WebServiceExecuted==CoupersData.Methods.ADD_LOCATION_FAVORITE || WebServiceExecuted==CoupersData.Methods.REMOVE_LOCATION_FAVORITE) {
+            //((CoupersApp) getApplication()).RefreshFavorites();
 
-            isFavorite=!isFavorite;
-            if (isFavorite)
+            if (!app.selected_location.location_isfavorite)
             {
-                ((CoupersApp) getApplication()).addFavorite(data);
+                app.setFavorite(app.selected_location);
+                //((CoupersApp) getApplication()).addFavorite(data);
                 this.menu.getItem(0).setIcon(R.drawable.coupers_location_favorite);
             }
             else
             {
-                ((CoupersApp) getApplication()).removeFavorite(data.location_id);
+                app.unsetFavorite(app.selected_location);
+                //((CoupersApp) getApplication()).removeFavorite(data.location_id);
                 this.menu.getItem(0).setIcon(R.drawable.coupers_location_not_favorite);
             }
+            app.selected_location.location_isfavorite=!app.selected_location.location_isfavorite;
+
+
             if (progressDialog!=null){
                 progressDialog.dismiss();
                 progressDialog=null;
@@ -572,7 +571,7 @@ public class CardFlipActivity extends Activity
                         // Replace any fragments currently in the container view with a fragment
                         // representing the next page (indicated by the just-incremented currentPage
                         // variable).
-                .replace(R.id.container, new CardBackFragment(data))
+                .replace(R.id.container, new LocationBackFragment())
 
                         // Add this transaction to the back stack, allowing users to press Back
                         // to get to the front of the card.
@@ -620,90 +619,4 @@ public class CardFlipActivity extends Activity
         String getId();
     }
 
-
-    /**
-     * A fragment representing the back of the card.
-     */
-    public class CardBackFragment extends DialogFragment {
-        private CoupersLocation location;
-
-        final LatLng HAMBURG = new LatLng(53.558, 9.927);
-        final LatLng KIEL = new LatLng(53.551, 9.993);
-        private LatLng location_map;
-        private GoogleMap map;
-
-        public CardBackFragment(CoupersLocation location){
-            this.location = location;
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View view = inflater.inflate(R.layout.location_card_back, container, false);
-
-            MapFragment map_fragment =((MapFragment) getFragmentManager().findFragmentById(R.id.map));
-            if (map_fragment!=null)
-            {
-                map= map_fragment.getMap();
-                location_map = new LatLng(location.location_latitude,location.location_longitude);
-                Marker location_pin = map.addMarker(new MarkerOptions()
-                        .position(location_map)
-                        .title(location.location_name)
-                        .snippet(location.location_description)
-                        );
-
-                // Move the camera instantly to hamburg with a zoom of 15.
-                map.moveCamera(CameraUpdateFactory.newLatLngZoom(location_map, 15));
-
-                // Zoom in, animating the camera.
-                //map.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
-            }
-            int bgResource=R.drawable.list_selector_eat;
-            if (location !=null)
-            {
-                switch(location.category_id)
-                {
-                    case CoupersData.Fields.CATEGORY_ID_EAT:
-                        bgResource = R.drawable.list_selector_eat;
-                        break;
-                    case CoupersData.Fields.CATEGORY_ID_FEEL_GOOD:
-                        bgResource= R.drawable.list_selector_feel_good;
-                        break;
-                    case CoupersData.Fields.CATEGORY_ID_HAVE_FUN:
-                        bgResource = R.drawable.list_selector_have_fun;
-                        break;
-                    case CoupersData.Fields.CATEGORY_ID_LOOK_GOOD:
-                        bgResource= R.drawable.list_selector_look_good;
-                        break;
-                    case CoupersData.Fields.CATEGORY_ID_RELAX:
-                        bgResource=R.drawable.list_selector_relax;
-                        break;
-                }
-            }
-
-            ImageView transparency = (ImageView) view.findViewById(R.id.transparency);
-            TextView location_name = (TextView) view.findViewById(R.id.location_name);
-            TextView location_city = (TextView) view.findViewById(R.id.location_city);
-            TextView location_address = (TextView) view.findViewById(R.id.location_address);
-            TextView location_website_url = (TextView) view.findViewById(R.id.location_website_url);
-            TextView location_phone_number1 = (TextView) view.findViewById(R.id.location_phone_number1);
-            TextView location_phone_number2 = (TextView) view.findViewById(R.id.location_phone_number2);
-            TextView location_hours_operation1 = (TextView) view.findViewById(R.id.location_hours_operation1);
-
-            if (transparency!=null) transparency.setBackgroundResource(bgResource);
-            if (location_name!=null) location_name.setText(location.location_name);
-            if (location_city!=null) location_city.setText(location.location_city);
-            if (location_address!=null) location_address.setText(location.location_address);
-            if (location_website_url!=null) location_website_url.setText(location.location_website_url);
-            if (location_phone_number1!=null) location_phone_number1.setText(location.location_phone_number1);
-            if (location_phone_number2!=null) location_phone_number2.setText(location.location_phone_number2);
-
-            return view;
-        }
-        @Override
-        public void onActivityCreated(Bundle savedInstanceState) {
-            super.onActivityCreated(savedInstanceState);
-
-        }
-    }
 }

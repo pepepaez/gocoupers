@@ -38,24 +38,27 @@ public class DealPagerAdapter extends PagerAdapter {
     private LayoutInflater mInflater;
     private ProgressDialog progressDialog=null;
     private final Activity a;
+    private CoupersApp app;
     private  int bg=R.drawable.list_selector_eat;
 
-    private ArrayList<CoupersDeal> aDeal = new ArrayList<CoupersDeal>();
+    private ArrayList<CoupersDeal> deals = new ArrayList<CoupersDeal>();
 
     public DealPagerAdapter(LayoutInflater inflater, Activity a,int bg){
         mInflater=inflater;
         this.bg = bg;
         this.a = a;
+        this.app=(CoupersApp)a.getApplication();
+        deals=app.selected_location.location_deals;
 
     }
 
     public void addDeal( CoupersDeal deal,String URL){
         deal.deal_URL = URL;
-        aDeal.add(deal);
+        deals.add(deal);
     }
 
     public void addDeal( CoupersDeal deal){
-        aDeal.add(deal);
+        deals.add(deal);
     }
 
     @Override
@@ -72,9 +75,9 @@ public class DealPagerAdapter extends PagerAdapter {
         TextView level_deal_legend = (TextView) layout.findViewById(R.id.level_deal_legend);
         TextView level_deal_description = (TextView) layout.findViewById(R.id.level_deal_description);
         level_deal_legend.setBackgroundResource(bg);
-        level_deal_legend.setText(aDeal.get(position).deal_levels.get(0).level_deal_legend);
+        level_deal_legend.setText(deals.get(position).deal_levels.get(0).level_deal_legend);
         level_deal_description.setBackgroundResource(bg);
-        level_deal_description.setText(aDeal.get(position).deal_levels.get(0).level_deal_description);
+        level_deal_description.setText(deals.get(position).deal_levels.get(0).level_deal_description);
 
         //---- Create redeem code
         ImageView redeem_code = (ImageView) layout.findViewById(R.id.level_redeem_code);
@@ -90,7 +93,7 @@ public class DealPagerAdapter extends PagerAdapter {
         //smallerDimension = smallerDimension * 3/4;
 
 
-        QRCodeEncoder qrcodeDeal = new QRCodeEncoder(aDeal.get(position).deal_levels.get(0).level_redeem_code,null, Contents.Type.TEXT, BarcodeFormat.UPC_A.toString(),500); //smallerDimension); //QRCodeEncoder(,null, Contents.Type.TEXT, null,smallerDimension);
+        QRCodeEncoder qrcodeDeal = new QRCodeEncoder(deals.get(position).deal_levels.get(0).level_redeem_code,null, Contents.Type.TEXT, BarcodeFormat.UPC_A.toString(),500); //smallerDimension); //QRCodeEncoder(,null, Contents.Type.TEXT, null,smallerDimension);
 
         Bitmap qrcode = null;
         try
@@ -103,7 +106,7 @@ public class DealPagerAdapter extends PagerAdapter {
             //TODO if error change dialog to say there was an error
         }
         if(redeem_code != null || qrcode == null ) redeem_code.setImageBitmap(qrcode);
-        if (redee_code_text != null) redee_code_text.setText(aDeal.get(position).deal_levels.get(0).level_redeem_code);
+        if (redee_code_text != null) redee_code_text.setText(deals.get(position).deal_levels.get(0).level_redeem_code);
 
         //--- Create save button
 
@@ -116,7 +119,7 @@ public class DealPagerAdapter extends PagerAdapter {
                     progressDialog = ProgressDialog.show(saveDeal.getContext(), "", a.getResources().getString(R.string.progress_saving_deal), true);
                     CoupersObject obj = new CoupersObject(CoupersData.Methods.SAVE_DEAL);
                     obj.addParameter(CoupersData.Parameters.USER_ID,((CoupersApp)a.getApplication()).getUser_id());
-                    obj.addParameter(CoupersData.Parameters.DEAL_ID,String.valueOf(aDeal.get(position).deal_id));
+                    obj.addParameter(CoupersData.Parameters.DEAL_ID,String.valueOf(deals.get(position).deal_id));
                     String _tag[]={
                         CoupersData.Fields.COLUMN1};
                     obj.setTag(_tag);
@@ -127,10 +130,10 @@ public class DealPagerAdapter extends PagerAdapter {
 
                             if (e!=null)
                             {
-                                aDeal.get(position).saved_deal=true;
+                                deals.get(position).saved_deal=true;
                                 // TODO Set Saved Deal on SQLite
                                 //TODO Set Remove Deal on SQLite and App
-                                ((CoupersApp) a.getApplication()).setSavedDeal(aDeal.get(position).deal_id);
+                                ((CoupersApp) a.getApplication()).setSavedDeal(deals.get(position).deal_id);
                                 if (progressDialog!=null)
                                 {
                                     progressDialog.dismiss();
@@ -157,7 +160,7 @@ public class DealPagerAdapter extends PagerAdapter {
                 @Override
                 public void onClick(View view) {
                     if (a instanceof CardFlipActivity)
-                        ((CardFlipActivity)a).postFacebook(aDeal.get(position),new CoupersData.Interfaces.CallBack() {
+                        ((CardFlipActivity)a).postFacebook(deals.get(position),new CoupersData.Interfaces.CallBack() {
                             @Override
                             public void update(String result) {
                                 shareFacebook.setImageResource(R.drawable.share_facebook_sel);
@@ -198,7 +201,7 @@ public class DealPagerAdapter extends PagerAdapter {
                     smallerDimension = smallerDimension * 3/4;
 
                     View sharedealview = inflater.inflate(R.layout.share_deal,null);
-                    QRCodeEncoder qrcodeDeal = new QRCodeEncoder(aDeal.get(pos).deal_levels.get(0).level_share_code,null, Contents.Type.TEXT, null,smallerDimension);
+                    QRCodeEncoder qrcodeDeal = new QRCodeEncoder(deals.get(pos).deal_levels.get(0).level_share_code,null, Contents.Type.TEXT, null,smallerDimension);
 
                     //
 
@@ -238,7 +241,7 @@ public class DealPagerAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return aDeal.size();
+        return deals.size();
     }
 }
 

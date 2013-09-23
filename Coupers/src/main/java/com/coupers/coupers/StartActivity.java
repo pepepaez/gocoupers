@@ -1,7 +1,6 @@
 package com.coupers.coupers;
 
 import android.app.Activity;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,11 +13,9 @@ import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.coupers.entities.CoupersData;
 import com.coupers.entities.CoupersLocation;
@@ -33,13 +30,6 @@ import com.facebook.model.GraphUser;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 
 import java.io.IOException;
@@ -85,58 +75,53 @@ public class StartActivity extends Activity {
     GoogleCloudMessaging gcm;
     AtomicInteger msgId = new AtomicInteger();
     SharedPreferences prefs;
-    Context context;
+    //Context context;
 
     String regid;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        context = getApplicationContext();
-
-        if (checkPlayServices())
-        {
-            gcm = GoogleCloudMessaging.getInstance(this);
-            regid = getRegistrationId(context);
-
-            if (regid.isEmpty())
-            {
-                registerInBackground();
-            }
-            else
-            {
-
-                Log.i(TAG, regid);
-            }
-        } else
-        {
-            Log.i(TAG, "No valid Google Play Services APK found.");
-        }
-
         setTitle(R.string.main_hub_ui);
-        a = this;
 
-        //read login method id
+        // TODO Create App
+        //get app
+        app = (CoupersApp) getApplication();
+
+        // TODO Initialize App
+        app.initialize(this);
+
+        // TODO initialize FB APP
+        uiHelper = new UiLifecycleHelper(this, callback);
+        uiHelper.onCreate(savedInstanceState);
+
+        // TODO Check for login data
         login_method = PreferenceManager.getDefaultSharedPreferences(this).getInt("login_method", NO_METHOD_DEFINED);
         user_id = PreferenceManager.getDefaultSharedPreferences(this).getString("user_id", NO_USER_ID_AVAILABLE);
         user_location = PreferenceManager.getDefaultSharedPreferences(this).getString("user_location",NO_LOCATION_AVAILABLE);
         registered = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("registered", false);
-
-        //get app
-        app = (CoupersApp) getApplication();
-        app.initialize(this);
-
         app.setUser_id(user_id);
 
+        // TODO Register GCM Service
+        if (checkPlayServices())
+        {
+            gcm = GoogleCloudMessaging.getInstance(this);
+            regid = getRegistrationId(this);
 
-        if (!regid.isEmpty())
-            sendRegistrationIdToBackend(regid);
+            if (regid.isEmpty())
+                registerInBackground();
+            else
+            {
+                sendRegistrationIdToBackend(regid);
+                Log.i(TAG, regid);
+            }
+        } else
+            Log.i(TAG, "No valid Google Play Services APK found.");
 
-        //Initialize Facebook helper
-        uiHelper = new UiLifecycleHelper(this, callback);
-        uiHelper.onCreate(savedInstanceState);
+        // TODO Load data
+        // TODO Start main activity
 
+        a = this;
 
         //First time loading or no data found
         if (login_method==NO_METHOD_DEFINED){
@@ -149,7 +134,7 @@ public class StartActivity extends Activity {
                     @Override
                     public void onClick(View view) {
                         setContentView(R.layout.activity_start);
-                        loadDeals();
+                        loadData();
                     }
                 });
             }
@@ -159,7 +144,7 @@ public class StartActivity extends Activity {
             Session session = Session.getActiveSession();
             if (session != null && session.isOpened()){
                 setContentView(R.layout.activity_start);
-                loadDeals();
+                loadData();
             }else if (session != null && session.getState()==SessionState.CREATED_TOKEN_LOADED){
                 setContentView(R.layout.activity_start);
             }else
@@ -172,13 +157,19 @@ public class StartActivity extends Activity {
     }
 
     // <editor-fold desc="Coupers Methods - Deal Loading">
-    private void loadDeals(){
+    private void loadData(){
         ArrayList<CoupersLocation> data;
         data = app.db.getAllLocations();
         if (data.size()>0)
-            parseDeals(data);
+        {
+            app.locations=parseDeals(data);
+            startMainActivity();
+        }
         else
+        {
             loadDealsWS();
+            startMainActivity();
+        }
 
     }
 
@@ -227,25 +218,27 @@ public class StartActivity extends Activity {
                             Double.valueOf(map.get(CoupersData.Fields.LONGITUDE)));
                     mLocation.TopDeal = map.get(CoupersData.Fields.LEVEL_DEAL_LEGEND);
                     mLocation.CountDeals = Integer.valueOf(map.get(CoupersData.Fields.COUNTDEALS));
+                    mLocation.show=true;
                     mData.add(mLocation);
                     if (!app.db.exists(mLocation))
                         app.db.addLocation(mLocation);
                 }
 
-                parseDeals(mData);
+                app.locations=parseDeals(mData);
             }
         });
 
         server.execute();
     }
 
-    private void parseDeals(ArrayList<CoupersLocation> locations){
+    private ArrayList<CoupersLocation> parseDeals(ArrayList<CoupersLocation> data){
 
-        LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-        Location geoloc = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         double latitude;
         double longitude;
         boolean nearby_locations=false;
+        LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+        Location geoloc = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+
         if(geoloc != null){
             latitude = geoloc.getLatitude();
             longitude = geoloc.getLongitude();
@@ -256,7 +249,8 @@ public class StartActivity extends Activity {
         float[] results = new float[1];
         float distance = 0;
 
-        for (CoupersLocation location : locations){
+        for (CoupersLocation location : data){
+            location.show=true;
             if (geoloc!=null){
                 Location.distanceBetween(latitude,longitude,location.location_latitude,location.location_longitude,results);
                 distance = results[0];
@@ -266,21 +260,23 @@ public class StartActivity extends Activity {
                 }
             }
         }
+        app.nearby_locations = nearby_locations;
+        app.gps_available = geoloc!=null;
 
+        return data;
+    }
+
+    private void startMainActivity(){
         findViewById(R.id.progressBar).setVisibility(View.INVISIBLE);
         findViewById(R.id.textView).setVisibility(View.INVISIBLE);
         Intent intent = new Intent(StartActivity.this,MainActivity.class);
-        intent.putExtra("data",locations);
-        intent.putExtra("gps",geoloc!=null);
-        intent.putExtra("nearby",nearby_locations);
         exit_next=true;
         startActivity(intent);
-
     }
 
     public String GetClosestCityName(){
         String result="nada";
-        Geocoder geocoder = new Geocoder(context);
+        Geocoder geocoder = new Geocoder(this);
         LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
         Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         List<Address> list = new ArrayList<Address>();
@@ -421,7 +417,7 @@ public class StartActivity extends Activity {
                 String msg = "";
                 try {
                     if (gcm == null) {
-                        gcm = GoogleCloudMessaging.getInstance(context);
+                        gcm = GoogleCloudMessaging.getInstance(getApplicationContext());
                     }
                     regid = gcm.register(SENDER_ID);
                     msg = "Device registered, registration ID=" + regid;
@@ -437,7 +433,7 @@ public class StartActivity extends Activity {
                     // message using the 'from' address in the message.
 
                     // Persist the regID - no need to register again.
-                    storeRegistrationId(context, regid);
+                    storeRegistrationId(getApplicationContext(), regid);
                 } catch (IOException ex) {
                     msg = "Error :" + ex.getMessage();
                     // If there is an error, don't just keep trying to register.
@@ -511,7 +507,7 @@ public class StartActivity extends Activity {
             PreferenceManager.getDefaultSharedPreferences(this).edit().putString("user_location","mexicali").commit();
             PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean("registered", true).commit();
             app.setUser_id(map.get(CoupersData.Fields.USER_ID));
-            loadDeals();
+            loadData();
         }
     }
 
@@ -564,7 +560,7 @@ public class StartActivity extends Activity {
                                 if(!registered)
                                     RegisterUser(user.getId(),user.getName(),"mexicali",user.getUsername());
                                 else
-                                    loadDeals();
+                                    loadData();
                                 fb_user = user;
                                 //LoadData();
                             }

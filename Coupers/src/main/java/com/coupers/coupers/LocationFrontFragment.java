@@ -22,16 +22,40 @@ import com.coupers.utils.CirclePageIndicator;
 public class LocationFrontFragment extends DialogFragment {
 
 
-    private CoupersLocation data;
+    private CoupersLocation location;
+    private View fragmentView;
+    private LayoutInflater inflater;
+    private CoupersApp app;
     private AQuery aq;
 
-    public LocationFrontFragment(CoupersLocation data) {
-        this.data = data;
+    public LocationFrontFragment() {
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View fragmentView = inflater.inflate(R.layout.location_card_front,null);
+        this.fragmentView = inflater.inflate(R.layout.location_card_front,null);
+        this.inflater = inflater;
+
+
+        return fragmentView;
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+
+
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        this.app=(CoupersApp)getActivity().getApplication();
+        this.location = app.selected_location;
+
         aq = new AQuery(fragmentView);
         int bgResource = R.drawable.list_selector_eat;
 
@@ -39,9 +63,9 @@ public class LocationFrontFragment extends DialogFragment {
 
         }
 
-        if (data !=null)
+        if (location !=null)
         {
-            switch(data.category_id)
+            switch(location.category_id)
             {
                 case CoupersData.Fields.CATEGORY_ID_EAT:
                     bgResource = R.drawable.list_selector_eat;
@@ -64,28 +88,22 @@ public class LocationFrontFragment extends DialogFragment {
         location_logo.setBackgroundResource(bgResource);
 
 
-        aq.id(R.id.location_logo).image(data.location_logo, true, true);
+        aq.id(R.id.location_logo).image(location.location_logo, true, true);
 
         ImageOptions options = new ImageOptions();
         options.fileCache=true;
         options.memCache=true;
         options.ratio=AQuery.RATIO_PRESERVE;
         options.anchor= AQuery.ANCHOR_DYNAMIC;
-        aq.id(R.id.location_thumbnail).image(data.location_thumbnail,true,true);//true,true,0,0,null,AQuery.FADE_IN,7.0f / 16.0f);
-        //aq.id(R.id.location_thumbnail).webImage(data.location_thumbnail);
+        aq.id(R.id.location_thumbnail).image(location.location_thumbnail,true,true);
         ViewPager vp = (ViewPager) fragmentView.findViewById(R.id.deal_pager);
-        DealPagerAdapter dealPager=new DealPagerAdapter(inflater,getActivity(), bgResource);
-
-        for (CoupersDeal deal : data.location_deals.values())
-            dealPager.addDeal(deal,data.location_thumbnail);
+        DealPagerAdapter dealPager=new DealPagerAdapter(this.inflater,getActivity(), bgResource);
 
         vp.setAdapter(dealPager);
 
         CirclePageIndicator mIndicator = (CirclePageIndicator)fragmentView.findViewById(R.id.indicator);
         mIndicator.setViewPager(vp);
 
-
-        return fragmentView;
     }
 }
 

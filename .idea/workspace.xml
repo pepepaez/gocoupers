@@ -12,6 +12,24 @@
       </config>
     </shared>
     <layouts>
+      <layout url="file://$PROJECT_DIR$/Coupers/src/main/res/layout-hdpi/deal_pager_view.xml">
+        <config>
+          <device>Nexus S</device>
+          <theme>@style/Theme.Coupers_theme</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/Coupers/src/main/res/layout-hdpi/location_card_back.xml">
+        <config>
+          <device>Nexus S</device>
+          <theme>@style/Theme.Coupers_theme</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/Coupers/src/main/res/layout-hdpi/location_card_front.xml">
+        <config>
+          <device>Nexus S</device>
+          <theme>@style/Theme.Coupers_theme</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/Coupers/src/main/res/layout/activity_login.xml">
         <config>
           <device>Nexus 4</device>
@@ -24,6 +42,12 @@
           <theme>@android:style/Theme.Holo.Light.Dialog.NoActionBar</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/Coupers/src/main/res/layout/deal_pager_view.xml">
+        <config>
+          <device>Nexus 4</device>
+          <theme>@style/Theme.Coupers_theme</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/Coupers/src/main/res/layout/list_menu_header.xml">
         <config>
           <device>Nexus 4</device>
@@ -31,6 +55,12 @@
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/Coupers/src/main/res/layout/location_card_front.xml">
+        <config>
+          <device>Nexus 4</device>
+          <theme>@style/Theme.Coupers_theme</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/Coupers/src/main/res/layout/main.xml">
         <config>
           <device>Nexus 4</device>
           <theme>@style/Theme.Coupers_theme</theme>
@@ -55,25 +85,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c66ea3d-5808-4c51-8f8e-0b6535455f70" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/utils/CoupersDBHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/ABS_1_1_aar.xml" afterPath="$PROJECT_DIR$/.idea/libraries/ABS_1_1_aar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/ABS_1_1_aar2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/ABS_1_1_aar2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/LocationBackFragment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/layout-hdpi/deal_pager_view.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/layout-xhdpi/deal_pager_view.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/layout-hdpi/location_card_back.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/layout-xhdpi/location_card_back.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/layout-hdpi/location_card_front.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/layout-xhdpi/location_card_front.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Coupers/src/main/res/layout/responsive_content_frames.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/Coupers/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/CardFlipActivity.java" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/CardFlipActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/Coupers.iml" afterPath="$PROJECT_DIR$/Coupers/Coupers.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/CoupersApp.java" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/CoupersApp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/entities/CoupersData.java" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/entities/CoupersData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/entities/CoupersDeal.java" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/entities/CoupersDeal.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/entities/CoupersDealLevel.java" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/entities/CoupersDealLevel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/entities/CoupersLocation.java" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/entities/CoupersLocation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/utils/CoupersServer.java" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/utils/CoupersServer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealGridFragment.java" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealGridFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealMenuFragment.java" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealMenuFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealPagerAdapter.java" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealPagerAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/GcmIntentService.java" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/GcmIntentService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/LocationFrontFragment.java" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/LocationFrontFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/MainActivity.java" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/MenuAdapter.java" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/MenuAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/source/r/debug/com/actionbarsherlock/R.java" afterPath="$PROJECT_DIR$/Coupers/build/source/r/debug/com/actionbarsherlock/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/source/r/debug/com/coupers/coupers/R.java" afterPath="$PROJECT_DIR$/Coupers/build/source/r/debug/com/coupers/coupers/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/source/r/debug/com/jeremyfeinstein/slidingmenu/lib/R.java" afterPath="$PROJECT_DIR$/Coupers/build/source/r/debug/com/jeremyfeinstein/slidingmenu/lib/R.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/StartActivity.java" afterPath="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/StartActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraries/facebook/facebook.iml" afterPath="$PROJECT_DIR$/libraries/facebook/facebook.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraries/google-play-services_lib/google-play-services_lib.iml" afterPath="$PROJECT_DIR$/libraries/google-play-services_lib/google-play-services_lib.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/res/layout/deal_pager_view.xml" afterPath="$PROJECT_DIR$/Coupers/src/main/res/layout/deal_pager_view.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/res/values/ids.xml" afterPath="$PROJECT_DIR$/Coupers/src/main/res/values/ids.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/res/layout-hdpi/list_rower_logo.xml" afterPath="$PROJECT_DIR$/Coupers/src/main/res/layout-hdpi/list_rower_logo.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/res/layout/location_card_front.xml" afterPath="$PROJECT_DIR$/Coupers/src/main/res/layout/location_card_front.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libraries/google-play-services_lib/project.properties" afterPath="$PROJECT_DIR$/libraries/google-play-services_lib/project.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/responsive_content_frame.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/layout/responsive_content_frame.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/res/layout/responsive_content_frame.xml" afterPath="$PROJECT_DIR$/Coupers/src/main/res/layout/responsive_content_frame.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/res/values/styles_coupers_theme.xml" afterPath="$PROJECT_DIR$/Coupers/src/main/res/values/styles_coupers_theme.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/build/res/all/debug/values/values.xml" afterPath="$PROJECT_DIR$/Coupers/build/res/all/debug/values/values.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Coupers/src/main/res/values/vpi__defaults.xml" afterPath="$PROJECT_DIR$/Coupers/src/main/res/values/vpi__defaults.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Coupers.iws" />
@@ -134,7 +176,38 @@
         <option name="LOG_MESSAGE" value="&#13;&#13;JAVA" />
       </breakpoint>
     </breakpoint_any>
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint url="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealGridFragment.java" line="47" class="com.coupers.coupers.DealGridFragment" package="com.coupers.coupers">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealGridFragment.java" line="33" class="com.coupers.coupers.DealGridFragment" package="com.coupers.coupers">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </line_breakpoints>
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -144,65 +217,109 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="StartActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/StartActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="172" column="0" selection-start="6005" selection-end="6005" vertical-scroll-proportion="0.0" vertical-offset="3096" max-vertical-offset="10962">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MenuAdapter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/MenuAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="228" column="0" selection-start="7682" selection-end="7682" vertical-scroll-proportion="0.0" vertical-offset="4104" max-vertical-offset="4590">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DealAdapter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="55" selection-start="1285" selection-end="1285" vertical-scroll-proportion="0.0" vertical-offset="846" max-vertical-offset="2556">
+            <state line="20" column="13" selection-start="485" selection-end="485" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2322">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/MainActivity.java">
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Coupers/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="194" column="23" selection-start="7453" selection-end="7453" vertical-scroll-proportion="0.0" vertical-offset="3492" max-vertical-offset="5220">
+            <state line="46" column="31" selection-start="2129" selection-end="2129" vertical-scroll-proportion="0.0" vertical-offset="702" max-vertical-offset="1440">
+              <folding>
+                <element signature="e#1487#1505#0" expanded="true" />
+                <element signature="e#3243#3262#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="styles_coupers_theme.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/values/styles_coupers_theme.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="87" column="37" selection-start="4743" selection-end="4743" vertical-scroll-proportion="0.0" vertical-offset="1134" max-vertical-offset="1764">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DealGridFragment.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealGridFragment.java">
+      <file leaf-file-name="vpi__attrs.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/values/vpi__attrs.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="20" selection-start="1435" selection-end="1435" vertical-scroll-proportion="0.0" vertical-offset="864" max-vertical-offset="1530">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="1834" max-vertical-offset="2430">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CoupersLocation.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/entities/CoupersLocation.java">
+      <file leaf-file-name="vpi__colors.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/values/vpi__colors.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="0" selection-start="1079" selection-end="1079" vertical-scroll-proportion="-0.37049744" vertical-offset="666" max-vertical-offset="1872">
+            <state line="16" column="11" selection-start="663" selection-end="663" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="576">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DealMenuFragment.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealMenuFragment.java">
+      <file leaf-file-name="vpi__defaults.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/values/vpi__defaults.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="222" column="20" selection-start="8809" selection-end="8809" vertical-scroll-proportion="0.0" vertical-offset="3996" max-vertical-offset="6714">
+            <state line="23" column="65" selection-start="1127" selection-end="1127" vertical-scroll-proportion="-0.48453608" vertical-offset="602" max-vertical-offset="1044">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="colors_coupers_theme.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/values/colors_coupers_theme.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="504">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gradient_bg_eat.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/drawable/gradient_bg_eat.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="35" selection-start="199" selection-end="207" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="198">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CardFlipActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/CardFlipActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="575" column="51" selection-start="23226" selection-end="23226" vertical-scroll-proportion="0.0" vertical-offset="8903" max-vertical-offset="9864">
+              <folding>
+                <element signature="e#6838#6893#0" expanded="true" />
+                <element signature="e#7591#7635#0" expanded="true" />
+                <element signature="e#10796#10841#0" expanded="true" />
+                <element signature="e#11256#11342#0" expanded="true" />
+                <element signature="e#12069#12116#0" expanded="true" />
+                <element signature="e#12798#12834#0" expanded="true" />
+                <element signature="e#13564#13596#0" expanded="true" />
+                <element signature="e#13775#13865#0" expanded="true" />
+                <element signature="e#14222#14308#0" expanded="true" />
+                <element signature="e#18370#18429#0" expanded="true" />
+                <element signature="e#18587#18648#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LocationBackFragment.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/LocationBackFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="33" column="25" selection-start="1005" selection-end="1005" vertical-scroll-proportion="0.0" vertical-offset="461" max-vertical-offset="2106">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -1337,22 +1454,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Coupers/build.gradle" />
-        <option value="$PROJECT_DIR$/libraries/facebook/build.gradle" />
-        <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/GcmIntentService.java" />
-        <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/entities/CoupersDealLevel.java" />
-        <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/CardFlipActivity.java" />
-        <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/utils/CoupersServer.java" />
-        <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/entities/CoupersData.java" />
-        <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/entities/CoupersDeal.java" />
-        <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/CoupersApp.java" />
         <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealPagerAdapter.java" />
-        <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/utils/CoupersDBHelper.java" />
-        <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/entities/CoupersLocation.java" />
-        <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealMenuFragment.java" />
-        <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/MenuAdapter.java" />
+        <option value="$PROJECT_DIR$/Coupers/src/main/res/layout/responsive_content_frame.xml" />
+        <option value="$PROJECT_DIR$/Coupers/src/main/res/values/ids.xml" />
         <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/StartActivity.java" />
+        <option value="$PROJECT_DIR$/Coupers/src/main/res/layout/responsive_content_frames.xml" />
+        <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/CoupersApp.java" />
         <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/MainActivity.java" />
+        <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealMenuFragment.java" />
+        <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealGridFragment.java" />
+        <option value="$PROJECT_DIR$/Coupers/src/main/res/layout-hdpi/deal_pager_view.xml" />
+        <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/LocationFrontFragment.java" />
+        <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/LocationBackFragment.java" />
+        <option value="$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/CardFlipActivity.java" />
+        <option value="$PROJECT_DIR$/Coupers/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/Coupers/src/main/res/values/styles_coupers_theme.xml" />
+        <option value="$PROJECT_DIR$/Coupers/src/main/res/values/vpi__defaults.xml" />
       </list>
     </option>
   </component>
@@ -1407,83 +1524,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="Coupers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Default">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Coupers">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Coupers">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src/main">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Coupers">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Coupers">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="src/main">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="java">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="com/coupers">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Coupers">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="Coupers">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-        <subPane subId="Problems" />
-        <subPane subId="Production">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -1569,6 +1609,66 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoupersProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values-es" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CoupersProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Coupers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1694,6 +1794,83 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Default">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Coupers">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Coupers">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src/main">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Coupers">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Coupers">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="src/main">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="java">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="com/coupers">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Coupers">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Coupers">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+        <subPane subId="Problems" />
+        <subPane subId="Production">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1706,7 +1883,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="73" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.SHOW" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteToolWindowManager.SHOW" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
@@ -1736,7 +1913,7 @@
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="options.lastSelected" value="editor.preferences.folding" />
+    <property name="options.lastSelected" value="reference.idesettings.emmet" />
     <property name="project.structure.side.proportion" value="0.35225955" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="0047d04859d29418" />
     <property name="MemberChooser.copyJavadoc" value="false" />
@@ -1749,18 +1926,18 @@
       <recent name="com.coupers.utils" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Coupers/src/main/res/layout-xhdpi" />
+      <recent name="$PROJECT_DIR$/Coupers/src/main/res/layout" />
+      <recent name="$PROJECT_DIR$/Coupers/src/main/res/layout-hdpi" />
       <recent name="$PROJECT_DIR$/Coupers/src/main/res/drawable" />
       <recent name="$PROJECT_DIR$/Coupers/src/main/res/drawable_indicators" />
-      <recent name="$PROJECT_DIR$/Coupers/src/main/res/layout" />
-      <recent name="$PROJECT_DIR$/Coupers/src/main/res/values" />
-      <recent name="$PROJECT_DIR$/Coupers/src/main/res/drawable-xhdpi" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Coupers/src/main/res/drawable" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.coupers.utils" />
       <recent name="com.coupers.coupers" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Coupers/src/main/res/drawable" />
     </key>
   </component>
   <component name="RunManager" selected="Android Application.Coupers">
@@ -2109,7 +2286,11 @@
       <created>1379290690999</created>
       <updated>1379290690999</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Implementation of SQLite for tb_location">
+      <created>1379693374276</created>
+      <updated>1379693374276</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -2137,33 +2318,33 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="48" y="-4" width="1319" height="773" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.6703297" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21796565" sideWeight="0.5516969" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32911393" sideWeight="0.6703297" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29866037" sideWeight="0.7014446" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44" sideWeight="0.59510654" order="3" side_tool="false" content_ui="tabs" x="613" y="279" width="189" height="207" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38044915" sideWeight="0.50037175" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2857143" sideWeight="0.59510654" order="3" side_tool="false" content_ui="tabs" x="613" y="279" width="189" height="207" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5776" sideWeight="0.5003934" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23266219" sideWeight="0.19389111" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3792" sideWeight="0.49888477" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32179385" sideWeight="0.3916533" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2336" sideWeight="0.49814126" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5872" sideWeight="0.49888477" order="10" side_tool="false" content_ui="tabs" x="703" y="183" width="1257" height="721" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3328" sideWeight="0.49881983" order="10" side_tool="false" content_ui="tabs" x="703" y="183" width="1257" height="721" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25650558" sideWeight="0.7027741" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1824" sideWeight="0.49962714" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22304833" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.32289335" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296617" sideWeight="0.94863564" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32651454" sideWeight="0.56" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26593235" sideWeight="0.6672" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2416" sideWeight="0.49888143" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24940805" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30007446" sideWeight="0.5629139" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4576" sideWeight="0.49962714" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4574639" sideWeight="0.49962714" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.397351" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -2218,7 +2399,8 @@
     <MESSAGE value="Implementation of registering user through Facebook on our server, added location favorite methods" />
     <MESSAGE value="Callback implementation, clean up, additional web services implemented" />
     <MESSAGE value="Completed implementation of maps and push notification registration" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed implementation of maps and push notification registration" />
+    <MESSAGE value="Implementation of SQLite for tb_location" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementation of SQLite for tb_location" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2228,112 +2410,143 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealPagerAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="132" column="71" selection-start="5434" selection-end="5434" vertical-scroll-proportion="0.0" vertical-offset="1637" max-vertical-offset="3888">
-          <folding>
-            <element signature="e#4892#5880#0" expanded="true" />
-            <element signature="e#5857#5858#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/utils/CoupersServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="0" selection-start="2537" selection-end="2537" vertical-scroll-proportion="0.0" vertical-offset="1170" max-vertical-offset="1494">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/CoupersApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="0" selection-start="1870" selection-end="1870" vertical-scroll-proportion="0.0" vertical-offset="1022" max-vertical-offset="2052">
+        <state line="67" column="36" selection-start="1866" selection-end="1866" vertical-scroll-proportion="0.0" vertical-offset="648" max-vertical-offset="1728">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/database/sqlite/SQLiteOpenHelper.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630" />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/content/ContextWrapper.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="50" selection-start="2803" selection-end="2803" vertical-scroll-proportion="0.0" vertical-offset="1017" max-vertical-offset="3366" />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/database/sqlite/SQLiteClosable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="16" selection-start="744" selection-end="744" vertical-scroll-proportion="0.0" vertical-offset="175" max-vertical-offset="594" />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/database/DefaultDatabaseErrorHandler.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="11" selection-start="255" selection-end="255" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="270" />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/sdk/platforms/android-17/android.jar!/android/database/sqlite/SQLiteDatabase.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3402" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/utils/CoupersDBHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="211" column="36" selection-start="7357" selection-end="7357" vertical-scroll-proportion="0.0" vertical-offset="3269" max-vertical-offset="5850">
-          <folding>
-            <element signature="method#onUpgrade#0;class#CoupersDBHelper#0" expanded="false" />
-            <element signature="e#6916#6933#0" expanded="true" />
-            <element signature="e#7573#7586#0" expanded="true" />
-            <element signature="e#8262#8280#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealGridFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="20" selection-start="1435" selection-end="1435" vertical-scroll-proportion="0.0" vertical-offset="432" max-vertical-offset="1260">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealMenuFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="222" column="20" selection-start="8809" selection-end="8809" vertical-scroll-proportion="0.0" vertical-offset="3239" max-vertical-offset="5994">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/MenuAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="228" column="0" selection-start="7682" selection-end="7682" vertical-scroll-proportion="0.0" vertical-offset="3756" max-vertical-offset="4320">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/StartActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="172" column="0" selection-start="6005" selection-end="6005" vertical-scroll-proportion="0.0" vertical-offset="1829" max-vertical-offset="2412">
+        <state line="67" column="38" selection-start="2093" selection-end="2093" vertical-scroll-proportion="0.0" vertical-offset="715" max-vertical-offset="1584">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="194" column="23" selection-start="7453" selection-end="7453" vertical-scroll-proportion="0.0" vertical-offset="2034" max-vertical-offset="3888">
+        <state line="210" column="16" selection-start="7658" selection-end="7658" vertical-scroll-proportion="0.0" vertical-offset="3024" max-vertical-offset="4644">
+          <folding>
+            <element signature="e#2815#2825#0" expanded="true" />
+            <element signature="e#5618#5628#0" expanded="true" />
+            <element signature="e#5957#6041#0" expanded="true" />
+            <element signature="e#6036#6037#0" expanded="true" />
+            <element signature="e#6163#6220#0" expanded="true" />
+            <element signature="e#7317#7605#0" expanded="true" />
+            <element signature="e#7594#7595#0" expanded="true" />
+            <element signature="e#7786#7799#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/layout-hdpi/deal_pager_view.xml">
+      <provider editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2700">
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealMenuFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="271" column="30" selection-start="10229" selection-end="10229" vertical-scroll-proportion="0.0" vertical-offset="3695" max-vertical-offset="6012">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/LocationFrontFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="101" column="33" selection-start="3298" selection-end="3298" vertical-scroll-proportion="0.0" vertical-offset="983" max-vertical-offset="1818">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/DealAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="55" selection-start="1285" selection-end="1285" vertical-scroll-proportion="0.0" vertical-offset="486" max-vertical-offset="2322">
+        <state line="20" column="13" selection-start="485" selection-end="485" vertical-scroll-proportion="0.0" vertical-offset="1350" max-vertical-offset="2322">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/entities/CoupersLocation.java">
+    <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/LocationBackFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="0" selection-start="1079" selection-end="1079" vertical-scroll-proportion="-0.37049744" vertical-offset="666" max-vertical-offset="1872">
+        <state line="33" column="25" selection-start="1005" selection-end="1005" vertical-scroll-proportion="0.0" vertical-offset="461" max-vertical-offset="2106">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coupers/src/main/java/com/coupers/coupers/CardFlipActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="575" column="51" selection-start="23226" selection-end="23226" vertical-scroll-proportion="0.0" vertical-offset="8903" max-vertical-offset="9864">
+          <folding>
+            <element signature="e#6838#6893#0" expanded="true" />
+            <element signature="e#7591#7635#0" expanded="true" />
+            <element signature="e#10796#10841#0" expanded="true" />
+            <element signature="e#11256#11342#0" expanded="true" />
+            <element signature="e#12069#12116#0" expanded="true" />
+            <element signature="e#12798#12834#0" expanded="true" />
+            <element signature="e#13564#13596#0" expanded="true" />
+            <element signature="e#13775#13865#0" expanded="true" />
+            <element signature="e#14222#14308#0" expanded="true" />
+            <element signature="e#18370#18429#0" expanded="true" />
+            <element signature="e#18587#18648#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coupers/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="31" selection-start="2129" selection-end="2129" vertical-scroll-proportion="0.0" vertical-offset="702" max-vertical-offset="1440">
+          <folding>
+            <element signature="e#1487#1505#0" expanded="true" />
+            <element signature="e#3243#3262#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/values/colors_coupers_theme.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="596">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/drawable/gradient_bg_eat.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="35" selection-start="199" selection-end="207" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="198">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/values/styles_coupers_theme.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="37" selection-start="4743" selection-end="4743" vertical-scroll-proportion="0.0" vertical-offset="1134" max-vertical-offset="1764">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/values/vpi__attrs.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2430">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/values/vpi__colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="11" selection-start="663" selection-end="663" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="576">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Coupers/src/main/res/values/vpi__defaults.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="65" selection-start="1127" selection-end="1127" vertical-scroll-proportion="-0.48453608" vertical-offset="602" max-vertical-offset="1044">
           <folding />
         </state>
       </provider>

@@ -124,9 +124,9 @@
     <color name="common_signin_btn_light_text_focused">#FF737373</color>
     <color name="common_signin_btn_light_text_pressed">@android:color/white</color>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/vpi__defaults.xml -->
-    <color name="default_circle_indicator_fill_color">#FF000000</color>
+    <color name="default_circle_indicator_fill_color">#ffe75e57</color>
     <color name="default_circle_indicator_page_color">#00000000</color>
-    <color name="default_circle_indicator_stroke_color">#FF000000</color>
+    <color name="default_circle_indicator_stroke_color">#ffe75e57</color>
     <color name="default_line_indicator_selected_color">#FF33B5E5</color>
     <color name="default_line_indicator_unselected_color">#FFBBBBBB</color>
     <color name="default_title_indicator_footer_color">#FF33B5E5</color>
@@ -844,6 +844,8 @@
     <item name="open_settings" type="id"/>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComSlidingMenuLibrarySlidingMenuLibrary03.aar/res/values/values.xml -->
     <item name="selected_view" type="id"/>
+    <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/ids.xml -->
+    <item name="ultimate_grid" type="id"/>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS05.aar/res/values/values.xml -->
     <integer name="abs__max_action_buttons">2</integer>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/integers.xml -->
@@ -1005,7 +1007,7 @@
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/styles_coupers_theme.xml -->
     <style name="CustomCirclePageIndicator">
         <item name="fillColor">#FF888888</item>
-        <item name="strokeColor">#FF000000</item>
+        <item name="strokeColor">#ffe75e57</item>
         <item name="strokeWidth">2dp</item>
         <item name="radius">10dp</item>
         <item name="centered">true</item>

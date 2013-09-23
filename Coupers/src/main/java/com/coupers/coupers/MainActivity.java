@@ -31,10 +31,7 @@ import java.util.List;
 
 public class MainActivity extends SlidingFragmentActivity {
 
-    ArrayList<CoupersLocation> mData = new ArrayList<CoupersLocation>();
     private CoupersLocation selected_location = null;
-    private  boolean gps_available=false;
-    private boolean nearby_locations=false;
     public ProgressDialog progressDialog;
     private CoupersApp app = null;
     ViewPager vp;
@@ -43,7 +40,7 @@ public class MainActivity extends SlidingFragmentActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setTitle(R.string.main_hub_ui);
-        setContentView(R.layout.responsive_content_frame);
+        setContentView(R.layout.responsive_content_frames);
         app = (CoupersApp) getApplication();
 
         //TODO Need to make use of saved instance!!
@@ -73,30 +70,18 @@ public class MainActivity extends SlidingFragmentActivity {
         sm.setFadeDegree(0.25f);
         setSlidingActionBarEnabled(true);
 
-		// set the Above View Fragment & get saved instance data
-		if (savedInstanceState != null){
-            mData = (ArrayList<CoupersLocation>) savedInstanceState.getSerializable("data");
-            gps_available = savedInstanceState.getBoolean("gps");
-            nearby_locations=savedInstanceState.getBoolean("nearby");
-        }else {
-            mData = (ArrayList<CoupersLocation>) getIntent().getSerializableExtra("data");
-            gps_available = getIntent().getBooleanExtra("gps", false);
-            nearby_locations = getIntent().getBooleanExtra("nearby",false);
-
-        }
-
 
 		// set the Behind View Fragment
         //TODO Change DealMenuFragment to accept mData to then pass it onto selected categories and locations
 		getSupportFragmentManager()
 		.beginTransaction()
-		.replace(R.id.menu_frame, new DealMenuFragment(app))
+		.replace(R.id.menu_frame, new DealMenuFragment())
 		.commit();
 
 
         List<Fragment> fragments = new ArrayList<Fragment>();
-        if (gps_available && nearby_locations) fragments.add(new DealGridFragment(mData,true));
-        fragments.add(new DealGridFragment(mData,false));
+        if (app.gps_available && app.nearby_locations) fragments.add(new DealGridFragment(true));
+        fragments.add(new DealGridFragment(false));
         CustomPagerAdapter pageAdapter = new CustomPagerAdapter(getSupportFragmentManager(),fragments);
         vp = (ViewPager) findViewById(R.id.pager);
         vp.setAdapter(pageAdapter);
@@ -125,10 +110,6 @@ public class MainActivity extends SlidingFragmentActivity {
     @Override
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
-        outState.putSerializable("data",mData);
-        outState.putBoolean("gps",gps_available);
-        outState.putBoolean("nearby",nearby_locations);
-
 	}
 
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
@@ -163,15 +144,15 @@ public class MainActivity extends SlidingFragmentActivity {
     }
     //endregion
 
-	public void switchContent(ArrayList<CoupersLocation> mData, boolean gps_available, boolean nearby_locations) {
+	public void switchContent() {
 
         CustomPagerAdapter pageAdapter = (CustomPagerAdapter) vp.getAdapter();
         pageAdapter.clearALL();
         vp.setAdapter(null);
 
         List<Fragment> fragments = new ArrayList<Fragment>();
-        if (gps_available && nearby_locations) fragments.add(new DealGridFragment(mData,true));
-        fragments.add(new DealGridFragment(mData,false));
+        if (app.gps_available && app.nearby_locations) fragments.add(new DealGridFragment(true));
+        fragments.add(new DealGridFragment(false));
         CustomPagerAdapter newPA = new CustomPagerAdapter(getSupportFragmentManager(),fragments);
 
         vp.setAdapter(newPA);
@@ -185,11 +166,20 @@ public class MainActivity extends SlidingFragmentActivity {
 	}
 
 
-    public void onDealPressed(CoupersLocation location) {
+    public void onLocationPressed() {
 
         progressDialog = ProgressDialog.show(this, "",
                 getResources().getString(R.string.progress_loading_deals), true);
 
+        if (app.selected_location.location_deals.size()==0)
+            loadDealsWS(app.selected_location);
+        else
+            showLocationDeals();
+
+
+    }
+
+    public void loadDealsWS(final CoupersLocation location){
         CoupersObject obj = new CoupersObject(CoupersData.Methods.GET_LOCATION_DEALS);
         obj.addParameter(CoupersData.Parameters.LOCATION_ID,String.valueOf(location.location_id));
         String _tag[]={
@@ -210,20 +200,20 @@ public class MainActivity extends SlidingFragmentActivity {
         CoupersServer server = new CoupersServer(obj,new CoupersServer.ResultCallback() {
             @Override
             public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
-                UpdateDeals(result);
+                location.location_deals=parseDeals(result);
+                showLocationDeals();
             }
         });
 
-        selected_location = location;
-
         server.execute();
-
     }
 
-    public void UpdateDeals(ArrayList<HashMap<String, String>> aResult){
+    public ArrayList<CoupersDeal> parseDeals(ArrayList<HashMap<String, String>> aResult) {
 
-        for (HashMap<String,String> map: aResult) {
-            CoupersDeal deal = new CoupersDeal(Integer.valueOf(map.get(CoupersData.Fields.LOCATION_ID)),Integer.valueOf(map.get(CoupersData.Fields.DEAL_ID)), map.get(CoupersData.Fields.DEAL_START_DATE), map.get(CoupersData.Fields.DEAL_END_DATE));
+        ArrayList<CoupersDeal> deals = new ArrayList<CoupersDeal>();
+
+        for (HashMap<String, String> map : aResult) {
+            CoupersDeal deal = new CoupersDeal(Integer.valueOf(map.get(CoupersData.Fields.LOCATION_ID)), Integer.valueOf(map.get(CoupersData.Fields.DEAL_ID)), map.get(CoupersData.Fields.DEAL_START_DATE), map.get(CoupersData.Fields.DEAL_END_DATE));
             CoupersDealLevel level = new CoupersDealLevel(
                     Integer.valueOf(map.get(CoupersData.Fields.DEAL_ID)),
                     Integer.valueOf(map.get(CoupersData.Fields.LEVEL_ID)),
@@ -232,17 +222,22 @@ public class MainActivity extends SlidingFragmentActivity {
                     map.get(CoupersData.Fields.LEVEL_REDEEM_CODE),
                     map.get(CoupersData.Fields.LEVEL_DEAL_LEGEND),
                     map.get(CoupersData.Fields.LEVEL_DEAL_DESCRIPTION));
-            deal.deal_levels.put(level.level_id,level);
-            selected_location.location_deals.put(deal.deal_id, deal);
+            deal.deal_levels.put(level.level_id, level);
+            deals.add(deal);
         }
 
-        Intent intent = CardFlipActivity.newInstance(this,selected_location);
+        return deals;
+    }
+
+    public void showLocationDeals(){
+        Intent intent = CardFlipActivity.newInstance(this);
 
         startActivity(intent);
         if (progressDialog != null){
             progressDialog.dismiss();
             progressDialog = null;
         }
+
     }
 
     // Adapter used to display

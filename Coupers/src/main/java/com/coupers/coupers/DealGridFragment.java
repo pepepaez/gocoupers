@@ -10,21 +10,15 @@ import android.widget.GridView;
 
 import com.coupers.entities.CoupersLocation;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 
 public class DealGridFragment extends Fragment {
 
-	private int mPos = -1;
-    private int mFilter;
-    private int catFilter   =0;
-    private ArrayList<CoupersLocation> mData = new ArrayList<CoupersLocation>();
-    private boolean mNearby = false;
-    ArrayList<HashMap<String, String>> DealsList = new ArrayList<HashMap<String, String>>();
+    private boolean mShowNearby = false;
+    private GridView gv;
+    private CoupersApp app;
 
-    public DealGridFragment(ArrayList<CoupersLocation> data,boolean nearby){
-        mData=data;
-        mNearby = nearby;
+    public DealGridFragment(boolean nearby){
+        mShowNearby = nearby;
     }
 
     public DealGridFragment(){
@@ -32,47 +26,56 @@ public class DealGridFragment extends Fragment {
     }
 
     public boolean NearbyDeal(){
-        return mNearby;
+        return mShowNearby;
     }
 
-
-	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        ArrayList<HashMap<String, String>> FilteredDealsList = new ArrayList<HashMap<String, String>>();
-
-        //GridView gv = (GridView) inflater.inflate(R.layout.list_grid, null);
-        final GridView gv = new GridView(getActivity()); //GridView) container.findViewById(R.id.gridView);
-        //container.removeView(container.findViewById(R.id.gridView));
-
-        final DealAdapter adapter = new DealAdapter(this.getActivity());
-        for (CoupersLocation location : mData) {
-            if (location.Nearby==this.mNearby)
-                adapter.addLocation(location);
-            }
-
-        gv.setAdapter(adapter);
-
-        gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position,
-                                    long id) {
-                if (getActivity() == null)
-                    return;
-
-                MainActivity activity = (MainActivity) getActivity();
-                activity.onDealPressed(adapter.getLocation(position));
-
-            }
-        });
+        gv = new GridView(getActivity());
+        gv.setId(R.id.ultimate_grid);
 
 		return gv;
 	}
-	
-	@Override
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        this.app=(CoupersApp)getActivity().getApplication();
+
+        if (savedInstanceState!=null)
+            mShowNearby=savedInstanceState.getBoolean("mShowNearby");
+
+        //GridView gv = (GridView) mContainer.findViewById(R.id.locations_grid);
+        final DealAdapter adapter = new DealAdapter(this.getActivity());
+        for (CoupersLocation location : app.locations) {
+            if (location.Nearby==this.mShowNearby && location.show)
+                adapter.addLocation(location);
+        }
+
+        if (gv!=null)
+        {
+            gv.setAdapter(adapter);
+
+            gv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position,
+                                        long id) {
+                    if (getActivity() == null)
+                        return;
+
+                    MainActivity activity = (MainActivity) getActivity();
+                    app.selected_location=app.findLocation(adapter.getLocation(position).location_id);
+                    activity.onLocationPressed();
+
+                }
+            });
+        }
+    }
+
+    @Override
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
+        outState.putBoolean("mShowNearby",mShowNearby);
 
 	}
 

@@ -8,7 +8,7 @@
 
     <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="160dp"
+            android:layout_height="110dp"
             android:id="@+id/location_thumbnail"
             android:src="@drawable/ultragym"
         android:layout_alignParentLeft="true"
@@ -20,7 +20,7 @@
 
     <ImageView
             android:layout_width="fill_parent"
-            android:layout_height="45dp"
+            android:layout_height="40dp"
             android:id="@+id/location_logo"
             android:src="@drawable/tlalli"
             android:background="@drawable/gradient_bg_deal_logo"
@@ -37,7 +37,7 @@
                                        android:layout_gravity="left|center_vertical"
                                        android:layout_alignParentLeft="true"
         android:layout_below="@+id/location_thumbnail"
-        android:layout_marginTop="-30dp">
+        android:layout_marginTop="-20dp">
     </android.support.v4.view.ViewPager>
     <com.coupers.utils.CirclePageIndicator
             android:id="@+id/indicator"

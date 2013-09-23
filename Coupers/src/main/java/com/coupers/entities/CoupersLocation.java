@@ -34,7 +34,8 @@ public class CoupersLocation implements Serializable
     public double location_latitude;
     public double location_longitude;
     public boolean location_isfavorite = false;
-    public HashMap<Integer, CoupersDeal> location_deals = new HashMap<Integer, CoupersDeal>();
+    public boolean show = false;
+    public ArrayList<CoupersDeal> location_deals = new ArrayList<CoupersDeal>();
 
     public int CountDeals=0;
     public String TopDeal;
