@@ -106,7 +106,10 @@ public class CoupersLocation implements Serializable
         return values;
     }
 
+    public void addDeals(ArrayList<CoupersDeal> deals){
+        this.location_deals=deals;
 
+    }
 
 
 }

@@ -222,7 +222,9 @@ public class MainActivity extends SlidingFragmentActivity {
                     map.get(CoupersData.Fields.LEVEL_REDEEM_CODE),
                     map.get(CoupersData.Fields.LEVEL_DEAL_LEGEND),
                     map.get(CoupersData.Fields.LEVEL_DEAL_DESCRIPTION));
-            deal.deal_levels.put(level.level_id, level);
+            deal.deal_levels.add(level);
+            if (!app.db.exists(deal))
+                app.db.addDeal(deal);
             deals.add(deal);
         }
 

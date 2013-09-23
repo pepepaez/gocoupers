@@ -117,10 +117,18 @@ public class DealMenuFragment extends Fragment {
     }
 
     //COUPERS CONTROL
-    public void loadFavorites(){
-        //TODO if not saved on the device then
-        loadFavoriteFromServer();
-        //TODO otherwise use from the device
+    public void loadFavorites() {
+        ArrayList<CoupersLocation> favorites = new ArrayList<CoupersLocation>();
+        favorites = app.getFavorites();
+
+        if (favorites.size()>0)
+        {
+            updateMenu(favorites);
+        }
+        else
+        {
+            loadFavoriteFromServer();
+        }
     }
 
     public void loadFavoriteFromServer(){
@@ -256,7 +264,7 @@ public class DealMenuFragment extends Fragment {
                             loadCategoryLocations(app.selected_category);
                             return;
                         case CoupersMenuItem.TYPE_LOCATION:
-                            loadLocation(adapter.getLocation(position));
+                            loadLocation(app.findLocation(adapter.getLocation(position).location_id));
                     }
                 }
             });

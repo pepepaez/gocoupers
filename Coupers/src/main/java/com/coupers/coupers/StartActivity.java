@@ -162,13 +162,13 @@ public class StartActivity extends Activity {
         data = app.db.getAllLocations();
         if (data.size()>0)
         {
-            app.locations=parseDeals(data);
+            app.locations=data;
+            findNearbyLocations(app.locations);
             startMainActivity();
         }
         else
         {
             loadDealsWS();
-            startMainActivity();
         }
 
     }
@@ -221,17 +221,23 @@ public class StartActivity extends Activity {
                     mLocation.show=true;
                     mData.add(mLocation);
                     if (!app.db.exists(mLocation))
+                    {
                         app.db.addLocation(mLocation);
+                        app.locations.add(mLocation);
+                    }
                 }
 
-                app.locations=parseDeals(mData);
+                app.gps_available=false;
+                app.nearby_locations=false;
+                findNearbyLocations(app.locations);
+                startMainActivity();
             }
         });
 
         server.execute();
     }
 
-    private ArrayList<CoupersLocation> parseDeals(ArrayList<CoupersLocation> data){
+    private void findNearbyLocations(ArrayList<CoupersLocation> data){
 
         double latitude;
         double longitude;
@@ -262,8 +268,6 @@ public class StartActivity extends Activity {
         }
         app.nearby_locations = nearby_locations;
         app.gps_available = geoloc!=null;
-
-        return data;
     }
 
     private void startMainActivity(){

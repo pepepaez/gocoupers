@@ -45,8 +45,6 @@ public class LocationFrontFragment extends DialogFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
-
     }
 
     @Override

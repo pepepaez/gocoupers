@@ -88,8 +88,6 @@ public class CoupersApp extends Application {
         else
             db.toggleLocationFavorite(favorite_location.location_id,favorite_location.location_isfavorite);
 
-        //Update Menu
-        if (callBack!=null) callBack.update(favorite_location);
 
         //Update App data
         for (CoupersLocation location : locations)
@@ -97,6 +95,8 @@ public class CoupersApp extends Application {
             if (location.location_id==favorite_location.location_id)
             {
                 location.location_isfavorite=true;
+                //Update Menu
+                if (callBack!=null) callBack.update(location);
             return;
             }
             //TODO Save to DB
@@ -104,6 +104,8 @@ public class CoupersApp extends Application {
 
         // if not found then add to list of favorites
         locations.add(favorite_location);
+        //Update Menu
+        if (callBack!=null) callBack.update(favorite_location);
 
     }
 
@@ -125,7 +127,6 @@ public class CoupersApp extends Application {
             if (location.location_id==favorite_location.location_id)
             {
                 location.location_isfavorite=false;
-                return;
             }
             //TODO Save to DB
         }
@@ -150,46 +151,6 @@ public class CoupersApp extends Application {
         return null;
     }
 
-    public void addFavorite(final CoupersLocation item){
-        FavoriteLocations.add(item);
-        item.location_isfavorite=true;
-        if (!db.exists(item))
-            db.addLocation(item);
-        else
-            db.toggleLocationFavorite(item.location_id,item.location_isfavorite);
-        if (callBack!=null) callBack.update(item);
-    }
-
-    public boolean removeFavorite (int location_id){
-        boolean result = false;
-        CoupersLocation loc=null;
-        for (CoupersLocation location: FavoriteLocations){
-            if (Integer.valueOf(location.location_id)==location_id)
-                loc=location;
-                result=true;
-        }
-        if (result && loc!=null)
-        {
-            loc.location_isfavorite=false;
-            if (!db.exists(loc))
-                db.addLocation(loc);
-            else
-                db.toggleLocationFavorite(loc.location_id,loc.location_isfavorite);
-
-            FavoriteLocations.remove(loc);
-            if (callBack!=null) callBack.update(location_id);
-        }
-        return result;
-    }
-
-    public boolean isFavorite(int location_id){
-        boolean result = false;
-        for (CoupersLocation location: FavoriteLocations){
-            if (Integer.valueOf(location.location_id)==location_id)
-                result=true;
-        }
-        return result;
-    }
 
     //TODO set saved deal
     public void setSavedDeal(int deal_id){

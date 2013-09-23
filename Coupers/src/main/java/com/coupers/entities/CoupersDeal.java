@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import static com.coupers.entities.CoupersData.SQLiteDictionary.*;
 
@@ -21,7 +22,7 @@ public class CoupersDeal implements Serializable{
     public int current_level_id;
     public int share_count;
 
-    public HashMap<Integer, CoupersDealLevel> deal_levels = new HashMap<Integer, CoupersDealLevel>();
+    public ArrayList<CoupersDealLevel> deal_levels = new ArrayList<CoupersDealLevel>();
 
     public CoupersDeal(int location_id, int deal_id, String deal_start_date, String deal_end_date) {
         this.location_id = location_id;
@@ -53,7 +54,6 @@ public class CoupersDeal implements Serializable{
         values.put(tb_Deal.fb_post_id,this.fb_post_id);
         values.put(tb_Deal.current_level_id,this.current_level_id);
         values.put(tb_Deal.share_count,this.share_count);
-
 
         return values;
     }

@@ -128,6 +128,10 @@ public class CoupersDBHelper extends SQLiteOpenHelper {
         ContentValues values  = deal.getSQLiteValues();
 
         db.insert(tb_Deal.table_name, null, values);
+
+        if (deal.deal_levels.size()>0)
+            for (CoupersDealLevel level : deal.deal_levels)
+                    addDealLevel(level);
         db.close();
     }
 
@@ -208,6 +212,18 @@ public class CoupersDBHelper extends SQLiteOpenHelper {
             while (!cursor.isAfterLast())
             {
                 CoupersLocation location = new CoupersLocation(cursor);
+                ArrayList<CoupersDeal> deals = getAllDeals(location.location_id);
+                if (deals.size()>0)
+                {
+                    for (CoupersDeal deal : deals) {
+                        ArrayList<CoupersDealLevel> levels = getAllDealLevels(deal.deal_id);
+                        deal.deal_levels=levels;
+                    }
+                    location.location_deals=deals;
+                    location.CountDeals = deals.size();
+                    location.TopDeal=deals.get(0).deal_levels.get(0).level_deal_legend;
+                }
+
                 locations.add(location);
                 cursor.moveToNext();
             }
@@ -220,8 +236,8 @@ public class CoupersDBHelper extends SQLiteOpenHelper {
         return  locations;
     }
 
-    public List<CoupersDeal> getAllDeals(int location_id){
-        List<CoupersDeal> deals = new ArrayList<CoupersDeal>();
+    public ArrayList<CoupersDeal> getAllDeals(int location_id){
+        ArrayList<CoupersDeal> deals = new ArrayList<CoupersDeal>();
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.rawQuery("SELECT * FROM " + tb_Deal.table_name + " WHERE location_id="+String.valueOf(location_id),null);
@@ -244,8 +260,8 @@ public class CoupersDBHelper extends SQLiteOpenHelper {
         return  deals;
     }
 
-    public List<CoupersDealLevel> getAllDealLevels(int deal_id){
-        List<CoupersDealLevel> levels = new ArrayList<CoupersDealLevel>();
+    public ArrayList<CoupersDealLevel> getAllDealLevels(int deal_id){
+        ArrayList<CoupersDealLevel> levels = new ArrayList<CoupersDealLevel>();
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.rawQuery("SELECT * FROM " + tb_DealLevel.table_name + " WHERE deal_id = "+String.valueOf(deal_id),null);

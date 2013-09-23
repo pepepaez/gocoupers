@@ -511,22 +511,19 @@ public class CardFlipActivity extends Activity
     {
 
         if (WebServiceExecuted==CoupersData.Methods.ADD_LOCATION_FAVORITE || WebServiceExecuted==CoupersData.Methods.REMOVE_LOCATION_FAVORITE) {
-            //((CoupersApp) getApplication()).RefreshFavorites();
 
-            if (!app.selected_location.location_isfavorite)
+            app.selected_location.location_isfavorite=!app.selected_location.location_isfavorite;
+
+            if (WebServiceExecuted==CoupersData.Methods.ADD_LOCATION_FAVORITE)
             {
                 app.setFavorite(app.selected_location);
-                //((CoupersApp) getApplication()).addFavorite(data);
                 this.menu.getItem(0).setIcon(R.drawable.coupers_location_favorite);
             }
             else
             {
                 app.unsetFavorite(app.selected_location);
-                //((CoupersApp) getApplication()).removeFavorite(data.location_id);
                 this.menu.getItem(0).setIcon(R.drawable.coupers_location_not_favorite);
             }
-            app.selected_location.location_isfavorite=!app.selected_location.location_isfavorite;
-
 
             if (progressDialog!=null){
                 progressDialog.dismiss();
