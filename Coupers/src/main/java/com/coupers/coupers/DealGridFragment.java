@@ -64,7 +64,7 @@ public class DealGridFragment extends Fragment {
                         return;
 
                     MainActivity activity = (MainActivity) getActivity();
-                    app.selected_location=app.findLocation(adapter.getLocation(position).location_id);
+                    app.setSelectedLocation(adapter.getLocation(position).location_id);
                     activity.onLocationPressed();
 
                 }

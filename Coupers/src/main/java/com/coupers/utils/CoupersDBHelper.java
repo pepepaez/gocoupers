@@ -52,7 +52,9 @@ public class CoupersDBHelper extends SQLiteOpenHelper {
                         tb_Location.location_latitude + " REAL, " +
                         tb_Location.location_longitude + " REAL, " +
                         tb_Location.location_hours_operation + " TEXT, " +
-                        tb_Location.isFavorite + " INTEGER" + ")";
+                        tb_Location.isFavorite + " INTEGER, " +
+                        tb_Location.top_deal + " TEXT, " +
+                        tb_Location.deal_count + " INTEGER" + ")";
 
         String create_tb_deal =
                 "CREATE TABLE " + tb_Deal.table_name +
@@ -200,11 +202,11 @@ public class CoupersDBHelper extends SQLiteOpenHelper {
         return level;
     }
 
-    public ArrayList<CoupersLocation> getAllLocations(){
+    public ArrayList<CoupersLocation> getAllLocations(String locality){
         ArrayList<CoupersLocation> locations = new ArrayList<CoupersLocation>();
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.rawQuery("SELECT * FROM " + tb_Location.table_name,null);
+        Cursor cursor = db.rawQuery("SELECT * FROM " + tb_Location.table_name + " WHERE location_city = '" + locality + "'" ,null);
 
         if (cursor != null)
         {
@@ -221,9 +223,14 @@ public class CoupersDBHelper extends SQLiteOpenHelper {
                     }
                     location.location_deals=deals;
                     location.CountDeals = deals.size();
-                    location.TopDeal=deals.get(0).deal_levels.get(0).level_deal_legend;
-                }
+                    //location.TopDeal=deals.get(0).deal_levels.get(0).level_deal_legend;
+                    for (CoupersDeal deal : location.location_deals)
+                    {
+                        if (deal.saved_deal && deal.deal_levels.size()>0)
+                            location.TopDeal=deal.deal_levels.get(deal.current_level_id).level_deal_legend;
+                    }
 
+                }
                 locations.add(location);
                 cursor.moveToNext();
             }
@@ -348,9 +355,23 @@ public class CoupersDBHelper extends SQLiteOpenHelper {
         if (is_favorite)
             fav="1";
 
-        db.rawQuery("UPDATE " + tb_Location.table_name + " SET " + tb_Location.isFavorite + " = " + fav,null );
+        db.rawQuery("UPDATE " + tb_Location.table_name + " SET " + tb_Location.isFavorite + " = " + fav + " WHERE location_id = " + String.valueOf(location_id),null );
 
         db.close();
+    }
+
+    public void toggleSavedDeal(int deal_id, boolean is_saved){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String saved = "0";
+
+        if (is_saved)
+            saved = "1";
+
+        db.rawQuery("UPDATE " + tb_Deal.table_name + " SET " + tb_Deal.saved_deal + " = " + saved + " WHERE deal_id = " + String.valueOf(deal_id),null);
+
+        db.close();
+
     }
 
 

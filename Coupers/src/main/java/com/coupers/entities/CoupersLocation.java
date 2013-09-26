@@ -50,7 +50,7 @@ public class CoupersLocation implements Serializable
         this.location_logo = location_logo;
         this.location_thumbnail = location_thumbnail;
         this.location_address = location_address;
-        this.location_city = location_city;
+        this.location_city = location_city.toLowerCase();
         this.location_phone_number1 = location_phone_number1;
         this.location_phone_number2 = location_phone_number2;
         this.location_latitude = location_latitude;
@@ -66,13 +66,15 @@ public class CoupersLocation implements Serializable
         this.location_logo = dbcursor.getString(dbcursor.getColumnIndex(tb_Location.location_logo));
         this.location_thumbnail = dbcursor.getString(dbcursor.getColumnIndex(tb_Location.location_thumbnail));
         this.location_address = dbcursor.getString(dbcursor.getColumnIndex(tb_Location.location_address));
-        this.location_city = dbcursor.getString(dbcursor.getColumnIndex(tb_Location.location_city));
+        this.location_city = dbcursor.getString(dbcursor.getColumnIndex(tb_Location.location_city)).toLowerCase();
         this.location_phone_number1 = dbcursor.getString(dbcursor.getColumnIndex(tb_Location.location_phone_number1));
         this.location_phone_number2 = dbcursor.getString(dbcursor.getColumnIndex(tb_Location.location_phone_number2));
         this.location_latitude = dbcursor.getDouble(dbcursor.getColumnIndex(tb_Location.location_latitude));;
         this.location_longitude = dbcursor.getDouble(dbcursor.getColumnIndex(tb_Location.location_longitude));;
+        this.TopDeal = dbcursor.getString(dbcursor.getColumnIndex(tb_Location.top_deal));
         if (dbcursor.getInt(dbcursor.getColumnIndex(tb_Location.isFavorite))==1)
             this.location_isfavorite=true;
+        this.CountDeals = dbcursor.getInt(dbcursor.getColumnIndex(tb_Location.deal_count));
     }
 
     public int isFavorite(){
@@ -94,13 +96,15 @@ public class CoupersLocation implements Serializable
         values.put(tb_Location.location_thumbnail, this.location_thumbnail);
         values.put(tb_Location.location_thumbnail, this.location_thumbnail);
         values.put(tb_Location.location_address, this.location_address);
-        values.put(tb_Location.location_city, this.location_city);
+        values.put(tb_Location.location_city, this.location_city.toLowerCase());
         values.put(tb_Location.location_phone_number1, this.location_phone_number1);
         values.put(tb_Location.location_phone_number2, this.location_phone_number2);
         values.put(tb_Location.location_latitude, this.location_latitude);
         values.put(tb_Location.location_longitude, this.location_longitude);
         values.put(tb_Location.location_hours_operation, "nothing really");
         values.put(tb_Location.isFavorite,this.isFavorite());
+        values.put(tb_Location.top_deal, this.TopDeal);
+        values.put(tb_Location.deal_count,this.CountDeals);
 
 
         return values;
@@ -109,6 +113,15 @@ public class CoupersLocation implements Serializable
     public void addDeals(ArrayList<CoupersDeal> deals){
         this.location_deals=deals;
 
+    }
+
+    public CoupersDeal findDeal(int deal_id){
+        for (CoupersDeal deal : this.location_deals)
+        {
+            if (deal.deal_id == deal_id)
+                return deal;
+        }
+        return null;
     }
 
 

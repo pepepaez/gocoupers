@@ -17,6 +17,7 @@ public class CoupersMenuItem{
     public final static int TYPE_CATEGORY = 0;
     public final static int TYPE_HEADER =1;
     public final static int TYPE_LOCATION = 2;
+    public int parent_item;
 
     private CoupersLocation location;
 

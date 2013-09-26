@@ -48,7 +48,7 @@ public class LocationBackFragment extends DialogFragment {
         super.onActivityCreated(savedInstanceState);
 
         this.app = (CoupersApp) getActivity().getApplication();
-        this.location = app.selected_location;
+        this.location = app.getSelectedLocation();
         MapFragment map_fragment =((MapFragment) getFragmentManager().findFragmentById(R.id.map));
         if (map_fragment!=null)
         {

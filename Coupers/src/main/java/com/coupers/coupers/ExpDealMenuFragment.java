@@ -9,7 +9,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.ScaleAnimation;
+import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
+import android.widget.ExpandableListView;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -27,9 +31,10 @@ import com.facebook.widget.ProfilePictureView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 
-public class DealMenuFragment extends Fragment {
+public class ExpDealMenuFragment extends Fragment {
 
     private ViewGroup mContainer = null;
     private View last_view_selected = null;
@@ -39,7 +44,7 @@ public class DealMenuFragment extends Fragment {
 
     //ACTIVITY CONTROL
 
-    public DealMenuFragment() {
+    public ExpDealMenuFragment() {
     }
 
     @Override
@@ -51,8 +56,6 @@ public class DealMenuFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        //mContainer = getParentFragment().getFragmentManager().getFragment()
-
         this.app=(CoupersApp)getActivity().getApplication();
 
         this.app.registerCallBack(new CoupersData.Interfaces.CallBack() {
@@ -63,26 +66,26 @@ public class DealMenuFragment extends Fragment {
 
             @Override
             public void update(int location_id) {
-                GridView lv;
-                MenuAdapter adapter=null;
-                lv= (GridView) mContainer.findViewById(R.id.gridView);
+                ExpandableListView lv;
+                ExpMenuAdapter adapter=null;
+                lv= (ExpandableListView) mContainer.findViewById(R.id.gridView);
                 if (lv!=null)
-                    adapter = (MenuAdapter) lv.getAdapter();
-                if (adapter!=null)
-                    adapter.removeFavorite(location_id);
+                    adapter = (ExpMenuAdapter) lv.getAdapter();
+                //if (adapter!=null)
+                    //adapter.removeFavorite(location_id);
 
             }
 
             @Override
             public void update(CoupersLocation location) {
-                GridView lv;
-                MenuAdapter adapter=null;
+                ExpandableListView lv;
+                ExpMenuAdapter adapter=null;
                 CoupersMenuItem item = new CoupersMenuItem(location);
-                lv= (GridView) mContainer.findViewById(R.id.gridView);
+                lv= (ExpandableListView) mContainer.findViewById(R.id.gridView);
                 if (lv!=null)
-                    adapter = (MenuAdapter) lv.getAdapter();
-                if (adapter!=null)
-                    adapter.insertFavorite(item);
+                    adapter = (ExpMenuAdapter) lv.getAdapter();
+                //if (adapter!=null)
+                    //adapter.insertFavorite(item);
             }
         });
 
@@ -208,7 +211,7 @@ public class DealMenuFragment extends Fragment {
     }
 
     public void updateMenu(ArrayList<CoupersLocation> locations){
-        final GridView lv = (GridView) mContainer.findViewById(R.id.gridView);
+        final ExpandableListView lv = (ExpandableListView) mContainer.findViewById(R.id.gridView);
         // Get Menu
         TypedArray deals_menu = getResources().obtainTypedArray(R.array.deals_menu);
         TypedArray deals_menu_id = getResources().obtainTypedArray(R.array.deals_menu_id);
@@ -216,7 +219,7 @@ public class DealMenuFragment extends Fragment {
         TypedArray deals_menu_icon = getResources().obtainTypedArray(R.array.deals_menu_icon);
 
         //Create adapter
-        final MenuAdapter adapter=new MenuAdapter(this.getActivity());
+        final ExpMenuAdapter adapter=new ExpMenuAdapter(this.getActivity());
 
         if (locations.size()>0)
         {
@@ -224,28 +227,64 @@ public class DealMenuFragment extends Fragment {
 
             int j;
             j=0;
+            List<CoupersMenuItem> favorites = new ArrayList<CoupersMenuItem>();
             for (CoupersLocation location : locations)
             {
                 j++;
                 CoupersMenuItem item = new CoupersMenuItem(location);
-                adapter.addFavorite(item);
+                favorites.add(item);
             }
+            adapter.addFavorites(getString(R.string.favorites),favorites);
 
         }
         adapter.addHeader(new CoupersMenuItem(getString(R.string.i_want_to)));
 
+        List<CoupersMenuItem> categories = new ArrayList<CoupersMenuItem>();
         for (int i=0; i<deals_menu.length();i++)
         {
             CoupersMenuItem item = new CoupersMenuItem(deals_menu.getString(i),deals_menu_icon.getResourceId(i,R.drawable.coupers_icon3),deals_menu_background.getResourceId(i,R.drawable.list_selector_eat),Integer.valueOf(deals_menu_id.getString(i)));
-            adapter.addItem(item);
+            categories.add(item);
+
         }
+        adapter.addItems(getString(R.string.i_want_to), categories);
 
         if(lv!=null)
         {
             lv.setAdapter(adapter);
 
             //Set OnClick event
-            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            lv.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+                @Override
+                public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i2, long l) {
+                    CoupersMenuItem selected_item = (CoupersMenuItem) adapter.getChild(i,i2);
+
+                    switch (selected_item.item_type)
+                    {
+                        case CoupersMenuItem.TYPE_CATEGORY:
+                            adapter.AnimateInOut(view,true);
+                            if (last_view_selected != null)
+                                adapter.AnimateInOut(last_view_selected, false);
+                            last_view_selected = view;
+                            view.findViewById(R.id.loading).setVisibility(View.VISIBLE);
+                            app.selected_category =selected_item.category_id;
+                            loadCategoryLocations(app.selected_category);
+                            break;
+                        case CoupersMenuItem.TYPE_LOCATION:
+                            loadLocation(app.findLocation(selected_item.getLocation().location_id));
+                    }
+                    return true;
+                }
+            });
+
+            lv.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+                @Override
+                public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
+                    lv.setAnimation(new ScaleAnimation(1, 20, 1, 1, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f));
+                    lv.expandGroup(i, true);
+                    return true;
+                }
+            });
+            /*lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView parent, View view, int position,
                                         long id) {
@@ -267,7 +306,7 @@ public class DealMenuFragment extends Fragment {
                             loadLocation(app.findLocation(adapter.getLocation(position).location_id));
                     }
                 }
-            });
+            });*/
         }
     }
 

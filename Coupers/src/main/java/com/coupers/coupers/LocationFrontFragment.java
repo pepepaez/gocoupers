@@ -52,7 +52,7 @@ public class LocationFrontFragment extends DialogFragment {
         super.onActivityCreated(savedInstanceState);
 
         this.app=(CoupersApp)getActivity().getApplication();
-        this.location = app.selected_location;
+        this.location = app.getSelectedLocation();
 
         aq = new AQuery(fragmentView);
         int bgResource = R.drawable.list_selector_eat;

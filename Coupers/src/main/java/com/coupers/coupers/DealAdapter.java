@@ -45,7 +45,7 @@ public class DealAdapter extends BaseAdapter {
 
     @Override
     public int getItemViewType(int position) {
-        return Integer.valueOf(data.get(position).CountDeals)==1 ? SINGLE_DEAL : MULTIPLE_DEALS;
+        return Integer.valueOf(data.get(position).CountDeals)>1 ? MULTIPLE_DEALS : SINGLE_DEAL;
     }
 
     @Override

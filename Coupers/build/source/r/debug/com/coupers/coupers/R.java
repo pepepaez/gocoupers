@@ -2054,13 +2054,14 @@ containing a value of this type.
         public static final int location_card_front=0x7f03002d;
         public static final int main=0x7f03002e;
         public static final int map_view=0x7f03002f;
-        public static final int menu_frame_new=0x7f030030;
-        public static final int responsive_content_frame=0x7f030031;
-        public static final int responsive_content_frames=0x7f030032;
-        public static final int share_deal=0x7f030033;
-        public static final int sherlock_spinner_dropdown_item=0x7f030034;
-        public static final int sherlock_spinner_item=0x7f030035;
-        public static final int slidingmenumain=0x7f030036;
+        public static final int menu_frame_exp=0x7f030030;
+        public static final int menu_frame_new=0x7f030031;
+        public static final int responsive_content_frame=0x7f030032;
+        public static final int responsive_content_frames=0x7f030033;
+        public static final int share_deal=0x7f030034;
+        public static final int sherlock_spinner_dropdown_item=0x7f030035;
+        public static final int sherlock_spinner_item=0x7f030036;
+        public static final int slidingmenumain=0x7f030037;
     }
     public static final class menu {
         public static final int main=0x7f0d0000;

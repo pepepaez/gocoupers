@@ -1,7 +1,9 @@
 package com.coupers.coupers;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
@@ -16,11 +18,15 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.coupers.entities.CoupersData;
+import com.coupers.entities.CoupersDeal;
+import com.coupers.entities.CoupersDealLevel;
 import com.coupers.entities.CoupersLocation;
 import com.coupers.utils.CoupersObject;
 import com.coupers.utils.CoupersServer;
+import static com.coupers.entities.CoupersData.*;
 import com.facebook.Request;
 import com.facebook.Response;
 import com.facebook.Session;
@@ -33,9 +39,11 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 
 import java.io.IOException;
+import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
@@ -49,6 +57,10 @@ public class StartActivity extends Activity {
     public String user_id;
     public String user_location;
     private boolean registered = false;
+    private boolean first_time = true;
+    private boolean ready = false;
+    private int saved_deals = 0;
+    private int loaded_saved_deals =0;
     private GraphUser fb_user;
     private Activity a;
     public boolean exit_next=false;
@@ -61,6 +73,13 @@ public class StartActivity extends Activity {
             onSessionStateChange(session, state, exception);
         }
     };
+
+    private int load_step=1;
+    private static final int LOAD_LOCATIONS = 1;
+    private static final int LOAD_DEALS = LOAD_LOCATIONS+1;
+    private static final int LOAD_LEVELS = LOAD_DEALS+1;
+    private static final int LOAD_COMPLETE = LOAD_LEVELS+1;
+
 
     //GCM Variables
     public static final String EXTRA_MESSAGE = "message";
@@ -84,25 +103,31 @@ public class StartActivity extends Activity {
         super.onCreate(savedInstanceState);
         setTitle(R.string.main_hub_ui);
 
-        // TODO Create App
-        //get app
+        // TODO Get all preferences data up front
+        login_method = PreferenceManager.getDefaultSharedPreferences(this).getInt("login_method", NO_METHOD_DEFINED);
+        user_id = PreferenceManager.getDefaultSharedPreferences(this).getString("user_id", NO_USER_ID_AVAILABLE);
+        registered = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("registered", false);
+        first_time = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("first_time", true);
+        user_location = GetClosestCityName().toLowerCase();
+        if (user_location=="nada") {
+            user_location = PreferenceManager.getDefaultSharedPreferences(this).getString("user_location", NO_LOCATION_AVAILABLE);
+        }
+        else {
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putString("user_location", user_location).commit();
+        }
+
+
+        // Initialize
+        // Coupers App
         app = (CoupersApp) getApplication();
-
-        // TODO Initialize App
         app.initialize(this);
+        app.setUser_id(user_id);
 
-        // TODO initialize FB APP
+        // Facebook Helper
         uiHelper = new UiLifecycleHelper(this, callback);
         uiHelper.onCreate(savedInstanceState);
 
-        // TODO Check for login data
-        login_method = PreferenceManager.getDefaultSharedPreferences(this).getInt("login_method", NO_METHOD_DEFINED);
-        user_id = PreferenceManager.getDefaultSharedPreferences(this).getString("user_id", NO_USER_ID_AVAILABLE);
-        user_location = PreferenceManager.getDefaultSharedPreferences(this).getString("user_location",NO_LOCATION_AVAILABLE);
-        registered = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("registered", false);
-        app.setUser_id(user_id);
-
-        // TODO Register GCM Service
+        // Register GCM Service
         if (checkPlayServices())
         {
             gcm = GoogleCloudMessaging.getInstance(this);
@@ -112,14 +137,11 @@ public class StartActivity extends Activity {
                 registerInBackground();
             else
             {
-                sendRegistrationIdToBackend(regid);
+                //sendRegistrationIdToBackend(regid);
                 Log.i(TAG, regid);
             }
         } else
             Log.i(TAG, "No valid Google Play Services APK found.");
-
-        // TODO Load data
-        // TODO Start main activity
 
         a = this;
 
@@ -127,10 +149,10 @@ public class StartActivity extends Activity {
         if (login_method==NO_METHOD_DEFINED){
             //Login screen
             setContentView(R.layout.activity_login_only_facebook);
+/*
             Button login_btn = (Button) findViewById(R.id.login_button);
             if (login_btn!=null){
                 login_btn.setOnClickListener(new View.OnClickListener() {
-                    //TODO implement email login mechanism
                     @Override
                     public void onClick(View view) {
                         setContentView(R.layout.activity_start);
@@ -138,13 +160,14 @@ public class StartActivity extends Activity {
                     }
                 });
             }
+*/
         }else if (login_method==FACEBOOK_LOGIN){
             //Facebook UI Helper to keep track of session state
 
             Session session = Session.getActiveSession();
             if (session != null && session.isOpened()){
                 setContentView(R.layout.activity_start);
-                loadData();
+                initiateLoading();
             }else if (session != null && session.getState()==SessionState.CREATED_TOKEN_LOADED){
                 setContentView(R.layout.activity_start);
             }else
@@ -156,26 +179,52 @@ public class StartActivity extends Activity {
 
     }
 
+    private void initiateLoading(){
+
+        if (!first_time){
+            loadData();
+        }
+        else{
+            //load all locations from web server
+            switch (load_step){
+                case LOAD_LOCATIONS:
+                    loadDealsWS();
+                    break;
+                case LOAD_DEALS:
+                    loadSavedDealsWS();
+                    break;
+                case LOAD_LEVELS:
+                    loadSavedDealLevelsWS();
+                    break;
+            }
+            //go load stuff
+        }
+        if (ready)
+            startMainActivity();
+
+    }
+
     // <editor-fold desc="Coupers Methods - Deal Loading">
     private void loadData(){
         ArrayList<CoupersLocation> data;
-        data = app.db.getAllLocations();
+        data = app.db.getAllLocations(user_location);
         if (data.size()>0)
         {
             app.locations=data;
+            app.setShowAll();
             findNearbyLocations(app.locations);
-            startMainActivity();
+            ready = true;
         }
         else
         {
-            loadDealsWS();
+            first_time = true;
+            initiateLoading();
         }
-
     }
 
     private void loadDealsWS(){
         CoupersObject obj = new CoupersObject(CoupersData.Methods.GET_CITY_DEALS);
-        obj.addParameter(CoupersData.Parameters.CITY,"mexicali");
+        obj.addParameter(CoupersData.Parameters.CITY,user_location);
         String _tag[]={
                 CoupersData.Fields.LOCATION_ID,
                 CoupersData.Fields.LOCATION_NAME,
@@ -200,37 +249,71 @@ public class StartActivity extends Activity {
             public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
                 //Parse data before loading
 
-                ArrayList<CoupersLocation> mData = new ArrayList<CoupersLocation>();
-                for (HashMap<String, String> map : result){
-                    CoupersLocation mLocation = new CoupersLocation(
-                            Integer.valueOf(map.get(CoupersData.Fields.LOCATION_ID)),
-                            Integer.valueOf(map.get(CoupersData.Fields.CATEGORY_ID)),
-                            map.get(CoupersData.Fields.LOCATION_NAME),
-                            map.get(CoupersData.Fields.LOCATION_DESCRIPTION),
-                            map.get(CoupersData.Fields.LOCATION_WEBSITE_URL),
-                            map.get(CoupersData.Fields.LOCATION_LOGO),
-                            map.get(CoupersData.Fields.LOCATION_THUMBNAIL),
-                            map.get(CoupersData.Fields.LOCATION_ADDRESS),
-                            map.get(CoupersData.Fields.LOCATION_CITY),
-                            map.get(CoupersData.Fields.LOCATION_PHONE_NUMBER1),
-                            map.get(CoupersData.Fields.LOCATION_PHONE_NUMBER2),
-                            Double.valueOf(map.get(CoupersData.Fields.LATITUDE)),
-                            Double.valueOf(map.get(CoupersData.Fields.LONGITUDE)));
-                    mLocation.TopDeal = map.get(CoupersData.Fields.LEVEL_DEAL_LEGEND);
-                    mLocation.CountDeals = Integer.valueOf(map.get(CoupersData.Fields.COUNTDEALS));
-                    mLocation.show=true;
-                    mData.add(mLocation);
-                    if (!app.db.exists(mLocation))
-                    {
-                        app.db.addLocation(mLocation);
-                        app.locations.add(mLocation);
+                if (result.size()>0)
+                {
+                    ArrayList<CoupersLocation> mData = new ArrayList<CoupersLocation>();
+                    for (HashMap<String, String> map : result){
+                        CoupersLocation mLocation = new CoupersLocation(
+                                Integer.valueOf(map.get(CoupersData.Fields.LOCATION_ID)),
+                                Integer.valueOf(map.get(CoupersData.Fields.CATEGORY_ID)),
+                                map.get(CoupersData.Fields.LOCATION_NAME),
+                                map.get(CoupersData.Fields.LOCATION_DESCRIPTION),
+                                map.get(CoupersData.Fields.LOCATION_WEBSITE_URL),
+                                map.get(CoupersData.Fields.LOCATION_LOGO),
+                                map.get(CoupersData.Fields.LOCATION_THUMBNAIL),
+                                map.get(CoupersData.Fields.LOCATION_ADDRESS),
+                                map.get(CoupersData.Fields.LOCATION_CITY),
+                                map.get(CoupersData.Fields.LOCATION_PHONE_NUMBER1),
+                                map.get(CoupersData.Fields.LOCATION_PHONE_NUMBER2),
+                                Double.valueOf(map.get(CoupersData.Fields.LATITUDE)),
+                                Double.valueOf(map.get(CoupersData.Fields.LONGITUDE)));
+                        mLocation.TopDeal = map.get(CoupersData.Fields.LEVEL_DEAL_LEGEND);
+                        mLocation.CountDeals = Integer.valueOf(map.get(CoupersData.Fields.COUNTDEALS));
+                        mLocation.show=true;
+                        mData.add(mLocation);
+                        if (!app.db.exists(mLocation))
+                        {
+                            app.db.addLocation(mLocation);
+                            app.locations.add(mLocation);
+                        }
                     }
+
+                    app.gps_available=false;
+                    app.nearby_locations=false;
+                    findNearbyLocations(app.locations);
+                    load_step = LOAD_DEALS;
+                    initiateLoading();
+                }
+                else
+                {
+                    String message = "Could not find any locations with promos near you, please contact us to start bringing you great deals close to where you are!";
+                    if (e instanceof SocketTimeoutException)
+                        message = "Server timeout, please try again later.";
+                    AlertDialog.Builder builder = new AlertDialog.Builder(a);
+                    builder.setMessage(message);
+                    builder.setNeutralButton("OK",new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            finish();
+                        }
+                    });
+                    builder.setTitle("Go Coupers!");
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+
+/*
+                    Toast.makeText(getBaseContext(),"Could not find any locations with promos near you, please contact us to start bringing you great deals close to where you are!",500).show();
+                    try{
+                        Thread.sleep(500);
+                    }
+                    catch (Exception ex)
+                    {
+                        ex.printStackTrace();
+                    }
+                    finish();
+*/
                 }
 
-                app.gps_available=false;
-                app.nearby_locations=false;
-                findNearbyLocations(app.locations);
-                startMainActivity();
             }
         });
 
@@ -270,6 +353,210 @@ public class StartActivity extends Activity {
         app.gps_available = geoloc!=null;
     }
 
+    private void loadSavedDealsWS(){
+        CoupersObject obj = new CoupersObject(CoupersData.Methods.GET_SAVED_DEALS);
+        obj.addParameter(CoupersData.Parameters.USER_ID,app.getUser_id());
+        String _tag[]={
+                Fields.USER_ID,
+                Fields.DEAL_ID,
+                Fields.LEVEL_ID,
+                Fields.SAVED_DEAL_SHARE_COUNT,
+                Fields.FACEBOOK_POST_ID,
+                Fields.LOCATION_ID,
+                Fields.LOCATION_NAME,
+                Fields.LOCATION_LOGO,
+                Fields.LOCATION_ADDRESS,
+                Fields.LOCATION_CITY,
+                Fields.LEVEL_DEAL_LEGEND,
+                Fields.CATEGORY_ID,
+                Fields.LOCATION_DESCRIPTION,
+                Fields.LOCATION_WEBSITE_URL,
+                Fields.LOCATION_THUMBNAIL,
+                Fields.LOCATION_PHONE_NUMBER1,
+                Fields.LOCATION_PHONE_NUMBER2,
+                Fields.LOCATION_HOURS_OPERATION1,
+                Fields.LATITUDE,
+                Fields.LONGITUDE};
+        obj.setTag(_tag);
+
+        CoupersServer server = new CoupersServer(obj,new CoupersServer.ResultCallback() {
+            @Override
+            public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
+                //Parse data before loading
+                CoupersLocation new_location = null;
+
+                if (result.size()>0)
+                {
+                    for (HashMap<String, String> map : result){
+
+                        //First check if location,deal exists in app data
+                        CoupersLocation location = app.findLocation(Integer.valueOf(map.get(Fields.LOCATION_ID)));
+                        if (location!=null) //If found then check if deal exists
+                        {
+                            CoupersDeal deal = location.findDeal(Integer.valueOf(map.get(Fields.DEAL_ID)));
+                            if (deal!=null) //If found then check as saved, check current level, update share count and close
+                            {
+                                deal.saved_deal = true;
+                                deal.current_level_id = Integer.valueOf(map.get(Fields.LEVEL_ID));
+                                deal.share_count = Integer.valueOf(map.get(Fields.SAVED_DEAL_SHARE_COUNT));
+                                deal.fb_post_id = map.get(Fields.FACEBOOK_POST_ID);
+                            }
+                            else //Create Deal object and add to location
+                            {
+                                deal = new CoupersDeal(
+                                        location.location_id,
+                                        Integer.valueOf(map.get(Fields.DEAL_ID)),
+                                        map.get(Fields.DEAL_START_DATE),
+                                        map.get(Fields.DEAL_END_DATE));
+                                deal.saved_deal=true;
+                                deal.current_level_id = Integer.valueOf(map.get(Fields.LEVEL_ID));
+                                deal.share_count = Integer.valueOf(map.get(Fields.SAVED_DEAL_SHARE_COUNT));
+                                deal.fb_post_id = map.get(Fields.FACEBOOK_POST_ID);
+                                if (!app.db.exists(deal))
+                                {
+                                    app.db.addDeal(deal);
+                                }
+                                location.location_deals.add(deal);
+                                //getDealLevels(location.location_id, deal.deal_id);
+                            }
+                        }
+                        else //Location not found, create objects and add to app data
+                        {
+                            new_location = new CoupersLocation(
+                                    Integer.valueOf(map.get(CoupersData.Fields.LOCATION_ID)),
+                                    Integer.valueOf(map.get(CoupersData.Fields.CATEGORY_ID)),
+                                    map.get(CoupersData.Fields.LOCATION_NAME),
+                                    map.get(CoupersData.Fields.LOCATION_DESCRIPTION),
+                                    map.get(CoupersData.Fields.LOCATION_WEBSITE_URL),
+                                    map.get(CoupersData.Fields.LOCATION_LOGO),
+                                    map.get(CoupersData.Fields.LOCATION_THUMBNAIL),
+                                    map.get(CoupersData.Fields.LOCATION_ADDRESS),
+                                    map.get(CoupersData.Fields.LOCATION_CITY),
+                                    map.get(CoupersData.Fields.LOCATION_PHONE_NUMBER1),
+                                    map.get(CoupersData.Fields.LOCATION_PHONE_NUMBER2),
+                                    Double.valueOf(map.get(CoupersData.Fields.LATITUDE)),
+                                    Double.valueOf(map.get(CoupersData.Fields.LONGITUDE)));
+                            new_location.TopDeal = map.get(CoupersData.Fields.LEVEL_DEAL_LEGEND);
+                            new_location.show=true;
+                            CoupersDeal new_deal = new CoupersDeal(new_location.location_id,
+                                    Integer.valueOf(map.get(Fields.DEAL_ID)),
+                                    map.get(Fields.DEAL_START_DATE),
+                                    map.get(Fields.DEAL_END_DATE));
+                            new_deal.saved_deal = true;
+                            new_deal.current_level_id = Integer.valueOf(map.get(Fields.LEVEL_ID));
+                            new_deal.share_count = Integer.valueOf(map.get(Fields.SAVED_DEAL_SHARE_COUNT));
+                            new_deal.fb_post_id = map.get(Fields.FACEBOOK_POST_ID);
+                            new_location.location_deals.add(new_deal);
+                            if (!app.db.exists(new_deal))
+                            {
+                                app.db.addDeal(new_deal);
+                            }
+                            if (app.findLocation(new_location.location_id)==null)
+                                    app.locations.add(new_location);
+                            //getDealLevels(new_location.location_id, new_deal.deal_id);
+
+                            if (!app.db.exists(new_location))
+                            {
+                                app.db.addLocation(new_location);
+                            }
+                        }
+
+                    }
+
+                }
+                load_step=LOAD_LEVELS;
+                initiateLoading();
+            }
+        });
+
+        server.execute();
+    }
+
+    private void loadSavedDealLevelsWS(){
+
+        saved_deals = countSavedDeals();
+        if (saved_deals>0)
+        {
+            for (CoupersLocation location : app.locations)
+            {
+                for (CoupersDeal deal : location.location_deals){
+                    if (deal.saved_deal)
+                    {
+                        getDealLevels(location.location_id,deal.deal_id);
+                    }
+                }
+            }
+        }
+        else
+        {
+            ready=true;
+        }
+
+    }
+
+    private int countSavedDeals(){
+        int count = 0;
+        for (CoupersLocation location : app.locations)
+            for (CoupersDeal deal : location.location_deals)
+                if (deal.saved_deal) count++;
+        return count;
+    }
+
+    private void getDealLevels(final int location_id, final int deal_id){
+        CoupersObject obj = new CoupersObject(Methods.GET_DEAL_LEVELS);
+        obj.addParameter(Parameters.DEAL_ID,String.valueOf(deal_id));
+        String _tag[]={
+                Fields.LEVEL_ID,
+                Fields.LEVEL_START_AT,
+                Fields.LEVEL_SHARE_CODE,
+                Fields.LEVEL_REDEEM_CODE,
+                Fields.LEVEL_DEAL_LEGEND,
+                Fields.LEVEL_DEAL_DESCRIPTION,
+                Fields.LEVEL_AWARD_LIMIT
+        };
+        obj.setTag(_tag);
+
+        CoupersServer server = new CoupersServer(obj,new CoupersServer.ResultCallback() {
+            @Override
+            public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
+                //Parse data before loading
+                ArrayList<CoupersDealLevel> levels = new ArrayList<CoupersDealLevel>();
+                if (result.size()>0)
+                {
+
+                    for (HashMap<String, String> map : result){
+                        CoupersDealLevel level = new CoupersDealLevel(
+                                deal_id,
+                                Integer.valueOf(map.get(Fields.LEVEL_ID)),
+                                Integer.valueOf(map.get(Fields.LEVEL_START_AT)),
+                                map.get(Fields.LEVEL_SHARE_CODE),
+                                map.get(Fields.LEVEL_REDEEM_CODE),
+                                map.get(Fields.LEVEL_DEAL_LEGEND),
+                                map.get(Fields.LEVEL_DEAL_DESCRIPTION));
+                        levels.add(level);
+                        if (!app.db.exists(level))
+                        {
+                            app.db.addDealLevel(level);
+                        }
+                    }
+
+                }
+                if (levels.size()>0)
+                    app.findLocation(location_id).findDeal(deal_id).deal_levels = levels;
+
+                loaded_saved_deals++;
+                if (loaded_saved_deals==saved_deals)
+                {
+                    PreferenceManager.getDefaultSharedPreferences(a).edit().putBoolean("first_time",false).commit();
+                    ready=true;
+                    initiateLoading();
+                }
+            }
+        });
+
+        server.execute();
+    }
+
     private void startMainActivity(){
         findViewById(R.id.progressBar).setVisibility(View.INVISIBLE);
         findViewById(R.id.textView).setVisibility(View.INVISIBLE);
@@ -279,20 +566,23 @@ public class StartActivity extends Activity {
     }
 
     public String GetClosestCityName(){
-        String result="nada";
+        String result="mexicali";
         Geocoder geocoder = new Geocoder(this);
         LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
         Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         List<Address> list = new ArrayList<Address>();
-        try{
-            list= geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 4);
-        }catch (IOException e)
+        if (location!=null)
         {
-            e.printStackTrace();
-        }
-        if (list != null & list.size() > 0) {
-            Address address = list.get(0);
-            result = address.getLocality();
+            try{
+                list= geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 4);
+            }catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+            if (list != null & list.size() > 0) {
+                Address address = list.get(0);
+                result = address.getLocality();
+            }
         }
         return result;
 
@@ -508,10 +798,10 @@ public class StartActivity extends Activity {
         if (aData.size()>0){
             map = aData.get(0);
             PreferenceManager.getDefaultSharedPreferences(this).edit().putString("user_id",map.get(CoupersData.Fields.USER_ID)).commit();
-            PreferenceManager.getDefaultSharedPreferences(this).edit().putString("user_location","mexicali").commit();
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putString("user_location",user_location).commit();
             PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean("registered", true).commit();
             app.setUser_id(map.get(CoupersData.Fields.USER_ID));
-            loadData();
+            initiateLoading();
         }
     }
 
@@ -562,9 +852,9 @@ public class StartActivity extends Activity {
                                 if (addresses.size() > 0)
                                     System.out.println(addresses.get(0).getLocality());*/
                                 if(!registered)
-                                    RegisterUser(user.getId(),user.getName(),"mexicali",user.getUsername());
+                                    RegisterUser(user.getId(),user.getName(),user_location,user.getUsername());
                                 else
-                                    loadData();
+                                    initiateLoading();
                                 fb_user = user;
                                 //LoadData();
                             }

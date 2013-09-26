@@ -2,7 +2,6 @@ package com.coupers.coupers;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.ProgressDialog;
@@ -12,16 +11,10 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.coupers.entities.CoupersDeal;
-import com.coupers.entities.CoupersLocation;
 import com.coupers.entities.CoupersData;
 import com.coupers.utils.CoupersObject;
 import com.coupers.utils.CoupersServer;
@@ -36,13 +29,6 @@ import com.facebook.UiLifecycleHelper;
 import com.facebook.model.GraphObject;
 import com.facebook.model.GraphUser;
 import com.facebook.model.OpenGraphAction;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -97,7 +83,7 @@ public class CardFlipActivity extends Activity
     //private CoupersLocation data;
     private CoupersDeal deal;
     private CoupersApp app;
-    private CoupersData.Interfaces.CallBack coupers_call_back=null;
+    private CoupersData.Interfaces.CallBack facebook_post_complete =null;
     private Menu menu;
 
     /**
@@ -172,7 +158,7 @@ public class CardFlipActivity extends Activity
 
     public void postFacebook(CoupersDeal deal, CoupersData.Interfaces.CallBack listener){
         this.deal = deal;
-        this.coupers_call_back=listener;
+        this.facebook_post_complete =listener;
         handlePost();
     }
 
@@ -212,7 +198,7 @@ public class CardFlipActivity extends Activity
                         + "&og:type=gocoupers:deal"
                         + "&og:title=" + deal.deal_levels.get(0).level_deal_legend
                         + "&og:description=" + deal.deal_levels.get(0).level_deal_description
-                        + "&og:image=" + app.selected_location.location_thumbnail
+                        + "&og:image=" + app.getSelectedLocation().location_thumbnail
                         + "&body=" + deal.deal_levels.get(0).level_deal_legend;
                 og_deal.setUrl(dealURL);
                 getAction.setDeal(og_deal);
@@ -263,12 +249,13 @@ public class CardFlipActivity extends Activity
                 @Override
                 public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
                     //TODO add code to check if all is OK
+
                     if (progressDialog!=null)
                     {
                         progressDialog.dismiss();
                         progressDialog=null;
                     }
-                    coupers_call_back.update("ok");
+                    facebook_post_complete.update("ok");
                 }
             });
 
@@ -423,7 +410,7 @@ public class CardFlipActivity extends Activity
         // Add either a "photo" or "finish" button to the action bar, depending on which page
         // is currently selected.
         MenuItem item_favorite = menu.add(Menu.NONE, R.id.add_location_favorite, Menu.NONE,R.string.add_location_favorite);
-        item_favorite.setIcon(app.selected_location.location_isfavorite
+        item_favorite.setIcon(app.getSelectedLocation().location_isfavorite
                 ? R.drawable.coupers_location_favorite
                 : R.drawable.coupers_location_not_favorite);
         item_favorite.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
@@ -457,7 +444,7 @@ public class CardFlipActivity extends Activity
                 flipCard();
                 return true;
             case R.id.add_location_favorite:
-                if (!app.selected_location.location_isfavorite){
+                if (!app.getSelectedLocation().location_isfavorite){
                     progressDialog = ProgressDialog.show(this, "",getResources().getString(R.string.progress_adding_favorite), true);
                     AddLocationFavorite();
                 }else
@@ -473,7 +460,7 @@ public class CardFlipActivity extends Activity
 
     public void AddLocationFavorite(){
         CoupersObject obj = new CoupersObject(CoupersData.Methods.ADD_LOCATION_FAVORITE);
-        obj.addParameter(CoupersData.Parameters.LOCATION_ID,String.valueOf(app.selected_location.location_id));
+        obj.addParameter(CoupersData.Parameters.LOCATION_ID,String.valueOf(app.getSelectedLocation().location_id));
         obj.addParameter(CoupersData.Parameters.USER_ID,((CoupersApp)getApplication()).getUser_id());
         String _tag[]={
                 CoupersData.Fields.RESULT_CODE};
@@ -491,7 +478,7 @@ public class CardFlipActivity extends Activity
 
     public void RemoveLocationFavorite(){
         CoupersObject obj = new CoupersObject(CoupersData.Methods.REMOVE_LOCATION_FAVORITE);
-        obj.addParameter(CoupersData.Parameters.LOCATION_ID,String.valueOf(app.selected_location.location_id));
+        obj.addParameter(CoupersData.Parameters.LOCATION_ID,String.valueOf(app.getSelectedLocation().location_id));
         obj.addParameter(CoupersData.Parameters.USER_ID,((CoupersApp)getApplication()).getUser_id());
         String _tag[]={
                 CoupersData.Fields.RESULT_CODE};
@@ -512,16 +499,16 @@ public class CardFlipActivity extends Activity
 
         if (WebServiceExecuted==CoupersData.Methods.ADD_LOCATION_FAVORITE || WebServiceExecuted==CoupersData.Methods.REMOVE_LOCATION_FAVORITE) {
 
-            app.selected_location.location_isfavorite=!app.selected_location.location_isfavorite;
+            app.getSelectedLocation().location_isfavorite=!app.getSelectedLocation().location_isfavorite;
 
             if (WebServiceExecuted==CoupersData.Methods.ADD_LOCATION_FAVORITE)
             {
-                app.setFavorite(app.selected_location);
+                app.setFavorite(app.getSelectedLocation());
                 this.menu.getItem(0).setIcon(R.drawable.coupers_location_favorite);
             }
             else
             {
-                app.unsetFavorite(app.selected_location);
+                app.unsetFavorite(app.getSelectedLocation());
                 this.menu.getItem(0).setIcon(R.drawable.coupers_location_not_favorite);
             }
 

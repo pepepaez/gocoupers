@@ -16,9 +16,11 @@ import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.coupers.entities.CoupersData;
 import com.coupers.entities.CoupersDeal;
+import com.coupers.entities.CoupersDealLevel;
 import com.coupers.entities.CoupersLocation;
 import com.coupers.utils.Contents;
 import com.coupers.utils.CoupersObject;
@@ -38,6 +40,7 @@ public class DealPagerAdapter extends PagerAdapter {
     private LayoutInflater mInflater;
     private ProgressDialog progressDialog=null;
     private final Activity a;
+    private ImageButton saveDeal = null;
     private CoupersApp app;
     private  int bg=R.drawable.list_selector_eat;
 
@@ -48,7 +51,7 @@ public class DealPagerAdapter extends PagerAdapter {
         this.bg = bg;
         this.a = a;
         this.app=(CoupersApp)a.getApplication();
-        deals=app.selected_location.location_deals;
+        deals=app.getSelectedLocation().location_deals;
 
     }
 
@@ -71,13 +74,25 @@ public class DealPagerAdapter extends PagerAdapter {
     public Object instantiateItem(final ViewGroup container, final int position) {
         //super.instantiateItem(container, position);
         final int pos = position;
+        CoupersDeal deal = deals.get(position);
         View layout = mInflater.inflate(R.layout.deal_pager_view, null);
         TextView level_deal_legend = (TextView) layout.findViewById(R.id.level_deal_legend);
         TextView level_deal_description = (TextView) layout.findViewById(R.id.level_deal_description);
         level_deal_legend.setBackgroundResource(bg);
-        level_deal_legend.setText(deals.get(position).deal_levels.get(0).level_deal_legend);
         level_deal_description.setBackgroundResource(bg);
-        level_deal_description.setText(deals.get(position).deal_levels.get(0).level_deal_description);
+        if (deal.deal_levels.size()>0)
+        {
+            if (!deal.saved_deal)
+            {
+                level_deal_legend.setText(deal.deal_levels.get(0).level_deal_legend);
+                level_deal_description.setText(deal.deal_levels.get(0).level_deal_description);
+            }
+            else
+            {
+                level_deal_legend.setText(deal.deal_levels.get(deal.current_level_id).level_deal_legend);
+                level_deal_description.setText(deal.deal_levels.get(deal.current_level_id).level_deal_description);
+            }
+        }
 
         //---- Create redeem code
         ImageView redeem_code = (ImageView) layout.findViewById(R.id.level_redeem_code);
@@ -110,42 +125,19 @@ public class DealPagerAdapter extends PagerAdapter {
 
         //--- Create save button
 
-        final ImageButton saveDeal = (ImageButton) layout.findViewById(R.id.save_deal);
+        saveDeal = (ImageButton) layout.findViewById(R.id.save_deal);
         if (saveDeal!= null)
         {
+            if (deals.get(position).saved_deal)
+                saveDeal.setImageResource(R.drawable.save_deal_sel);
             saveDeal.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    progressDialog = ProgressDialog.show(saveDeal.getContext(), "", a.getResources().getString(R.string.progress_saving_deal), true);
-                    CoupersObject obj = new CoupersObject(CoupersData.Methods.SAVE_DEAL);
-                    obj.addParameter(CoupersData.Parameters.USER_ID,((CoupersApp)a.getApplication()).getUser_id());
-                    obj.addParameter(CoupersData.Parameters.DEAL_ID,String.valueOf(deals.get(position).deal_id));
-                    String _tag[]={
-                        CoupersData.Fields.COLUMN1};
-                    obj.setTag(_tag);
-
-                    CoupersServer server = new CoupersServer(obj,new CoupersServer.ResultCallback() {
-                        @Override
-                        public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
-
-                            if (e!=null)
-                            {
-                                deals.get(position).saved_deal=true;
-                                // TODO Set Saved Deal on SQLite
-                                //TODO Set Remove Deal on SQLite and App
-                                ((CoupersApp) a.getApplication()).setSavedDeal(deals.get(position).deal_id);
-                                if (progressDialog!=null)
-                                {
-                                    progressDialog.dismiss();
-                                    progressDialog=null;
-                                }
-                                saveDeal.setImageResource(R.drawable.save_deal_sel);
-
-                            }
-                        }
-                    });
-
-                    server.execute();
+                    CoupersDeal deal = deals.get(position);
+                    if (!deal.saved_deal)
+                        saveLocationDeal(saveDeal.getContext(),deals.get(position));
+                    else
+                        unsaveLocationDeal(saveDeal.getContext(),deals.get(position));
                 }
             });
 
@@ -156,6 +148,14 @@ public class DealPagerAdapter extends PagerAdapter {
         final ImageButton shareFacebook = (ImageButton) layout.findViewById(R.id.facebook_share);
         if (shareFacebook!=null)
         {
+            if (deals.get(position).fb_post_id!=null)
+            {
+                if (!deals.get(position).fb_post_id.isEmpty() && deals.get(position).fb_post_id!="0")
+                {
+                    shareFacebook.setImageResource(R.drawable.share_facebook_sel);
+                    shareFacebook.setClickable(false);
+                }
+            }
             shareFacebook.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -234,6 +234,82 @@ public class DealPagerAdapter extends PagerAdapter {
         return layout;
     }
 
+    public void saveLocationDeal(Context context,final CoupersDeal deal){
+
+        progressDialog = ProgressDialog.show(context, "", a.getResources().getString(R.string.progress_saving_deal), true);
+        CoupersObject obj = new CoupersObject(CoupersData.Methods.SAVE_DEAL);
+        obj.addParameter(CoupersData.Parameters.USER_ID,app.getUser_id());
+        obj.addParameter(CoupersData.Parameters.DEAL_ID,String.valueOf(deal.deal_id));
+        String _tag[]={
+                CoupersData.Fields.RESULT_CODE};
+        obj.setTag(_tag);
+
+        CoupersServer server = new CoupersServer(obj,new CoupersServer.ResultCallback() {
+            @Override
+            public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
+
+                if (e==null)
+                {
+                    deal.saved_deal=true;
+                    // TODO Set Saved Deal on SQLite
+                    //TODO Set Remove Deal on SQLite and App
+                    app.setSavedDeal(deal);
+
+                    saveDeal.setImageResource(R.drawable.save_deal_sel);
+                }
+
+                if (progressDialog!=null)
+                {
+                    progressDialog.dismiss();
+                    progressDialog=null;
+                }
+            }
+        });
+
+        server.execute();
+
+    }
+
+    public void unsaveLocationDeal(Context context,final CoupersDeal deal){
+
+        progressDialog = ProgressDialog.show(context, "", a.getResources().getString(R.string.progress_saving_deal), true);
+        CoupersObject obj = new CoupersObject(CoupersData.Methods.REMOVE_SAVED_DEAL);
+        obj.addParameter(CoupersData.Parameters.USER_ID,app.getUser_id());
+        obj.addParameter(CoupersData.Parameters.DEAL_ID,String.valueOf(deal.deal_id));
+        String _tag[]={
+                CoupersData.Fields.RESULT1};
+        obj.setTag(_tag);
+
+        CoupersServer server = new CoupersServer(obj,new CoupersServer.ResultCallback() {
+            @Override
+            public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
+
+                if (e==null)
+                {
+                    deal.saved_deal=false;
+                    app.unsetSavedDeal(deal);
+
+                    saveDeal.setImageResource(R.drawable.save_deal);
+                }
+                else
+                {
+
+                    //TODO notify user deal could not be removed from saved list
+
+                }
+
+                if (progressDialog!=null)
+                {
+                    progressDialog.dismiss();
+                    progressDialog=null;
+                }
+
+            }
+        });
+
+        server.execute();
+
+    }
     @Override
     public boolean isViewFromObject(View view, Object o) {
         return view==o;

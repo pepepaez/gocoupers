@@ -60,9 +60,13 @@ public final class CoupersData {
         public static final String LEVEL_SHARE_CODE = "level_share_code";
         public static final String LEVEL_REDEEM_CODE = "level_redeem_code";
         public static final String LEVEL_DEAL_DESCRIPTION = "level_deal_descripcion";
+        public static final String LEVEL_AWARD_LIMIT = "level_award_limit";
         public static final String USER_ID = "user_id";
         public static final String RESULT_CODE = "result_code";
+        public static final String RESULT1 = "result1";
         public static final String COLUMN1 = "Column1";
+        public static final String SAVED_DEAL_SHARE_COUNT = "saved_deal_share_count";
+        public static final String FACEBOOK_POST_ID = "post_id";
 
 
 
@@ -85,6 +89,9 @@ public final class CoupersData {
         public final static String LOGIN_FACEBOOK = "LoginUserFacebook";
         public final static String SHARE_DEAL_FACEBOOK = "ShareDealFacebook";
         public final static String SAVE_PUSH_NOTIFICATION_ID = "SavePushNotificationid";
+        public final static String REMOVE_SAVED_DEAL = "RemoveUserDealFromSavedDeals";
+        public final static String GET_SAVED_DEALS = "GetSavedDeals";
+        public final static String GET_DEAL_LEVELS = "GetAllLevelsFromDeal";
     }
 
     public static final class Interfaces{
@@ -114,6 +121,8 @@ public final class CoupersData {
             public static final String location_website = "location_website";
             public static final String location_hours_operation = "location_hours_operation";
             public static final String isFavorite = "isfavorite";
+            public static final String top_deal = "top_deal";
+            public static final String deal_count = "deal_count";
         }
         public static final class tb_Deal {
             public static final String table_name = "tb_deal";

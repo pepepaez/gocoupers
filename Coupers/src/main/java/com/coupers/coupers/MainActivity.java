@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.Toast;
 
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
@@ -25,6 +26,7 @@ import com.coupers.utils.IntentResult;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
+import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -43,12 +45,12 @@ public class MainActivity extends SlidingFragmentActivity {
         setContentView(R.layout.responsive_content_frames);
         app = (CoupersApp) getApplication();
 
-        //TODO Need to make use of saved instance!!
-
 
         // check if the content frame contains the menu frame
 		if (findViewById(R.id.menu_frame) == null) {
+            //EXPANDABLE MENU CHANGE 1
 			setBehindContentView(R.layout.menu_frame_new);
+            //setBehindContentView(R.layout.menu_frame_exp);
 			getSlidingMenu().setSlidingEnabled(true);
 			getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
 			// show home as up so we can toggle
@@ -133,13 +135,14 @@ public class MainActivity extends SlidingFragmentActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
 
+
         MenuItem scan_option = menu.add(Menu.NONE, R.id.deal_scan, Menu.NONE,R.string.action_scan);
         scan_option.setIcon(R.drawable.coupers_iconos_scan);
-        scan_option.setShowAsAction(android.view.MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        scan_option.setShowAsAction(android.view.MenuItem.SHOW_AS_ACTION_ALWAYS);
 
         MenuItem settings_option = menu.add(Menu.NONE, R.id.open_settings, Menu.NONE,R.string.open_settings);
         settings_option.setIcon(R.drawable.coupers_iconos_settings);
-        settings_option.setShowAsAction(android.view.MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        settings_option.setShowAsAction(android.view.MenuItem.SHOW_AS_ACTION_ALWAYS);
         return true;
     }
     //endregion
@@ -171,8 +174,8 @@ public class MainActivity extends SlidingFragmentActivity {
         progressDialog = ProgressDialog.show(this, "",
                 getResources().getString(R.string.progress_loading_deals), true);
 
-        if (app.selected_location.location_deals.size()==0)
-            loadDealsWS(app.selected_location);
+        if (app.getSelectedLocation().location_deals.size()!=app.getSelectedLocation().CountDeals)
+            loadDealsWS(app.getSelectedLocation());
         else
             showLocationDeals();
 
@@ -200,8 +203,25 @@ public class MainActivity extends SlidingFragmentActivity {
         CoupersServer server = new CoupersServer(obj,new CoupersServer.ResultCallback() {
             @Override
             public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
-                location.location_deals=parseDeals(result);
-                showLocationDeals();
+                if (e instanceof SocketTimeoutException)
+                {
+                    if (progressDialog != null){
+                        progressDialog.dismiss();
+                        progressDialog = null;
+                    }
+                    Toast.makeText(getBaseContext(),"Server timeout, please try again later...",100);
+                }
+                else
+                {
+                    ArrayList<CoupersDeal> deals = parseDeals(result);
+                    for (CoupersDeal deal : deals)
+                    {
+                        CoupersDeal find_deal = location.findDeal(deal.deal_id);
+                        if (find_deal==null)
+                            location.location_deals.add(deal);
+                    }
+                    showLocationDeals();
+                }
             }
         });
 

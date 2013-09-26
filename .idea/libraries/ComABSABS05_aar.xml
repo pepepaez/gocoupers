@@ -2,8 +2,11 @@
   <library name="ComABSABS05.aar">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/Coupers/build/exploded-bundles/ComABSABS05.aar/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/Coupers/build/exploded-bundles/ComABSABS05.aar/res" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../ABS/src" />
+    </SOURCES>
   </library>
 </component>

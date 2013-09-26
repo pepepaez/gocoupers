@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 import com.coupers.entities.CoupersData;
+import com.coupers.entities.CoupersDeal;
 import com.coupers.entities.CoupersLocation;
 import com.coupers.utils.CoupersDBHelper;
 
@@ -21,7 +22,7 @@ public class CoupersApp extends Application {
     private String user_id;
     private ArrayList<CoupersLocation> FavoriteLocations = new ArrayList<CoupersLocation>();
     public ArrayList<CoupersLocation> locations = new ArrayList<CoupersLocation>();
-    public CoupersLocation selected_location = null;
+    private int selected_location_id;
     public int selected_category=10;
     public boolean nearby_locations = false;
     public boolean gps_available = false;
@@ -38,7 +39,8 @@ public class CoupersApp extends Application {
     {
         this.context = context;
         db = new CoupersDBHelper(this.context);
-        this.FavoriteLocations= new ArrayList<CoupersLocation>();
+        this.locations = null;
+        this.locations = new ArrayList<CoupersLocation>();
     }
 
     public void registerCallBack(CoupersData.Interfaces.CallBack listener){
@@ -51,6 +53,15 @@ public class CoupersApp extends Application {
 
     public void setUser_id(String user_id) {
         this.user_id = user_id;
+    }
+
+    public void setSelectedLocation(int location_id)
+    {
+        this.selected_location_id = location_id;
+    }
+
+    public CoupersLocation getSelectedLocation(){
+        return findLocation(this.selected_location_id);
     }
 
     public boolean exists(CoupersLocation find_location){
@@ -68,6 +79,13 @@ public class CoupersApp extends Application {
         for (CoupersLocation location : locations)
         {
            location.show=false;
+        }
+    }
+
+    public void setShowAll(){
+        for (CoupersLocation location : locations)
+        {
+            location.show=true;
         }
     }
 
@@ -103,7 +121,7 @@ public class CoupersApp extends Application {
         }
 
         // if not found then add to list of favorites
-        locations.add(favorite_location);
+        //locations.add(favorite_location);
         //Update Menu
         if (callBack!=null) callBack.update(favorite_location);
 
@@ -112,7 +130,7 @@ public class CoupersApp extends Application {
     public void unsetFavorite(CoupersLocation favorite_location){
 
         //Update DB
-        favorite_location.location_isfavorite=false;
+        //favorite_location.location_isfavorite=false;
         if (!db.exists(favorite_location))
             db.addLocation(favorite_location);
         else
@@ -151,10 +169,43 @@ public class CoupersApp extends Application {
         return null;
     }
 
-
     //TODO set saved deal
-    public void setSavedDeal(int deal_id){
+    public void setSavedDeal(CoupersDeal deal){
 
+        CoupersLocation location = findLocation(deal.location_id);
+        if (location!=null)
+        {
+            CoupersDeal sDeal = location.findDeal(deal.deal_id);
+
+            if (sDeal==null)
+                location.location_deals.add(deal);
+            else
+                sDeal.saved_deal=true;
+
+            if (db.exists(deal))
+                db.toggleSavedDeal(deal.deal_id,true);
+            else
+                db.addDeal(deal);
+        }
+    }
+
+    public void unsetSavedDeal(CoupersDeal deal){
+
+        CoupersLocation location = findLocation(deal.location_id);
+        if (location!=null)
+        {
+            CoupersDeal sDeal = location.findDeal(deal.deal_id);
+
+            if (sDeal==null)
+               location.location_deals.add(deal);
+            else
+                sDeal.saved_deal=false;
+
+            if (db.exists(deal))
+                db.toggleSavedDeal(deal.deal_id, false);
+            else
+                db.addDeal(deal);
+        }
     }
 
     //TODO set FB post ID

@@ -101,8 +101,8 @@ public class MenuAdapter extends BaseAdapter {
                 i++;
         return i;
     }
-    private CoupersMenuItem findFavorite(int location_id)
-    {
+
+    private CoupersMenuItem findFavorite(int location_id){
         for (CoupersMenuItem item : mDataSet)
         {
             if (item.item_type==CoupersMenuItem.TYPE_LOCATION)
@@ -157,8 +157,7 @@ public class MenuAdapter extends BaseAdapter {
     }
 
     @Override
-    public int getViewTypeCount()
-    {
+    public int getViewTypeCount(){
         return TYPE_MAX_COUNT;
     }
 
@@ -190,7 +189,6 @@ public class MenuAdapter extends BaseAdapter {
         //indicator.animate();
         //indicator.getAnimation().startNow();
     }
-
 
     public View getView(int position, View convertView, ViewGroup parent) {
 
