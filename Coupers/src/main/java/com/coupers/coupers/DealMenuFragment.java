@@ -43,11 +43,6 @@ public class DealMenuFragment extends Fragment {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
@@ -196,9 +191,12 @@ public class DealMenuFragment extends Fragment {
             }
             else
             {
-                location.CountDeals = Integer.valueOf(map.get(CoupersData.Fields.FAVORITE_NEW_DEAL_COUNT));
-                if(app!=null)
-                    app.setFavorite(location);
+                if (location.location_city.toLowerCase().equals(app.getUser_city().toLowerCase()))
+                {
+                    location.CountDeals = Integer.valueOf(map.get(CoupersData.Fields.FAVORITE_NEW_DEAL_COUNT));
+                    if(app!=null)
+                        app.setFavorite(location);
+                }
             }
 
 
@@ -282,37 +280,9 @@ public class DealMenuFragment extends Fragment {
         }
     }
     private void loadCategoryLocations(int CategoryId){
-        CoupersObject obj = new CoupersObject(CoupersData.Methods.GET_CATEGORY_DEALS);
-        obj.addParameter(CoupersData.Parameters.CITY,getResources().getString(R.string.city));
-        obj.addParameter(CoupersData.Parameters.CATEGORY_ID,String.valueOf(CategoryId));
-        String _tag[]={
-                CoupersData.Fields.LOCATION_ID,
-                CoupersData.Fields.LOCATION_NAME,
-                CoupersData.Fields.LOCATION_LOGO,
-                CoupersData.Fields.LOCATION_ADDRESS,
-                CoupersData.Fields.LOCATION_CITY,
-                CoupersData.Fields.CATEGORY_ID,
-                CoupersData.Fields.LATITUDE,
-                CoupersData.Fields.LONGITUDE,
-                CoupersData.Fields.LOCATION_DESCRIPTION,
-                CoupersData.Fields.LOCATION_WEBSITE_URL,
-                CoupersData.Fields.LOCATION_THUMBNAIL,
-                CoupersData.Fields.LOCATION_PHONE_NUMBER1,
-                CoupersData.Fields.LOCATION_PHONE_NUMBER2,
-                CoupersData.Fields.LOCATION_HOURS_OPERATION1,
-                CoupersData.Fields.LEVEL_DEAL_LEGEND,
-                CoupersData.Fields.COUNTDEALS};
-        obj.setTag(_tag);
-
-        CoupersServer server = new CoupersServer(obj,new CoupersServer.ResultCallback() {
-            @Override
-            public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
-                parseLocations(result,false);
-                showLocations();
-            }
-        });
-
-        server.execute();
+        app.selected_category=CategoryId;
+        app.setCategory();
+        showLocations();
     }
 
     public void showLocations()

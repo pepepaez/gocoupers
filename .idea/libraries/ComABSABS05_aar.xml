@@ -1,12 +1,10 @@
 <component name="libraryTable">
   <library name="ComABSABS05.aar">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/Coupers/build/exploded-bundles/ComABSABS05.aar/classes.jar!/" />
       <root url="file://$PROJECT_DIR$/Coupers/build/exploded-bundles/ComABSABS05.aar/res" />
+      <root url="jar://$PROJECT_DIR$/Coupers/build/exploded-bundles/ComABSABS05.aar/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES>
-      <root url="file://$PROJECT_DIR$/../ABS/src" />
-    </SOURCES>
+    <SOURCES />
   </library>
 </component>

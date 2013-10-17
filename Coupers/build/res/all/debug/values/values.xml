@@ -2,17 +2,6 @@
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/array.xml -->
-    <string-array name="birds">
-        <item>Eagle</item>
-        <item>Flamingo</item>
-        <item>Heron</item>
-        <item>Ostrich</item>
-        <item>Peacock</item>
-        <item>Penguin</item>
-        <item>Toucan</item>
-        <item>Turkey</item>
-        <item>Vulture</item>
-    </string-array>
     <string-array name="birds_desc">
         <item>Eagles are so majestic...</item>
         <item>You can see flamingos in the San Diego Zoo</item>
@@ -34,6 +23,11 @@
         <item>@drawable/toucan</item>
         <item>@drawable/turkey</item>
         <item>@drawable/vulture</item>
+    </string-array>
+    <string-array name="cities">
+        <item>Mexicali</item>
+        <item>Tijuana</item>
+        <item>Monterrey</item>
     </string-array>
     <string-array name="color_names">
         <item>Red</item>
@@ -840,8 +834,11 @@
     <item name="action_flip" type="id"/>
     <item name="action_next" type="id"/>
     <item name="add_location_favorite" type="id"/>
-    <item name="deal_scan" type="id"/>
+    <item name="go_home" type="id"/>
+    <item name="go_saved_deals" type="id"/>
     <item name="open_settings" type="id"/>
+    <item name="refresh_deals" type="id"/>
+    <item name="scan_deal" type="id"/>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComSlidingMenuLibrarySlidingMenuLibrary03.aar/res/values/values.xml -->
     <item name="selected_view" type="id"/>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/ids.xml -->
@@ -874,11 +871,15 @@
     <string name="abs__shareactionprovider_share_with">Share with</string>
     <string name="abs__shareactionprovider_share_with_application">Share with <ns1:g id="application_name" example="Bluetooth">%s</ns1:g></string>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/strings.xml -->
+    <string name="action_home">Go home…</string>
     <string name="action_info">Photo info</string>
     <string name="action_photo">View photo</string>
+    <string name="action_refresh">Refresh deals…</string>
+    <string name="action_saved_deals">Open saved deals…</string>
     <string name="action_scan">Scan Deal</string>
     <string name="action_settings">Settings</string>
     <string name="add_location_favorite">Add Location to Favorites</string>
+    <string name="all_deals">ALL DEALS</string>
     <string name="app_name">Coupers!</string>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/CoupersProjectLibrariesGooglePlayServices_libUnspecified.aar/res/values/values.xml -->
     <string name="auth_client_needs_enabling_title">      An application requires Google Play Services to be enabled.</string>
@@ -889,6 +890,7 @@
     <string name="auth_client_using_bad_version_title">      An application attempted to use a bad version of Google Play Services.</string>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/strings.xml -->
     <string name="city">mexicali</string>
+    <string name="city_selection_title">Select city…</string>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/CoupersProjectLibrariesFacebookUnspecified.aar/res/values/values.xml -->
     <string name="com_facebook_choose_friends">Choose Friends</string>
     <string name="com_facebook_dialogloginactivity_ok_button">OK</string>
@@ -932,6 +934,8 @@
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/strings.xml -->
+    <string name="confirm_location">Please confirm below the city we have identified or change to another city, you can change this setting at any time.</string>
+    <string name="coupers_server_error">There was a problem with the server</string>
     <string name="current_level">Current Level</string>
     <string name="deal_details">Get 10% discount!</string>
     <string name="error_authentication_reopen">An error occurred, please re-login.</string>
@@ -945,28 +949,34 @@
     <string name="error_unknown">An unknown error occurred, please contact the developer with the following message: %1$s</string>
     <string name="favorites">Favorites</string>
     <string name="fb_app_id">206430106187639</string>
+    <string name="fb_deal_already_shared">Deal has been shared in Facebook already, tell your friends to like it!</string>
     <string name="hello_world">Hello world!</string>
-    <string name="i_want_to">I want to...</string>
-    <string name="i_want_to_eat">Eat...</string>
-    <string name="i_want_to_feel_good">Feel good...</string>
-    <string name="i_want_to_have_fun">Have fun...</string>
-    <string name="i_want_to_look_good">Look good...</string>
-    <string name="i_want_to_relax">Relax...</string>
-    <string name="loading_progress_bar">loading...</string>
+    <string name="i_want_to">I want to…</string>
+    <string name="i_want_to_eat">Eat…</string>
+    <string name="i_want_to_feel_good">Feel good…</string>
+    <string name="i_want_to_have_fun">Have fun…</string>
+    <string name="i_want_to_look_good">Look good…</string>
+    <string name="i_want_to_relax">Relax…</string>
+    <string name="loading_deal_levels">Loading deal levels…</string>
+    <string name="loading_progress_bar">loading…</string>
+    <string name="location_missing">Could not identify your location, please make sure your location settings are enabled and that apps can access them, then try again, thanks!</string>
     <string name="login_email">enter your email</string>
     <string name="login_password">enter your password</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis euismod mi, eu pretium dolor. Phasellus auctor feugiat ante, quis cursus turpis condimentum eu.</string>
     <string name="main_hub_ui"></string>
+    <string name="nearby_deals">NEARBY DEALS</string>
+    <string name="no_locality_found">nada</string>
     <string name="open_settings">Open Settings</string>
-    <string name="progress_adding_favorite">Adding to favorites, please wait...</string>
-    <string name="progress_dialog_text">Announcing, please wait...</string>
-    <string name="progress_loading_deals">Loading deals, please wait...</string>
-    <string name="progress_removing_favorite">Removing from favorites, please wait...</string>
-    <string name="progress_saving_deal">Saving deal, please wait...</string>
+    <string name="progress_adding_favorite">Adding to favorites, please wait…</string>
+    <string name="progress_dialog_text">Sharing to Facebook, please wait…</string>
+    <string name="progress_loading_deals">Loading deals, please wait…</string>
+    <string name="progress_removing_favorite">Removing from favorites, please wait…</string>
+    <string name="progress_saving_deal">Saving deal, please wait…</string>
     <string name="redeem_code">Redeem code</string>
     <string name="result_dialog_button_text">Thanks!</string>
     <string name="result_dialog_text">Posted Open Graph action, id: %1$s</string>
     <string name="result_dialog_title">Result</string>
+    <string name="retrieving_user_name">getting name…</string>
     <string name="server_connection_error">There was an error trying to connect to the server</string>
     <string name="share">Share!</string>
     <string name="share_deal_dialog_button">Done!</string>

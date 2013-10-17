@@ -8,10 +8,7 @@ import com.coupers.entities.CoupersDeal;
 import com.coupers.entities.CoupersLocation;
 import com.coupers.utils.CoupersDBHelper;
 
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by pepe on 8/25/13.
@@ -20,12 +17,15 @@ public class CoupersApp extends Application {
 
     // APP DATA
     private String user_id;
-    private ArrayList<CoupersLocation> FavoriteLocations = new ArrayList<CoupersLocation>();
+    private String user_city;
     public ArrayList<CoupersLocation> locations = new ArrayList<CoupersLocation>();
     private int selected_location_id;
     public int selected_category=10;
     public boolean nearby_locations = false;
     public boolean gps_available = false;
+
+    public boolean exit_next=false;
+    public boolean reload = false;
 
     // APP UTILS
     private Context context;
@@ -53,6 +53,14 @@ public class CoupersApp extends Application {
 
     public void setUser_id(String user_id) {
         this.user_id = user_id;
+    }
+
+    public String getUser_city() {
+        return user_city;
+    }
+
+    public void setUser_city(String user_city) {
+        this.user_city = user_city;
     }
 
     public void setSelectedLocation(int location_id)
@@ -96,6 +104,28 @@ public class CoupersApp extends Application {
                 location.show=true;
         }
 
+    }
+
+    public void showSavedDeals(){
+        for (CoupersLocation location : locations)
+        {
+            if (location.location_city.equals(getUser_city()))
+            {
+                for (CoupersDeal deal : location.location_deals)
+                {
+                    if (deal.saved_deal)
+                        location.show=true;
+                }
+            }
+        }
+    }
+
+    public void showAllDeals(String city){
+        for (CoupersLocation location : locations)
+        {
+            if (location.location_city.equals(city))
+                location.show=true;
+        }
     }
 
     public void setFavorite(CoupersLocation favorite_location){
@@ -154,7 +184,7 @@ public class CoupersApp extends Application {
         ArrayList<CoupersLocation> favorites = new ArrayList<CoupersLocation>();
         for (CoupersLocation location : locations)
         {
-            if (location.location_isfavorite)
+            if (location.location_isfavorite && location.location_city.equals(getUser_city()))
                 favorites.add(location);
         }
         return favorites;
@@ -209,7 +239,26 @@ public class CoupersApp extends Application {
     }
 
     //TODO set FB post ID
-    public void setFB_PostID(int deal_id, String post_id){
+    public void setFB_PostID(CoupersDeal deal, String post_id){
+
+        CoupersLocation location = findLocation(deal.location_id);
+
+        if (location!=null)
+        {
+            CoupersDeal sDeal = location.findDeal(deal.deal_id);
+
+            if (sDeal==null)
+                location.location_deals.add(deal);
+            else
+                sDeal.fb_post_id = post_id;
+
+            if (db.exists(deal))
+                db.savePostID(deal.deal_id,post_id);
+            else
+                db.addDeal(deal);
+
+        }
+
 
     }
 }

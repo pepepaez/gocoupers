@@ -16,8 +16,11 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.coupers.entities.CoupersData;
@@ -43,7 +46,6 @@ import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
@@ -59,11 +61,12 @@ public class StartActivity extends Activity {
     private boolean registered = false;
     private boolean first_time = true;
     private boolean ready = false;
+    private boolean city_selected = false;
     private int saved_deals = 0;
     private int loaded_saved_deals =0;
     private GraphUser fb_user;
     private Activity a;
-    public boolean exit_next=false;
+
     private boolean isResumed = false;
     private CoupersApp app = null;
     private UiLifecycleHelper uiHelper;
@@ -108,20 +111,23 @@ public class StartActivity extends Activity {
         user_id = PreferenceManager.getDefaultSharedPreferences(this).getString("user_id", NO_USER_ID_AVAILABLE);
         registered = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("registered", false);
         first_time = PreferenceManager.getDefaultSharedPreferences(this).getBoolean("first_time", true);
-        user_location = GetClosestCityName().toLowerCase();
-        if (user_location=="nada") {
+        String closest_city= GetClosestCityName();
+        user_location = closest_city.toLowerCase();
+        if (user_location.equals(getString(R.string.no_locality_found))) {
             user_location = PreferenceManager.getDefaultSharedPreferences(this).getString("user_location", NO_LOCATION_AVAILABLE);
         }
         else {
             PreferenceManager.getDefaultSharedPreferences(this).edit().putString("user_location", user_location).commit();
         }
-
+        if (!user_location.equals(NO_LOCATION_AVAILABLE) && !first_time)
+            city_selected=true;
 
         // Initialize
         // Coupers App
         app = (CoupersApp) getApplication();
         app.initialize(this);
         app.setUser_id(user_id);
+
 
         // Facebook Helper
         uiHelper = new UiLifecycleHelper(this, callback);
@@ -149,18 +155,6 @@ public class StartActivity extends Activity {
         if (login_method==NO_METHOD_DEFINED){
             //Login screen
             setContentView(R.layout.activity_login_only_facebook);
-/*
-            Button login_btn = (Button) findViewById(R.id.login_button);
-            if (login_btn!=null){
-                login_btn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        setContentView(R.layout.activity_start);
-                        loadData();
-                    }
-                });
-            }
-*/
         }else if (login_method==FACEBOOK_LOGIN){
             //Facebook UI Helper to keep track of session state
 
@@ -181,32 +175,83 @@ public class StartActivity extends Activity {
 
     private void initiateLoading(){
 
-        if (!first_time){
-            loadData();
-        }
-        else{
-            //load all locations from web server
-            switch (load_step){
-                case LOAD_LOCATIONS:
-                    loadDealsWS();
-                    break;
-                case LOAD_DEALS:
-                    loadSavedDealsWS();
-                    break;
-                case LOAD_LEVELS:
-                    loadSavedDealLevelsWS();
-                    break;
+        if (!ready)
+        {
+            if (city_selected)
+            {
+                if (first_time)
+                {
+                    // Load from WS
+                    switch (load_step){
+                        case LOAD_LOCATIONS:
+                            loadDealsWS();
+                            break;
+                        case LOAD_DEALS:
+                            loadSavedDealsWS();
+                            break;
+                        case LOAD_LEVELS:
+                            loadSavedDealLevelsWS();
+                            break;
+                    }
+                }
+                if (!first_time)
+                    loadData(); //all normal just load off of the local db
             }
-            //go load stuff
+            else
+            {
+                String city_selection_message;
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                View city_view =  this.getLayoutInflater().inflate(R.layout.set_city, null, false);
+                TextView city_text = (TextView) city_view.findViewById(R.id.city_text);
+                final Spinner spin_city = (Spinner) city_view.findViewById(R.id.city_spinner);
+                final SpinnerAdapter spin_adapter = spin_city.getAdapter();
+
+                if (user_location.equals(NO_LOCATION_AVAILABLE))
+                {
+                    // Location not found, show user list of cities for him to select
+                    city_selection_message = getString(R.string.location_missing);
+                }
+                else
+                {
+                    //Show identified location and have user confirm.
+                    city_selection_message = getString(R.string.confirm_location);
+                    int i;
+                    for (i=0;i<spin_adapter.getCount();i++)
+                        if (spin_adapter.getItem(i).equals(user_location))
+                            spin_city.setSelection(i);
+                }
+
+                city_text.setText(city_selection_message);
+                builder.setView(city_view);
+                builder.setNeutralButton("OK",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //load all locations from web server
+                        user_location = spin_city.getSelectedItem().toString().toLowerCase();
+                        PreferenceManager.getDefaultSharedPreferences(a).edit().putString("user_location", user_location).commit();
+                        city_selected=true;
+                        initiateLoading();
+
+                    }
+                });
+                builder.setTitle(getString(R.string.city_selection_title));
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+            }
         }
+
         if (ready)
+        {
             startMainActivity();
+        }
 
     }
 
     // <editor-fold desc="Coupers Methods - Deal Loading">
     private void loadData(){
         ArrayList<CoupersLocation> data;
+        app.locations=new ArrayList<CoupersLocation>();
         data = app.db.getAllLocations(user_location);
         if (data.size()>0)
         {
@@ -251,7 +296,7 @@ public class StartActivity extends Activity {
 
                 if (result.size()>0)
                 {
-                    ArrayList<CoupersLocation> mData = new ArrayList<CoupersLocation>();
+
                     for (HashMap<String, String> map : result){
                         CoupersLocation mLocation = new CoupersLocation(
                                 Integer.valueOf(map.get(CoupersData.Fields.LOCATION_ID)),
@@ -270,7 +315,7 @@ public class StartActivity extends Activity {
                         mLocation.TopDeal = map.get(CoupersData.Fields.LEVEL_DEAL_LEGEND);
                         mLocation.CountDeals = Integer.valueOf(map.get(CoupersData.Fields.COUNTDEALS));
                         mLocation.show=true;
-                        mData.add(mLocation);
+
                         if (!app.db.exists(mLocation))
                         {
                             app.db.addLocation(mLocation);
@@ -286,32 +331,44 @@ public class StartActivity extends Activity {
                 }
                 else
                 {
-                    String message = "Could not find any locations with promos near you, please contact us to start bringing you great deals close to where you are!";
-                    if (e instanceof SocketTimeoutException)
-                        message = "Server timeout, please try again later.";
+                    String city_selection_message;
                     AlertDialog.Builder builder = new AlertDialog.Builder(a);
-                    builder.setMessage(message);
+                    View city_view =  a.getLayoutInflater().inflate(R.layout.set_city, null, false);
+                    TextView city_text = (TextView) city_view.findViewById(R.id.city_text);
+                    final Spinner spin_city = (Spinner) city_view.findViewById(R.id.city_spinner);
+                    final SpinnerAdapter spin_adapter = spin_city.getAdapter();
+
+                    if (user_location.equals(NO_LOCATION_AVAILABLE))
+                    {
+                        // Location not found, show user list of cities for him to select
+                        city_selection_message = getString(R.string.location_missing);
+                    }
+                    else
+                    {
+                        //Show identified location and have user confirm.
+                        city_selection_message = getString(R.string.confirm_location);
+                        int i;
+                        for (i=0;i<spin_adapter.getCount();i++)
+                            if (spin_adapter.getItem(i).equals(user_location))
+                                spin_city.setSelection(i);
+                    }
+
+                    city_text.setText(city_selection_message);
+                    builder.setView(city_view);
                     builder.setNeutralButton("OK",new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            finish();
+                            //load all locations from web server
+                            user_location = spin_city.getSelectedItem().toString().toLowerCase();
+                            PreferenceManager.getDefaultSharedPreferences(a).edit().putString("user_location", user_location).commit();
+                            city_selected=true;
+                            initiateLoading();
+
                         }
                     });
-                    builder.setTitle("Go Coupers!");
+                    builder.setTitle(getString(R.string.city_selection_title));
                     AlertDialog dialog = builder.create();
                     dialog.show();
-
-/*
-                    Toast.makeText(getBaseContext(),"Could not find any locations with promos near you, please contact us to start bringing you great deals close to where you are!",500).show();
-                    try{
-                        Thread.sleep(500);
-                    }
-                    catch (Exception ex)
-                    {
-                        ex.printStackTrace();
-                    }
-                    finish();
-*/
                 }
 
             }
@@ -489,7 +546,7 @@ public class StartActivity extends Activity {
         }
         else
         {
-            ready=true;
+            first_time=false;
         }
 
     }
@@ -547,8 +604,7 @@ public class StartActivity extends Activity {
                 loaded_saved_deals++;
                 if (loaded_saved_deals==saved_deals)
                 {
-                    PreferenceManager.getDefaultSharedPreferences(a).edit().putBoolean("first_time",false).commit();
-                    ready=true;
+                    first_time=false;
                     initiateLoading();
                 }
             }
@@ -558,30 +614,45 @@ public class StartActivity extends Activity {
     }
 
     private void startMainActivity(){
+        PreferenceManager.getDefaultSharedPreferences(a).edit().putBoolean("first_time",false).commit();
+        app.setUser_city(user_location);
         findViewById(R.id.progressBar).setVisibility(View.INVISIBLE);
         findViewById(R.id.textView).setVisibility(View.INVISIBLE);
         Intent intent = new Intent(StartActivity.this,MainActivity.class);
-        exit_next=true;
+        app.exit_next=true;
+        app.reload=false;
         startActivity(intent);
     }
 
     public String GetClosestCityName(){
-        String result="mexicali";
+        String result="nada";
         Geocoder geocoder = new Geocoder(this);
         LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-        Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        List<Address> list = new ArrayList<Address>();
-        if (location!=null)
+        if (lm!=null)
         {
-            try{
-                list= geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 4);
-            }catch (IOException e)
+            Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            List<Address> list = new ArrayList<Address>();
+            if (location!=null)
             {
-                e.printStackTrace();
-            }
-            if (list != null & list.size() > 0) {
-                Address address = list.get(0);
-                result = address.getLocality();
+                try{
+                    list= geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 4);
+                }catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
+                if (list != null)
+                {
+                    if (list.size() > 0)
+                    {
+                        String locality;
+                        for (Address address:list)
+                        {
+                            locality = address.getLocality();
+                            if (locality!=null)
+                                result=locality;
+                        }
+                    }
+                }
             }
         }
         return result;
@@ -608,8 +679,24 @@ public class StartActivity extends Activity {
     @Override
     protected void onRestart() {
         super.onRestart();
-        if (isTaskRoot() && exit_next)
-            finish();
+
+        if (app.reload)
+        {
+            app.locations= new ArrayList<CoupersLocation>();
+            setContentView(R.layout.activity_start);
+            loaded_saved_deals=0;
+            ready=false;
+            city_selected=true;
+            user_location=app.getUser_city();
+            first_time=true;
+            load_step=LOAD_LOCATIONS;
+            initiateLoading();
+        }
+        else
+        {
+            if (isTaskRoot() && app.exit_next)
+                finish();
+        }
     }
 
     @Override
@@ -720,7 +807,8 @@ public class StartActivity extends Activity {
                     // so it can use GCM/HTTP or CCS to send messages to your app.
                     // The request to your server should be authenticated if your app
                     // is using accounts.
-                    sendRegistrationIdToBackend(regid);
+                    if(registered)
+                        sendRegistrationIdToBackend(regid);
 
                     // For this demo: we don't need to send it because the device
                     // will send upstream messages to a server that echo back the
@@ -762,12 +850,27 @@ public class StartActivity extends Activity {
             obj.addParameter(CoupersData.Parameters.GCM_ID,pn_id);
 
             String _tag[]={
-                    CoupersData.Fields.COLUMN1};
+                    Fields.RESULT_CODE};
             obj.setTag(_tag);
 
             CoupersServer server = new CoupersServer(obj,new CoupersServer.ResultCallback() {
                 @Override
                 public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
+
+                    if (e==null)
+                    {
+                        if (result.size()>0)
+                        {
+                            HashMap<String,String> map = result.get(0);
+                            //if (map.get(Fields.RESULT_CODE).equals())
+                        }
+
+                    }
+                    else
+                    {
+                        //handleError(e);
+                        Toast.makeText(a,getString(R.string.coupers_server_error),Toast.LENGTH_LONG).show();
+                    }
                    //Check result code
                 }
             });
@@ -775,6 +878,27 @@ public class StartActivity extends Activity {
             server.execute();
 
         }
+
+    private void sendAccessTokenToBackend(String access_token) {
+        // Your implementation here.
+        CoupersObject obj = new CoupersObject(Methods.SAVE_FACEBOOK_ACCESS_TOKEN);
+        obj.addParameter(Parameters.USER_ID,app.getUser_id());
+        obj.addParameter(Parameters.ACCESS_TOKEN,access_token);
+
+        String _tag[]={
+                Fields.RESULT_CODE};
+        obj.setTag(_tag);
+
+        CoupersServer server = new CoupersServer(obj,new CoupersServer.ResultCallback() {
+            @Override
+            public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
+                //Check result code
+            }
+        });
+
+        server.execute();
+
+    }
 
     /**
      * Stores the registration ID and app versionCode in the application's
@@ -801,6 +925,8 @@ public class StartActivity extends Activity {
             PreferenceManager.getDefaultSharedPreferences(this).edit().putString("user_location",user_location).commit();
             PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean("registered", true).commit();
             app.setUser_id(map.get(CoupersData.Fields.USER_ID));
+            sendRegistrationIdToBackend(regid);
+            sendAccessTokenToBackend(Session.getActiveSession().getAccessToken());
             initiateLoading();
         }
     }
@@ -810,11 +936,13 @@ public class StartActivity extends Activity {
     // <editor-fold desc="Facebook Methods">
     private void onSessionStateChange(Session session, SessionState state, Exception exception) {
         if (isResumed) {
-            //TODO Review if need to use fragments on login
+
             // check for the OPENED state instead of session.isOpened() since for the
             // OPENED_TOKEN_UPDATED state, the selection fragment should already be showing.
             if (state.equals(SessionState.OPENED)) {
-                //TODO check if first time login
+
+                if(registered)
+                    sendAccessTokenToBackend(session.getAccessToken());
 
                 Request.executeMeRequestAsync(session, new Request.GraphUserCallback() {
                     @Override
@@ -826,7 +954,6 @@ public class StartActivity extends Activity {
                             //LoadData();
                             Session session = Session.getActiveSession();
                             if(session!=null && session.isOpened()) makeMeRequest(session);
-
                         }
                     }
                 });
@@ -836,6 +963,7 @@ public class StartActivity extends Activity {
             }
         }
     }
+
 
     private void makeMeRequest(final Session session) {
         // Make an API call to get user data and define a
@@ -882,6 +1010,7 @@ public class StartActivity extends Activity {
         CoupersServer server = new CoupersServer(obj, new CoupersServer.ResultCallback() {
             @Override
             public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
+
                 CompleteRegistration(result);
             }
         });

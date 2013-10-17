@@ -85,14 +85,16 @@
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp" />
 
-    <ImageView
+    <ImageButton
         android:layout_width="190dp"
         android:layout_height="50dp"
         android:id="@+id/deal_level_indicator"
         android:layout_centerHorizontal="true"
         android:src="@drawable/deal_level_1"
         android:layout_below="@+id/level_redeem_code_text"
-        android:layout_marginTop="5dp" />
+        android:layout_marginTop="5dp"
+        android:scaleType="fitCenter"
+        android:background="#ffffff" />
 
     <ImageButton
         android:layout_width="wrap_content"

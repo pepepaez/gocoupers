@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="false"
+    android:background="#e75e57">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Level"
+        android:id="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:padding="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="5"
+        android:id="@+id/level_id"
+        android:background="@drawable/round_corners"
+        android:textSize="20dp"
+        android:textColor="#474747"
+        android:textAlignment="center"
+        android:singleLine="false"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/textView" />
+    <ImageView
+        android:id="@+id/dashdeal"
+        android:layout_width="wrap_content"
+        android:layout_height="90dip"
+        android:src="@drawable/dashline2"
+        android:scaleType="centerCrop"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/level_id"
+        android:layout_alignParentStart="false"
+        android:layout_alignTop="@+id/textView"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="1dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/deal_legend"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/dashdeal"
+        android:padding="5dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:id="@+id/imageView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_below="@+id/dashdeal" />
+
+</RelativeLayout>

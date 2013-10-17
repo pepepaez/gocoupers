@@ -6,16 +6,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.coupers.entities.CoupersData;
 import com.coupers.entities.CoupersDeal;
 import com.coupers.entities.CoupersDealLevel;
 import com.coupers.entities.CoupersLocation;
-import com.google.android.gms.internal.cu;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.coupers.entities.CoupersData.*;
 import static com.coupers.entities.CoupersData.SQLiteDictionary.*;
 
 /**
@@ -63,7 +60,7 @@ public class CoupersDBHelper extends SQLiteOpenHelper {
                         tb_Deal.location_id + " INTEGER," +
                         tb_Deal.deal_start_date + " TEXT," +
                         tb_Deal.deal_end_date + " TEXT," +
-                        tb_Deal.saved_deal + " TEXT," +
+                        tb_Deal.saved_deal + " INTEGER," +
                         tb_Deal.fb_post_id + " TEXT," +
                         tb_Deal.current_level_id + " INTEGER," +
                         tb_Deal.share_count + " INTEGER" + ")";
@@ -222,7 +219,8 @@ public class CoupersDBHelper extends SQLiteOpenHelper {
                         deal.deal_levels=levels;
                     }
                     location.location_deals=deals;
-                    location.CountDeals = deals.size();
+                    if (location.CountDeals<=deals.size())
+                        location.CountDeals = deals.size();
                     //location.TopDeal=deals.get(0).deal_levels.get(0).level_deal_legend;
                     for (CoupersDeal deal : location.location_deals)
                     {
@@ -355,7 +353,9 @@ public class CoupersDBHelper extends SQLiteOpenHelper {
         if (is_favorite)
             fav="1";
 
-        db.rawQuery("UPDATE " + tb_Location.table_name + " SET " + tb_Location.isFavorite + " = " + fav + " WHERE location_id = " + String.valueOf(location_id),null );
+        Cursor c = db.rawQuery("UPDATE " + tb_Location.table_name + " SET " + tb_Location.isFavorite + " = " + fav + " WHERE location_id = " + String.valueOf(location_id),null );
+
+        c.moveToFirst();
 
         db.close();
     }
@@ -368,10 +368,27 @@ public class CoupersDBHelper extends SQLiteOpenHelper {
         if (is_saved)
             saved = "1";
 
-        db.rawQuery("UPDATE " + tb_Deal.table_name + " SET " + tb_Deal.saved_deal + " = " + saved + " WHERE deal_id = " + String.valueOf(deal_id),null);
+        //Cursor c = db.rawQuery("UPDATE " + tb_Deal.table_name + " SET " + tb_Deal.saved_deal + " = " + saved + " WHERE deal_id = " + String.valueOf(deal_id),null);
+        ContentValues updates = new ContentValues();
+        updates.put(tb_Deal.saved_deal,is_saved?1:0);
+        ContentValues wheres = new ContentValues();
+        wheres.put(tb_Deal.deal_id,deal_id);
+        db.update(tb_Deal.table_name,updates,tb_Deal.deal_id + " = " +String.valueOf(deal_id),null);
 
         db.close();
 
+    }
+
+    public void savePostID(int deal_id, String post_id){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues updates = new ContentValues();
+        updates.put(tb_Deal.fb_post_id,post_id);
+        ContentValues wheres = new ContentValues();
+        wheres.put(tb_Deal.deal_id,deal_id);
+        db.update(tb_Deal.table_name,updates,tb_Deal.deal_id + " = " + String.valueOf(deal_id),null);
+
+        db.close();
     }
 
 

@@ -1,7 +1,6 @@
 package com.coupers.utils;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  * Created by pepe on 7/24/13.
@@ -18,7 +17,7 @@ public class CoupersObject {
     public CoupersObject(String method_name){
         NAMESPACE = "http://tempuri.org/";
         SOAP_ACTION = NAMESPACE + method_name;
-        URL = "http://coupers.elasticbeanstalk.com/CoupersWS/Coupers.asmx";
+        URL = "http://coupersws-env.elasticbeanstalk.com/CoupersWS/Coupers.asmx";
         METHOD_NAME = method_name;
     }
 

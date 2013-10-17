@@ -73,7 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Arturo Careca"
+            android:text="@string/retrieving_user_name"
             android:id="@+id/username"
             android:layout_toRightOf="@+id/userpic"
             android:layout_alignRight="@+id/searchView"

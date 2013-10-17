@@ -11,10 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
-import android.view.animation.TranslateAnimation;
-import android.widget.AdapterView;
 import android.widget.ExpandableListView;
-import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -45,11 +42,6 @@ public class ExpDealMenuFragment extends Fragment {
     //ACTIVITY CONTROL
 
     public ExpDealMenuFragment() {
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
     }
 
     @Override

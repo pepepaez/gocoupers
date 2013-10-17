@@ -9,10 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.androidquery.AQuery;
-import com.androidquery.callback.BitmapAjaxCallback;
 import com.androidquery.callback.ImageOptions;
 import com.coupers.entities.CoupersData;
-import com.coupers.entities.CoupersDeal;
 import com.coupers.entities.CoupersLocation;
 import com.coupers.utils.CirclePageIndicator;
 
@@ -39,12 +37,6 @@ public class LocationFrontFragment extends DialogFragment {
 
 
         return fragmentView;
-    }
-
-    @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
     }
 
     @Override
@@ -93,6 +85,7 @@ public class LocationFrontFragment extends DialogFragment {
         options.memCache=true;
         options.ratio=AQuery.RATIO_PRESERVE;
         options.anchor= AQuery.ANCHOR_DYNAMIC;
+        //aq.id(R.id.list_image).progress(R.id.progressBarThumb).image(location.location_thumbnail,true,true);
         aq.id(R.id.location_thumbnail).image(location.location_thumbnail,true,true);
         ViewPager vp = (ViewPager) fragmentView.findViewById(R.id.deal_pager);
         DealPagerAdapter dealPager=new DealPagerAdapter(this.inflater,getActivity(), bgResource);

@@ -1,22 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-
-    <string name="action_settings" >Configuracion
-    </string>
-    <string name="hello_world" >Hello world!
-    </string>
-    <string name="what_is_this">What is this?</string>
-    <string name="action_info">Detalles Negocio</string>
-    <string name="action_photo">Detalles Promo</string>
-    <string name="action_scan">Escanear Promo</string>
-    <string name="share_deal_dialog_title">Escanea para compartir!</string>
-    <string name="share_deal_dialog_button">Listo!</string>
+    <string name="fb_app_id">206430106187639</string>
+    <string name="app_name" >Coupers!</string>
+    <string name="action_settings" >Configuracion</string>
+    <string name="hello_world" >Hola Mundo!</string>
+    <string name="main_hub_ui"> </string>
+    <string name="what_is_this">Que es esto?</string>
+    <string name="action_info">Info</string>
+    <string name="action_photo">Ver mapa</string>
+    <string name="action_scan">Escanear promoción</string>
+    <string name="open_settings">Abrir configuración</string>
+    <string name="add_location_favorite">Agregar negocio a lista de favoritos</string>
+    <string name="share_deal_dialog_title">Escanear para compartir!</string>
+    <string name="share_deal_dialog_button">List!</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis euismod mi, eu pretium dolor. Phasellus auctor feugiat ante, quis cursus turpis condimentum eu.</string>
     <string name="deal_details">Obten 10% de descuento!</string>
-    <string name="loading_progress_bar">cargando...</string>
-    <string name="server_connection_error">Hubo un error al conectarse con el servidor</string>
+    <string name="loading_progress_bar">cargando…</string>
+    <string name="server_connection_error">Hubo un error al tratar de contactar el servidor.</string>
     <string name="favorites">Favoritos</string>
-    <string name="categories">Hoy quiero...</string><string name="current_level">Current Level</string><string name="share">Share!</string><string name="redeem_code">Redeem code</string>
-
+    <string name="i_want_to">Hoy quiero…</string>
+    <string name="i_want_to_eat">Comer…</string>
+    <string name="i_want_to_look_good">Verme bien…</string>
+    <string name="i_want_to_feel_good">Sentirme bien…</string>
+    <string name="i_want_to_relax">Relajarme…</string>
+    <string name="i_want_to_have_fun">Divertirme…</string>
+    <string name="city">mexicali</string>
+    <string name="current_level">Nivel actual</string>
+    <string name="share">Compartir!</string>
+    <string name="redeem_code">Codigo de Promoción</string>
+    <string name="login_email">ingresa tu email</string>
+    <string name="login_password">ingresa tu password</string>
+    <string name="progress_dialog_text">Publicando en Facebook, por favor espera…</string>
+    <string name="progress_loading_deals">Cargando promos, por favor espera…</string>
+    <string name="progress_adding_favorite">Agregando a favoritos, por favor espera…</string>
+    <string name="progress_saving_deal">Guardando promo, por favor espera…</string>
+    <string name="loading_deal_levels">Cargando niveles…</string>
+    <string name="progress_removing_favorite">Quitando de favoritos, por favor espera…</string>
+    <string name="result_dialog_text">Facebook post completado: %1$s</string>
+    <string name="result_dialog_button_text">Gracias!</string>
+    <string name="result_dialog_title">Resultado</string>
+    <string name="error_dialog_default_text">No hay respuesta del servidor.</string>
+    <string name="error_authentication_retry">Ocurrio un error que require atención. %1$s</string>
+    <string name="error_authentication_reopen">Ocurrio un error, por favor hacer login de nuevo.</string>
+    <string name="error_permission">Por favor permitenos postear en Facebook en tu línea de tiempo.</string>
+    <string name="error_server">El servidor esta ocupado, por favor intenta mas tarde.</string>
+    <string name="error_bad_request">Ocurrio un error, por favor contactanos a dev@gocoupers.com e incluye el siguiente mensaje: %1$s</string>
+    <string name="error_unknown">Un error desconocido ocurrio, por favor contactanos a dev@gocoupers.com e incluye el siguiente mensaje: %1$s</string>
+    <string name="error_dialog_title">Algo salio mal…</string>
+    <string name="error_dialog_button_text">OK</string>
+    <string name="fb_deal_already_shared">La promo ya se compartio en Facebook, dile a tus amigos que le den like!</string>
+    <string name="action_home">Ir al inicio…</string>
+    <string name="action_saved_deals">Cargar promos guardadas…</string>
+    <string name="action_refresh">Actualizar promos…</string>
+    <string name="no_locality_found">nada</string>
+    <string name="retrieving_user_name">cargando nombre…</string>
+    <string name="nearby_deals">CERCA DE TI</string>
+    <string name="all_deals">EN LA CIUDAD</string>
+    <string name="location_missing">No es posible identificar tu ubicación, por favor asegurate que tu configuracion de ubicación esta habilidata y que otras aplicaciones pueden acceder a ella, gracias!</string>
+    <string name="confirm_location">Por favor confirma la ciudad identificada en la lista o cambia a otra ciudad, esta selección puede ser modificada en cualquier momento.</string>
+    <string name="city_selection_title">Selecciona tu ciudad…</string>
+    <string name="coupers_server_error">There was a problem with the server</string>
 </resources>

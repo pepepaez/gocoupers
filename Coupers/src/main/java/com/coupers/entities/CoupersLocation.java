@@ -3,14 +3,8 @@ package com.coupers.entities;
 import android.content.ContentValues;
 import android.database.Cursor;
 
-import com.google.android.gms.internal.db;
-
-import org.ksoap2.serialization.PropertyInfo;
-
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Hashtable;
 
 import static com.coupers.entities.CoupersData.SQLiteDictionary.*;
 

@@ -41,16 +41,10 @@
         <item>@drawable/coupers_iconos_like</item>
     </string-array>
 
-    <string-array name="birds">
-        <item>Eagle</item>
-        <item>Flamingo</item>
-        <item>Heron</item>
-        <item>Ostrich</item>
-        <item>Peacock</item>
-        <item>Penguin</item>
-        <item>Toucan</item>
-        <item>Turkey</item>
-        <item>Vulture</item>
+    <string-array name="cities">
+        <item>Mexicali</item>
+        <item>Tijuana</item>
+        <item>Monterrey</item>
     </string-array>
 
     <string-array name="birds_img">

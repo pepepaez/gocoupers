@@ -1,8 +1,5 @@
 package com.coupers.entities;
 
-import android.database.sqlite.SQLiteDatabase;
-import android.view.View;
-
 /**
  * Created by pepe on 7/20/13.
  */
@@ -27,6 +24,7 @@ public final class CoupersData {
         public final static String USERNAME = "username";
         public final static String FACEBOOK_POST_ID = "post_id";
         public final static String GCM_ID = "pushnotification_id";
+        public final static String ACCESS_TOKEN = "token";
     }
 
     public static final class Fields {
@@ -63,8 +61,8 @@ public final class CoupersData {
         public static final String LEVEL_AWARD_LIMIT = "level_award_limit";
         public static final String USER_ID = "user_id";
         public static final String RESULT_CODE = "result_code";
-        public static final String RESULT1 = "result1";
-        public static final String COLUMN1 = "Column1";
+        //public static final String RESULT1 = "result1";
+        //public static final String COLUMN1 = "Column1";
         public static final String SAVED_DEAL_SHARE_COUNT = "saved_deal_share_count";
         public static final String FACEBOOK_POST_ID = "post_id";
 
@@ -92,6 +90,7 @@ public final class CoupersData {
         public final static String REMOVE_SAVED_DEAL = "RemoveUserDealFromSavedDeals";
         public final static String GET_SAVED_DEALS = "GetSavedDeals";
         public final static String GET_DEAL_LEVELS = "GetAllLevelsFromDeal";
+        public final static String SAVE_FACEBOOK_ACCESS_TOKEN = "SaveFacebookToken";
     }
 
     public static final class Interfaces{

@@ -17,7 +17,6 @@ import com.coupers.utils.CoupersMenuItem;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.zip.Inflater;
 
 /**
  * Created by pepe on 9/23/13.

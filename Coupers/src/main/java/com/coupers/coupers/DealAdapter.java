@@ -45,7 +45,7 @@ public class DealAdapter extends BaseAdapter {
 
     @Override
     public int getItemViewType(int position) {
-        return Integer.valueOf(data.get(position).CountDeals)>1 ? MULTIPLE_DEALS : SINGLE_DEAL;
+        return data.get(position).CountDeals >1 ? MULTIPLE_DEALS : SINGLE_DEAL;
     }
 
     @Override
@@ -119,6 +119,32 @@ public class DealAdapter extends BaseAdapter {
                     break;
 
             }
+
+            ImageView trans = (ImageView) vi.findViewById(R.id.transparency);
+            if (trans!=null)
+            {
+                trans.setAlpha(0.6f);
+                switch(location.category_id)
+                {
+                    case CoupersData.Fields.CATEGORY_ID_EAT:
+                        trans.setBackgroundResource(R.drawable.list_selector_eat);
+                        break;
+                    case CoupersData.Fields.CATEGORY_ID_FEEL_GOOD:
+                        trans.setBackgroundResource(R.drawable.list_selector_feel_good);
+                        break;
+                    case CoupersData.Fields.CATEGORY_ID_HAVE_FUN:
+                        trans.setBackgroundResource(R.drawable.list_selector_have_fun);
+                        break;
+                    case CoupersData.Fields.CATEGORY_ID_LOOK_GOOD:
+                        trans.setBackgroundResource(R.drawable.list_selector_look_good);
+                        break;
+                    case CoupersData.Fields.CATEGORY_ID_RELAX:
+                        trans.setBackgroundResource(R.drawable.list_selector_relax);
+                        break;
+
+                }
+            }
+
         }
 
         // Setting all values in listview

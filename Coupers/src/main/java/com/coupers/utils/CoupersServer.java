@@ -55,8 +55,7 @@ public class CoupersServer extends AsyncTask<Void,Void,String> {
             {
                 soTable = (SoapObject) soData.getProperty(j) ;
                 HashMap<String, String> map = new HashMap<String, String>();
-                for(int p =0;p<_tag.length;p++)
-                    map.put(_tag[p].toString(),soTable.getPropertyAsString(_tag[p]));
+                for (String a_tag : _tag) map.put(a_tag, soTable.getPropertyAsString(a_tag));
                 aServerData.add(map);
             }
             response="ok";

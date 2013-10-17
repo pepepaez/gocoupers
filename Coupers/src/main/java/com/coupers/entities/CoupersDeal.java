@@ -5,7 +5,7 @@ import android.database.Cursor;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
+
 import static com.coupers.entities.CoupersData.SQLiteDictionary.*;
 
 /**

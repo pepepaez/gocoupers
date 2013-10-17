@@ -81,7 +81,7 @@ public class MenuAdapter extends BaseAdapter {
         for (CoupersMenuItem item : mDataSet)
         {
             if (item.item_type==CoupersMenuItem.TYPE_HEADER)
-                if (item.item_text == activity.getString(R.string.i_want_to))
+                if (item.item_text.equals(activity.getString(R.string.i_want_to)) )
                 {
                     if (countFavorite()==0)
                         tempSet.add(temp_header);
@@ -120,7 +120,7 @@ public class MenuAdapter extends BaseAdapter {
         {
             if (item.item_type==CoupersMenuItem.TYPE_HEADER)
             {
-                if (item.item_text == header_text)
+                if (item.item_text.equals(header_text))
                     return item;
             }
         }

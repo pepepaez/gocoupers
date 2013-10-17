@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="fb_app_id">206430106187639</string>
-    <string name="app_name" >Coupers!
-    </string>
-    <string name="action_settings" >Settings
-    </string>
-    <string name="hello_world" >Hello world!
-    </string>
+    <string name="app_name" >Coupers!</string>
+    <string name="action_settings" >Settings</string>
+    <string name="hello_world" >Hello world!</string>
     <string name="main_hub_ui"> </string>
     <string name="what_is_this">What is this?</string>
     <string name="action_info">Photo info</string>
@@ -19,26 +15,27 @@
     <string name="share_deal_dialog_button">Done!</string>
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis euismod mi, eu pretium dolor. Phasellus auctor feugiat ante, quis cursus turpis condimentum eu.</string>
     <string name="deal_details">Get 10% discount!</string>
-    <string name="loading_progress_bar">loading...</string>
+    <string name="loading_progress_bar">loading…</string>
     <string name="server_connection_error">There was an error trying to connect to the server</string>
     <string name="favorites">Favorites</string>
-    <string name="i_want_to">I want to...</string>
-    <string name="i_want_to_eat">Eat...</string>
-    <string name="i_want_to_look_good">Look good...</string>
-    <string name="i_want_to_feel_good">Feel good...</string>
-    <string name="i_want_to_relax">Relax...</string>
-    <string name="i_want_to_have_fun">Have fun...</string>
+    <string name="i_want_to">I want to…</string>
+    <string name="i_want_to_eat">Eat…</string>
+    <string name="i_want_to_look_good">Look good…</string>
+    <string name="i_want_to_feel_good">Feel good…</string>
+    <string name="i_want_to_relax">Relax…</string>
+    <string name="i_want_to_have_fun">Have fun…</string>
     <string name="city">mexicali</string>
     <string name="current_level">Current Level</string>
     <string name="share">Share!</string>
     <string name="redeem_code">Redeem code</string>
     <string name="login_email">enter your email</string>
     <string name="login_password">enter your password</string>
-    <string name="progress_dialog_text">Announcing, please wait...</string>
-    <string name="progress_loading_deals">Loading deals, please wait...</string>
-    <string name="progress_adding_favorite">Adding to favorites, please wait...</string>
-    <string name="progress_saving_deal">Saving deal, please wait...</string>
-    <string name="progress_removing_favorite">Removing from favorites, please wait...</string>
+    <string name="progress_dialog_text">Sharing to Facebook, please wait…</string>
+    <string name="progress_loading_deals">Loading deals, please wait…</string>
+    <string name="progress_adding_favorite">Adding to favorites, please wait…</string>
+    <string name="progress_saving_deal">Saving deal, please wait…</string>
+    <string name="loading_deal_levels">Loading deal levels…</string>
+    <string name="progress_removing_favorite">Removing from favorites, please wait…</string>
     <string name="result_dialog_text">Posted Open Graph action, id: %1$s</string>
     <string name="result_dialog_button_text">Thanks!</string>
     <string name="result_dialog_title">Result</string>
@@ -51,6 +48,16 @@
     <string name="error_unknown">An unknown error occurred, please contact the developer with the following message: %1$s</string>
     <string name="error_dialog_title">Something Went Wrong</string>
     <string name="error_dialog_button_text">OK</string>
-
-
+    <string name="fb_deal_already_shared">Deal has been shared in Facebook already, tell your friends to like it!</string>
+    <string name="action_home">Go home…</string>
+    <string name="action_saved_deals">Open saved deals…</string>
+    <string name="action_refresh">Refresh deals…</string>
+    <string name="no_locality_found">nada</string>
+    <string name="retrieving_user_name">getting name…</string>
+    <string name="nearby_deals">NEARBY DEALS</string>
+    <string name="all_deals">ALL DEALS</string>
+    <string name="location_missing">Could not identify your location, please make sure your location settings are enabled and that apps can access them, then try again, thanks!</string>
+    <string name="confirm_location">Please confirm below the city we have identified or change to another city, you can change this setting at any time.</string>
+    <string name="city_selection_title">Select city…</string>
+    <string name="coupers_server_error">There was a problem with the server</string>
 </resources>

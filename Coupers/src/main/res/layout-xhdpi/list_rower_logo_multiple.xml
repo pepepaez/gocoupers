@@ -101,7 +101,7 @@
     <ImageView
             android:layout_width="35dp"
             android:layout_height="35dp"
-            android:id="@+id/imageView"
+            android:id="@+id/multiple_deals"
             android:src="@drawable/multiple_deal_indicator"
             android:layout_alignRight="@+id/deal_tip"
             android:layout_alignBottom="@+id/deal_tip"

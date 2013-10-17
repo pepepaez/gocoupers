@@ -1,14 +1,17 @@
 package com.coupers.coupers;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Menu;
@@ -193,7 +196,7 @@ public class CardFlipActivity extends Activity
                 DealGraphObject og_deal =
                         GraphObject.Factory.create(DealGraphObject.class);
                 String dealURL;
-                dealURL = "http://marvinduran.com/pepe/data/og_objects/repeater.php?"
+                dealURL = "http://gocoupers.com/pepe/data/og_objects/repeater.php?"
                         + "fb:app_id=" + getResources().getString(R.string.fb_app_id)
                         + "&og:type=gocoupers:deal"
                         + "&og:title=" + deal.deal_levels.get(0).level_deal_legend
@@ -234,7 +237,7 @@ public class CardFlipActivity extends Activity
             return;
         }
 
-        PostResponse postResponse = response.getGraphObjectAs(PostResponse.class);
+        final PostResponse postResponse = response.getGraphObjectAs(PostResponse.class);
 
         if (postResponse != null && postResponse.getId() != null) {
             CoupersObject obj = new CoupersObject(CoupersData.Methods.SHARE_DEAL_FACEBOOK);
@@ -242,13 +245,15 @@ public class CardFlipActivity extends Activity
             obj.addParameter(CoupersData.Parameters.DEAL_ID,String.valueOf(this.deal.deal_id));
             obj.addParameter(CoupersData.Parameters.FACEBOOK_POST_ID,postResponse.getId());
             String _tag[]={
-                    CoupersData.Fields.COLUMN1};
+                    CoupersData.Fields.RESULT_CODE};
             obj.setTag(_tag);
 
             CoupersServer server = new CoupersServer(obj,new CoupersServer.ResultCallback() {
                 @Override
                 public void Update(ArrayList<HashMap<String, String>> result, String method_name, Exception e) {
                     //TODO add code to check if all is OK
+
+                    app.setFB_PostID(deal,postResponse.getId());
 
                     if (progressDialog!=null)
                     {
@@ -497,11 +502,11 @@ public class CardFlipActivity extends Activity
     public void toggleFavorite(ArrayList<HashMap<String, String>> aResult, String WebServiceExecuted)
     {
 
-        if (WebServiceExecuted==CoupersData.Methods.ADD_LOCATION_FAVORITE || WebServiceExecuted==CoupersData.Methods.REMOVE_LOCATION_FAVORITE) {
+        if (WebServiceExecuted.equals(CoupersData.Methods.ADD_LOCATION_FAVORITE) || WebServiceExecuted.equals(CoupersData.Methods.REMOVE_LOCATION_FAVORITE)) {
 
             app.getSelectedLocation().location_isfavorite=!app.getSelectedLocation().location_isfavorite;
 
-            if (WebServiceExecuted==CoupersData.Methods.ADD_LOCATION_FAVORITE)
+            if (WebServiceExecuted.equals(CoupersData.Methods.ADD_LOCATION_FAVORITE))
             {
                 app.setFavorite(app.getSelectedLocation());
                 this.menu.getItem(0).setIcon(R.drawable.coupers_location_favorite);
@@ -521,6 +526,7 @@ public class CardFlipActivity extends Activity
     }
 
 
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     private void flipCard() {
         if (mShowingBack) {
             Fragment map = getFragmentManager().findFragmentById(R.id.map);
@@ -542,27 +548,30 @@ public class CardFlipActivity extends Activity
             pos = getIntent().getExtras().getInt("pos");
         }
 
-        getFragmentManager()
-                .beginTransaction()
+        FragmentTransaction fragTrans = getFragmentManager().beginTransaction();
 
                         // Replace the default fragment animations with animator resources representing
                         // rotations when switching to the back of the card, as well as animator
                         // resources representing rotations when flipping back to the front (e.g. when
                         // the system Back button is pressed).
-                .setCustomAnimations(
-                        R.animator.card_flip_right_in, R.animator.card_flip_right_out,
-                        R.animator.card_flip_left_in, R.animator.card_flip_left_out)
+
+        fragTrans.setCustomAnimations(
+                R.animator.card_flip_right_in, R.animator.card_flip_right_out,
+                R.animator.card_flip_left_in, R.animator.card_flip_left_out);
+
                         // Replace any fragments currently in the container view with a fragment
                         // representing the next page (indicated by the just-incremented currentPage
                         // variable).
-                .replace(R.id.container, new LocationBackFragment())
+        fragTrans.replace(R.id.container, new LocationBackFragment());
 
                         // Add this transaction to the back stack, allowing users to press Back
                         // to get to the front of the card.
-                .addToBackStack(null)
+
+        fragTrans.addToBackStack(null);
 
                         // Commit the transaction.
-                .commit();
+
+        fragTrans.commit();
 
         // Defer an invalidation of the options menu (on modern devices, the action bar). This
         // can't be done immediately because the transaction may not yet be committed. Commits

@@ -1,16 +1,24 @@
 package com.coupers.coupers;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.actionbarsherlock.view.Menu;
@@ -36,14 +44,25 @@ public class MainActivity extends SlidingFragmentActivity {
     private CoupersLocation selected_location = null;
     public ProgressDialog progressDialog;
     private CoupersApp app = null;
+    private Activity a;
+    //private PullToRefreshAttacher puller;
     ViewPager vp;
 
     @Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+        a=this;
 		setTitle(R.string.main_hub_ui);
         setContentView(R.layout.responsive_content_frames);
         app = (CoupersApp) getApplication();
+        if (app==null)
+            finish();
+
+        if (app.locations==null)
+            finish();
+
+        if (app.locations.size()==0)
+            finish();
 
 
         // check if the content frame contains the menu frame
@@ -89,24 +108,141 @@ public class MainActivity extends SlidingFragmentActivity {
         vp.setAdapter(pageAdapter);
 	}
 
-
-
     @Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
             case android.R.id.home:
                 toggle();
                 return true;
-            case R.id.deal_scan:
+            case R.id.go_home:
+                showAllDeals();
+                return true;
+            case R.id.go_saved_deals:
+                showSavedDeals();
+                return true;
+            case R.id.refresh_deals:
+                app.reload=true;
+                finish();
+                return true;
+            case R.id.scan_deal:
                 IntentIntegrator integrator = new IntentIntegrator(this);
                 integrator.initiateScan();
                 return true;
             case R.id.open_settings:
+                String city_selection_message;
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                View city_view =  this.getLayoutInflater().inflate(R.layout.set_city, null, false);
+                TextView city_text = (TextView) city_view.findViewById(R.id.city_text);
+                final Spinner spin_city = (Spinner) city_view.findViewById(R.id.city_spinner);
+                final SpinnerAdapter spin_adapter = spin_city.getAdapter();
+                city_selection_message = "If you want to change the city setting simply select from the dropdown below.";
+                int i;
+                for (i=0;i<spin_adapter.getCount();i++)
+                    if (spin_adapter.getItem(i).toString().toLowerCase().equals(app.getUser_city()))
+                        spin_city.setSelection(i);
+
+                city_text.setText(city_selection_message);
+                builder.setView(city_view);
+                builder.setNeutralButton("OK",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //load all locations from web server
+                        app.setUser_city(spin_city.getSelectedItem().toString().toLowerCase());
+                        PreferenceManager.getDefaultSharedPreferences(a).edit().putString("user_location", app.getUser_city()).commit();
+                        app.reload=true;
+                        a.finish();
+                    }
+                });
+                builder.setTitle("Go Coupers!");
+                AlertDialog dialog = builder.create();
+                dialog.show();
                 return true;
 
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
+    public void showSavedDeals()
+    {
+        LocationManager lm = (LocationManager)this.getSystemService(Context.LOCATION_SERVICE);
+        Location geoloc = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        double latitude;
+        double longitude;
+
+
+
+        if(geoloc != null){
+            latitude = geoloc.getLatitude();
+            longitude = geoloc.getLongitude();
+        }else{
+            latitude = -999;
+            longitude = -999;
+        }
+        float[] results = new float[1];
+        float distance = 0;
+
+        app.resetShow();
+        app.showSavedDeals();
+
+        //Go through data to create 2 data sets, one with locations nearby and the rest
+        for (CoupersLocation location : app.locations){
+            if (location.show)
+                if (geoloc!=null){
+                    Location.distanceBetween(latitude,longitude,location.location_latitude,location.location_longitude,results);
+                    distance = results[0];
+                    if (distance < 1000){
+                        location.Nearby=true;
+                        app.nearby_locations=true;
+                    }
+
+                }
+        }
+        app.gps_available = geoloc!=null;
+
+        switchContent();
+
+    }
+
+    public void showAllDeals()
+    {
+        LocationManager lm = (LocationManager)this.getSystemService(Context.LOCATION_SERVICE);
+        Location geoloc = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        double latitude;
+        double longitude;
+
+
+
+        if(geoloc != null){
+            latitude = geoloc.getLatitude();
+            longitude = geoloc.getLongitude();
+        }else{
+            latitude = -999;
+            longitude = -999;
+        }
+        float[] results = new float[1];
+        float distance = 0;
+
+        app.resetShow();
+        app.showAllDeals(app.getUser_city());
+
+        //Go through data to create 2 data sets, one with locations nearby and the rest
+        for (CoupersLocation location : app.locations){
+            if (location.show)
+                if (geoloc!=null){
+                    Location.distanceBetween(latitude,longitude,location.location_latitude,location.location_longitude,results);
+                    distance = results[0];
+                    if (distance < 1000){
+                        location.Nearby=true;
+                        app.nearby_locations=true;
+                    }
+
+                }
+        }
+        app.gps_available = geoloc!=null;
+
+        switchContent();
+
+    }
 
     //region Activity Control
     @Override
@@ -119,7 +255,7 @@ public class MainActivity extends SlidingFragmentActivity {
         if (scanResult != null && scanResult.getContents() != null) {
             AlertDialog.Builder downloadDialog = new AlertDialog.Builder(this);
             downloadDialog.setTitle("Oh, see what you found!");
-            downloadDialog.setMessage(scanResult.getContents().toString());
+            downloadDialog.setMessage(scanResult.getContents());
             downloadDialog.setNeutralButton("Got it!", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
@@ -136,12 +272,24 @@ public class MainActivity extends SlidingFragmentActivity {
         super.onCreateOptionsMenu(menu);
 
 
-        MenuItem scan_option = menu.add(Menu.NONE, R.id.deal_scan, Menu.NONE,R.string.action_scan);
-        scan_option.setIcon(R.drawable.coupers_iconos_scan);
+        MenuItem home_option = menu.add(Menu.NONE, R.id.go_home, Menu.NONE,getString(R.string.action_home));
+        home_option.setIcon(R.drawable.action_bar_home);
+        home_option.setShowAsAction(android.view.MenuItem.SHOW_AS_ACTION_ALWAYS);
+
+        MenuItem saved_deals_option = menu.add(Menu.NONE, R.id.go_saved_deals, Menu.NONE,getString(R.string.action_saved_deals));
+        saved_deals_option.setIcon(R.drawable.action_bar_favoritos);
+        saved_deals_option.setShowAsAction(android.view.MenuItem.SHOW_AS_ACTION_ALWAYS);
+
+        MenuItem refresh_option = menu.add(Menu.NONE, R.id.refresh_deals, Menu.NONE,getString(R.string.action_refresh));
+        refresh_option.setIcon(R.drawable.action_bar_refresh);
+        refresh_option.setShowAsAction(android.view.MenuItem.SHOW_AS_ACTION_ALWAYS);
+
+        MenuItem scan_option = menu.add(Menu.NONE, R.id.scan_deal, Menu.NONE,R.string.action_scan);
+        scan_option.setIcon(R.drawable.action_bar_scan);
         scan_option.setShowAsAction(android.view.MenuItem.SHOW_AS_ACTION_ALWAYS);
 
         MenuItem settings_option = menu.add(Menu.NONE, R.id.open_settings, Menu.NONE,R.string.open_settings);
-        settings_option.setIcon(R.drawable.coupers_iconos_settings);
+        settings_option.setIcon(R.drawable.action_bar_settings);
         settings_option.setShowAsAction(android.view.MenuItem.SHOW_AS_ACTION_ALWAYS);
         return true;
     }
@@ -162,10 +310,10 @@ public class MainActivity extends SlidingFragmentActivity {
 
 		Handler h = new Handler();
 		h.postDelayed(new Runnable() {
-			public void run() {
-				getSlidingMenu().showContent();
-			}
-		}, 50);
+            public void run() {
+                getSlidingMenu().showContent();
+            }
+        }, 50);
 	}
 
 
@@ -184,7 +332,7 @@ public class MainActivity extends SlidingFragmentActivity {
 
     public void loadDealsWS(final CoupersLocation location){
         CoupersObject obj = new CoupersObject(CoupersData.Methods.GET_LOCATION_DEALS);
-        obj.addParameter(CoupersData.Parameters.LOCATION_ID,String.valueOf(location.location_id));
+        obj.addParameter(CoupersData.Parameters.LOCATION_ID, String.valueOf(location.location_id));
         String _tag[]={
                 CoupersData.Fields.DEAL_ID,
                 CoupersData.Fields.LOCATION_ID,
@@ -209,7 +357,7 @@ public class MainActivity extends SlidingFragmentActivity {
                         progressDialog.dismiss();
                         progressDialog = null;
                     }
-                    Toast.makeText(getBaseContext(),"Server timeout, please try again later...",100);
+                    Toast.makeText(getBaseContext(),"Server timeout, please try again later...",Toast.LENGTH_LONG);
                 }
                 else
                 {
@@ -287,9 +435,9 @@ public class MainActivity extends SlidingFragmentActivity {
             DealGridFragment fragment = (DealGridFragment) this.fragments.get(position);
 
             if (fragment==null)
-                return "ALL DEALS";
+                return getString(R.string.all_deals);
             else
-                return fragment.NearbyDeal() ? "NEARBY DEALS" : "ALL DEALS";
+                return fragment.NearbyDeal() ? getString(R.string.nearby_deals) : getString(R.string.all_deals);
         }
 
         public void clearALL()

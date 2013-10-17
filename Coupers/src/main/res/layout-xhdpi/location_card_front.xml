@@ -7,7 +7,7 @@
               android:background="#EFE6E6">
 
     <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="500dp"
             android:layout_height="160dp"
             android:id="@+id/location_thumbnail"
             android:src="@drawable/ultragym"
@@ -16,7 +16,8 @@
             android:layout_marginRight="10dp"
             android:layout_below="@+id/location_logo"
         android:adjustViewBounds="false"
-        android:scaleType="fitXY" />
+        android:scaleType="centerCrop" />
+
 
     <ImageView
             android:layout_width="fill_parent"
