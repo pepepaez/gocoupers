@@ -2,10 +2,14 @@
 <resources>
 
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values-v11/styles.xml -->
+    <eat-comment />
+
     <style name="AppBaseTheme" parent="android:Theme.Holo.Light">
         <!-- API 11 theme customizations can go here. -->
     </style>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS05.aar/res/values-v11/values.xml -->
+    <eat-comment />
+
     <style name="Sherlock.__Theme" parent="android:Theme.Holo">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowActionBar">false</item>

@@ -2,6 +2,8 @@
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/array.xml -->
+    <eat-comment />
+
     <string-array name="birds_desc">
         <item>Eagles are so majestic...</item>
         <item>You can see flamingos in the San Diego Zoo</item>
@@ -65,22 +67,36 @@
         <item>50</item>
     </string-array>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS05.aar/res/values/values.xml -->
+    <eat-comment />
+
     <attr name="background" format="reference|color" />
     <attr name="backgroundSplit" format="reference|color" />
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/vpi__attrs.xml -->
+    <eat-comment />
+
     <attr name="centered" format="boolean" />
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS05.aar/res/values/values.xml -->
+    <eat-comment />
+
     <attr name="divider" format="reference" />
     <attr name="height" format="dimension" />
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/vpi__attrs.xml -->
+    <eat-comment />
+
     <attr name="selectedColor" format="color" />
     <attr name="strokeWidth" format="dimension" />
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS05.aar/res/values/values.xml -->
+    <eat-comment />
+
     <attr name="subtitleTextStyle" format="reference" />
     <attr name="titleTextStyle" format="reference" />
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/vpi__attrs.xml -->
+    <eat-comment />
+
     <attr name="unselectedColor" format="color" />
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS05.aar/res/values/values.xml -->
+    <eat-comment />
+
     <bool name="abs__action_bar_embed_tabs">false</bool>
     <bool name="abs__action_bar_expanded_action_views_exclusive">true</bool>
     <bool name="abs__config_actionMenuItemAllCaps">true</bool>
@@ -88,12 +104,16 @@
     <bool name="abs__config_showMenuShortcutsWhenKeyboardPresent">false</bool>
     <bool name="abs__split_action_bar_is_narrow">true</bool>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/vpi__defaults.xml -->
+    <eat-comment />
+
     <bool name="default_circle_indicator_centered">true</bool>
     <bool name="default_circle_indicator_snap">false</bool>
     <bool name="default_line_indicator_centered">true</bool>
     <bool name="default_title_indicator_selected_bold">true</bool>
     <bool name="default_underline_indicator_fades">true</bool>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS05.aar/res/values/values.xml -->
+    <eat-comment />
+
     <color name="abs__background_holo_dark">#ff000000</color>
     <color name="abs__background_holo_light">#fff3f3f3</color>
     <color name="abs__bright_foreground_disabled_holo_dark">#ff4c4c4c</color>
@@ -101,12 +121,16 @@
     <color name="abs__bright_foreground_holo_dark">@color/abs__background_holo_light</color>
     <color name="abs__bright_foreground_holo_light">@color/abs__background_holo_dark</color>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/CoupersProjectLibrariesFacebookUnspecified.aar/res/values/values.xml -->
+    <eat-comment />
+
     <color name="com_facebook_blue">#3B5998</color>
     <color name="com_facebook_loginview_text_color">#FFFFFF</color>
     <color name="com_facebook_usersettingsfragment_connected_shadow_color">#000000</color>
     <color name="com_facebook_usersettingsfragment_connected_text_color">#FFFFFF</color>
     <color name="com_facebook_usersettingsfragment_not_connected_text_color">#A6AED7</color>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/CoupersProjectLibrariesGooglePlayServices_libUnspecified.aar/res/values/values.xml -->
+    <eat-comment />
+
     <color name="common_action_bar_splitter">#d2d2d2</color>
     <color name="common_signin_btn_dark_text_default">@android:color/white</color>
     <color name="common_signin_btn_dark_text_disabled">#FFAAAAAA</color>
@@ -118,6 +142,8 @@
     <color name="common_signin_btn_light_text_focused">#FF737373</color>
     <color name="common_signin_btn_light_text_pressed">@android:color/white</color>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/vpi__defaults.xml -->
+    <eat-comment />
+
     <color name="default_circle_indicator_fill_color">#ffe75e57</color>
     <color name="default_circle_indicator_page_color">#00000000</color>
     <color name="default_circle_indicator_stroke_color">#ffe75e57</color>
@@ -128,8 +154,12 @@
     <color name="default_title_indicator_text_color">#BBFFFFFF</color>
     <color name="default_underline_indicator_selected_color">#FF33B5E5</color>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/colors_coupers_theme.xml -->
+    <eat-comment />
+
     <color name="pressed_coupers_theme">#CC33B5E5</color>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/vpi__colors.xml -->
+    <eat-comment />
+
     <color name="vpi__background_holo_dark">#ff000000</color>
     <color name="vpi__background_holo_light">#fff3f3f3</color>
     <color name="vpi__bright_foreground_disabled_holo_dark">#ff4c4c4c</color>
@@ -139,6 +169,8 @@
     <color name="vpi__bright_foreground_inverse_holo_dark">@color/vpi__bright_foreground_holo_light</color>
     <color name="vpi__bright_foreground_inverse_holo_light">@color/vpi__bright_foreground_holo_dark</color>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/vpi__attrs.xml -->
+    <eat-comment />
+
     <declare-styleable name="CirclePageIndicator">
 
         <!-- Whether or not the indicators should be centered. -->
@@ -178,6 +210,8 @@
         <attr name="android:background" />
     </declare-styleable>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/CoupersProjectLibrariesGooglePlayServices_libUnspecified.aar/res/values/values.xml -->
+    <eat-comment />
+
     <declare-styleable name="MapAttrs">
         <attr name="mapType" format="enum">
             <enum name="none" value="0" />
@@ -201,6 +235,8 @@
         <attr name="zOrderOnTop" format="boolean" />
     </declare-styleable>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS05.aar/res/values/values.xml -->
+    <eat-comment />
+
     <declare-styleable name="SherlockActionBar">
 
         <!-- The type of navigation to use. -->
@@ -646,6 +682,8 @@
         <attr name="android:focusable" />
     </declare-styleable>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComSlidingMenuLibrarySlidingMenuLibrary03.aar/res/values/values.xml -->
+    <eat-comment />
+
     <declare-styleable name="SlidingMenu">
         <attr name="mode">
             <enum name="left" value="0" />
@@ -672,6 +710,8 @@
         <attr name="selectorDrawable" format="reference" />
     </declare-styleable>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/vpi__attrs.xml -->
+    <eat-comment />
+
     <declare-styleable name="TitlePageIndicator">
 
         <!-- Screen edge padding. -->
@@ -741,6 +781,8 @@
         <attr name="vpiUnderlinePageIndicatorStyle" format="reference" />
     </declare-styleable>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/CoupersProjectLibrariesFacebookUnspecified.aar/res/values/values.xml -->
+    <eat-comment />
+
     <declare-styleable name="com_facebook_friend_picker_fragment">
         <attr name="multi_select" format="boolean" />
     </declare-styleable>
@@ -776,6 +818,8 @@
         <attr name="is_cropped" format="boolean" />
     </declare-styleable>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS05.aar/res/values/values.xml -->
+    <eat-comment />
+
     <dimen name="abs__action_bar_default_height">48dip</dimen>
     <dimen name="abs__action_bar_icon_vertical_padding">8dip</dimen>
     <dimen name="abs__action_bar_subtitle_bottom_margin">5dip</dimen>
@@ -790,9 +834,13 @@
     <dimen name="abs__search_view_preferred_width">320dip</dimen>
     <dimen name="abs__search_view_text_min_width">160dip</dimen>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/dimens.xml -->
+    <eat-comment />
+
     <dimen name="activity_horizontal_margin">1dp</dimen>
     <dimen name="activity_vertical_margin">1dp</dimen>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/CoupersProjectLibrariesFacebookUnspecified.aar/res/values/values.xml -->
+    <eat-comment />
+
     <dimen name="com_facebook_loginview_height">44dp</dimen>
     <dimen name="com_facebook_loginview_padding_bottom">0dp</dimen>
     <dimen name="com_facebook_loginview_padding_left">42dp</dimen>
@@ -806,6 +854,8 @@
     <dimen name="com_facebook_usersettingsfragment_profile_picture_height">64dp</dimen>
     <dimen name="com_facebook_usersettingsfragment_profile_picture_width">64dp</dimen>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/vpi__defaults.xml -->
+    <eat-comment />
+
     <dimen name="default_circle_indicator_radius">3dp</dimen>
     <dimen name="default_circle_indicator_stroke_width">1dp</dimen>
     <dimen name="default_line_indicator_gap_width">4dp</dimen>
@@ -820,10 +870,14 @@
     <dimen name="default_title_indicator_title_padding">5dp</dimen>
     <dimen name="default_title_indicator_top_padding">7dp</dimen>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/dimens.xml -->
+    <eat-comment />
+
     <dimen name="list_padding">1dp</dimen>
     <dimen name="shadow_width">15dp</dimen>
     <dimen name="slidingmenu_offset">50dp</dimen>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS05.aar/res/values/values.xml -->
+    <eat-comment />
+
     <item name="abs__action_menu_divider" type="id"/>
     <item name="abs__action_menu_presenter" type="id"/>
     <item name="abs__home" type="id"/>
@@ -831,6 +885,8 @@
     <item name="abs__progress_horizontal" type="id"/>
     <item name="abs__up" type="id"/>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/ids.xml -->
+    <eat-comment />
+
     <item name="action_flip" type="id"/>
     <item name="action_next" type="id"/>
     <item name="add_location_favorite" type="id"/>
@@ -840,23 +896,37 @@
     <item name="refresh_deals" type="id"/>
     <item name="scan_deal" type="id"/>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComSlidingMenuLibrarySlidingMenuLibrary03.aar/res/values/values.xml -->
+    <eat-comment />
+
     <item name="selected_view" type="id"/>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/ids.xml -->
+    <eat-comment />
+
     <item name="ultimate_grid" type="id"/>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS05.aar/res/values/values.xml -->
+    <eat-comment />
+
     <integer name="abs__max_action_buttons">2</integer>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/integers.xml -->
+    <eat-comment />
+
     <integer name="card_flip_time_full">1400</integer>
     <integer name="card_flip_time_half">700</integer>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/vpi__defaults.xml -->
+    <eat-comment />
+
     <integer name="default_circle_indicator_orientation">0</integer>
     <integer name="default_title_indicator_footer_indicator_style">2</integer>
     <integer name="default_title_indicator_line_position">0</integer>
     <integer name="default_underline_indicator_fade_delay">300</integer>
     <integer name="default_underline_indicator_fade_length">400</integer>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/dimens.xml -->
+    <eat-comment />
+
     <integer name="num_cols">1</integer>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS05.aar/res/values/values.xml -->
+    <eat-comment />
+
     <string name="abs__action_bar_home_description">Navigate home</string>
     <string name="abs__action_bar_up_description">Navigate up</string>
     <string name="abs__action_menu_overflow_description">More options</string>
@@ -871,6 +941,8 @@
     <string name="abs__shareactionprovider_share_with">Share with</string>
     <string name="abs__shareactionprovider_share_with_application">Share with <ns1:g id="application_name" example="Bluetooth">%s</ns1:g></string>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/strings.xml -->
+    <eat-comment />
+
     <string name="action_home">Go home…</string>
     <string name="action_info">Photo info</string>
     <string name="action_photo">View photo</string>
@@ -882,6 +954,8 @@
     <string name="all_deals">ALL DEALS</string>
     <string name="app_name">Coupers!</string>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/CoupersProjectLibrariesGooglePlayServices_libUnspecified.aar/res/values/values.xml -->
+    <eat-comment />
+
     <string name="auth_client_needs_enabling_title">      An application requires Google Play Services to be enabled.</string>
     <string name="auth_client_needs_installation_title">      An application requires installation of Google Play Services.</string>
     <string name="auth_client_needs_update_title">      An application requires an update for Google Play Services.</string>
@@ -889,9 +963,13 @@
     <string name="auth_client_requested_by_msg">Requested by <ns1:g id="app_name">%1$s</ns1:g></string>
     <string name="auth_client_using_bad_version_title">      An application attempted to use a bad version of Google Play Services.</string>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/strings.xml -->
+    <eat-comment />
+
     <string name="city">mexicali</string>
     <string name="city_selection_title">Select city…</string>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/CoupersProjectLibrariesFacebookUnspecified.aar/res/values/values.xml -->
+    <eat-comment />
+
     <string name="com_facebook_choose_friends">Choose Friends</string>
     <string name="com_facebook_dialogloginactivity_ok_button">OK</string>
     <string name="com_facebook_internet_permission_error_message">WebView login requires INTERNET permission</string>
@@ -918,6 +996,8 @@
     <string name="com_facebook_usersettingsfragment_logged_in">Logged In</string>
     <string name="com_facebook_usersettingsfragment_not_logged_in">Not Logged In</string>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/CoupersProjectLibrariesGooglePlayServices_libUnspecified.aar/res/values/values.xml -->
+    <eat-comment />
+
     <string name="common_google_play_services_enable_button" msgid="2523291102206661146">Enable Google Play services</string>
     <string name="common_google_play_services_enable_text" msgid="227660514972886228">This app won\'t work unless you enable Google Play services.</string>
     <string name="common_google_play_services_enable_title" msgid="5122002158466380389">Enable Google Play services</string>
@@ -934,6 +1014,8 @@
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/strings.xml -->
+    <eat-comment />
+
     <string name="confirm_location">Please confirm below the city we have identified or change to another city, you can change this setting at any time.</string>
     <string name="coupers_server_error">There was a problem with the server</string>
     <string name="current_level">Current Level</string>
@@ -983,6 +1065,8 @@
     <string name="share_deal_dialog_title">Scan to share!</string>
     <string name="what_is_this">What is this?</string>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/styles_coupers_theme.xml -->
+    <eat-comment />
+
     <style name="ActionBar.Solid.Coupers_theme" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
         <item name="android:background">@drawable/ab_solid_coupers_theme</item>
         <item name="android:backgroundStacked">@drawable/ab_stacked_solid_coupers_theme</item>
@@ -1003,6 +1087,8 @@
         <item name="android:background">@drawable/btn_cab_done_coupers_theme</item>
     </style>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/styles.xml -->
+    <eat-comment />
+
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
             Theme customizations available in newer API levels can go in
@@ -1015,6 +1101,8 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/styles_coupers_theme.xml -->
+    <eat-comment />
+
     <style name="CustomCirclePageIndicator">
         <item name="fillColor">#FF888888</item>
         <item name="strokeColor">#ffe75e57</item>
@@ -1041,6 +1129,8 @@
         <item name="android:progressDrawable">@drawable/progress_horizontal_coupers_theme</item>
     </style>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS05.aar/res/values/values.xml -->
+    <eat-comment />
+
     <style name="Sherlock.__TextAppearance.Small" parent="Widget">
         <item name="android:textSize">14sp</item>
         <item name="android:textColor">?android:attr/textColorSecondary</item>
@@ -1116,10 +1206,14 @@
         <item name="android:dropDownWidth">wrap_content</item>
     </style>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/styles_coupers_theme.xml -->
+    <eat-comment />
+
     <style name="StyledIndicators" parent="@android:style/Theme.Light">
         <item name="vpiCirclePageIndicatorStyle">@style/CustomCirclePageIndicator</item>
     </style>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS05.aar/res/values/values.xml -->
+    <eat-comment />
+
     <style name="TextAppearance.Sherlock" parent="@android:style/TextAppearance" />
 
     <style name="TextAppearance.Sherlock.Light.SearchResult" parent="TextAppearance.Sherlock.SearchResult" />
@@ -1232,11 +1326,15 @@
         <item name="android:textStyle">normal</item>
     </style>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/vpi__styles.xml -->
+    <eat-comment />
+
     <style name="TextAppearance.TabPageIndicator" parent="Widget">
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/vpi__dark_theme</item>
     </style>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/styles_coupers_theme.xml -->
+    <eat-comment />
+
     <style name="Theme.Coupers_theme" parent="@android:style/Theme.Holo.Light">
         <item name="android:actionBarItemBackground">@drawable/selectable_background_coupers_theme</item>
         <item name="android:popupMenuStyle">@style/PopupMenu.Coupers_theme</item>
@@ -1254,11 +1352,15 @@
         <item name="android:dropDownListViewStyle">@style/DropDownListView.Coupers_theme</item>
     </style>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/vpi__styles.xml -->
+    <eat-comment />
+
     <style name="Theme.PageIndicatorDefaults" parent="android:Theme">
         <item name="vpiIconPageIndicatorStyle">@style/Widget.IconPageIndicator</item>
         <item name="vpiTabPageIndicatorStyle">@style/Widget.TabPageIndicator</item>
     </style>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS05.aar/res/values/values.xml -->
+    <eat-comment />
+
     <style name="Theme.Sherlock" parent="Sherlock.__Theme">
 
         <!-- Action bar styles (from Theme.Holo) -->
@@ -1440,6 +1542,8 @@
         <item name="windowNoTitle">true</item>
     </style>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/vpi__styles.xml -->
+    <eat-comment />
+
     <style name="Widget"></style>
 
     <style name="Widget.IconPageIndicator" parent="Widget">
@@ -1447,6 +1551,8 @@
         <item name="android:layout_marginRight">6dp</item>
     </style>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS05.aar/res/values/values.xml -->
+    <eat-comment />
+
     <style name="Widget.Sherlock.ActionBar" parent="Sherlock.__Widget.ActionBar">
         <item name="titleTextStyle">@style/TextAppearance.Sherlock.Widget.ActionBar.Title</item>
         <item name="subtitleTextStyle">@style/TextAppearance.Sherlock.Widget.ActionBar.Subtitle</item>
@@ -1693,6 +1799,8 @@
         <item name="android:paddingRight">8dp</item>
     </style>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values/vpi__styles.xml -->
+    <eat-comment />
+
     <style name="Widget.TabPageIndicator" parent="Widget">
         <item name="android:gravity">center</item>
         <item name="android:background">@drawable/vpi__tab_indicator</item>
@@ -1705,6 +1813,8 @@
         <item name="android:maxLines">1</item>
     </style>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/CoupersProjectLibrariesFacebookUnspecified.aar/res/values/values.xml -->
+    <eat-comment />
+
     <style name="com_facebook_loginview_default_style" parent="@android:style/Widget.Button">
         <item name="android:width">@dimen/com_facebook_loginview_width</item>
         <item name="android:height">@dimen/com_facebook_loginview_height</item>

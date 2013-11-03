@@ -162,8 +162,7 @@ public class MainActivity extends SlidingFragmentActivity {
 		return super.onOptionsItemSelected(item);
 	}
 
-    public void showSavedDeals()
-    {
+    public void showSavedDeals() {
         LocationManager lm = (LocationManager)this.getSystemService(Context.LOCATION_SERVICE);
         Location geoloc = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         double latitude;
@@ -203,8 +202,7 @@ public class MainActivity extends SlidingFragmentActivity {
 
     }
 
-    public void showAllDeals()
-    {
+    public void showAllDeals() {
         LocationManager lm = (LocationManager)this.getSystemService(Context.LOCATION_SERVICE);
         Location geoloc = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         double latitude;
@@ -272,7 +270,7 @@ public class MainActivity extends SlidingFragmentActivity {
         super.onCreateOptionsMenu(menu);
 
 
-        MenuItem home_option = menu.add(Menu.NONE, R.id.go_home, Menu.NONE,getString(R.string.action_home));
+        /*MenuItem home_option = menu.add(Menu.NONE, R.id.go_home, Menu.NONE,getString(R.string.action_home));
         home_option.setIcon(R.drawable.action_bar_home);
         home_option.setShowAsAction(android.view.MenuItem.SHOW_AS_ACTION_ALWAYS);
 
@@ -282,15 +280,18 @@ public class MainActivity extends SlidingFragmentActivity {
 
         MenuItem refresh_option = menu.add(Menu.NONE, R.id.refresh_deals, Menu.NONE,getString(R.string.action_refresh));
         refresh_option.setIcon(R.drawable.action_bar_refresh);
-        refresh_option.setShowAsAction(android.view.MenuItem.SHOW_AS_ACTION_ALWAYS);
+        refresh_option.setShowAsAction(android.view.MenuItem.SHOW_AS_ACTION_ALWAYS);*/
 
         MenuItem scan_option = menu.add(Menu.NONE, R.id.scan_deal, Menu.NONE,R.string.action_scan);
         scan_option.setIcon(R.drawable.action_bar_scan);
         scan_option.setShowAsAction(android.view.MenuItem.SHOW_AS_ACTION_ALWAYS);
+        scan_option.setTitle(R.string.action_scan);
 
-        MenuItem settings_option = menu.add(Menu.NONE, R.id.open_settings, Menu.NONE,R.string.open_settings);
+
+
+/*        MenuItem settings_option = menu.add(Menu.NONE, R.id.open_settings, Menu.NONE,R.string.open_settings);
         settings_option.setIcon(R.drawable.action_bar_settings);
-        settings_option.setShowAsAction(android.view.MenuItem.SHOW_AS_ACTION_ALWAYS);
+        settings_option.setShowAsAction(android.view.MenuItem.SHOW_AS_ACTION_ALWAYS);*/
         return true;
     }
     //endregion

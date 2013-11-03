@@ -1,10 +1,14 @@
 package com.coupers.coupers;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.TypedArray;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +16,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 import com.coupers.entities.CoupersData;
@@ -36,6 +42,7 @@ public class DealMenuFragment extends Fragment {
     private ProfilePictureView profilePictureView;
     private TextView userNameView;
     private CoupersApp app = null;
+
 
     //ACTIVITY CONTROL
 
@@ -90,7 +97,158 @@ public class DealMenuFragment extends Fragment {
         profilePictureView = (ProfilePictureView) mContainer.findViewById(R.id.userpic);
         userNameView = (TextView) mContainer.findViewById(R.id.username);
 
+        ImageButton menu_home = (ImageButton) mContainer.findViewById(R.id.menu_home);
+        menu_home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showAllDeals();
+            }
+        });
+
+        ImageButton menu_saved_deals= (ImageButton) mContainer.findViewById(R.id.menu_saved_deals);
+        menu_saved_deals.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showSavedDeals();
+            }
+        });
+
+        ImageButton menu_refresh = (ImageButton) mContainer.findViewById(R.id.menu_refresh);
+        menu_refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                app.reload=true;
+                if (getActivity() instanceof MainActivity) {
+                    MainActivity ra = (MainActivity) getActivity();
+                    //ra.switchContent();
+                    ra.finish();
+                }
+            }
+        });
+
+        ImageButton menu_settings = (ImageButton) mContainer.findViewById(R.id.menu_settings);
+        menu_settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String city_selection_message;
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                View city_view =  getActivity().getLayoutInflater().inflate(R.layout.set_city, null, false);
+                TextView city_text = (TextView) city_view.findViewById(R.id.city_text);
+                final Spinner spin_city = (Spinner) city_view.findViewById(R.id.city_spinner);
+                final SpinnerAdapter spin_adapter = spin_city.getAdapter();
+                city_selection_message = "If you want to change the city setting simply select from the dropdown below.";
+                int i;
+                for (i=0;i<spin_adapter.getCount();i++)
+                    if (spin_adapter.getItem(i).toString().toLowerCase().equals(app.getUser_city()))
+                        spin_city.setSelection(i);
+
+                city_text.setText(city_selection_message);
+                builder.setView(city_view);
+                builder.setNeutralButton("OK",new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //load all locations from web server
+                        app.setUser_city(spin_city.getSelectedItem().toString().toLowerCase());
+                        PreferenceManager.getDefaultSharedPreferences(getActivity()).edit().putString("user_location", app.getUser_city()).commit();
+                        app.reload=true;
+                        getActivity().finish();
+                    }
+                });
+                builder.setTitle("Go Coupers!");
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+        });
+
         loadFavorites();
+
+    }
+
+    public void showAllDeals()
+    {
+        LocationManager lm = (LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
+        Location geoloc = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        double latitude;
+        double longitude;
+
+
+
+        if(geoloc != null){
+            latitude = geoloc.getLatitude();
+            longitude = geoloc.getLongitude();
+        }else{
+            latitude = -999;
+            longitude = -999;
+        }
+        float[] results = new float[1];
+        float distance = 0;
+
+        app.resetShow();
+        app.showAllDeals(app.getUser_city());
+
+        //Go through data to create 2 data sets, one with locations nearby and the rest
+        for (CoupersLocation location : app.locations){
+            if (location.show)
+                if (geoloc!=null){
+                    Location.distanceBetween(latitude,longitude,location.location_latitude,location.location_longitude,results);
+                    distance = results[0];
+                    if (distance < 1000){
+                        location.Nearby=true;
+                        app.nearby_locations=true;
+                    }
+
+                }
+        }
+        app.gps_available = geoloc!=null;
+
+        if (getActivity() instanceof MainActivity) {
+            MainActivity ra = (MainActivity) getActivity();
+            ra.switchContent();
+        }
+
+    }
+
+    public void showSavedDeals()
+    {
+        LocationManager lm = (LocationManager)getActivity().getSystemService(Context.LOCATION_SERVICE);
+        Location geoloc = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        double latitude;
+        double longitude;
+
+
+
+        if(geoloc != null){
+            latitude = geoloc.getLatitude();
+            longitude = geoloc.getLongitude();
+        }else{
+            latitude = -999;
+            longitude = -999;
+        }
+        float[] results = new float[1];
+        float distance = 0;
+
+        app.resetShow();
+        app.showSavedDeals();
+
+        //Go through data to create 2 data sets, one with locations nearby and the rest
+        for (CoupersLocation location : app.locations){
+            if (location.show)
+                if (geoloc!=null){
+                    Location.distanceBetween(latitude,longitude,location.location_latitude,location.location_longitude,results);
+                    distance = results[0];
+                    if (distance < 1000){
+                        location.Nearby=true;
+                        app.nearby_locations=true;
+                    }
+
+                }
+        }
+        app.gps_available = geoloc!=null;
+
+        if (getActivity() instanceof MainActivity) {
+            MainActivity ra = (MainActivity) getActivity();
+            ra.switchContent();
+        }
 
     }
 

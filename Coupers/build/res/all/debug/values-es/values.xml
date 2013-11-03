@@ -2,6 +2,8 @@
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values-es/strings.xml -->
+    <eat-comment />
+
     <string name="action_home">Ir al inicio…</string>
     <string name="action_info">Info</string>
     <string name="action_photo">Ver mapa</string>
@@ -13,6 +15,8 @@
     <string name="all_deals">EN LA CIUDAD</string>
     <string name="app_name">Coupers!</string>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/CoupersProjectLibrariesGooglePlayServices_libUnspecified.aar/res/values-es/values.xml -->
+    <eat-comment />
+
     <string name="auth_client_needs_enabling_title" msgid="3983201110833868073">"Una aplicación requiere que se habiliten los servicios de Play."</string>
     <string name="auth_client_needs_installation_title" msgid="7999585836145154206">"Una aplicación requiere que se instalen los servicios de Google Play."</string>
     <string name="auth_client_needs_update_title" msgid="6488605506794595966">"Una aplicación requiere que se actualicen los servicios de Google Play."</string>
@@ -20,9 +24,13 @@
     <string name="auth_client_requested_by_msg" msgid="6304135633531965756">"Solicitada por <ns1:g id="APP_NAME">%1$s</ns1:g>"</string>
     <string name="auth_client_using_bad_version_title" msgid="2534454398764507874">"Una aplicación intentó usar versión incorrecta de servicios de Google Play."</string>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values-es/strings.xml -->
+    <eat-comment />
+
     <string name="city">mexicali</string>
     <string name="city_selection_title">Selecciona tu ciudad…</string>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/CoupersProjectLibrariesFacebookUnspecified.aar/res/values-es/values.xml -->
+    <eat-comment />
+
     <string name="com_facebook_choose_friends">Elige Amigos</string>
     <string name="com_facebook_dialogloginactivity_ok_button">Aceptar</string>
     <string name="com_facebook_internet_permission_error_message">WebView inicio de sesión requiere permiso INTERNET</string>
@@ -49,6 +57,8 @@
     <string name="com_facebook_usersettingsfragment_logged_in">Sesión iniciada</string>
     <string name="com_facebook_usersettingsfragment_not_logged_in">No has iniciado sesión</string>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/CoupersProjectLibrariesGooglePlayServices_libUnspecified.aar/res/values-es/values.xml -->
+    <eat-comment />
+
     <string name="common_google_play_services_enable_button" msgid="4181637455539816337">"Habilitar servicios de Google Play"</string>
     <string name="common_google_play_services_enable_text" msgid="7627896071867667758">"Esta aplicación no funcionará si no habilitas los servicios de Google Play."</string>
     <string name="common_google_play_services_enable_title" msgid="529078775174559253">"Habilitar servicios de Google Play"</string>
@@ -65,6 +75,8 @@
     <string name="common_signin_button_text" msgid="9071884888741449141">"Iniciar sesión"</string>
     <string name="common_signin_button_text_long" msgid="2429381841831957106">"Iniciar sesión con Google"</string>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values-es/strings.xml -->
+    <eat-comment />
+
     <string name="confirm_location">Por favor confirma la ciudad identificada en la lista o cambia a otra ciudad, esta selección puede ser modificada en cualquier momento.</string>
     <string name="coupers_server_error">There was a problem with the server</string>
     <string name="current_level">Nivel actual</string>

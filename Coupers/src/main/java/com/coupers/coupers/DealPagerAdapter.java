@@ -171,7 +171,7 @@ public class DealPagerAdapter extends PagerAdapter {
         if (saveDeal!= null)
         {
             if (deals.get(position).saved_deal)
-                saveDeal.setImageResource(R.drawable.save_deal_sel);
+                saveDeal.setImageResource(R.drawable.deal_added);
             saveDeal.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -315,7 +315,7 @@ public class DealPagerAdapter extends PagerAdapter {
                     //TODO Set Remove Deal on SQLite and App
                     app.setSavedDeal(deal);
 
-                    saved_deal.setImageResource(R.drawable.save_deal_sel);
+                    saved_deal.setImageResource(R.drawable.deal_added);
                 }
 
                 if (progressDialog!=null)
@@ -422,7 +422,7 @@ public class DealPagerAdapter extends PagerAdapter {
 
                     app.unsetSavedDeal(deal);
 
-                    saved_deal.setImageResource(R.drawable.save_deal);
+                    saved_deal.setImageResource(R.drawable.deal_not_added);
                 }
                 else
                 {

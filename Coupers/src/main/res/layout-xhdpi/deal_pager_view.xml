@@ -96,37 +96,46 @@
         android:scaleType="fitCenter"
         android:background="#ffffff" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sharing_space"
+        android:layout_alignLeft="@+id/deal_space"
+        android:layout_below="@+id/deal_level_indicator"
+        android:layout_alignRight="@+id/deal_space"
+        android:layout_alignBottom="@+id/facebook_share"
+        android:background="#e75e57" />
+
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:id="@+id/save_deal"
-        android:src="@drawable/save_deal"
-        android:background="#ffffff"
+        android:src="@drawable/deal_not_added"
         android:scaleType="fitCenter"
-        android:layout_toLeftOf="@+id/qrcode_share"
-        android:layout_alignTop="@+id/qrcode_share" />
+        android:layout_toLeftOf="@+id/facebook_share"
+        android:layout_below="@+id/deal_level_indicator"
+        android:background="#e75e57" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:id="@+id/qrcode_share"
-        android:src="@drawable/share_qr"
-        android:background="#ffffff"
+        android:src="@drawable/qr_not_sel"
         android:layout_below="@+id/deal_level_indicator"
-        android:layout_marginTop="5dp"
         android:layout_alignParentEnd="false"
-        android:layout_centerHorizontal="true"
-        android:scaleType="fitXY" />
+        android:scaleType="fitCenter"
+        android:layout_toRightOf="@+id/facebook_share"
+        android:background="#e75e57" />
 
     <ImageButton
-        android:layout_width="wrap_content"
+        android:layout_width="66dp"
         android:layout_height="50dp"
         android:id="@+id/facebook_share"
         android:src="@drawable/share_facebook"
         android:scaleType="fitCenter"
-        android:layout_toRightOf="@+id/qrcode_share"
-        android:layout_alignTop="@+id/qrcode_share"
-        android:background="#ffffff" />
+        android:background="#e75e57"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/deal_level_indicator" />
 
     <TextView
         android:layout_width="wrap_content"

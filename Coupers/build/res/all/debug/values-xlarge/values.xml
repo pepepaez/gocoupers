@@ -2,6 +2,8 @@
 <resources>
 
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/build/exploded-bundles/ComABSABS05.aar/res/values-xlarge/values.xml -->
+    <eat-comment />
+
     <dimen name="abs__action_bar_default_height">56dip</dimen>
     <dimen name="abs__action_bar_icon_vertical_padding">4dip</dimen>
     <dimen name="abs__action_bar_subtitle_bottom_margin">9dip</dimen>
@@ -13,6 +15,8 @@
     <item name="abs__dialog_min_width_major" type="dimen">45%</item>
     <item name="abs__dialog_min_width_minor" type="dimen">72%</item>
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values-xlarge/dimens.xml -->
+    <eat-comment />
+
     <dimen name="slidingmenu_offset">500dp</dimen>
 
     <integer name="num_cols">1</integer>

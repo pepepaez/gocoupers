@@ -416,9 +416,9 @@ public class CardFlipActivity extends Activity
         // is currently selected.
         MenuItem item_favorite = menu.add(Menu.NONE, R.id.add_location_favorite, Menu.NONE,R.string.add_location_favorite);
         item_favorite.setIcon(app.getSelectedLocation().location_isfavorite
-                ? R.drawable.coupers_location_favorite
-                : R.drawable.coupers_location_not_favorite);
-        item_favorite.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+                ? R.drawable.action_bar_like_sel
+                : R.drawable.action_bar_like);
+        item_favorite.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 
         MenuItem item_info = menu.add(Menu.NONE, R.id.action_flip, Menu.NONE,
                 mShowingBack
@@ -427,7 +427,7 @@ public class CardFlipActivity extends Activity
         item_info.setIcon(mShowingBack
                 ? R.drawable.ic_action_photo
                 : R.drawable.ic_action_info);
-        item_info.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+        item_info.setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 
         this.menu = menu;
         return true;
@@ -509,12 +509,12 @@ public class CardFlipActivity extends Activity
             if (WebServiceExecuted.equals(CoupersData.Methods.ADD_LOCATION_FAVORITE))
             {
                 app.setFavorite(app.getSelectedLocation());
-                this.menu.getItem(0).setIcon(R.drawable.coupers_location_favorite);
+                this.menu.getItem(0).setIcon(R.drawable.action_bar_like_sel);
             }
             else
             {
                 app.unsetFavorite(app.getSelectedLocation());
-                this.menu.getItem(0).setIcon(R.drawable.coupers_location_not_favorite);
+                this.menu.getItem(0).setIcon(R.drawable.action_bar_like);
             }
 
             if (progressDialog!=null){

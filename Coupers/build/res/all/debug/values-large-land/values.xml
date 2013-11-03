@@ -2,6 +2,8 @@
 <resources>
 
     <!-- From: file:/home/pepe/AndroidProjects/CoupersProject/Coupers/src/main/res/values-large-land/dimens.xml -->
+    <eat-comment />
+
     <dimen name="slidingmenu_offset">450dp</dimen>
 
     <integer name="num_cols">2</integer>

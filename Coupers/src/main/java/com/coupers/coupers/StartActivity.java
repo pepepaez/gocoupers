@@ -619,6 +619,8 @@ public class StartActivity extends Activity {
         findViewById(R.id.progressBar).setVisibility(View.INVISIBLE);
         findViewById(R.id.textView).setVisibility(View.INVISIBLE);
         Intent intent = new Intent(StartActivity.this,MainActivity.class);
+        sendAccessTokenToBackend(Session.getActiveSession().getAccessToken());
+        sendRegistrationIdToBackend(regid);
         app.exit_next=true;
         app.reload=false;
         startActivity(intent);
@@ -862,7 +864,8 @@ public class StartActivity extends Activity {
                         if (result.size()>0)
                         {
                             HashMap<String,String> map = result.get(0);
-                            //if (map.get(Fields.RESULT_CODE).equals())
+                            //if
+                            // (map.get(Fields.RESULT_CODE).equals())
                         }
 
                     }

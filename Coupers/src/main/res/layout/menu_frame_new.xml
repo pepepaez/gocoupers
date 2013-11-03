@@ -23,8 +23,8 @@
             android:layout_toRightOf="@+id/leftpadding"
             android:layout_toLeftOf="@+id/rightpadding"
             android:layout_above="@+id/imageView2"
-            android:layout_below="@+id/imageView3"
-        android:background="#3a3a3a" />
+        android:background="#3a3a3a"
+        android:layout_below="@+id/menu_buttons_space" />
 
     <ImageButton
             android:layout_width="wrap_content"
@@ -123,6 +123,54 @@
             android:layout_below="@+id/imageView"
             android:layout_toRightOf="@+id/leftpadding"
             android:layout_above="@+id/imageView3"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:id="@+id/menu_buttons_space"
+        android:layout_below="@+id/imageView3"
+        android:layout_alignLeft="@+id/imageView3"
+        android:layout_alignRight="@+id/imageView3"
+        android:background="@drawable/menu_padding" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/menu_home"
+        android:layout_alignTop="@+id/menu_buttons_space"
+        android:src="@drawable/action_bar_home"
+        android:layout_alignLeft="@+id/menu_buttons_space"
+        android:background="@drawable/menu_padding" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/menu_saved_deals"
+        android:src="@drawable/action_bar_favoritos"
+        android:layout_below="@+id/imageView3"
+        android:layout_toRightOf="@+id/menu_home"
+        android:background="@drawable/menu_padding"
+        android:layout_marginLeft="10dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/menu_refresh"
+        android:src="@drawable/action_bar_refresh"
+        android:layout_below="@+id/imageView3"
+        android:layout_toRightOf="@+id/menu_saved_deals"
+        android:background="@drawable/menu_padding"
+        android:layout_marginLeft="10dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/menu_settings"
+        android:src="@drawable/action_bar_settings"
+        android:layout_below="@+id/imageView3"
+        android:layout_toRightOf="@+id/menu_refresh"
+        android:background="@drawable/menu_padding"
+        android:layout_marginLeft="10dp" />
 
 
 </RelativeLayout>
