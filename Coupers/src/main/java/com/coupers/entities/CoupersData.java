@@ -148,4 +148,13 @@ public final class CoupersData {
         }
     }
 
+    public static final class GCMData{
+        public final static String GCM_NEW_DEAL = "new_deal";
+        public final static String GCM_NEW_LEVEL = "new_level";
+        public final static String GCM_SHARED_DEAL = "shared_deal";
+        public final static String GCM_RENEW_ACCESS_TOKEN = "renew_access_token";
+        public final static String GCM_REFRESH_DATA = "refresh_data";
+        public final static String GCM_DEAL_REMOVED = "deal_removed";
+    }
+
 }
