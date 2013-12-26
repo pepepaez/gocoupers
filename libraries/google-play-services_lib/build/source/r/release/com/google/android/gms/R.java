@@ -129,8 +129,6 @@ containing a value of this type.
         public static int zOrderOnTop=0x7f01000d;
     }
     public static final class color {
-        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values/colors.xml 
-         */
         public static int common_action_bar_splitter=0x7f030000;
         public static int common_signin_btn_dark_text_default=0x7f030001;
         public static int common_signin_btn_dark_text_disabled=0x7f030002;
@@ -178,57 +176,6 @@ containing a value of this type.
         public static int terrain=0x7f040003;
     }
     public static final class string {
-        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-af/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-am/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-ar/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-be/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-bg/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-ca/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-cs/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-da/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-de/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-el/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-en-rGB/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-es/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-es-rUS/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-et/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-fa/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-fi/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-fr/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-hi/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-hr/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-hu/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-in/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-it/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-iw/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-ja/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-ko/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-lt/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-lv/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-ms/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-nb/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-nl/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-pl/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-pt/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-pt-rBR/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-pt-rPT/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-ro/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-ru/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-sk/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-sl/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-sr/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-sv/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-sw/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-th/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-tl/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-tr/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-uk/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-vi/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-zh-rCN/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-zh-rTW/strings.xml 
- From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values-zu/strings.xml 
-         */
         public static int auth_client_needs_enabling_title=0x7f050000;
         public static int auth_client_needs_installation_title=0x7f050001;
         public static int auth_client_needs_update_title=0x7f050002;
@@ -252,7 +199,7 @@ containing a value of this type.
         public static int common_signin_button_text_long=0x7f050014;
     }
     public static final class styleable {
-        /**  From: file:/home/pepe/AndroidProjects/CoupersProject/libraries/google-play-services_lib/res/values/maps_attrs.xml 
+        /** Attributes that can be used with a MapAttrs.
            <p>Includes the following attributes:</p>
            <table>
            <colgroup align="left" />
@@ -305,7 +252,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:cameraBearing
+          @attr name com.google.android.gms:cameraBearing
         */
         public static final int MapAttrs_cameraBearing = 1;
         /**
@@ -319,7 +266,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:cameraTargetLat
+          @attr name com.google.android.gms:cameraTargetLat
         */
         public static final int MapAttrs_cameraTargetLat = 2;
         /**
@@ -333,7 +280,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:cameraTargetLng
+          @attr name com.google.android.gms:cameraTargetLng
         */
         public static final int MapAttrs_cameraTargetLng = 3;
         /**
@@ -347,7 +294,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:cameraTilt
+          @attr name com.google.android.gms:cameraTilt
         */
         public static final int MapAttrs_cameraTilt = 4;
         /**
@@ -361,7 +308,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:cameraZoom
+          @attr name com.google.android.gms:cameraZoom
         */
         public static final int MapAttrs_cameraZoom = 5;
         /**
@@ -381,7 +328,7 @@ containing a value of this type.
 <tr><td><code>terrain</code></td><td>3</td><td></td></tr>
 <tr><td><code>hybrid</code></td><td>4</td><td></td></tr>
 </table>
-          @attr name android:mapType
+          @attr name com.google.android.gms:mapType
         */
         public static final int MapAttrs_mapType = 0;
         /**
@@ -395,7 +342,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:uiCompass
+          @attr name com.google.android.gms:uiCompass
         */
         public static final int MapAttrs_uiCompass = 6;
         /**
@@ -409,7 +356,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:uiRotateGestures
+          @attr name com.google.android.gms:uiRotateGestures
         */
         public static final int MapAttrs_uiRotateGestures = 7;
         /**
@@ -423,7 +370,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:uiScrollGestures
+          @attr name com.google.android.gms:uiScrollGestures
         */
         public static final int MapAttrs_uiScrollGestures = 8;
         /**
@@ -437,7 +384,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:uiTiltGestures
+          @attr name com.google.android.gms:uiTiltGestures
         */
         public static final int MapAttrs_uiTiltGestures = 9;
         /**
@@ -451,7 +398,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:uiZoomControls
+          @attr name com.google.android.gms:uiZoomControls
         */
         public static final int MapAttrs_uiZoomControls = 10;
         /**
@@ -465,7 +412,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:uiZoomGestures
+          @attr name com.google.android.gms:uiZoomGestures
         */
         public static final int MapAttrs_uiZoomGestures = 11;
         /**
@@ -479,7 +426,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:useViewLifecycle
+          @attr name com.google.android.gms:useViewLifecycle
         */
         public static final int MapAttrs_useViewLifecycle = 12;
         /**
@@ -493,7 +440,7 @@ containing a value of this type.
 theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
-          @attr name android:zOrderOnTop
+          @attr name com.google.android.gms:zOrderOnTop
         */
         public static final int MapAttrs_zOrderOnTop = 13;
     };

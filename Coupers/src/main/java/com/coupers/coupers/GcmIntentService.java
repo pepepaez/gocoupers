@@ -76,7 +76,7 @@ public class GcmIntentService extends IntentService {
                         .setStyle(new NotificationCompat.BigTextStyle()
                                 .bigText(msg))
                         .setContentText(msg);
-        ((CoupersApp) getApplication()).setFlag();
+        //((CoupersApp) getApplication()).setFlag();
 
 
         mBuilder.setContentIntent(contentIntent);
